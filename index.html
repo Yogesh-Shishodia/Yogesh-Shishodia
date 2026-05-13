@@ -3,900 +3,836 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Agentive AI — Enterprise AI Automation Agency</title>
+<title>Adaptive Minds — AI Automation Agency | India</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --bg:#fafaf8;--bg2:#f2f1ed;--surface:#ffffff;
-  --border:#e6e4de;--border2:#d0cec8;
-  --text:#111108;--text-dim:#68665e;--text-faint:#aeaca6;
-  --navy:#0f1923;--amber:#d4862a;
-  --amber-soft:rgba(212,134,42,0.10);--amber-line:rgba(212,134,42,0.28);
-  --teal:#0f766e;--teal-soft:rgba(15,118,110,0.09);
-  --green:#1a6b4a;--green-soft:rgba(26,107,74,0.09);
-  --r:14px;
-  --shadow:0 2px 12px rgba(0,0,0,0.07);
-  --shadow-lg:0 8px 40px rgba(0,0,0,0.11);
+  --bg:#f5f4f0;--bg2:#edecea;--surface:#ffffff;
+  --navy:#0e1520;--navy2:#162030;
+  --blue:#2146f0;--blue-soft:rgba(33,70,240,0.08);--blue-line:rgba(33,70,240,0.20);
+  --gold:#c9943a;--gold-soft:rgba(201,148,58,0.10);--gold-line:rgba(201,148,58,0.28);
+  --border:#dddbd4;--border2:#c8c5bc;
+  --text:#0e1520;--text-dim:#5e5c56;--text-faint:#a8a59e;
+  --green:#1a7a50;--green-soft:rgba(26,122,80,0.09);
+  --r:12px;
+  --shadow:0 1px 8px rgba(0,0,0,0.07);
+  --shadow-lg:0 8px 40px rgba(0,0,0,0.12);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:66px;background:rgba(250,250,248,0.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
-.nav-logo{display:flex;align-items:center;gap:0.65rem;text-decoration:none;}
-.nav-logo-mark{width:34px;height:34px;background:var(--navy);border-radius:9px;display:flex;align-items:center;justify-content:center;}
-.nav-logo-mark svg{width:17px;height:17px;}
-.nav-logo-text{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:400;letter-spacing:-0.02em;color:var(--text);}
-.nav-logo-text span{color:var(--amber);}
-.nav-links{display:flex;gap:0.2rem;align-items:center;}
-.nav-links a{font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;align-items:center;padding:0 5%;background:rgba(245,244,240,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;}
+.nav-logo-icon{width:36px;height:36px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.nav-logo-icon svg{width:18px;height:18px;}
+.nav-logo-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;letter-spacing:-0.01em;color:var(--text);}
+.nav-logo-name span{color:var(--blue);}
+.nav-links{display:flex;align-items:center;gap:0.2rem;}
+.nav-links a{font-size:0.82rem;font-weight:500;color:var(--text-dim);text-decoration:none;padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;}
 .nav-links a:hover{color:var(--text);background:var(--bg2);}
-.nav-cta{background:var(--amber)!important;color:#fff!important;border-radius:10px!important;font-weight:700!important;}
-.nav-cta:hover{background:#c07520!important;transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(212,134,42,0.3)!important;}
+.nav-cta{background:var(--navy)!important;color:#fff!important;font-weight:600!important;border-radius:9px!important;}
+.nav-cta:hover{background:var(--navy2)!important;transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(14,21,32,0.22)!important;}
 
 /* HERO */
-.hero{padding:122px 5% 80px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-15%;right:-8%;width:55vw;height:55vw;max-width:680px;background:radial-gradient(ellipse,rgba(212,134,42,0.07) 0%,transparent 65%);pointer-events:none;border-radius:50%;}
-.hero::after{content:'';position:absolute;bottom:-10%;left:-5%;width:38vw;height:38vw;max-width:460px;background:radial-gradient(ellipse,rgba(15,118,110,0.05) 0%,transparent 65%);pointer-events:none;border-radius:50%;}
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);background:var(--amber-soft);border:1px solid var(--amber-line);padding:0.35rem 1rem;border-radius:999px;margin-bottom:2rem;animation:fadeUp 0.9s ease both;}
-.pulse{width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pulseAnim 2s infinite;flex-shrink:0;}
-@keyframes pulseAnim{0%,100%{box-shadow:0 0 0 0 rgba(212,134,42,0.4);}50%{box-shadow:0 0 0 6px rgba(212,134,42,0);}}
-.hero h1{font-family:'Fraunces',serif;font-size:clamp(3rem,6.5vw,5.6rem);font-weight:400;line-height:1.02;letter-spacing:-0.03em;margin-bottom:1.8rem;animation:fadeUp 0.9s 0.08s ease both;}
+.hero{min-height:100vh;display:flex;align-items:center;padding:90px 5% 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;right:0;width:55%;height:100%;background:var(--navy);clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%);z-index:0;}
+.hero::after{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(33,70,240,0.18) 0%,transparent 65%);z-index:1;pointer-events:none;}
+.hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:2;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold-line);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse2 2s infinite;}
+@keyframes pulse2{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5.5vw,5rem);font-weight:500;line-height:1.04;letter-spacing:-0.025em;margin-bottom:1.6rem;animation:fadeUp 0.9s 0.08s ease both;}
 .hero h1 em{font-style:italic;color:var(--text-dim);}
-.hero h1 .acc{color:var(--amber);}
-.hero-sub{font-size:clamp(1rem,1.8vw,1.15rem);color:var(--text-dim);line-height:1.75;max-width:610px;margin-bottom:0.9rem;font-weight:400;animation:fadeUp 0.9s 0.13s ease both;}
-.hero-tagline{font-size:0.9rem;color:var(--text-faint);font-weight:500;margin-bottom:2.8rem;animation:fadeUp 0.9s 0.17s ease both;}
-.hero-tagline span{color:var(--amber);font-weight:600;}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem;animation:fadeUp 0.9s 0.22s ease both;}
-.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.88rem 1.9rem;border-radius:var(--r);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.88rem;text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;}
-.btn-amber{background:var(--amber);color:#fff;}
-.btn-amber:hover{background:#c07520;transform:translateY(-2px);box-shadow:0 10px 28px rgba(212,134,42,0.3);}
+.hero-sub{font-size:1rem;color:var(--text-dim);line-height:1.75;max-width:480px;margin-bottom:2.5rem;font-weight:400;animation:fadeUp 0.9s 0.14s ease both;}
+.hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fadeUp 0.9s 0.2s ease both;}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;}
 .btn-navy{background:var(--navy);color:#fff;}
-.btn-navy:hover{background:#1e2f42;transform:translateY(-2px);box-shadow:0 10px 28px rgba(15,25,35,0.22);}
+.btn-navy:hover{background:var(--navy2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,21,32,0.25);}
+.btn-blue{background:var(--blue);color:#fff;}
+.btn-blue:hover{background:#1a38d8;transform:translateY(-2px);box-shadow:0 10px 28px rgba(33,70,240,0.3);}
 .btn-outline{background:transparent;color:var(--text-dim);border:1.5px solid var(--border2);}
 .btn-outline:hover{border-color:var(--navy);color:var(--navy);}
-.btn-ghost-white{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.18);}
-.btn-ghost-white:hover{background:rgba(255,255,255,0.15);}
 
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:800px;animation:fadeUp 0.9s 0.28s ease both;}
-.h-stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem 1rem;box-shadow:var(--shadow);}
-.h-stat-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:400;color:var(--amber);line-height:1;margin-bottom:0.25rem;}
-.h-stat-label{font-size:0.74rem;color:var(--text-dim);font-weight:500;line-height:1.4;}
+/* hero right */
+.hero-right{padding:2.8rem 2.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;animation:fadeUp 0.9s 0.18s ease both;backdrop-filter:blur(10px);}
+.hero-right-label{font-size:0.63rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.2rem;}
+.hero-metric{display:flex;align-items:flex-end;gap:0.8rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.hero-metric:last-of-type{border-bottom:none;}
+.hm-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:400;color:#fff;line-height:1;}
+.hm-num span{color:var(--gold);font-size:1.1rem;}
+.hm-label{font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.7);line-height:1.3;}
+.hm-sub{font-size:0.67rem;color:rgba(255,255,255,0.3);margin-top:0.15rem;}
+.hero-right-foot{margin-top:1.5rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-wrap:wrap;gap:0.5rem;}
+.hero-badge{font-size:0.65rem;font-weight:600;padding:0.25rem 0.7rem;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);}
 
-/* SECTIONS */
-.section{padding:6rem 5%;}
-.section-inner{max-width:1200px;margin:0 auto;}
-.dark-section{background:var(--navy);padding:6.5rem 5%;}
-.alt-section{background:var(--bg2);}
-.eyebrow{font-size:0.67rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:0.7rem;margin-bottom:0.9rem;}
-.eyebrow::after{content:'';height:1px;width:48px;background:var(--amber-line);}
-.eyebrow-center{justify-content:center;}
-.eyebrow-center::after,.eyebrow-center::before{content:'';height:1px;width:48px;background:var(--amber-line);}
-.eyebrow-center::before{order:-1;}
-.section-title{font-family:'Fraunces',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:400;letter-spacing:-0.025em;line-height:1.1;margin-bottom:0.9rem;}
-.section-sub{color:var(--text-dim);font-size:0.95rem;line-height:1.75;max-width:570px;margin-bottom:3.5rem;font-weight:400;}
-.dark-section .eyebrow{color:rgba(212,134,42,0.75);}
-.dark-section .eyebrow::after{background:rgba(212,134,42,0.2);}
-.dark-section .section-title{color:#fff;}
-.dark-section .section-sub{color:rgba(255,255,255,0.48);}
+/* TRUST BAR */
+.trust-bar{background:var(--navy);padding:1.3rem 5%;}
+.trust-bar-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;justify-content:center;}
+.trust-item{display:flex;align-items:center;gap:0.5rem;font-size:0.77rem;font-weight:500;color:rgba(255,255,255,0.42);white-space:nowrap;}
+.trust-item svg{width:13px;height:13px;opacity:0.45;}
+.trust-sep{width:1px;height:16px;background:rgba(255,255,255,0.1);}
+
+/* SECTION */
+.section{padding:6.5rem 5%;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.eyebrow{font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:0.7rem;margin-bottom:1rem;}
+.eyebrow::after{content:'';height:1px;width:44px;background:var(--blue-line);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1rem;}
+.section-sub{color:var(--text-dim);font-size:0.95rem;line-height:1.75;max-width:580px;margin-bottom:3.5rem;font-weight:400;}
+.dark-bg{background:var(--navy);}
+.dark-bg .eyebrow{color:rgba(201,148,58,0.8);}
+.dark-bg .eyebrow::after{background:rgba(201,148,58,0.2);}
+.dark-bg .section-title{color:#fff;}
+.dark-bg .section-sub{color:rgba(255,255,255,0.45);}
+.alt-bg{background:var(--bg2);}
 
 /* SERVICES */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-.svc-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem 1.8rem;transition:all 0.25s;}
-.svc-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-4px);border-color:rgba(212,134,42,0.35);}
-.svc-icon{font-size:2rem;margin-bottom:1.2rem;display:block;}
-.svc-card h3{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:400;color:#fff;margin-bottom:0.35rem;letter-spacing:-0.01em;}
-.svc-tag-line{font-size:0.63rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:0.8rem;display:block;}
-.svc-card p{font-size:0.81rem;color:rgba(255,255,255,0.46);line-height:1.65;margin-bottom:1.2rem;}
-.svc-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem;}
-.svc-list li{font-size:0.78rem;color:rgba(255,255,255,0.62);display:flex;gap:0.5rem;align-items:flex-start;line-height:1.4;}
-.svc-list li::before{content:'→';color:var(--amber);flex-shrink:0;}
+.services-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);border-radius:16px;overflow:hidden;}
+.svc{background:var(--navy2);padding:1.8rem 1.5rem;transition:background 0.22s;}
+.svc:hover{background:#1d2d42;}
+.svc-icon{font-size:1.6rem;margin-bottom:0.9rem;display:block;line-height:1;}
+.svc h3{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:#fff;margin-bottom:0.4rem;line-height:1.25;letter-spacing:-0.01em;}
+.svc p{font-size:0.76rem;color:rgba(255,255,255,0.38);line-height:1.6;}
 
-/* DEPLOYMENT */
-.deploy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-.deploy-card{border-radius:16px;padding:2rem 1.8rem;border:1.5px solid var(--border);background:var(--surface);transition:all 0.25s;position:relative;}
-.deploy-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-.deploy-card.featured{border-color:var(--amber);background:linear-gradient(145deg,#fff 0%,#fdf8ef 100%);}
-.deploy-card.featured::before{content:'MOST POPULAR';position:absolute;top:1.2rem;right:1.2rem;font-size:0.58rem;font-weight:700;letter-spacing:0.18em;color:var(--amber);background:var(--amber-soft);border:1px solid var(--amber-line);padding:0.2rem 0.6rem;border-radius:999px;}
-.deploy-icon{font-size:2rem;margin-bottom:1rem;display:block;}
-.deploy-card h3{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:400;margin-bottom:0.25rem;letter-spacing:-0.01em;}
-.deploy-who{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.8rem;}
-.deploy-card p{font-size:0.82rem;color:var(--text-dim);line-height:1.65;margin-bottom:1.2rem;}
-.deploy-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem;}
-.deploy-list li{font-size:0.79rem;color:var(--text-dim);display:flex;gap:0.5rem;align-items:flex-start;line-height:1.4;}
-.deploy-list li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+/* WHO WE WORK WITH — slim strip */
+.who-strip{padding:2.5rem 5%;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.who-strip-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+.who-label{font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-faint);white-space:nowrap;flex-shrink:0;}
+.who-chips{display:flex;flex-wrap:wrap;gap:0.6rem;}
+.who-chip{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;font-weight:500;color:var(--text-dim);background:var(--surface);border:1px solid var(--border);padding:0.35rem 0.85rem;border-radius:999px;transition:all 0.18s;}
+.who-chip:hover{border-color:var(--border2);color:var(--text);}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.process-step{position:relative;padding:2rem 1.8rem;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);transition:all 0.22s;}
+.process-step:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.process-step::before{content:attr(data-num);position:absolute;top:1.5rem;right:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--blue);opacity:0.08;line-height:1;font-style:italic;}
+.process-icon{font-size:1.8rem;margin-bottom:1.1rem;display:block;}
+.process-step h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;margin-bottom:0.5rem;letter-spacing:-0.01em;}
+.process-step p{font-size:0.81rem;color:var(--text-dim);line-height:1.65;}
+.process-connector{display:none;}
 
 /* PROJECTS */
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-.proj{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;display:flex;flex-direction:column;transition:all 0.25s;box-shadow:var(--shadow);}
-.proj:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
-.proj.featured{border-color:var(--amber-line);background:linear-gradient(145deg,#fff 0%,#fdf9f2 100%);}
-.proj-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;}
-.proj-emoji{font-size:1.8rem;line-height:1;}
-.proj-badge{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.65rem;border-radius:999px;}
-.badge-live{background:var(--green-soft);color:var(--green);border:1px solid rgba(26,107,74,0.2);}
-.badge-wip{background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber-line);}
-.badge-soon{background:rgba(0,0,0,0.05);color:var(--text-faint);border:1px solid var(--border);}
-.proj-industry{font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin-bottom:0.5rem;}
-.proj h3{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:400;letter-spacing:-0.01em;margin-bottom:0.3rem;line-height:1.2;}
-.proj .tagline{font-size:0.74rem;color:var(--text-dim);margin-bottom:0.8rem;font-weight:500;}
-.proj p{font-size:0.80rem;color:var(--text-dim);line-height:1.65;flex:1;}
-.proj-outcomes{margin-top:1rem;padding:0.9rem 1rem;background:var(--green-soft);border:1px solid rgba(26,107,74,0.15);border-radius:10px;}
-.proj-outcomes-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--green);margin-bottom:0.5rem;}
-.proj-outcomes ul{list-style:none;display:flex;flex-direction:column;gap:0.3rem;}
-.proj-outcomes li{font-size:0.75rem;color:var(--text-dim);display:flex;gap:0.4rem;line-height:1.35;}
+.projects-stack{display:flex;flex-direction:column;gap:1.4rem;}
+.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2.5rem;display:flex;flex-direction:column;transition:all 0.25s;box-shadow:var(--shadow);}
+.proj-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
+.proj-card.featured-dark{background:var(--navy);border-color:transparent;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.proj-card.featured-dark:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(14,21,32,0.35);}
+.proj-card.accent-card{border-color:var(--blue-line);background:linear-gradient(145deg,#fff 0%,#f5f7ff 100%);}
+.proj-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem;}
+.proj-icon-box{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.pib-blue{background:var(--blue-soft);border:1px solid var(--blue-line);}
+.pib-dark{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);}
+.pib-gold{background:var(--gold-soft);border:1px solid var(--gold-line);}
+.proj-badge{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.22rem 0.7rem;border-radius:999px;}
+.badge-live{background:var(--green-soft);color:var(--green);border:1px solid rgba(26,122,80,0.2);}
+.badge-new{background:var(--blue-soft);color:var(--blue);border:1px solid var(--blue-line);}
+.proj-category{font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:0.5rem;}
+.featured-dark .proj-category{color:var(--gold);}
+.proj h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:500;letter-spacing:-0.02em;margin-bottom:0.4rem;line-height:1.1;}
+.featured-dark h3{color:#fff;font-size:2rem;}
+.proj-tagline{font-size:0.78rem;font-weight:500;margin-bottom:1rem;color:var(--text-dim);}
+.featured-dark .proj-tagline{color:rgba(255,255,255,0.4);}
+.proj-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.72;flex:1;margin-bottom:1.4rem;}
+.featured-dark .proj-desc{color:rgba(255,255,255,0.5);}
+.proj-outcomes{padding:1.2rem;background:var(--green-soft);border:1px solid rgba(26,122,80,0.15);border-radius:10px;margin-bottom:1.2rem;}
+.proj-outcomes.dark-outcomes{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);}
+.proj-outcomes-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--green);margin-bottom:0.6rem;}
+.dark-outcomes .proj-outcomes-lbl{color:rgba(255,255,255,0.3);}
+.proj-outcomes ul{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
+.proj-outcomes li{font-size:0.78rem;color:var(--text-dim);display:flex;gap:0.4rem;line-height:1.35;}
+.dark-outcomes li{color:rgba(255,255,255,0.55);}
 .proj-outcomes li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
-.proj-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.9rem;}
-.proj-tag-chip{font-size:0.62rem;font-weight:600;color:var(--text-faint);background:var(--bg2);border:1px solid var(--border);padding:0.18rem 0.55rem;border-radius:4px;}
-.proj-footer{display:flex;gap:0.8rem;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);align-items:center;}
-.proj-link{font-size:0.72rem;font-weight:700;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:0.3rem;transition:gap 0.2s;}
-.proj-link:hover{gap:0.55rem;}
-.proj-link.dim{color:var(--text-faint);}
-.proj-link.dim:hover{color:var(--text-dim);}
+.dark-outcomes li::before{color:var(--gold);}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.4rem;}
+.proj-tag{font-size:0.62rem;font-weight:600;color:var(--text-faint);background:var(--bg2);border:1px solid var(--border);padding:0.2rem 0.6rem;border-radius:4px;}
+.featured-dark .proj-tag{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);color:rgba(255,255,255,0.3);}
+.proj-footer{display:flex;align-items:center;gap:1rem;padding-top:1.4rem;border-top:1px solid var(--border);}
+.featured-dark .proj-footer{border-color:rgba(255,255,255,0.08);}
+.proj-cta{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.76rem;font-weight:700;color:var(--navy);text-decoration:none;padding:0.55rem 1.1rem;border-radius:8px;border:1.5px solid var(--border2);transition:all 0.2s;letter-spacing:0.01em;}
+.proj-cta:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+.proj-cta.white-cta{color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.18);}
+.proj-cta.white-cta:hover{background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.3);}
 
-/* DOMAIN MODELS */
-.models-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
-.model-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;display:grid;grid-template-columns:52px 1fr;gap:1.5rem;align-items:start;transition:all 0.25s;}
-.model-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
-.model-icon-wrap{width:52px;height:52px;background:var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
-.model-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);background:var(--teal-soft);border:1px solid rgba(15,118,110,0.18);padding:0.18rem 0.6rem;border-radius:999px;margin-bottom:0.6rem;display:inline-block;}
-.model-card h3{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:400;margin-bottom:0.3rem;letter-spacing:-0.01em;}
-.model-card p{font-size:0.81rem;color:var(--text-dim);line-height:1.65;}
-.model-uses{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.7rem;}
-.model-use{font-size:0.62rem;font-weight:600;color:var(--text-dim);background:var(--bg2);border:1px solid var(--border);padding:0.18rem 0.55rem;border-radius:4px;}
+/* coming soon strip */
+.coming-soon-strip{border:1.5px dashed var(--border2);border-radius:14px;padding:1.8rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.cs-left{display:flex;align-items:center;gap:1.2rem;}
+.cs-label{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.3rem;}
+.cs-projects{display:flex;gap:0.6rem;flex-wrap:wrap;}
+.cs-pill{font-size:0.78rem;font-weight:600;color:var(--text-dim);background:var(--surface);border:1px solid var(--border);padding:0.3rem 0.8rem;border-radius:999px;}
+.cs-right{font-size:0.8rem;color:var(--text-faint);}
 
-/* USE CASES */
-.uc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
-.uc-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.6rem 1.4rem;transition:all 0.2s;}
-.uc-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
-.uc-ind{font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);margin-bottom:0.9rem;}
-.uc-card h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:400;margin-bottom:0.7rem;letter-spacing:-0.01em;line-height:1.2;}
-.uc-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
-.uc-list li{font-size:0.78rem;color:var(--text-dim);display:flex;gap:0.4rem;line-height:1.4;}
-.uc-list li::before{content:'→';color:var(--amber);font-weight:700;flex-shrink:0;}
+/* proj right panel metrics */
+.proj-metrics{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1.5rem;}
+.proj-metric-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:1.1rem;text-align:center;}
+.pmb-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:#fff;line-height:1;margin-bottom:0.2rem;}
+.pmb-label{font-size:0.68rem;color:rgba(255,255,255,0.32);}
 
-/* TRUST */
-.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:3.5rem;}
-.trust-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.6rem;text-align:center;box-shadow:var(--shadow);}
-.trust-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:400;color:var(--amber);line-height:1;margin-bottom:0.3rem;}
-.trust-label{font-size:0.76rem;color:var(--text-dim);font-weight:500;line-height:1.4;}
-.about-two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
-.abt-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.8rem;margin-bottom:1rem;}
-.abt-card h4{font-size:0.67rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);margin-bottom:0.8rem;}
-.abt-card ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
-.abt-card ul li{font-size:0.83rem;color:var(--text-dim);display:flex;gap:0.5rem;align-items:flex-start;}
-.abt-card ul li::before{content:'•';color:var(--amber);font-weight:700;flex-shrink:0;}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.about-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1.5rem;}
+.about-heading em{font-style:italic;color:var(--text-dim);}
+.about-body{font-size:0.92rem;color:var(--text-dim);line-height:1.78;margin-bottom:1rem;}
+.about-cards{display:flex;flex-direction:column;gap:1rem;}
+.abt-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.6rem 1.8rem;}
+.abt-card h4{font-size:0.66rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);margin-bottom:0.8rem;}
+.abt-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.abt-list li{font-size:0.83rem;color:var(--text-dim);display:flex;gap:0.5rem;align-items:flex-start;}
+.abt-list li::before{content:'·';color:var(--gold);font-size:1.2rem;line-height:1.1;flex-shrink:0;}
+.trust-boxes{display:grid;grid-template-columns:repeat(2,1fr);gap:0.9rem;margin-top:1.5rem;}
+.trust-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem;text-align:center;box-shadow:var(--shadow);}
+.trust-box-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;color:var(--blue);line-height:1;margin-bottom:0.25rem;}
+.trust-box-label{font-size:0.73rem;color:var(--text-dim);font-weight:500;line-height:1.4;}
 
-/* PRICING */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-.price-card{background:var(--surface);border:1.5px solid var(--border);border-radius:18px;padding:2.2rem 2rem;display:flex;flex-direction:column;transition:all 0.25s;}
-.price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-.price-card.featured{border-color:var(--amber);background:linear-gradient(160deg,#fff 0%,#fdf8ef 100%);}
-.price-tier-lbl{font-size:0.67rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:1.2rem;}
-.price-tier-lbl.gold{color:var(--amber);}
-.price-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:400;line-height:1;letter-spacing:-0.03em;margin-bottom:0.2rem;}
-.price-range{font-size:0.8rem;color:var(--text-dim);margin-bottom:1.2rem;}
-.price-desc{font-size:0.83rem;color:var(--text-dim);line-height:1.65;margin-bottom:1.8rem;}
-.price-list{list-style:none;flex:1;display:flex;flex-direction:column;gap:0.55rem;margin-bottom:2rem;}
-.price-list li{font-size:0.82rem;color:var(--text-dim);display:flex;gap:0.55rem;align-items:flex-start;line-height:1.4;}
-.price-list li .chk{color:var(--green);font-weight:700;flex-shrink:0;}
-.price-note{font-size:0.72rem;color:var(--text-faint);padding-top:1.2rem;border-top:1px solid var(--border);margin-top:auto;}
+/* DEPLOY */
+.deploy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.deploy-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:2rem 1.8rem;transition:all 0.25s;position:relative;}
+.deploy-card:hover{background:rgba(255,255,255,0.07);transform:translateY(-4px);}
+.deploy-card.featured-deploy{border-color:rgba(201,148,58,0.35);background:rgba(201,148,58,0.05);}
+.deploy-card.featured-deploy::after{content:'RECOMMENDED';position:absolute;top:1.2rem;right:1.2rem;font-size:0.57rem;font-weight:700;letter-spacing:0.18em;color:var(--gold);background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.3);padding:0.2rem 0.6rem;border-radius:999px;}
+.deploy-icon{font-size:1.8rem;margin-bottom:1.1rem;display:block;}
+.deploy-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:#fff;margin-bottom:0.2rem;}
+.deploy-who{font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:0.8rem;}
+.deploy-card p{font-size:0.8rem;color:rgba(255,255,255,0.42);line-height:1.65;margin-bottom:1.2rem;}
+.deploy-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem;}
+.deploy-list li{font-size:0.77rem;color:rgba(255,255,255,0.52);display:flex;gap:0.5rem;line-height:1.4;}
+.deploy-list li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;}
 
-/* CTA DARK */
-.cta-dark{background:var(--navy);padding:8rem 5%;text-align:center;position:relative;overflow:hidden;}
-.cta-dark::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:rgba(212,134,42,0.07);pointer-events:none;}
-.cta-dark::after{content:'';position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.02);pointer-events:none;}
-.cta-dark h2{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:400;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1.2rem;position:relative;z-index:1;}
-.cta-dark h2 em{font-style:italic;color:rgba(255,255,255,0.38);}
-.cta-dark p{color:rgba(255,255,255,0.48);font-size:1rem;max-width:500px;margin:0 auto 3rem;line-height:1.75;position:relative;z-index:1;}
-.cta-boxes{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
-.cta-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.11);border-radius:14px;padding:1.6rem 2rem;text-align:left;min-width:210px;transition:background 0.2s;text-decoration:none;}
-.cta-box:hover{background:rgba(255,255,255,0.11);}
-.cta-box-label{font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);margin-bottom:0.5rem;}
-.cta-box-title{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.2rem;}
-.cta-box-sub{font-size:0.75rem;color:rgba(255,255,255,0.35);}
+/* CTA */
+.cta-wrap{background:var(--navy);border-radius:24px;padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.cta-wrap::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(33,70,240,0.15) 0%,transparent 65%);pointer-events:none;}
+.cta-wrap::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,148,58,0.1) 0%,transparent 65%);pointer-events:none;}
+.cta-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1rem;position:relative;z-index:1;}
+.cta-wrap h2 em{font-style:italic;color:rgba(255,255,255,0.35);}
+.cta-wrap p{color:rgba(255,255,255,0.45);font-size:1rem;max-width:460px;margin:0 auto 2.5rem;line-height:1.75;position:relative;z-index:1;}
+.cta-contacts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+.contact-pill{display:flex;align-items:center;gap:0.8rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.2rem 1.8rem;text-decoration:none;transition:background 0.2s;min-width:200px;}
+.contact-pill:hover{background:rgba(255,255,255,0.1);}
+.cp-icon{font-size:1.4rem;}
+.cp-label{font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
+.cp-value{font-size:0.88rem;font-weight:600;color:#fff;}
 
 /* FOOTER */
-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:3.5rem 5% 2rem;}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
-.footer-brand{display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;}
-.footer-brand-mark{width:30px;height:30px;background:rgba(255,255,255,0.07);border-radius:7px;display:flex;align-items:center;justify-content:center;}
-.footer-brand-mark svg{width:15px;height:15px;}
-.footer-brand-name{font-family:'Fraunces',serif;font-size:1.1rem;color:#fff;font-weight:400;letter-spacing:-0.02em;}
-.footer-brand-name span{color:var(--amber);}
-.footer-desc{font-size:0.79rem;color:rgba(255,255,255,0.33);line-height:1.7;max-width:260px;}
-.footer-col h5{font-size:0.63rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:1rem;}
-.footer-col a{display:block;font-size:0.81rem;color:rgba(255,255,255,0.42);text-decoration:none;margin-bottom:0.55rem;transition:color 0.2s;}
-.footer-col a:hover{color:rgba(255,255,255,0.78);}
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:4rem 5% 2.5rem;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.footer-brand{display:flex;align-items:center;gap:0.65rem;margin-bottom:1.2rem;}
+.footer-brand-icon{width:32px;height:32px;background:rgba(255,255,255,0.07);border-radius:9px;display:flex;align-items:center;justify-content:center;}
+.footer-brand-icon svg{width:16px;height:16px;}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#fff;font-weight:500;}
+.footer-brand-name span{color:var(--gold);}
+.footer-desc{font-size:0.79rem;color:rgba(255,255,255,0.3);line-height:1.7;max-width:300px;}
+.footer-col h5{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1rem;}
+.footer-col a{display:block;font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;margin-bottom:0.55rem;transition:color 0.2s;}
+.footer-col a:hover{color:rgba(255,255,255,0.75);}
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06);}
-.footer-bottom span{font-size:0.74rem;color:rgba(255,255,255,0.24);}
-
-/* DIVIDER */
+.footer-bottom span{font-size:0.73rem;color:rgba(255,255,255,0.22);}
 .divider{height:1px;background:var(--border);}
 
-/* ANIM */
+/* svc example line */
+.svc-eg{font-size:0.7rem;color:rgba(255,255,255,0.28);line-height:1.5;margin-top:0.6rem;font-style:italic;border-top:1px solid rgba(255,255,255,0.06);padding-top:0.6rem;}
+
+/* animated counters */
+.counters-section{padding:5rem 5%;background:var(--bg);}
+.counters-inner{max-width:1280px;margin:0 auto;}
+.counters-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow);}
+.counter-box{padding:2.5rem 2rem;text-align:center;border-right:1px solid var(--border);position:relative;}
+.counter-box:last-child{border-right:none;}
+.counter-num{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:400;color:var(--blue);line-height:1;margin-bottom:0.4rem;display:block;}
+.counter-suffix{font-size:2rem;color:var(--gold);}
+.counter-label{font-size:0.82rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:0.25rem;}
+.counter-sub{font-size:0.72rem;color:var(--text-faint);}
+
+/* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.d1{transition-delay:0.08s;}.d2{transition-delay:0.16s;}.d3{transition-delay:0.24s;}.d4{transition-delay:0.32s;}.d5{transition-delay:0.4s;}
+.d1{transition-delay:0.07s;}.d2{transition-delay:0.14s;}.d3{transition-delay:0.21s;}.d4{transition-delay:0.28s;}
 
 /* RESPONSIVE */
-@media(max-width:1100px){.services-grid{grid-template-columns:1fr 1fr;}.projects-grid{grid-template-columns:1fr 1fr;}.uc-grid{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr 1fr;gap:2rem;}}
-@media(max-width:768px){.hero-stats,.deploy-grid,.pricing-grid,.models-grid,.trust-grid,.about-two-col{grid-template-columns:1fr;}.services-grid,.projects-grid,.uc-grid{grid-template-columns:1fr;}.nav-links a:not(.nav-cta){display:none;}.footer-top{grid-template-columns:1fr;}}
+@media(max-width:1100px){
+  .services-grid{grid-template-columns:repeat(3,1fr);}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero::before{display:none;}
+  .hero-right{background:var(--navy);border-color:rgba(255,255,255,0.1);}
+  .proj-card.featured-dark{grid-template-columns:1fr;}
+  .process-grid{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .about-grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .deploy-grid,.process-grid,.trust-boxes{grid-template-columns:1fr;}
+  .nav-links a:not(.nav-cta){display:none;}
+  .footer-top{grid-template-columns:1fr;}
+}
+@media(max-width:480px){.services-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-mark">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-      </svg>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+        </svg>
+      </div>
+      <span class="nav-logo-name">Adaptive <span>Minds</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Talk to Us →</a>
     </div>
-    <span class="nav-logo-text">Agentive<span> AI</span></span>
-  </a>
-  <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#projects">Work</a>
-    <a href="#models">Domain AI</a>
-    <a href="#usecases">Industries</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#contact" class="nav-cta">Book Free Audit →</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow"><span class="pulse"></span>AI Automation Agency · India & Global</div>
-    <h1>We build AI systems<br/>that <em>eliminate</em> manual work<br/>and <span class="acc">scale your business</span></h1>
-    <p class="hero-sub">From intelligent chatbots to fully agentic workflows — Agentive AI designs, builds, and deploys AI automation that cuts operational costs by 60–80% and scales without adding headcount.</p>
-    <div class="hero-tagline">
-      <span>Chatbots</span> &nbsp;→&nbsp; <span>Document AI</span> &nbsp;→&nbsp; <span>Workflow Automation</span> &nbsp;→&nbsp; <span>Agentic Systems</span>
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span class="dot"></span>AI Automation Agency · India & Global</div>
+      <h1>
+        AI that works<br/>
+        as hard as<br/>
+        <em>your team does</em>
+      </h1>
+      <p class="hero-sub">
+        Adaptive Minds designs and deploys AI automation systems that eliminate manual work, accelerate decisions, and scale operations — so your team focuses on work that actually matters.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-blue">Get a Free AI Audit →</a>
+        <a href="#work" class="btn btn-outline">See Our Work</a>
+      </div>
     </div>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-amber">Get Free AI Audit →</a>
-      <a href="#projects" class="btn btn-navy">See Our Work</a>
-      <a href="#services" class="btn btn-outline">What We Build</a>
+    <div class="hero-right">
+      <div class="hero-right-label">What our systems deliver</div>
+      <div class="hero-metric">
+        <div class="hm-num">80<span>%</span></div>
+        <div class="hm-info"><div class="hm-label">Reduction in manual processing time</div><div class="hm-sub">Avg. across deployed systems</div></div>
+      </div>
+      <div class="hero-metric">
+        <div class="hm-num">5+</div>
+        <div class="hm-info"><div class="hm-label">Industries automated</div><div class="hm-sub">Legal, HR, Finance, Sales, Ops</div></div>
+      </div>
+      <div class="hero-metric">
+        <div class="hm-num">2–8</div>
+        <div class="hm-info"><div class="hm-label">Weeks to go live</div><div class="hm-sub">From scoping call to deployment</div></div>
+      </div>
+      <div class="hero-right-foot">
+        <span class="hero-badge">HIPAA Ready</span>
+        <span class="hero-badge">GDPR Compliant</span>
+        <span class="hero-badge">On-Premise</span>
+        <span class="hero-badge">Audit Trail</span>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="h-stat"><div class="h-stat-num">5+</div><div class="h-stat-label">Years delivering AI systems</div></div>
-      <div class="h-stat"><div class="h-stat-num">12+</div><div class="h-stat-label">AI products built across 8 industries</div></div>
-      <div class="h-stat"><div class="h-stat-num">80%</div><div class="h-stat-label">Avg. reduction in manual ops time</div></div>
-      <div class="h-stat"><div class="h-stat-num">3</div><div class="h-stat-label">Deployment options — on-prem, cloud, hybrid</div></div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Enterprise-grade security
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Runs on your hardware or your own cloud
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Full audit trail on every action
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Custom-built — not off-the-shelf tools
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Delivered in 2–8 weeks
+    </div>
+  </div>
+</div>
+
+<!-- ANIMATED COUNTERS -->
+<section class="counters-section">
+  <div class="counters-inner">
+    <div class="counters-row">
+      <div class="counter-box">
+        <span class="counter-num" data-target="80" data-suffix="%">0</span>
+        <div class="counter-label">Reduction in manual work</div>
+        <div class="counter-sub">Average across all deployed systems</div>
+      </div>
+      <div class="counter-box">
+        <span class="counter-num" data-target="10" data-suffix="+">0</span>
+        <div class="counter-label">AI systems shipped</div>
+        <div class="counter-sub">Across 5+ industries globally</div>
+      </div>
+      <div class="counter-box">
+        <span class="counter-num" data-target="5" data-suffix="min">0</span>
+        <div class="counter-label">Average time to first answer</div>
+        <div class="counter-sub">Tasks that used to take hours</div>
+      </div>
+      <div class="counter-box">
+        <span class="counter-num" data-target="8" data-suffix="wk">0</span>
+        <div class="counter-label">Maximum time to go live</div>
+        <div class="counter-sub">From first call to deployed system</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section dark-bg" id="services">
+  <div class="section-inner">
+    <div class="eyebrow reveal">What We Build</div>
+    <h2 class="section-title reveal">AI automation across<br/>your entire business</h2>
+    <p class="section-sub reveal">Every service solves a specific business problem. If your team is spending time on it manually, AI can probably handle it.</p>
+    <div class="services-grid reveal">
+
+      <div class="svc">
+        <span class="svc-icon">⚙️</span>
+        <h3>Stop Doing Repetitive Tasks Manually</h3>
+        <p>We automate the workflows your team does the same way, every day — approvals, reports, data entry, notifications.</p>
+        <p class="svc-eg">e.g. Invoice approval that used to take 2 days now runs in 10 minutes without anyone touching it.</p>
+      </div>
+
+      <div class="svc">
+        <span class="svc-icon">🤖</span>
+        <h3>A 24/7 Assistant That Handles Questions Instantly</h3>
+        <p>An AI assistant trained on your data — answers customer or employee questions any time of day, on WhatsApp, your website, or Slack.</p>
+        <p class="svc-eg">e.g. A customer asks "where is my order?" at 2am. The AI answers correctly — no human needed.</p>
+      </div>
+
+      <div class="svc">
+        <span class="svc-icon">🧠</span>
+        <h3>AI That Works on Its Own — Like a Digital Employee</h3>
+        <p>AI agents that handle entire tasks from start to finish — researching, deciding, and acting — without waiting for someone to click a button.</p>
+        <p class="svc-eg">e.g. A new lead comes in. AI researches them, scores them, and drafts a personalised email — ready to send in minutes.</p>
+      </div>
+
+      <div class="svc">
+        <span class="svc-icon">📚</span>
+        <h3>Ask Questions Across All Your Documents</h3>
+        <p>Upload any document — contracts, manuals, reports — and ask questions in plain English. Get accurate answers with the exact source cited.</p>
+        <p class="svc-eg">e.g. "What are the penalty clauses in this contract?" answered in seconds instead of reading 80 pages.</p>
+      </div>
+
+      <div class="svc">
+        <span class="svc-icon">📄</span>
+        <h3>Pull Data from Any Document Automatically</h3>
+        <p>AI reads PDFs, forms, scanned documents, and invoices and extracts the exact data you need — structured, accurate, ready to use.</p>
+        <p class="svc-eg">e.g. 500 supplier invoices processed and entered into your system overnight, without a single person typing.</p>
+      </div>
+
+      <div class="svc">
+        <span class="svc-icon">🔗</span>
+        <h3>Connect AI to the Tools You Already Use</h3>
+        <p>We plug AI into your existing software — CRM, ERP, email, spreadsheets — so it fits your workflow instead of replacing it.</p>
+        <p class="svc-eg">e.g. AI updates your CRM automatically after every sales call, saving your team 30 minutes per meeting.</p>
+      </div>
+
+      <div class="svc">
+        <span class="svc-icon">📊</span>
+        <h3>Turn Your Business Data into Clear Decisions</h3>
+        <p>Stop spending hours in spreadsheets. AI analyses your data and surfaces the insights that actually matter — in plain language.</p>
+        <p class="svc-eg">e.g. "Which customers are most likely to churn this quarter?" answered from your own data, automatically.</p>
+      </div>
+
+      <div class="svc">
+        <span class="svc-icon">✍️</span>
+        <h3>Write Emails, Blogs & Marketing Content at Scale</h3>
+        <p>AI that writes in your brand's voice — product descriptions, email campaigns, social posts, and articles — consistently and instantly.</p>
+        <p class="svc-eg">e.g. 200 product descriptions written overnight in your tone, ready to publish — not a single human hour spent.</p>
+      </div>
+
+      <div class="svc">
+        <span class="svc-icon">📈</span>
+        <h3>Find, Qualify & Follow Up with Leads Automatically</h3>
+        <p>AI that handles your sales pipeline — identifying the right leads, reaching out at the right time, and following up until they respond.</p>
+        <p class="svc-eg">e.g. Your sales team wakes up to 10 warm leads already researched, scored, and ready to call.</p>
+      </div>
+
+      <div class="svc">
+        <span class="svc-icon">🎯</span>
+        <h3>AI Built Specifically for Your Business</h3>
+        <p>When off-the-shelf AI doesn't understand your industry, your terms, or your workflows — we build one that does.</p>
+        <p class="svc-eg">e.g. A legal AI that knows your firm's templates and contract style, not just generic legal language.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE WORK WITH -->
+<div class="who-strip">
+  <div class="who-strip-inner">
+    <span class="who-label">Who we work with</span>
+    <div class="who-chips">
+      <span class="who-chip">⚖️ Legal Firms</span>
+      <span class="who-chip">🏥 Healthcare</span>
+      <span class="who-chip">🏦 BFSI</span>
+      <span class="who-chip">👥 HR & Operations</span>
+      <span class="who-chip">🏭 Manufacturing</span>
+      <span class="who-chip">🚀 Startups & SaaS</span>
+      <span class="who-chip">🏢 Consulting</span>
+      <span class="who-chip">🎓 EdTech</span>
+    </div>
+  </div>
+</div>
+
+<!-- OUR WORK -->
+<section class="section alt-bg" id="work">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Our Work</div>
+    <h2 class="section-title reveal">Built. Deployed. Proven.</h2>
+    <p class="section-sub reveal">Every project starts with a business problem and ends with measurable results. Here's what we've shipped.</p>
+
+    <div class="projects-stack">
+
+      <!-- DocuAgent AI — Featured Full Width -->
+      <div class="proj-card featured-dark reveal">
+        <div>
+          <div class="proj-header">
+            <div class="proj-icon-box pib-dark">🔍</div>
+            <span class="proj-badge badge-live">● Live</span>
+          </div>
+          <div class="proj-category">Document Intelligence · Privacy</div>
+          <h3>DocuAgent AI</h3>
+          <p class="proj-tagline">Secure on-premise document intelligence platform</p>
+          <p class="proj-desc">A secure AI system that lets law firms, hospitals, and consultants chat with any document — contracts, reports, PDFs — entirely on their own hardware. No data leaves the building. Every answer is cited with the exact source and page number, making it defensible for regulated workflows.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Legal</span>
+            <span class="proj-tag">Healthcare</span>
+            <span class="proj-tag">On-Premise</span>
+            <span class="proj-tag">Document AI</span>
+            <span class="proj-tag">Compliance</span>
+          </div>
+          <div class="proj-footer">
+            <a href="#contact" class="proj-cta white-cta">Request Demo →</a>
+          </div>
+        </div>
+        <div>
+          <div class="proj-outcomes dark-outcomes">
+            <div class="proj-outcomes-lbl">Business Outcomes</div>
+            <ul>
+              <li>Document review time: 3 hours → 5 minutes</li>
+              <li>Zero cloud exposure — data never leaves the network</li>
+              <li>Full audit trail for HIPAA, GDPR, and SEC compliance</li>
+              <li>Handles contracts, patient records, and sensitive docs</li>
+              <li>Works across PDF, DOCX, XLSX, PPTX, and more</li>
+            </ul>
+          </div>
+          <div class="proj-metrics">
+            <div class="proj-metric-box">
+              <div class="pmb-num">96<span style="font-size:1rem;color:var(--gold);">%</span></div>
+              <div class="pmb-label">Every answer shows exactly where it came from</div>
+            </div>
+            <div class="proj-metric-box">
+              <div class="pmb-num">12<span style="font-size:1rem;color:var(--gold);">+</span></div>
+              <div class="pmb-label">Supported file formats</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- InboxIQ -->
+      <div class="proj-card accent-card reveal">
+        <div class="proj-header">
+          <div class="proj-icon-box pib-blue">📬</div>
+          <span class="proj-badge badge-live">● Live</span>
+        </div>
+        <div class="proj-category">Email Management · AI Automation</div>
+        <h3>InboxIQ</h3>
+        <p class="proj-tagline">AI email management and smart reply system</p>
+        <p class="proj-desc">InboxIQ brings AI directly into your inbox — reading, categorising, and drafting context-aware replies to incoming emails so your team spends less time writing and more time doing. It learns your communication style, understands email intent, and generates replies that sound like you wrote them.</p>
+        <div class="proj-outcomes">
+          <div class="proj-outcomes-lbl">Business Outcomes</div>
+          <ul>
+            <li>Email reply time cut from hours to under 5 minutes</li>
+            <li>AI-drafted replies ready before you open the email</li>
+            <li>Automatically categorises and prioritises incoming mail</li>
+            <li>Works with Gmail and Outlook — no new tools to learn</li>
+          </ul>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">Email AI</span>
+          <span class="proj-tag">Smart Replies</span>
+          <span class="proj-tag">Productivity</span>
+          <span class="proj-tag">Gmail · Outlook</span>
+        </div>
+        <div class="proj-footer">
+          <a href="#contact" class="proj-cta">Request Demo →</a>
+        </div>
+      </div>
+
+      <!-- Coming Soon Strip -->
+      <div class="coming-soon-strip reveal">
+        <div class="cs-left">
+          <div>
+            <div class="cs-label">In development</div>
+            <div class="cs-projects">
+              <span class="cs-pill">👥 HRFlow AI — HR Operations Automation</span>
+              <span class="cs-pill">📈 LeadFlow AI — Sales & Lead Qualification</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-right">Interested in early access? <a href="#contact" style="color:var(--blue);font-weight:600;text-decoration:none;">Get in touch →</a></div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- SERVICES -->
-<section class="dark-section" id="services">
+<!-- PROCESS -->
+<section class="section" id="process">
   <div class="section-inner">
-    <div class="eyebrow">What We Build</div>
-    <h2 class="section-title">AI automation across<br/>your entire business</h2>
-    <p class="section-sub">Every engagement starts with one question: where is your team spending the most time on work that AI can handle?</p>
-    <div class="services-grid">
-      <div class="svc-card reveal">
-        <span class="svc-icon">🤖</span>
-        <span class="svc-tag-line">Conversational AI</span>
-        <h3>AI Chatbots & Assistants</h3>
-        <p>Custom-trained chatbots for customer support, internal ops, or sales — built on your data, not generic templates.</p>
-        <ul class="svc-list">
-          <li>Cut support ticket volume by 70%</li>
-          <li>WhatsApp, website, Slack, Teams</li>
-          <li>Multilingual — Hindi, English, regional</li>
-          <li>Integrates with your CRM & ticketing</li>
-          <li>24/7 with zero added headcount</li>
-        </ul>
+    <div class="eyebrow reveal">How We Work</div>
+    <h2 class="section-title reveal">From first call to<br/>live system in weeks</h2>
+    <p class="section-sub reveal">No months-long projects. No endless scoping. A focused four-step process that gets your AI system running fast.</p>
+    <div class="process-grid">
+      <div class="process-step reveal" data-num="1">
+        <span class="process-icon">🔍</span>
+        <h3>Free AI Audit</h3>
+        <p>A 30-minute call where we map your biggest manual bottlenecks and identify exactly where AI automation would save the most time and money. No commitment, no sales pitch.</p>
       </div>
-      <div class="svc-card reveal d1">
-        <span class="svc-icon">📄</span>
-        <span class="svc-tag-line">Document Intelligence</span>
-        <h3>Document AI & Knowledge Systems</h3>
-        <p>Turn contracts, reports, PDFs, and manuals into queryable knowledge. Plain English in, cited answers out.</p>
-        <ul class="svc-list">
-          <li>3 hours → 5 minutes per document</li>
-          <li>Extract clauses, risks, key data automatically</li>
-          <li>On-prem or private cloud — your choice</li>
-          <li>Full audit trail for compliance teams</li>
-          <li>Supports 12+ file formats</li>
-        </ul>
+      <div class="process-step reveal d1" data-num="2">
+        <span class="process-icon">📐</span>
+        <h3>Scope & Proposal</h3>
+        <p>We document the exact system to build, the outcomes it will deliver, the timeline, and the investment. You approve before any work begins.</p>
       </div>
-      <div class="svc-card reveal d2">
-        <span class="svc-icon">⚙️</span>
-        <span class="svc-tag-line">Process Automation</span>
-        <h3>Workflow Automation</h3>
-        <p>End-to-end pipelines that connect your tools, eliminate manual data entry, and automate repetitive decisions.</p>
-        <ul class="svc-list">
-          <li>CRM, ERP, and API integrations</li>
-          <li>Automated reporting & data entry</li>
-          <li>50%+ reduction in ops workload</li>
-          <li>Custom triggers and notifications</li>
-          <li>Human-in-the-loop where needed</li>
-        </ul>
+      <div class="process-step reveal d2" data-num="3">
+        <span class="process-icon">⚙️</span>
+        <h3>Build & Test</h3>
+        <p>We build the system on your data, your workflows, and your infrastructure. Weekly updates throughout. You test and give feedback before it goes live.</p>
       </div>
-      <div class="svc-card reveal">
-        <span class="svc-icon">🧠</span>
-        <span class="svc-tag-line">Autonomous AI</span>
-        <h3>Agentic AI Systems</h3>
-        <p>Multi-step AI agents that research, decide, and act across tools — with minimal human oversight required.</p>
-        <ul class="svc-list">
-          <li>Autonomous research & analysis agents</li>
-          <li>Lead qualification & outreach bots</li>
-          <li>Internal knowledge assistants</li>
-          <li>Multi-agent orchestration pipelines</li>
-          <li>Runs 24/7 on your infrastructure</li>
-        </ul>
-      </div>
-      <div class="svc-card reveal d1">
-        <span class="svc-icon">🎯</span>
-        <span class="svc-tag-line">Custom AI Models</span>
-        <h3>Domain-Specific Fine-Tuning</h3>
-        <p>Generic AI doesn't know your industry, jargon, or clients. We train models that speak your language precisely.</p>
-        <ul class="svc-list">
-          <li>Fine-tuned on your proprietary data</li>
-          <li>Legal, medical, finance domain models</li>
-          <li>Model stays on your infrastructure</li>
-          <li>Continuously improves with feedback</li>
-          <li>Outperforms generic GPT on your tasks</li>
-        </ul>
-      </div>
-      <div class="svc-card reveal d2">
-        <span class="svc-icon">🔗</span>
-        <span class="svc-tag-line">Strategy & Integration</span>
-        <h3>AI Consulting & Integration</h3>
-        <p>Already have a stack? We audit your tools, identify automation gaps, and plug AI into existing workflows.</p>
-        <ul class="svc-list">
-          <li>Free AI readiness audit</li>
-          <li>Salesforce, SAP, Zoho integration</li>
-          <li>Legacy system modernisation</li>
-          <li>Team training & documentation</li>
-          <li>Ongoing iteration & support</li>
-        </ul>
+      <div class="process-step reveal d3" data-num="4">
+        <span class="process-icon">🚀</span>
+        <h3>Deploy & Support</h3>
+        <p>We deploy to your environment — on-premise, private cloud, or hybrid — and provide ongoing support, monitoring, and iteration as your needs evolve.</p>
       </div>
     </div>
   </div>
 </section>
 
+<div class="divider"></div>
+
 <!-- DEPLOYMENT -->
-<section class="section" id="deploy">
+<section class="section dark-bg">
   <div class="section-inner">
     <div class="eyebrow reveal">Deployment</div>
-    <h2 class="section-title reveal">On-premise, cloud, or hybrid —<br/>your data, your choice</h2>
-    <p class="section-sub reveal">Not every business needs the same deployment. Agentive AI recommends the right fit based on your compliance requirements, team size, and budget.</p>
+    <h2 class="section-title reveal">Your data stays<br/>under your control</h2>
+    <p class="section-sub reveal">On-premise, private cloud, or hybrid — we build for all three and recommend the right fit based on your compliance needs and team size.</p>
     <div class="deploy-grid">
       <div class="deploy-card reveal">
         <span class="deploy-icon">🖥️</span>
         <h3>On-Premise</h3>
-        <div class="deploy-who">Best for: Legal, Healthcare, Defense, Govt</div>
-        <p>The model, your data, and every query runs on hardware you own. Zero cloud exposure. Compliance by design.</p>
+        <div class="deploy-who">Best for: Legal, Healthcare, Defense, Government</div>
+        <p>The AI model, your data, and every query runs entirely on hardware you own. Nothing leaves your network — ever.</p>
         <ul class="deploy-list">
           <li>Data never leaves your building</li>
-          <li>HIPAA, GDPR, CMMC, DPDP compliant</li>
-          <li>Air-gap deployable for classified work</li>
+          <li>HIPAA, GDPR, DPDP compliant</li>
+          <li>Works completely offline after setup</li>
           <li>Full audit log on every interaction</li>
-          <li>Works without internet after setup</li>
         </ul>
       </div>
-      <div class="deploy-card featured reveal d1">
+      <div class="deploy-card featured-deploy reveal d1">
         <span class="deploy-icon">☁️</span>
         <h3>Private Cloud</h3>
         <div class="deploy-who">Best for: Scale-ups, SaaS, Distributed Teams</div>
-        <p>Your own cloud account (AWS, Azure, GCP), your own private environment. Scalable, globally accessible, fully under your control.</p>
+        <p>Your own cloud account (AWS, Azure, GCP). Globally accessible, infinitely scalable, and entirely under your control — no shared infrastructure.</p>
         <ul class="deploy-list">
-          <li>Single-tenant — your account, your keys</li>
-          <li>Auto-scales to handle any load</li>
-          <li>HTTPS access from any browser globally</li>
-          <li>SOC2-eligible infrastructure</li>
-          <li>Pay-as-you-go — stop when not in use</li>
+          <li>Your account, your keys, your data</li>
+          <li>Scales automatically with your usage</li>
+          <li>Accessible from any browser, anywhere</li>
+          <li>Stop instances when idle — pay only when running</li>
         </ul>
       </div>
       <div class="deploy-card reveal d2">
         <span class="deploy-icon">🔀</span>
         <h3>Hybrid</h3>
         <div class="deploy-who">Best for: Enterprises with mixed requirements</div>
-        <p>Sensitive data stays on-prem. Non-sensitive workflows run on cloud. Best of both — compliance without sacrificing scale.</p>
+        <p>Sensitive data stays on-premise. Non-sensitive workflows run on cloud. Compliance without sacrificing speed or scale.</p>
         <ul class="deploy-list">
-          <li>Route queries by data sensitivity</li>
-          <li>On-prem vault + cloud compute</li>
-          <li>Single interface — complexity hidden</li>
-          <li>Customised per department or team</li>
-          <li>Scales as your needs evolve</li>
+          <li>Sensitive and non-sensitive data handled separately</li>
+          <li>Single interface — complexity stays hidden</li>
+          <li>Configured per department or workflow</li>
+          <li>Grows and adapts as your business evolves</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
-
-<div class="divider"></div>
-
-<!-- PROJECTS -->
-<section class="section alt-section" id="projects">
-  <div class="section-inner">
-    <div class="eyebrow reveal">Our Work</div>
-    <h2 class="section-title reveal">AI systems built & deployed</h2>
-    <p class="section-sub reveal">Real deployments, measurable outcomes. Every project is measured in hours saved and costs reduced — not features shipped.</p>
-    <div class="projects-grid">
-
-      <div class="proj featured reveal">
-        <div class="proj-top"><span class="proj-emoji">🔍</span><span class="proj-badge badge-live">● Live</span></div>
-        <div class="proj-industry">Document AI · Privacy</div>
-        <h3>DocuAgent AI</h3>
-        <div class="tagline">On-premise document intelligence platform</div>
-        <p>Secure document AI for law firms, hospitals, and consultants. Chat with any document — fully on your hardware, zero cloud exposure.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>Document review time: 3 hrs → 5 min</li>
-            <li>Zero cloud exposure — fully on-prem</li>
-            <li>Compliant with HIPAA, GDPR, SEC</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">Legal</span><span class="proj-tag-chip">Healthcare</span><span class="proj-tag-chip">On-Prem</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link">Request Demo →</a></div>
-      </div>
-
-      <div class="proj reveal d1">
-        <div class="proj-top"><span class="proj-emoji">🤖</span><span class="proj-badge badge-live">● Live</span></div>
-        <div class="proj-industry">Conversational AI · E-commerce</div>
-        <h3>ShopBot AI</h3>
-        <div class="tagline">WhatsApp + website customer support agent</div>
-        <p>AI support agent trained on product catalogue, FAQs, and order data. Handles 80% of queries without human intervention.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>Support ticket volume down 73%</li>
-            <li>Response time: 8 hrs → instant</li>
-            <li>₹4L/yr saved in support staff costs</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">E-commerce</span><span class="proj-tag-chip">WhatsApp</span><span class="proj-tag-chip">Cloud</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link">Request Case Study →</a></div>
-      </div>
-
-      <div class="proj reveal d2">
-        <div class="proj-top"><span class="proj-emoji">⚖️</span><span class="proj-badge badge-live">● Live</span></div>
-        <div class="proj-industry">Legal Tech · Document AI</div>
-        <h3>ContractSense</h3>
-        <div class="tagline">Contract clause extraction & risk flagging</div>
-        <p>Analyses contracts for risk clauses, missing obligations, and regulatory red flags. Privileged data stays on-prem.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>Contract review time cut by 85%</li>
-            <li>Catches clauses junior lawyers miss</li>
-            <li>Zero data leaves client network</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">Legal</span><span class="proj-tag-chip">On-Prem</span><span class="proj-tag-chip">Document AI</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link">Request Case Study →</a></div>
-      </div>
-
-      <div class="proj reveal">
-        <div class="proj-top"><span class="proj-emoji">🏥</span><span class="proj-badge badge-live">● Live</span></div>
-        <div class="proj-industry">Healthcare · Clinical Ops</div>
-        <h3>ClinicalBrief</h3>
-        <div class="tagline">Patient record summarization system</div>
-        <p>Summarises patient history, flags drug interactions, and generates clinical notes from unstructured records. HIPAA-compliant.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>Notes generation: 25 min → 2 min</li>
-            <li>100% on-prem, zero PHI to cloud</li>
-            <li>Adopted by 3 hospital departments</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">Healthcare</span><span class="proj-tag-chip">On-Prem</span><span class="proj-tag-chip">HIPAA</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link">Request Case Study →</a></div>
-      </div>
-
-      <div class="proj reveal d1">
-        <div class="proj-top"><span class="proj-emoji">📊</span><span class="proj-badge badge-live">● Live</span></div>
-        <div class="proj-industry">Finance · Analytics</div>
-        <h3>ReportIQ</h3>
-        <div class="tagline">Financial report analysis & anomaly detection</div>
-        <p>Ingests quarterly reports, balance sheets, and earnings calls. Surfaces key trends and answers analyst questions instantly.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>Analyst prep time cut by 60%</li>
-            <li>Private cloud — SEC audit trail</li>
-            <li>Covers 5 years of filings instantly</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">Finance</span><span class="proj-tag-chip">Private Cloud</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link">Request Case Study →</a></div>
-      </div>
-
-      <div class="proj reveal d2">
-        <div class="proj-top"><span class="proj-emoji">🎯</span><span class="proj-badge badge-live">● Live</span></div>
-        <div class="proj-industry">Sales · Agentic AI</div>
-        <h3>LeadAgent</h3>
-        <div class="tagline">Autonomous lead qualification & outreach agent</div>
-        <p>Researches inbound leads, scores against ICP criteria, and drafts personalised outreach — fully automated per lead.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>SDR capacity 3× without new hires</li>
-            <li>Lead response time: hrs → 8 min</li>
-            <li>30% higher email open rate</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">Sales</span><span class="proj-tag-chip">Agentic</span><span class="proj-tag-chip">Cloud</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link">Request Case Study →</a></div>
-      </div>
-
-      <div class="proj reveal">
-        <div class="proj-top"><span class="proj-emoji">🏭</span><span class="proj-badge badge-live">● Live</span></div>
-        <div class="proj-industry">Manufacturing · Operations</div>
-        <h3>OpsIntel</h3>
-        <div class="tagline">Factory floor knowledge assistant</div>
-        <p>Chat with maintenance manuals, SOPs, and incident logs. Floor managers resolve issues without calling HQ.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>Mean time to resolve: down 55%</li>
-            <li>3,000 SOP documents indexed</li>
-            <li>Runs offline on factory LAN</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">Manufacturing</span><span class="proj-tag-chip">On-Prem</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link">Request Case Study →</a></div>
-      </div>
-
-      <div class="proj reveal d1">
-        <div class="proj-top"><span class="proj-emoji">🎓</span><span class="proj-badge badge-live">● Live</span></div>
-        <div class="proj-industry">EdTech · Fine-tuned AI</div>
-        <h3>TutorMind</h3>
-        <div class="tagline">Domain-specific AI tutor for professional courses</div>
-        <p>Fine-tuned model for a CA exam prep platform. Answers questions, explains concepts, and adapts to each student's gaps.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>Student pass rate improved 22%</li>
-            <li>Handles 10,000 queries/day</li>
-            <li>Private cloud — client's own account</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">EdTech</span><span class="proj-tag-chip">Fine-tuned</span><span class="proj-tag-chip">Cloud</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link">Request Case Study →</a></div>
-      </div>
-
-      <div class="proj reveal d2">
-        <div class="proj-top"><span class="proj-emoji">🛍️</span><span class="proj-badge badge-wip">Building</span></div>
-        <div class="proj-industry">Retail · Catalog AI</div>
-        <h3>CatalogAI</h3>
-        <div class="tagline">Product description generation at scale</div>
-        <p>Generates SEO-ready product descriptions and attributes for 100,000+ SKUs from raw supplier data. No copywriting needed.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>100K descriptions in under 4 hours</li>
-            <li>90% reduction in copywriting cost</li>
-            <li>Multilingual output — 6 languages</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">Retail</span><span class="proj-tag-chip">Cloud</span><span class="proj-tag-chip">Multilingual</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link dim">Launching Soon</a></div>
-      </div>
-
-      <div class="proj reveal">
-        <div class="proj-top"><span class="proj-emoji">🔐</span><span class="proj-badge badge-wip">Building</span></div>
-        <div class="proj-industry">HR · Internal Ops</div>
-        <h3>PolicyBot</h3>
-        <div class="tagline">Employee HR policy & compliance assistant</div>
-        <p>Answers questions on HR policies, leave rules, compliance docs, and payroll FAQs. Reduces HR team's repetitive query load.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>HR query load down 65%</li>
-            <li>Instant answers in 3 languages</li>
-            <li>Deployed inside corporate VPN</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">HR</span><span class="proj-tag-chip">Hybrid</span><span class="proj-tag-chip">Multilingual</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link dim">Launching Soon</a></div>
-      </div>
-
-      <div class="proj reveal d1">
-        <div class="proj-top"><span class="proj-emoji">🌾</span><span class="proj-badge badge-wip">Pilot</span></div>
-        <div class="proj-industry">AgriTech · Voice AI</div>
-        <h3>KisanAI</h3>
-        <div class="tagline">Voice-first agricultural advisory agent</div>
-        <p>Hindi-language voice bot for farmers — answers crop disease, weather, and market price questions via WhatsApp voice notes.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Outcomes</div>
-          <ul>
-            <li>Works without internet literacy</li>
-            <li>Covers 200+ crop varieties</li>
-            <li>Active in 3-state NGO pilot</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">AgriTech</span><span class="proj-tag-chip">Voice AI</span><span class="proj-tag-chip">Hindi</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link">View Pilot →</a></div>
-      </div>
-
-      <div class="proj reveal d2">
-        <div class="proj-top"><span class="proj-emoji">🏗️</span><span class="proj-badge badge-soon">Coming Soon</span></div>
-        <div class="proj-industry">Real Estate · PropTech</div>
-        <h3>PropIntel</h3>
-        <div class="tagline">Property document & due diligence AI</div>
-        <p>Analyses title deeds, encumbrance certificates, builder agreements, and RERA documents. Flags risks before clients sign.</p>
-        <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Expected Outcomes</div>
-          <ul>
-            <li>Due diligence: days → hours</li>
-            <li>Catches encumbrance issues early</li>
-            <li>On-prem for law firm clients</li>
-          </ul>
-        </div>
-        <div class="proj-tags"><span class="proj-tag-chip">Real Estate</span><span class="proj-tag-chip">Legal</span><span class="proj-tag-chip">On-Prem</span></div>
-        <div class="proj-footer"><a href="#contact" class="proj-link">Join Waitlist →</a></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- DOMAIN MODELS -->
-<section class="section" id="models">
-  <div class="section-inner">
-    <div class="eyebrow reveal">Domain Intelligence</div>
-    <h2 class="section-title reveal">AI models that speak<br/>your industry's language</h2>
-    <p class="section-sub reveal">Generic AI hallucinates on your domain. Our fine-tuned models are trained on your industry's data, terminology, and regulatory context.</p>
-    <div class="models-grid">
-      <div class="model-card reveal">
-        <div class="model-icon-wrap">⚖️</div>
-        <div>
-          <div class="model-tag">Legal AI</div>
-          <h3>Legal Language Model</h3>
-          <p>Fine-tuned on Indian contract law, case precedents, and firm-specific clause libraries. Understands jurisdiction, court language, and precedent citation natively.</p>
-          <div class="model-uses"><span class="model-use">Contract review</span><span class="model-use">Due diligence</span><span class="model-use">Litigation research</span><span class="model-use">NDA drafting</span></div>
-        </div>
-      </div>
-      <div class="model-card reveal d1">
-        <div class="model-icon-wrap">🏥</div>
-        <div>
-          <div class="model-tag">Medical AI</div>
-          <h3>Clinical Language Model</h3>
-          <p>Trained on medical literature, drug databases, and clinical SOPs. Understands ICD codes and clinical terminology without hallucination risk on drug interactions.</p>
-          <div class="model-uses"><span class="model-use">Patient records</span><span class="model-use">Drug interactions</span><span class="model-use">Clinical notes</span><span class="model-use">FHIR</span></div>
-        </div>
-      </div>
-      <div class="model-card reveal d2">
-        <div class="model-icon-wrap">📈</div>
-        <div>
-          <div class="model-tag">Finance AI</div>
-          <h3>Financial Language Model</h3>
-          <p>Trained on annual reports, SEBI filings, earnings calls, and financial news. Speaks in P&L, EBITDA, and regulatory language as a native.</p>
-          <div class="model-uses"><span class="model-use">Equity research</span><span class="model-use">SEBI compliance</span><span class="model-use">Earnings analysis</span><span class="model-use">Risk flagging</span></div>
-        </div>
-      </div>
-      <div class="model-card reveal d3">
-        <div class="model-icon-wrap">🛒</div>
-        <div>
-          <div class="model-tag">Commerce AI</div>
-          <h3>E-commerce & Retail Model</h3>
-          <p>Fine-tuned on product catalogues, customer reviews, and support transcripts. Handles recommendations, returns, and complaint resolution at scale.</p>
-          <div class="model-uses"><span class="model-use">Product Q&A</span><span class="model-use">Returns automation</span><span class="model-use">Catalogue generation</span><span class="model-use">Personalisation</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- USE CASES -->
-<section class="section alt-section" id="usecases">
-  <div class="section-inner">
-    <div class="eyebrow reveal">Industries</div>
-    <h2 class="section-title reveal">Built for industries where<br/>automation matters most</h2>
-    <p class="section-sub reveal">Every vertical has different compliance needs, data types, and workflows. Every Agentive AI system is shaped around yours.</p>
-    <div class="uc-grid">
-      <div class="uc-card reveal"><div class="uc-ind">⚖️ Legal</div><h3>Law Firms & In-House Counsel</h3><ul class="uc-list"><li>Review 200-page contracts in minutes</li><li>Extract clauses, risks & obligations</li><li>Litigation research automation</li><li>Privilege preserved — fully on-prem</li></ul></div>
-      <div class="uc-card reveal d1"><div class="uc-ind">🏥 Healthcare</div><h3>Hospitals & Clinics</h3><ul class="uc-list"><li>Patient record summarization</li><li>Clinical note generation</li><li>Drug interaction checking</li><li>HIPAA-compliant by design</li></ul></div>
-      <div class="uc-card reveal d2"><div class="uc-ind">🏦 BFSI</div><h3>Banks, NBFCs & Wealth</h3><ul class="uc-list"><li>KYC document extraction</li><li>Loan application processing</li><li>Compliance report automation</li><li>SEBI & RBI audit trail</li></ul></div>
-      <div class="uc-card reveal d3"><div class="uc-ind">🚀 Startups & SaaS</div><h3>Growth Companies</h3><ul class="uc-list"><li>AI customer support bots</li><li>Lead qualification agents</li><li>Internal knowledge assistants</li><li>Scales with your user base</li></ul></div>
-      <div class="uc-card reveal"><div class="uc-ind">🏭 Manufacturing</div><h3>Industrial & Factory Ops</h3><ul class="uc-list"><li>SOP & manual assistant</li><li>Maintenance troubleshooting AI</li><li>Quality control automation</li><li>Works offline on factory LAN</li></ul></div>
-      <div class="uc-card reveal d1"><div class="uc-ind">🏢 Consulting</div><h3>Professional Services</h3><ul class="uc-list"><li>Per-engagement document AI</li><li>Proposal & deliverable drafting</li><li>Cross-project knowledge search</li><li>Per-client data isolation</li></ul></div>
-      <div class="uc-card reveal d2"><div class="uc-ind">🎓 EdTech</div><h3>Education Platforms</h3><ul class="uc-list"><li>Domain-specific AI tutors</li><li>Personalised learning paths</li><li>Exam prep & doubt clearing</li><li>Multi-language support</li></ul></div>
-      <div class="uc-card reveal d3"><div class="uc-ind">🌾 Agri & Social Impact</div><h3>Agriculture & NGOs</h3><ul class="uc-list"><li>Voice AI in regional languages</li><li>Crop advisory bots on WhatsApp</li><li>Grant document processing</li><li>Works on low-cost hardware</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
 
 <!-- ABOUT -->
 <section class="section" id="about">
   <div class="section-inner">
-    <div class="eyebrow reveal">About Agentive AI</div>
-    <h2 class="section-title reveal">Why teams choose us</h2>
-    <div class="trust-grid reveal">
-      <div class="trust-box"><div class="trust-num">5+</div><div class="trust-label">Years delivering AI automation</div></div>
-      <div class="trust-box"><div class="trust-num">12+</div><div class="trust-label">AI products across 8 industries</div></div>
-      <div class="trust-box"><div class="trust-num">80%</div><div class="trust-label">Avg. reduction in manual ops time</div></div>
-      <div class="trust-box"><div class="trust-num">3</div><div class="trust-label">Deployment modes — any infra, any size</div></div>
-    </div>
-    <div class="about-two-col">
+    <div class="about-grid">
       <div class="reveal">
-        <h2 class="section-title" style="font-size:1.9rem;margin-bottom:1.2rem;">We automate the work your team <em style="font-style:italic;color:var(--text-dim);">shouldn't be doing</em></h2>
-        <p style="color:var(--text-dim);font-size:0.92rem;line-height:1.78;margin-bottom:1rem;">Agentive AI is an AI automation agency that designs, builds, and deploys intelligent systems for businesses across India and globally. Our focus is on practical automation — systems that cut real costs, remove real bottlenecks, and scale real teams.</p>
-        <p style="color:var(--text-dim);font-size:0.92rem;line-height:1.78;margin-bottom:1.5rem;">Unlike generic AI tool resellers, every system is custom to your workflow, your data, and your compliance requirements. On-premise, private cloud, or hybrid — built for your reality, not a demo environment.</p>
-        <a href="#contact" class="btn btn-amber">Book a Free Audit →</a>
+        <div class="eyebrow">About Adaptive Minds</div>
+        <h2 class="about-heading">
+          We automate the work<br/>your team
+          <em> shouldn't be doing</em>
+        </h2>
+        <p class="about-body">Adaptive Minds is an AI automation agency that designs, builds, and deploys intelligent systems for businesses across India and globally. Our focus is on practical, high-impact automation — systems that cut real costs, remove real bottlenecks, and scale real teams.</p>
+        <p class="about-body">Unlike generic AI tool vendors, every system we build is custom to your workflow, your data, and your compliance requirements. We don't sell templates — we solve specific business problems with AI.</p>
+        <div style="margin-top:2rem;">
+          <a href="#contact" class="btn btn-navy">Talk to Our Team →</a>
+        </div>
+        <div class="trust-boxes">
+          <div class="trust-box"><div class="trust-box-num">5+</div><div class="trust-box-label">Years in AI & automation</div></div>
+          <div class="trust-box"><div class="trust-box-num">10+</div><div class="trust-box-label">Systems built & deployed</div></div>
+          <div class="trust-box"><div class="trust-box-num">80%</div><div class="trust-box-label">Avg. ops time reduction</div></div>
+          <div class="trust-box"><div class="trust-box-num">3</div><div class="trust-box-label">Deployment modes available</div></div>
+        </div>
       </div>
-      <div class="reveal d1">
+      <div class="about-cards reveal d1">
         <div class="abt-card">
-          <h4>Specializations</h4>
-          <ul>
-            <li>Retrieval-Augmented Generation (RAG)</li>
-            <li>On-premise & private cloud AI</li>
-            <li>Agentic multi-step workflows</li>
-            <li>Domain-specific model fine-tuning</li>
-            <li>Document intelligence systems</li>
-            <li>Conversational AI & chatbots</li>
+          <h4>Core Capabilities</h4>
+          <ul class="abt-list">
+            <li>Document intelligence — ask questions across any file</li>
+            <li>Runs on your hardware or your own cloud account</li>
+            <li>AI agents that work autonomously across tasks</li>
+            <li>AI trained specifically on your business data</li>
+            <li>Chatbots and virtual assistants for any channel</li>
+            <li>Email and inbox automation</li>
           </ul>
         </div>
         <div class="abt-card">
-          <h4>Industries Served</h4>
-          <ul>
-            <li>Legal, compliance & in-house counsel</li>
-            <li>Healthcare, pharma & clinical research</li>
-            <li>BFSI — banks, NBFCs, wealth management</li>
-            <li>Manufacturing & industrial operations</li>
-            <li>EdTech, SaaS & growth startups</li>
-            <li>Government, NGOs & social impact</li>
+          <h4>What Makes Us Different</h4>
+          <ul class="abt-list">
+            <li>Every system custom-built — no templates</li>
+            <li>We build for compliance from day one</li>
+            <li>On-premise option for sensitive data</li>
+            <li>You own the system — no vendor lock-in</li>
+            <li>Delivered in weeks, not months</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PRICING -->
-<section class="section alt-section" id="pricing">
-  <div class="section-inner">
-    <div class="eyebrow reveal">Investment</div>
-    <h2 class="section-title reveal">Transparent pricing</h2>
-    <p class="section-sub reveal">Starting ranges to help you plan. Every engagement begins with a free scoping call — no commitment required.</p>
-    <div class="pricing-grid">
-      <div class="price-card reveal">
-        <div class="price-tier-lbl">Starter</div>
-        <div class="price-num">₹25K</div>
-        <div class="price-range">– ₹75K &nbsp;·&nbsp; One-time &nbsp;·&nbsp; 2–3 weeks</div>
-        <p class="price-desc">One focused AI solution — a chatbot, document assistant, or a single workflow automation.</p>
-        <ul class="price-list">
-          <li><span class="chk">✓</span>Single AI chatbot or document tool</li>
-          <li><span class="chk">✓</span>Integration with 1–2 existing tools</li>
-          <li><span class="chk">✓</span>On-prem or cloud deployment</li>
-          <li><span class="chk">✓</span>1 month post-launch support</li>
-          <li><span class="chk">✓</span>Basic audit logging</li>
-        </ul>
-        <a href="mailto:hello@agentiveai.in?subject=Starter Inquiry" class="btn btn-outline" style="justify-content:center;font-size:0.82rem;">Book Discovery Call</a>
-        <div class="price-note">Good for: solo lawyers, small clinics, early-stage teams</div>
-      </div>
-      <div class="price-card featured reveal d1">
-        <div class="price-tier-lbl gold">Growth</div>
-        <div class="price-num">₹1L</div>
-        <div class="price-range">– ₹5L &nbsp;·&nbsp; One-time &nbsp;·&nbsp; 4–8 weeks</div>
-        <p class="price-desc">Multi-feature AI platform — document AI, chatbots, and workflows fully integrated into your business.</p>
-        <ul class="price-list">
-          <li><span class="chk">✓</span>Full document intelligence system</li>
-          <li><span class="chk">✓</span>Multi-user access + role controls</li>
-          <li><span class="chk">✓</span>CRM, ERP, or API integrations</li>
-          <li><span class="chk">✓</span>On-prem, cloud, or hybrid</li>
-          <li><span class="chk">✓</span>Full audit trail & compliance docs</li>
-          <li><span class="chk">✓</span>3 months support included</li>
-        </ul>
-        <a href="mailto:hello@agentiveai.in?subject=Growth Plan Inquiry" class="btn btn-amber" style="justify-content:center;font-size:0.82rem;">Get Free Automation Plan</a>
-        <div class="price-note">Good for: law firms, hospitals, consulting practices</div>
-      </div>
-      <div class="price-card reveal d2">
-        <div class="price-tier-lbl">Enterprise</div>
-        <div class="price-num" style="font-size:2.4rem;">Custom</div>
-        <div class="price-range">Annual retainer or project</div>
-        <p class="price-desc">Large-scale deployment with fine-tuned models, enterprise integrations, and dedicated support.</p>
-        <ul class="price-list">
-          <li><span class="chk">✓</span>Domain model fine-tuning</li>
-          <li><span class="chk">✓</span>Air-gap / offline deployment</li>
-          <li><span class="chk">✓</span>SharePoint, SAP, Salesforce, iManage</li>
-          <li><span class="chk">✓</span>HIPAA, GDPR, DPDP compliance docs</li>
-          <li><span class="chk">✓</span>Dedicated delivery team + SLA</li>
-        </ul>
-        <a href="mailto:hello@agentiveai.in?subject=Enterprise Inquiry" class="btn btn-outline" style="justify-content:center;font-size:0.82rem;">Contact for Scope</a>
-        <div class="price-note">Good for: enterprises, regulated orgs, 50+ users</div>
+        <div class="abt-card">
+          <h4>Integrations We Support</h4>
+          <ul class="abt-list">
+            <li>CRMs — Salesforce, Zoho, HubSpot</li>
+            <li>ERPs — SAP, Oracle, Tally</li>
+            <li>Productivity — SharePoint, Google Workspace</li>
+            <li>Email — Gmail, Outlook, Helpdesk tools</li>
+            <li>Cloud — AWS, Azure, GCP, on-prem Linux</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-dark" id="contact">
-  <div class="section-inner" style="text-align:center;">
-    <div class="eyebrow eyebrow-center reveal" style="color:rgba(212,134,42,0.65);">Get Started</div>
-    <h2 class="reveal">Ready to automate your<br/><em>most expensive manual work?</em></h2>
-    <p class="reveal">Book a free 30-minute AI audit. The Agentive AI team will map exactly where automation saves your business the most — no commitment required.</p>
-    <div class="cta-boxes reveal">
-      <a href="mailto:hello@agentiveai.in?subject=Free AI Audit Request" class="cta-box">
-        <div class="cta-box-label">Email</div>
-        <div class="cta-box-title">✉️ hello@agentiveai.in</div>
-        <div class="cta-box-sub">Reply within 4 hours</div>
-      </a>
-      <a href="https://wa.me/91XXXXXXXXXX" class="cta-box" target="_blank">
-        <div class="cta-box-label">WhatsApp</div>
-        <div class="cta-box-title">💬 Chat with the team</div>
-        <div class="cta-box-sub">Quickest response</div>
-      </a>
-      <a href="https://linkedin.com/company/agentive-ai" class="cta-box" target="_blank">
-        <div class="cta-box-label">LinkedIn</div>
-        <div class="cta-box-title">💼 Agentive AI</div>
-        <div class="cta-box-sub">Follow our work</div>
-      </a>
+<section class="section" id="contact" style="padding-top:0;">
+  <div class="section-inner">
+    <div class="cta-wrap reveal">
+      <h2>Ready to automate your<br/><em>most time-consuming manual work?</em></h2>
+      <p>Book a free 30-minute AI audit. We'll map exactly where automation can save your team the most time — no commitment required.</p>
+      <div class="cta-contacts">
+        <a href="mailto:hello@adaptiveminds.ai?subject=Free AI Audit Request" class="contact-pill">
+          <span class="cp-icon">✉️</span>
+          <div><div class="cp-label">Email us</div><div class="cp-value">hello@adaptiveminds.ai</div></div>
+        </a>
+        <a href="https://wa.me/91XXXXXXXXXX" class="contact-pill" target="_blank">
+          <span class="cp-icon">💬</span>
+          <div><div class="cp-label">WhatsApp</div><div class="cp-value">Chat with the team</div></div>
+        </a>
+        <a href="https://linkedin.com/company/adaptive-minds-ai" class="contact-pill" target="_blank">
+          <span class="cp-icon">💼</span>
+          <div><div class="cp-label">LinkedIn</div><div class="cp-value">Adaptive Minds</div></div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="section-inner">
+  <div class="footer-inner">
     <div class="footer-top">
       <div>
         <div class="footer-brand">
-          <div class="footer-brand-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <div class="footer-brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
           </div>
-          <span class="footer-brand-name">Agentive<span> AI</span></span>
+          <span class="footer-brand-name">Adaptive <span>Minds</span></span>
         </div>
         <p class="footer-desc">AI automation agency building intelligent systems that eliminate manual work, reduce operational costs, and scale businesses — across India and globally.</p>
       </div>
       <div class="footer-col">
         <h5>Services</h5>
-        <a href="#services">AI Chatbots</a>
-        <a href="#services">Document AI</a>
-        <a href="#services">Workflow Automation</a>
-        <a href="#services">Agentic Systems</a>
-        <a href="#models">Domain AI Models</a>
-      </div>
-      <div class="footer-col">
-        <h5>Industries</h5>
-        <a href="#usecases">Legal</a>
-        <a href="#usecases">Healthcare</a>
-        <a href="#usecases">BFSI</a>
-        <a href="#usecases">Manufacturing</a>
-        <a href="#usecases">EdTech</a>
+        <a href="#services">Stop Doing Repetitive Tasks Manually</a>
+        <a href="#services">24/7 AI Assistants</a>
+        <a href="#services">Ask Questions Across Your Documents</a>
+        <a href="#services">AI Built for Your Business</a>
+        <a href="#services">Connect AI to Your Existing Tools</a>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
-        <a href="#projects">Our Work</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#work">Our Work</a>
+        <a href="#process">Process</a>
         <a href="#about">About</a>
-        <a href="mailto:hello@agentiveai.in">Contact</a>
-        <a href="https://linkedin.com/company/agentive-ai" target="_blank">LinkedIn</a>
+        <a href="mailto:hello@adaptiveminds.ai">Contact</a>
+        <a href="https://linkedin.com/company/adaptive-minds-ai" target="_blank">LinkedIn</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Agentive AI. All rights reserved.</span>
+      <span>© 2026 Adaptive Minds. All rights reserved.</span>
       <span>On-premise · Cloud · Hybrid · India & Global</span>
     </div>
   </div>
 </footer>
 
 <script>
+// Scroll reveal
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.06 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Animated counters
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.floor(current) + suffix;
+  }, 16);
+}
+
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      counterObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.counter-num[data-target]').forEach(el => counterObs.observe(el));
 </script>
 </body>
 </html>
