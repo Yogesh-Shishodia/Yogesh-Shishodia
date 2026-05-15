@@ -90,13 +90,40 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .dark-bg .section-sub{color:rgba(255,255,255,0.45);}
 .alt-bg{background:var(--bg2);}
 
-/* SERVICES */
-.services-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);border-radius:16px;overflow:hidden;}
-.svc{background:var(--navy2);padding:1.8rem 1.5rem;transition:background 0.22s;}
-.svc:hover{background:#1d2d42;}
-.svc-icon{font-size:1.6rem;margin-bottom:0.9rem;display:block;line-height:1;}
-.svc h3{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:#fff;margin-bottom:0.4rem;line-height:1.25;letter-spacing:-0.01em;}
-.svc p{font-size:0.76rem;color:rgba(255,255,255,0.38);line-height:1.6;}
+/* SERVICES — Bento Grid */
+#services{position:relative;overflow:hidden;}
+#services::before{content:'';position:absolute;top:-200px;left:-200px;width:650px;height:650px;background:radial-gradient(circle,rgba(33,70,240,0.13) 0%,transparent 65%);pointer-events:none;z-index:0;}
+#services::after{content:'';position:absolute;bottom:-100px;right:-150px;width:550px;height:550px;background:radial-gradient(circle,rgba(201,148,58,0.09) 0%,transparent 65%);pointer-events:none;z-index:0;}
+#services .section-inner{position:relative;z-index:1;}
+
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.08);border-radius:22px;overflow:hidden;}
+
+/* Bento spans: items 1,5,9 are wide (2col) */
+.svc:nth-child(1){grid-column:span 2;}
+.svc:nth-child(5){grid-column:span 2;}
+.svc:nth-child(9){grid-column:span 2;}
+
+.svc{background:#0d1a2b;padding:2.5rem 2.2rem;transition:background 0.3s;position:relative;overflow:hidden;cursor:default;}
+.svc:hover{background:#11223a;}
+
+/* Ghost watermark number */
+.svc::after{content:attr(data-num);position:absolute;bottom:-1.2rem;right:1.2rem;font-family:'Cormorant Garamond',serif;font-size:7.5rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.035);line-height:1;pointer-events:none;user-select:none;}
+
+/* Glowing icon box — blue variant */
+.svc-icon-box{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.3rem;background:rgba(33,70,240,0.1);border:1px solid rgba(33,70,240,0.22);transition:box-shadow 0.3s,background 0.3s;flex-shrink:0;}
+.svc:hover .svc-icon-box{background:rgba(33,70,240,0.18);box-shadow:0 0 28px rgba(33,70,240,0.32);}
+
+/* Gold variant for alternating cards */
+.svc:nth-child(3) .svc-icon-box,.svc:nth-child(5) .svc-icon-box,.svc:nth-child(7) .svc-icon-box,.svc:nth-child(9) .svc-icon-box{background:rgba(201,148,58,0.08);border-color:rgba(201,148,58,0.25);}
+.svc:nth-child(3):hover .svc-icon-box,.svc:nth-child(5):hover .svc-icon-box,.svc:nth-child(7):hover .svc-icon-box,.svc:nth-child(9):hover .svc-icon-box{background:rgba(201,148,58,0.15);box-shadow:0 0 28px rgba(201,148,58,0.28);}
+
+.svc-category{font-size:0.57rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:0.5rem;display:block;}
+.svc h3{font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-weight:500;color:#fff;margin-bottom:0.6rem;line-height:1.15;letter-spacing:-0.01em;}
+/* Wide cards get a bigger, more editorial title */
+.svc:nth-child(1) h3,.svc:nth-child(5) h3,.svc:nth-child(9) h3{font-size:1.6rem;}
+.svc p{font-size:0.8rem;color:rgba(255,255,255,0.38);line-height:1.7;margin-bottom:0.85rem;}
+.svc-eg{font-size:0.71rem;color:rgba(255,255,255,0.2);line-height:1.55;font-style:italic;padding-top:0.85rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:0.45rem;align-items:flex-start;}
+.svc-eg::before{content:'→';color:rgba(201,148,58,0.55);font-style:normal;flex-shrink:0;}
 
 /* WHO WE WORK WITH — slim strip */
 .who-strip{padding:2.5rem 5%;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -255,7 +282,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 
 /* RESPONSIVE */
 @media(max-width:1100px){
-  .services-grid{grid-template-columns:repeat(3,1fr);}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .svc:nth-child(1),.svc:nth-child(5),.svc:nth-child(9){grid-column:span 2;}
   .hero-inner{grid-template-columns:1fr;}
   .hero::before{display:none;}
   .hero-right{background:var(--navy);border-color:rgba(255,255,255,0.1);}
@@ -265,7 +293,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   .about-grid{grid-template-columns:1fr;}
 }
 @media(max-width:768px){
-  .services-grid{grid-template-columns:1fr 1fr;}
+  .services-grid{grid-template-columns:1fr;}
+  .svc:nth-child(1),.svc:nth-child(5),.svc:nth-child(9){grid-column:span 1;}
   .deploy-grid,.process-grid,.trust-boxes{grid-template-columns:1fr;}
   .nav-links a:not(.nav-cta){display:none;}
   .footer-top{grid-template-columns:1fr;}
@@ -315,18 +344,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-right-label">What our systems deliver</div>
+      <div class="hero-right-label">Why businesses work with us</div>
       <div class="hero-metric">
-        <div class="hm-num">80<span>%</span></div>
-        <div class="hm-info"><div class="hm-label">Reduction in manual processing time</div><div class="hm-sub">Avg. across deployed systems</div></div>
+        <div class="hm-num">20<span>+</span></div>
+        <div class="hm-info"><div class="hm-label">AI projects designed & delivered</div><div class="hm-sub">Across India and globally</div></div>
       </div>
       <div class="hero-metric">
-        <div class="hm-num">5+</div>
-        <div class="hm-info"><div class="hm-label">Industries automated</div><div class="hm-sub">Legal, HR, Finance, Sales, Ops</div></div>
+        <div class="hm-num">5<span>+</span></div>
+        <div class="hm-info"><div class="hm-label">Industries automated</div><div class="hm-sub">Legal, HR, Finance, Sales, Operations</div></div>
       </div>
       <div class="hero-metric">
-        <div class="hm-num">2–8</div>
-        <div class="hm-info"><div class="hm-label">Weeks to go live</div><div class="hm-sub">From scoping call to deployment</div></div>
+        <div class="hm-num">100<span>%</span></div>
+        <div class="hm-info"><div class="hm-label">Custom-built — no templates</div><div class="hm-sub">Every system built for your workflow</div></div>
       </div>
       <div class="hero-right-foot">
         <span class="hero-badge">HIPAA Ready</span>
@@ -360,11 +389,6 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       Custom-built — not off-the-shelf tools
     </div>
-    <div class="trust-sep"></div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Delivered in 2–8 weeks
-    </div>
   </div>
 </div>
 
@@ -373,24 +397,24 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   <div class="counters-inner">
     <div class="counters-row">
       <div class="counter-box">
-        <span class="counter-num" data-target="80" data-suffix="%">0</span>
-        <div class="counter-label">Reduction in manual work</div>
-        <div class="counter-sub">Average across all deployed systems</div>
+        <span class="counter-num" data-target="20" data-suffix="+">0</span>
+        <div class="counter-label">AI Projects Delivered</div>
+        <div class="counter-sub">Across India and global clients</div>
       </div>
       <div class="counter-box">
-        <span class="counter-num" data-target="10" data-suffix="+">0</span>
-        <div class="counter-label">AI systems shipped</div>
-        <div class="counter-sub">Across 5+ industries globally</div>
+        <span class="counter-num" data-target="5" data-suffix="+">0</span>
+        <div class="counter-label">Industries Served</div>
+        <div class="counter-sub">Legal, HR, Finance, Sales, Operations</div>
       </div>
       <div class="counter-box">
-        <span class="counter-num" data-target="5" data-suffix="min">0</span>
-        <div class="counter-label">Average time to first answer</div>
-        <div class="counter-sub">Tasks that used to take hours</div>
+        <span class="counter-num" data-target="100" data-suffix="%">0</span>
+        <div class="counter-label">Custom-Built Systems</div>
+        <div class="counter-sub">No templates, no shortcuts</div>
       </div>
       <div class="counter-box">
-        <span class="counter-num" data-target="8" data-suffix="wk">0</span>
-        <div class="counter-label">Maximum time to go live</div>
-        <div class="counter-sub">From first call to deployed system</div>
+        <span class="counter-num" data-target="3" data-suffix="">0</span>
+        <div class="counter-label">Deployment Modes</div>
+        <div class="counter-sub">On-Premise · Cloud · Hybrid</div>
       </div>
     </div>
   </div>
@@ -404,74 +428,76 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     <p class="section-sub reveal">Every service solves a specific business problem. If your team is spending time on it manually, AI can probably handle it.</p>
     <div class="services-grid reveal">
 
-      <div class="svc">
-        <span class="svc-icon">⚙️</span>
-        <h3>Stop Doing Repetitive Tasks Manually</h3>
-        <p>We automate the workflows your team does the same way, every day — approvals, reports, data entry, notifications.</p>
-        <p class="svc-eg">e.g. Invoice approval that used to take 2 days now runs in 10 minutes without anyone touching it.</p>
+      <div class="svc" data-num="01">
+        <div class="svc-icon-box">⚙️</div>
+        <span class="svc-category">Workflow Automation</span>
+        <h3>Eliminate Repetitive Manual Tasks</h3>
+        <p>We map the workflows your team repeats daily — approvals, data entry, notifications, report generation — and automate them end-to-end.</p>
+        <p class="svc-eg">Invoice approval that once consumed two days of back-and-forth now runs in minutes, untouched.</p>
       </div>
 
-      <div class="svc">
-        <span class="svc-icon">🤖</span>
-        <h3>A 24/7 Assistant That Handles Questions Instantly</h3>
-        <p>An AI assistant trained on your data — answers customer or employee questions any time of day, on WhatsApp, your website, or Slack.</p>
-        <p class="svc-eg">e.g. A customer asks "where is my order?" at 2am. The AI answers correctly — no human needed.</p>
+      <div class="svc" data-num="02">
+        <div class="svc-icon-box">🤖</div>
+        <span class="svc-category">AI Assistants & Chatbots</span>
+        <h3>Intelligent Assistants, Available 24/7</h3>
+        <p>Deploy AI assistants trained on your data — answering customer and employee queries across WhatsApp, your website, or Slack at any hour.</p>
+        <p class="svc-eg">Customer queries answered at 2am, accurately and instantly, with no human intervention needed.</p>
       </div>
 
-      <div class="svc">
-        <span class="svc-icon">🧠</span>
-        <h3>AI That Works on Its Own — Like a Digital Employee</h3>
-        <p>AI agents that handle entire tasks from start to finish — researching, deciding, and acting — without waiting for someone to click a button.</p>
-        <p class="svc-eg">e.g. A new lead comes in. AI researches them, scores them, and drafts a personalised email — ready to send in minutes.</p>
+      <div class="svc" data-num="03">
+        <div class="svc-icon-box">🧠</div>
+        <span class="svc-category">Autonomous AI Agents</span>
+        <h3>AI That Thinks, Decides & Acts</h3>
+        <p>Agents that handle complete multi-step tasks independently — researching, reasoning, and taking action — without waiting for a human trigger.</p>
+        <p class="svc-eg">A new lead arrives. The agent researches, scores, and drafts a tailored outreach — ready before you open your inbox.</p>
       </div>
 
-      <div class="svc">
-        <span class="svc-icon">📚</span>
-        <h3>Ask Questions Across All Your Documents</h3>
-        <p>Upload any document — contracts, manuals, reports — and ask questions in plain English. Get accurate answers with the exact source cited.</p>
-        <p class="svc-eg">e.g. "What are the penalty clauses in this contract?" answered in seconds instead of reading 80 pages.</p>
+      <div class="svc" data-num="04">
+        <div class="svc-icon-box">📚</div>
+        <span class="svc-category">Document Intelligence</span>
+        <h3>Query Any Document in Plain Language</h3>
+        <p>Upload contracts, manuals, reports, or policies and ask questions in plain English. Every answer is cited with the exact source and page number.</p>
+        <p class="svc-eg">"What are the penalty clauses in this contract?" — answered in seconds, with the clause highlighted.</p>
       </div>
 
-      <div class="svc">
-        <span class="svc-icon">📄</span>
-        <h3>Pull Data from Any Document Automatically</h3>
-        <p>AI reads PDFs, forms, scanned documents, and invoices and extracts the exact data you need — structured, accurate, ready to use.</p>
-        <p class="svc-eg">e.g. 500 supplier invoices processed and entered into your system overnight, without a single person typing.</p>
+      <div class="svc" data-num="05">
+        <div class="svc-icon-box">📄</div>
+        <span class="svc-category">Intelligent Data Extraction</span>
+        <h3>Structured Data from Any Document</h3>
+        <p>AI reads PDFs, scanned forms, invoices, and handwritten documents — extracting the exact fields you need, structured and ready to use.</p>
+        <p class="svc-eg">Hundreds of supplier invoices processed overnight, data entered into your system without a single keystroke.</p>
       </div>
 
-      <div class="svc">
-        <span class="svc-icon">🔗</span>
-        <h3>Connect AI to the Tools You Already Use</h3>
-        <p>We plug AI into your existing software — CRM, ERP, email, spreadsheets — so it fits your workflow instead of replacing it.</p>
-        <p class="svc-eg">e.g. AI updates your CRM automatically after every sales call, saving your team 30 minutes per meeting.</p>
+      <div class="svc" data-num="06">
+        <div class="svc-icon-box">🔗</div>
+        <span class="svc-category">System Integration</span>
+        <h3>AI That Plugs Into Your Existing Stack</h3>
+        <p>We connect AI to the tools you already use — CRM, ERP, email, spreadsheets — so it fits your workflow rather than disrupting it.</p>
+        <p class="svc-eg">Your CRM updated automatically after every sales call, without your team touching it.</p>
       </div>
 
-      <div class="svc">
-        <span class="svc-icon">📊</span>
-        <h3>Turn Your Business Data into Clear Decisions</h3>
-        <p>Stop spending hours in spreadsheets. AI analyses your data and surfaces the insights that actually matter — in plain language.</p>
-        <p class="svc-eg">e.g. "Which customers are most likely to churn this quarter?" answered from your own data, automatically.</p>
+      <div class="svc" data-num="07">
+        <div class="svc-icon-box">📊</div>
+        <span class="svc-category">Business Intelligence</span>
+        <h3>Turn Business Data into Clear Decisions</h3>
+        <p>AI that analyses your operational data and surfaces the insights that matter — in plain language, not dashboards you have to interpret.</p>
+        <p class="svc-eg">"Which customers are most likely to churn this quarter?" — answered from your own data, automatically.</p>
       </div>
 
-      <div class="svc">
-        <span class="svc-icon">✍️</span>
-        <h3>Write Emails, Blogs & Marketing Content at Scale</h3>
-        <p>AI that writes in your brand's voice — product descriptions, email campaigns, social posts, and articles — consistently and instantly.</p>
-        <p class="svc-eg">e.g. 200 product descriptions written overnight in your tone, ready to publish — not a single human hour spent.</p>
+      <div class="svc" data-num="08">
+        <div class="svc-icon-box">✍️</div>
+        <span class="svc-category">Content Automation</span>
+        <h3>Consistent Content, Generated at Scale</h3>
+        <p>AI that writes in your brand's voice — product descriptions, email campaigns, social content, and articles — accurately and efficiently.</p>
+        <p class="svc-eg">Product catalogue updated with consistent, on-brand descriptions across every SKU — overnight.</p>
       </div>
 
-      <div class="svc">
-        <span class="svc-icon">📈</span>
-        <h3>Find, Qualify & Follow Up with Leads Automatically</h3>
-        <p>AI that handles your sales pipeline — identifying the right leads, reaching out at the right time, and following up until they respond.</p>
-        <p class="svc-eg">e.g. Your sales team wakes up to 10 warm leads already researched, scored, and ready to call.</p>
-      </div>
-
-      <div class="svc">
-        <span class="svc-icon">🎯</span>
-        <h3>AI Built Specifically for Your Business</h3>
-        <p>When off-the-shelf AI doesn't understand your industry, your terms, or your workflows — we build one that does.</p>
-        <p class="svc-eg">e.g. A legal AI that knows your firm's templates and contract style, not just generic legal language.</p>
+      <div class="svc" data-num="09">
+        <div class="svc-icon-box">🎯</div>
+        <span class="svc-category">Custom AI Development</span>
+        <h3>AI Built for Your Industry & Workflows</h3>
+        <p>When generic AI doesn't understand your domain, terminology, or processes — we build a model that does, trained on your data and requirements.</p>
+        <p class="svc-eg">A legal AI that knows your firm's contract templates and precedents, not just generic legal language.</p>
       </div>
 
     </div>
@@ -499,8 +525,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 <section class="section alt-bg" id="work">
   <div class="section-inner">
     <div class="eyebrow reveal">Our Work</div>
-    <h2 class="section-title reveal">Built. Deployed. Proven.</h2>
-    <p class="section-sub reveal">Every project starts with a business problem and ends with measurable results. Here's what we've shipped.</p>
+    <h2 class="section-title reveal">Built. Deployed. <em>Proven.</em></h2>
+    <p class="section-sub reveal">A selection of AI systems we have designed and delivered for clients across industries. Every project starts with a specific business problem and ends with a working system.</p>
 
     <div class="projects-stack">
 
@@ -509,7 +535,6 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
         <div>
           <div class="proj-header">
             <div class="proj-icon-box pib-dark">🔍</div>
-            <span class="proj-badge badge-live">● Live</span>
           </div>
           <div class="proj-category">Document Intelligence · Privacy</div>
           <h3>DocuAgent AI</h3>
@@ -528,23 +553,23 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
         </div>
         <div>
           <div class="proj-outcomes dark-outcomes">
-            <div class="proj-outcomes-lbl">Business Outcomes</div>
+            <div class="proj-outcomes-lbl">What This System Does</div>
             <ul>
-              <li>Document review time: 3 hours → 5 minutes</li>
-              <li>Zero cloud exposure — data never leaves the network</li>
-              <li>Full audit trail for HIPAA, GDPR, and SEC compliance</li>
-              <li>Handles contracts, patient records, and sensitive docs</li>
-              <li>Works across PDF, DOCX, XLSX, PPTX, and more</li>
+              <li>Instantly query any document in plain English — contracts, reports, records</li>
+              <li>Zero cloud exposure — all data stays on your network</li>
+              <li>Full audit trail for HIPAA, GDPR, and DPDP compliance</li>
+              <li>Every answer cited with exact source, page, and section</li>
+              <li>Supports PDF, DOCX, XLSX, PPTX, and scanned documents</li>
             </ul>
           </div>
           <div class="proj-metrics">
             <div class="proj-metric-box">
-              <div class="pmb-num">96<span style="font-size:1rem;color:var(--gold);">%</span></div>
-              <div class="pmb-label">Every answer shows exactly where it came from</div>
+              <div class="pmb-num">12<span style="font-size:1rem;color:var(--gold);">+</span></div>
+              <div class="pmb-label">Supported document formats</div>
             </div>
             <div class="proj-metric-box">
-              <div class="pmb-num">12<span style="font-size:1rem;color:var(--gold);">+</span></div>
-              <div class="pmb-label">Supported file formats</div>
+              <div class="pmb-num">100<span style="font-size:1rem;color:var(--gold);">%</span></div>
+              <div class="pmb-label">On-premise — data never leaves your network</div>
             </div>
           </div>
         </div>
@@ -554,19 +579,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <div class="proj-card accent-card reveal">
         <div class="proj-header">
           <div class="proj-icon-box pib-blue">📬</div>
-          <span class="proj-badge badge-live">● Live</span>
         </div>
         <div class="proj-category">Email Management · AI Automation</div>
         <h3>InboxIQ</h3>
         <p class="proj-tagline">AI email management and smart reply system</p>
         <p class="proj-desc">InboxIQ brings AI directly into your inbox — reading, categorising, and drafting context-aware replies to incoming emails so your team spends less time writing and more time doing. It learns your communication style, understands email intent, and generates replies that sound like you wrote them.</p>
         <div class="proj-outcomes">
-          <div class="proj-outcomes-lbl">Business Outcomes</div>
+          <div class="proj-outcomes-lbl">What This System Does</div>
           <ul>
-            <li>Email reply time cut from hours to under 5 minutes</li>
-            <li>AI-drafted replies ready before you open the email</li>
-            <li>Automatically categorises and prioritises incoming mail</li>
-            <li>Works with Gmail and Outlook — no new tools to learn</li>
+            <li>Reads, categorises, and prioritises incoming email automatically</li>
+            <li>Drafts context-aware replies in your communication style</li>
+            <li>Learns from your inbox — improves with every interaction</li>
+            <li>Works directly with Gmail and Outlook — no new tools needed</li>
           </ul>
         </div>
         <div class="proj-tags">
@@ -580,20 +604,6 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
         </div>
       </div>
 
-      <!-- Coming Soon Strip -->
-      <div class="coming-soon-strip reveal">
-        <div class="cs-left">
-          <div>
-            <div class="cs-label">In development</div>
-            <div class="cs-projects">
-              <span class="cs-pill">👥 HRFlow AI — HR Operations Automation</span>
-              <span class="cs-pill">📈 LeadFlow AI — Sales & Lead Qualification</span>
-            </div>
-          </div>
-        </div>
-        <div class="cs-right">Interested in early access? <a href="#contact" style="color:var(--blue);font-weight:600;text-decoration:none;">Get in touch →</a></div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -604,8 +614,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 <section class="section" id="process">
   <div class="section-inner">
     <div class="eyebrow reveal">How We Work</div>
-    <h2 class="section-title reveal">From first call to<br/>live system in weeks</h2>
-    <p class="section-sub reveal">No months-long projects. No endless scoping. A focused four-step process that gets your AI system running fast.</p>
+    <h2 class="section-title reveal">A focused process,<br/>built around your business</h2>
+    <p class="section-sub reveal">We keep things simple and transparent. Four clear stages — from understanding your problem to deploying a working system.</p>
     <div class="process-grid">
       <div class="process-step reveal" data-num="1">
         <span class="process-icon">🔍</span>
@@ -690,15 +700,15 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
           We automate the work<br/>your team
           <em> shouldn't be doing</em>
         </h2>
-        <p class="about-body">Adaptive Minds is an AI automation agency that designs, builds, and deploys intelligent systems for businesses across India and globally. Our focus is on practical, high-impact automation — systems that cut real costs, remove real bottlenecks, and scale real teams.</p>
-        <p class="about-body">Unlike generic AI tool vendors, every system we build is custom to your workflow, your data, and your compliance requirements. We don't sell templates — we solve specific business problems with AI.</p>
+        <p class="about-body">Adaptive Minds is an AI automation agency founded by <strong>Yogesh Shishodia</strong> — an AI engineer and builder who has designed and delivered over 20 AI projects for businesses across India and globally. Our focus is practical, high-impact automation: systems that solve real business problems, remove genuine bottlenecks, and scale real teams.</p>
+        <p class="about-body">We don't sell platforms or generic tools. Every system we build is custom to your workflow, your data, and your compliance requirements — because no two businesses have the same problems.</p>
         <div style="margin-top:2rem;">
-          <a href="#contact" class="btn btn-navy">Talk to Our Team →</a>
+          <a href="#contact" class="btn btn-navy">Talk to Us →</a>
         </div>
         <div class="trust-boxes">
-          <div class="trust-box"><div class="trust-box-num">5+</div><div class="trust-box-label">Years in AI & automation</div></div>
-          <div class="trust-box"><div class="trust-box-num">10+</div><div class="trust-box-label">Systems built & deployed</div></div>
-          <div class="trust-box"><div class="trust-box-num">80%</div><div class="trust-box-label">Avg. ops time reduction</div></div>
+          <div class="trust-box"><div class="trust-box-num">20+</div><div class="trust-box-label">AI projects designed & delivered</div></div>
+          <div class="trust-box"><div class="trust-box-num">5+</div><div class="trust-box-label">Industries served globally</div></div>
+          <div class="trust-box"><div class="trust-box-num">100%</div><div class="trust-box-label">Custom-built, no templates</div></div>
           <div class="trust-box"><div class="trust-box-num">3</div><div class="trust-box-label">Deployment modes available</div></div>
         </div>
       </div>
@@ -746,13 +756,13 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <h2>Ready to automate your<br/><em>most time-consuming manual work?</em></h2>
       <p>Book a free 30-minute AI audit. We'll map exactly where automation can save your team the most time — no commitment required.</p>
       <div class="cta-contacts">
-        <a href="mailto:hello@adaptiveminds.ai?subject=Free AI Audit Request" class="contact-pill">
+        <a href="mailto:shishodia.yogesh14@gmail.com?subject=AI Automation Enquiry" class="contact-pill">
           <span class="cp-icon">✉️</span>
-          <div><div class="cp-label">Email us</div><div class="cp-value">hello@adaptiveminds.ai</div></div>
+          <div><div class="cp-label">Email us</div><div class="cp-value">shishodia.yogesh14@gmail.com</div></div>
         </a>
-        <a href="https://wa.me/91XXXXXXXXXX" class="contact-pill" target="_blank">
+        <a href="https://wa.me/918130247554" class="contact-pill" target="_blank">
           <span class="cp-icon">💬</span>
-          <div><div class="cp-label">WhatsApp</div><div class="cp-value">Chat with the team</div></div>
+          <div><div class="cp-label">WhatsApp</div><div class="cp-value">+91 81302 47554</div></div>
         </a>
         <a href="https://linkedin.com/company/adaptive-minds-ai" class="contact-pill" target="_blank">
           <span class="cp-icon">💼</span>
@@ -789,7 +799,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
         <a href="#work">Our Work</a>
         <a href="#process">Process</a>
         <a href="#about">About</a>
-        <a href="mailto:hello@adaptiveminds.ai">Contact</a>
+        <a href="mailto:shishodia.yogesh14@gmail.com">Contact</a>
         <a href="https://linkedin.com/company/adaptive-minds-ai" target="_blank">LinkedIn</a>
       </div>
     </div>
