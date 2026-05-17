@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Adaptive Minds — AI Automation Agency | India</title>
+<title>Adaptive Minds AI — AI Automation Agency | India</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -45,7 +45,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold-line);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
 .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse2 2s infinite;}
 @keyframes pulse2{0%,100%{opacity:1;}50%{opacity:0.3;}}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5.5vw,5rem);font-weight:500;line-height:1.04;letter-spacing:-0.025em;margin-bottom:1.6rem;animation:fadeUp 0.9s 0.08s ease both;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5.5vw,5rem);font-weight:500;line-height:1.04;letter-spacing:-0.025em;margin-bottom:1.6rem;animation:fadeUp 0.9s 0.08s ease both;}
 .hero h1 em{font-style:italic;color:var(--text-dim);}
 .hero-sub{font-size:1rem;color:var(--text-dim);line-height:1.75;max-width:480px;margin-bottom:2.5rem;font-weight:400;animation:fadeUp 0.9s 0.14s ease both;}
 .hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fadeUp 0.9s 0.2s ease both;}
@@ -62,7 +62,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .hero-right-label{font-size:0.63rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.2rem;}
 .hero-metric{display:flex;align-items:flex-end;gap:0.8rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
 .hero-metric:last-of-type{border-bottom:none;}
-.hm-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:400;color:#fff;line-height:1;}
+.hm-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:400;color:#fff;line-height:1;flex-shrink:0;}
 .hm-num span{color:var(--gold);font-size:1.1rem;}
 .hm-label{font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.7);line-height:1.3;}
 .hm-sub{font-size:0.67rem;color:rgba(255,255,255,0.3);margin-top:0.15rem;}
@@ -71,7 +71,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 
 /* TRUST BAR */
 .trust-bar{background:var(--navy);padding:1.3rem 5%;}
-.trust-bar-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;justify-content:center;}
+.trust-bar-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:center;}
 .trust-item{display:flex;align-items:center;gap:0.5rem;font-size:0.77rem;font-weight:500;color:rgba(255,255,255,0.42);white-space:nowrap;}
 .trust-item svg{width:13px;height:13px;opacity:0.45;}
 .trust-sep{width:1px;height:16px;background:rgba(255,255,255,0.1);}
@@ -90,21 +90,46 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .dark-bg .section-sub{color:rgba(255,255,255,0.45);}
 .alt-bg{background:var(--bg2);}
 
-/* SERVICES — Bento Grid */
+/* =====================================================
+   SERVICES — Horizontal Carousel
+   ===================================================== */
 #services{position:relative;overflow:hidden;}
 #services::before{content:'';position:absolute;top:-200px;left:-200px;width:650px;height:650px;background:radial-gradient(circle,rgba(33,70,240,0.13) 0%,transparent 65%);pointer-events:none;z-index:0;}
 #services::after{content:'';position:absolute;bottom:-100px;right:-150px;width:550px;height:550px;background:radial-gradient(circle,rgba(201,148,58,0.09) 0%,transparent 65%);pointer-events:none;z-index:0;}
 #services .section-inner{position:relative;z-index:1;}
 
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.08);border-radius:22px;overflow:hidden;}
+/* Header row with nav arrows */
+.services-header{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.services-header-left{}
+.services-nav{display:flex;align-items:center;gap:0.6rem;flex-shrink:0;}
+.svc-nav-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.7);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+.svc-nav-btn:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.3);color:#fff;}
+.svc-nav-btn:disabled{opacity:0.3;cursor:default;}
+.svc-nav-btn svg{width:18px;height:18px;}
+.svc-counter{font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.05em;white-space:nowrap;}
 
-/* Bento spans: items 1,5,9 are wide (2col) */
-.svc:nth-child(1){grid-column:span 2;}
-.svc:nth-child(5){grid-column:span 2;}
-.svc:nth-child(9){grid-column:span 2;}
+/* Carousel track */
+.services-carousel-wrap{position:relative;overflow:hidden;border-radius:20px;}
+/* Fade edges */
+.services-carousel-wrap::before,.services-carousel-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:10;pointer-events:none;}
+.services-carousel-wrap::before{left:0;background:linear-gradient(to right,var(--navy),transparent);}
+.services-carousel-wrap::after{right:0;background:linear-gradient(to left,var(--navy),transparent);}
 
-.svc{background:#0d1a2b;padding:2.5rem 2.2rem;transition:background 0.3s;position:relative;overflow:hidden;cursor:default;}
-.svc:hover{background:#11223a;}
+.services-track{display:flex;gap:1.2rem;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1);will-change:transform;padding:0.5rem 0;}
+
+.svc{
+  background:#0d1a2b;
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:18px;
+  padding:2.5rem 2.2rem;
+  position:relative;
+  overflow:hidden;
+  cursor:default;
+  flex:0 0 calc(33.333% - 0.8rem);
+  min-width:280px;
+  transition:background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.svc:hover{background:#11223a;transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.3);}
 
 /* Ghost watermark number */
 .svc::after{content:attr(data-num);position:absolute;bottom:-1.2rem;right:1.2rem;font-family:'Cormorant Garamond',serif;font-size:7.5rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.035);line-height:1;pointer-events:none;user-select:none;}
@@ -114,16 +139,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .svc:hover .svc-icon-box{background:rgba(33,70,240,0.18);box-shadow:0 0 28px rgba(33,70,240,0.32);}
 
 /* Gold variant for alternating cards */
-.svc:nth-child(3) .svc-icon-box,.svc:nth-child(5) .svc-icon-box,.svc:nth-child(7) .svc-icon-box,.svc:nth-child(9) .svc-icon-box{background:rgba(201,148,58,0.08);border-color:rgba(201,148,58,0.25);}
-.svc:nth-child(3):hover .svc-icon-box,.svc:nth-child(5):hover .svc-icon-box,.svc:nth-child(7):hover .svc-icon-box,.svc:nth-child(9):hover .svc-icon-box{background:rgba(201,148,58,0.15);box-shadow:0 0 28px rgba(201,148,58,0.28);}
+.svc:nth-child(even) .svc-icon-box{background:rgba(201,148,58,0.08);border-color:rgba(201,148,58,0.25);}
+.svc:nth-child(even):hover .svc-icon-box{background:rgba(201,148,58,0.15);box-shadow:0 0 28px rgba(201,148,58,0.28);}
 
 .svc-category{font-size:0.57rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:0.5rem;display:block;}
 .svc h3{font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-weight:500;color:#fff;margin-bottom:0.6rem;line-height:1.15;letter-spacing:-0.01em;}
-/* Wide cards get a bigger, more editorial title */
-.svc:nth-child(1) h3,.svc:nth-child(5) h3,.svc:nth-child(9) h3{font-size:1.6rem;}
 .svc p{font-size:0.8rem;color:rgba(255,255,255,0.38);line-height:1.7;margin-bottom:0.85rem;}
 .svc-eg{font-size:0.71rem;color:rgba(255,255,255,0.2);line-height:1.55;font-style:italic;padding-top:0.85rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:0.45rem;align-items:flex-start;}
 .svc-eg::before{content:'→';color:rgba(201,148,58,0.55);font-style:normal;flex-shrink:0;}
+
+/* Dots pagination */
+.svc-dots{display:flex;align-items:center;gap:0.4rem;justify-content:center;margin-top:1.8rem;}
+.svc-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);transition:all 0.3s;cursor:pointer;}
+.svc-dot.active{width:20px;border-radius:3px;background:var(--gold);}
 
 /* WHO WE WORK WITH — slim strip */
 .who-strip{padding:2.5rem 5%;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -141,7 +169,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .process-icon{font-size:1.8rem;margin-bottom:1.1rem;display:block;}
 .process-step h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;margin-bottom:0.5rem;letter-spacing:-0.01em;}
 .process-step p{font-size:0.81rem;color:var(--text-dim);line-height:1.65;}
-.process-connector{display:none;}
 
 /* PROJECTS */
 .projects-stack{display:flex;flex-direction:column;gap:1.4rem;}
@@ -184,14 +211,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .proj-cta:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
 .proj-cta.white-cta{color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.18);}
 .proj-cta.white-cta:hover{background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.3);}
-
-/* coming soon strip */
-.coming-soon-strip{border:1.5px dashed var(--border2);border-radius:14px;padding:1.8rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
-.cs-left{display:flex;align-items:center;gap:1.2rem;}
-.cs-label{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.3rem;}
-.cs-projects{display:flex;gap:0.6rem;flex-wrap:wrap;}
-.cs-pill{font-size:0.78rem;font-weight:600;color:var(--text-dim);background:var(--surface);border:1px solid var(--border);padding:0.3rem 0.8rem;border-radius:999px;}
-.cs-right{font-size:0.8rem;color:var(--text-faint);}
 
 /* proj right panel metrics */
 .proj-metrics{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1.5rem;}
@@ -256,12 +275,9 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 .footer-col h5{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1rem;}
 .footer-col a{display:block;font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;margin-bottom:0.55rem;transition:color 0.2s;}
 .footer-col a:hover{color:rgba(255,255,255,0.75);}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:0.5rem;}
 .footer-bottom span{font-size:0.73rem;color:rgba(255,255,255,0.22);}
 .divider{height:1px;background:var(--border);}
-
-/* svc example line */
-.svc-eg{font-size:0.7rem;color:rgba(255,255,255,0.28);line-height:1.5;margin-top:0.6rem;font-style:italic;border-top:1px solid rgba(255,255,255,0.06);padding-top:0.6rem;}
 
 /* animated counters */
 .counters-section{padding:5rem 5%;background:var(--bg);}
@@ -280,10 +296,12 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 .reveal.visible{opacity:1;transform:translateY(0);}
 .d1{transition-delay:0.07s;}.d2{transition-delay:0.14s;}.d3{transition-delay:0.21s;}.d4{transition-delay:0.28s;}
 
-/* RESPONSIVE */
+/* =====================================================
+   RESPONSIVE — Mobile First Fixes
+   ===================================================== */
+
+/* Tablet */
 @media(max-width:1100px){
-  .services-grid{grid-template-columns:repeat(2,1fr);}
-  .svc:nth-child(1),.svc:nth-child(5),.svc:nth-child(9){grid-column:span 2;}
   .hero-inner{grid-template-columns:1fr;}
   .hero::before{display:none;}
   .hero-right{background:var(--navy);border-color:rgba(255,255,255,0.1);}
@@ -291,15 +309,272 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   .process-grid{grid-template-columns:1fr 1fr;}
   .footer-top{grid-template-columns:1fr 1fr;}
   .about-grid{grid-template-columns:1fr;}
+  /* Carousel: show 2 cards on tablet */
+  .svc{flex:0 0 calc(50% - 0.6rem);}
 }
+
+/* Mobile */
 @media(max-width:768px){
-  .services-grid{grid-template-columns:1fr;}
-  .svc:nth-child(1),.svc:nth-child(5),.svc:nth-child(9){grid-column:span 1;}
-  .deploy-grid,.process-grid,.trust-boxes{grid-template-columns:1fr;}
+  /* Nav */
   .nav-links a:not(.nav-cta){display:none;}
+
+  /* Hero */
+  .hero{padding:80px 5% 50px;}
+  .hero h1{font-size:clamp(2.2rem,9vw,3rem);}
+  .hero-sub{font-size:0.9rem;}
+  .hero-right{padding:1.8rem 1.5rem;}
+  .hm-num{font-size:2rem;}
+  .hero-badge{font-size:0.6rem;}
+
+  /* Carousel: show 1 card on mobile */
+  .svc{flex:0 0 calc(100% - 0px);min-width:0;}
+  .services-carousel-wrap::before,.services-carousel-wrap::after{display:none;}
+
+  /* Counters — stack 2x2 */
+  .counters-row{grid-template-columns:1fr 1fr;}
+  .counter-box{border-right:none;border-bottom:1px solid var(--border);padding:1.8rem 1rem;}
+  .counter-box:nth-child(odd){border-right:1px solid var(--border);}
+  .counter-box:nth-child(3),.counter-box:nth-child(4){border-bottom:none;}
+  .counter-num{font-size:2.8rem;}
+  .counter-label{font-size:0.75rem;}
+  .counter-sub{font-size:0.65rem;}
+
+  /* Trust bar: wrap gracefully */
+  .trust-sep{display:none;}
+  .trust-item{font-size:0.72rem;}
+
+  /* Deploy grid */
+  .deploy-grid{grid-template-columns:1fr;}
+
+  /* Process */
+  .process-grid{grid-template-columns:1fr;}
+
+  /* Trust boxes */
+  .trust-boxes{grid-template-columns:1fr 1fr;}
+
+  /* Footer */
   .footer-top{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:0.4rem;}
+
+  /* CTA */
+  .cta-wrap{padding:3rem 1.5rem;}
+  .contact-pill{min-width:unset;width:100%;}
+  .cta-contacts{flex-direction:column;}
+
+  /* Who strip */
+  .who-strip-inner{flex-direction:column;align-items:flex-start;gap:1rem;}
+
+  /* Services header */
+  .services-header{flex-direction:column;align-items:flex-start;gap:1.2rem;}
+  .section-sub{margin-bottom:1.5rem;}
+
+  /* Projects */
+  .proj-card{padding:1.8rem 1.5rem;}
 }
-@media(max-width:480px){.services-grid{grid-template-columns:1fr;}}
+
+@media(max-width:480px){
+  .hero-actions{flex-direction:column;}
+  .btn{width:100%;justify-content:center;}
+  .trust-boxes{grid-template-columns:1fr;}
+  .proj-metrics{grid-template-columns:1fr;}
+  .counters-row{grid-template-columns:1fr;}
+  .counter-box{border-right:none!important;border-bottom:1px solid var(--border);}
+  .counter-box:last-child{border-bottom:none;}
+}
+
+/* =====================================================
+   VIDEO PREVIEW + MODAL
+   ===================================================== */
+
+/* ── Preview container sits above the card content ── */
+.proj-video-preview{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:2rem;
+  background:var(--navy);
+  cursor:pointer;
+  flex-shrink:0;
+}
+
+/* Shimmer placeholder shown before video loads */
+.proj-video-preview::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(
+    110deg,
+    rgba(255,255,255,0.03) 0%,
+    rgba(255,255,255,0.07) 40%,
+    rgba(255,255,255,0.03) 60%
+  );
+  background-size:200% 100%;
+  animation:shimmer 2.2s infinite;
+  z-index:1;
+}
+@keyframes shimmer{
+  0%{background-position:200% 0;}
+  100%{background-position:-200% 0;}
+}
+
+/* The muted looping preview video */
+.proj-video-preview video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.5s ease;
+}
+.proj-video-preview:hover video{transform:scale(1.03);}
+
+/* Gradient overlay so play button reads well */
+.proj-video-preview .vid-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to bottom,
+    transparent 30%,
+    rgba(10,16,28,0.65) 100%
+  );
+  z-index:2;
+  transition:background 0.3s;
+}
+.proj-video-preview:hover .vid-overlay{
+  background:linear-gradient(
+    to bottom,
+    rgba(10,16,28,0.1) 0%,
+    rgba(10,16,28,0.7) 100%
+  );
+}
+
+/* Play button circle */
+.vid-play-btn{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0.9);
+  width:60px;height:60px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.12);
+  border:2px solid rgba(255,255,255,0.35);
+  backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  z-index:3;
+  transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1),
+             background 0.2s, border-color 0.2s;
+}
+.proj-video-preview:hover .vid-play-btn{
+  transform:translate(-50%,-50%) scale(1);
+  background:rgba(255,255,255,0.22);
+  border-color:rgba(255,255,255,0.6);
+}
+.vid-play-btn svg{
+  width:22px;height:22px;
+  fill:white;
+  margin-left:3px; /* optical centre for triangle */
+}
+
+/* Bottom label strip */
+.vid-label{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:0.8rem 1rem;
+  z-index:3;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.vid-label-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#ef4444;
+  box-shadow:0 0 6px #ef4444;
+  animation:livePulse 1.8s infinite;
+  flex-shrink:0;
+}
+@keyframes livePulse{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:0.5;transform:scale(0.75);}
+}
+.vid-label-text{
+  font-size:0.65rem;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:rgba(255,255,255,0.7);
+}
+
+/* dark-card variant (DocuAgent — lives on navy card) */
+.featured-dark .proj-video-preview{background:#060d18;}
+
+/* light-card variant (InboxIQ — lives on white card) */
+.accent-card .proj-video-preview{background:#0e1520;}
+.accent-card .proj-video-preview .vid-overlay{
+  background:linear-gradient(to bottom,transparent 30%,rgba(14,21,32,0.65) 100%);
+}
+
+/* ── Fullscreen modal ── */
+.vid-modal{
+  position:fixed;inset:0;
+  z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(5,9,18,0.92);
+  backdrop-filter:blur(18px);
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease;
+}
+.vid-modal.open{opacity:1;pointer-events:all;}
+
+.vid-modal-inner{
+  position:relative;
+  width:min(90vw,1100px);
+  background:var(--navy);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 40px 120px rgba(0,0,0,0.7);
+  transform:scale(0.94) translateY(20px);
+  transition:transform 0.35s cubic-bezier(0.34,1.2,0.64,1);
+}
+.vid-modal.open .vid-modal-inner{transform:scale(1) translateY(0);}
+
+/* 16:9 aspect ratio wrapper for the iframe/video */
+.vid-modal-player{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+}
+.vid-modal-player iframe,
+.vid-modal-player video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  border:none;display:block;
+}
+
+/* Modal header bar */
+.vid-modal-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.4rem;
+  border-top:1px solid rgba(255,255,255,0.07);
+}
+.vid-modal-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-weight:500;color:rgba(255,255,255,0.75);
+}
+.vid-modal-close{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.05);
+  color:rgba(255,255,255,0.6);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+  flex-shrink:0;
+}
+.vid-modal-close:hover{background:rgba(255,255,255,0.12);color:#fff;border-color:rgba(255,255,255,0.3);}
+.vid-modal-close svg{width:16px;height:16px;}
+
+/* Prevent body scroll when modal open */
+body.modal-open{overflow:hidden;}
+
+@media(max-width:600px){
+  .vid-modal-inner{width:95vw;border-radius:12px;}
+  .vid-play-btn{width:48px;height:48px;}
+  .vid-play-btn svg{width:18px;height:18px;}
+}
 </style>
 </head>
 <body>
@@ -313,7 +588,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
           <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
         </svg>
       </div>
-      <span class="nav-logo-name">Adaptive <span>Minds</span></span>
+      <span class="nav-logo-name">Adaptive <span>Minds AI</span></span>
     </a>
     <div class="nav-links">
       <a href="#services">Services</a>
@@ -329,14 +604,14 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-eyebrow"><span class="dot"></span>AI Automation Agency · India & Global</div>
+      <div class="hero-eyebrow"><span class="dot"></span>AI Automation Agency · India &amp; Global</div>
       <h1>
         AI that works<br/>
         as hard as<br/>
         <em>your team does</em>
       </h1>
       <p class="hero-sub">
-        Adaptive Minds designs and deploys AI automation systems that eliminate manual work, accelerate decisions, and scale operations — so your team focuses on work that actually matters.
+        We design and deploy AI systems that handle the work your team repeats every day — so your people do what only people can.
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-blue">Get a Free AI Audit →</a>
@@ -347,7 +622,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <div class="hero-right-label">Why businesses work with us</div>
       <div class="hero-metric">
         <div class="hm-num">20<span>+</span></div>
-        <div class="hm-info"><div class="hm-label">AI projects designed & delivered</div><div class="hm-sub">Across India and globally</div></div>
+        <div class="hm-info"><div class="hm-label">AI projects designed &amp; delivered</div><div class="hm-sub">Across India and globally</div></div>
       </div>
       <div class="hero-metric">
         <div class="hm-num">5<span>+</span></div>
@@ -377,7 +652,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     <div class="trust-sep"></div>
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      Runs on your hardware or your own cloud
+      Runs on your hardware or cloud
     </div>
     <div class="trust-sep"></div>
     <div class="trust-item">
@@ -404,7 +679,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <div class="counter-box">
         <span class="counter-num" data-target="5" data-suffix="+">0</span>
         <div class="counter-label">Industries Served</div>
-        <div class="counter-sub">Legal, HR, Finance, Sales, Operations</div>
+        <div class="counter-sub">Legal, HR, Finance, Sales, Ops</div>
       </div>
       <div class="counter-box">
         <span class="counter-num" data-target="100" data-suffix="%">0</span>
@@ -420,87 +695,107 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICES — Horizontal Carousel -->
 <section class="section dark-bg" id="services">
   <div class="section-inner">
-    <div class="eyebrow reveal">What We Build</div>
-    <h2 class="section-title reveal">AI automation across<br/>your entire business</h2>
-    <p class="section-sub reveal">Every service solves a specific business problem. If your team is spending time on it manually, AI can probably handle it.</p>
-    <div class="services-grid reveal">
-
-      <div class="svc" data-num="01">
-        <div class="svc-icon-box">⚙️</div>
-        <span class="svc-category">Workflow Automation</span>
-        <h3>Eliminate Repetitive Manual Tasks</h3>
-        <p>We map the workflows your team repeats daily — approvals, data entry, notifications, report generation — and automate them end-to-end.</p>
-        <p class="svc-eg">Invoice approval that once consumed two days of back-and-forth now runs in minutes, untouched.</p>
+    <div class="services-header">
+      <div class="services-header-left">
+        <div class="eyebrow reveal">What We Build</div>
+        <h2 class="section-title reveal" style="color:#fff;margin-bottom:0.6rem;">AI automation across<br/>your entire business</h2>
+        <p class="section-sub reveal" style="margin-bottom:0;">Every service solves a specific business problem. If your team is spending time on it manually, AI can handle it.</p>
       </div>
-
-      <div class="svc" data-num="02">
-        <div class="svc-icon-box">🤖</div>
-        <span class="svc-category">AI Assistants & Chatbots</span>
-        <h3>Intelligent Assistants, Available 24/7</h3>
-        <p>Deploy AI assistants trained on your data — answering customer and employee queries across WhatsApp, your website, or Slack at any hour.</p>
-        <p class="svc-eg">Customer queries answered at 2am, accurately and instantly, with no human intervention needed.</p>
+      <div class="services-nav reveal">
+        <span class="svc-counter" id="svcCounter">1 / 9</span>
+        <button class="svc-nav-btn" id="svcPrev" aria-label="Previous" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="svc-nav-btn" id="svcNext" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
-
-      <div class="svc" data-num="03">
-        <div class="svc-icon-box">🧠</div>
-        <span class="svc-category">Autonomous AI Agents</span>
-        <h3>AI That Thinks, Decides & Acts</h3>
-        <p>Agents that handle complete multi-step tasks independently — researching, reasoning, and taking action — without waiting for a human trigger.</p>
-        <p class="svc-eg">A new lead arrives. The agent researches, scores, and drafts a tailored outreach — ready before you open your inbox.</p>
-      </div>
-
-      <div class="svc" data-num="04">
-        <div class="svc-icon-box">📚</div>
-        <span class="svc-category">Document Intelligence</span>
-        <h3>Query Any Document in Plain Language</h3>
-        <p>Upload contracts, manuals, reports, or policies and ask questions in plain English. Every answer is cited with the exact source and page number.</p>
-        <p class="svc-eg">"What are the penalty clauses in this contract?" — answered in seconds, with the clause highlighted.</p>
-      </div>
-
-      <div class="svc" data-num="05">
-        <div class="svc-icon-box">📄</div>
-        <span class="svc-category">Intelligent Data Extraction</span>
-        <h3>Structured Data from Any Document</h3>
-        <p>AI reads PDFs, scanned forms, invoices, and handwritten documents — extracting the exact fields you need, structured and ready to use.</p>
-        <p class="svc-eg">Hundreds of supplier invoices processed overnight, data entered into your system without a single keystroke.</p>
-      </div>
-
-      <div class="svc" data-num="06">
-        <div class="svc-icon-box">🔗</div>
-        <span class="svc-category">System Integration</span>
-        <h3>AI That Plugs Into Your Existing Stack</h3>
-        <p>We connect AI to the tools you already use — CRM, ERP, email, spreadsheets — so it fits your workflow rather than disrupting it.</p>
-        <p class="svc-eg">Your CRM updated automatically after every sales call, without your team touching it.</p>
-      </div>
-
-      <div class="svc" data-num="07">
-        <div class="svc-icon-box">📊</div>
-        <span class="svc-category">Business Intelligence</span>
-        <h3>Turn Business Data into Clear Decisions</h3>
-        <p>AI that analyses your operational data and surfaces the insights that matter — in plain language, not dashboards you have to interpret.</p>
-        <p class="svc-eg">"Which customers are most likely to churn this quarter?" — answered from your own data, automatically.</p>
-      </div>
-
-      <div class="svc" data-num="08">
-        <div class="svc-icon-box">✍️</div>
-        <span class="svc-category">Content Automation</span>
-        <h3>Consistent Content, Generated at Scale</h3>
-        <p>AI that writes in your brand's voice — product descriptions, email campaigns, social content, and articles — accurately and efficiently.</p>
-        <p class="svc-eg">Product catalogue updated with consistent, on-brand descriptions across every SKU — overnight.</p>
-      </div>
-
-      <div class="svc" data-num="09">
-        <div class="svc-icon-box">🎯</div>
-        <span class="svc-category">Custom AI Development</span>
-        <h3>AI Built for Your Industry & Workflows</h3>
-        <p>When generic AI doesn't understand your domain, terminology, or processes — we build a model that does, trained on your data and requirements.</p>
-        <p class="svc-eg">A legal AI that knows your firm's contract templates and precedents, not just generic legal language.</p>
-      </div>
-
     </div>
+
+    <div class="services-carousel-wrap reveal">
+      <div class="services-track" id="svcTrack">
+
+        <div class="svc" data-num="01">
+          <div class="svc-icon-box">⚙️</div>
+          <span class="svc-category">Workflow Automation</span>
+          <h3>Eliminate Repetitive Manual Tasks</h3>
+          <p>We map the workflows your team repeats daily — approvals, data entry, notifications, report generation — and automate them end-to-end.</p>
+          <p class="svc-eg">Invoice approval that once consumed two days of back-and-forth now runs in minutes, untouched.</p>
+        </div>
+
+        <div class="svc" data-num="02">
+          <div class="svc-icon-box">🤖</div>
+          <span class="svc-category">AI Assistants &amp; Chatbots</span>
+          <h3>Intelligent Assistants, Available 24/7</h3>
+          <p>Deploy AI assistants trained on your data — answering customer and employee queries across WhatsApp, your website, or Slack at any hour.</p>
+          <p class="svc-eg">Customer queries answered at 2am, accurately and instantly, with no human intervention needed.</p>
+        </div>
+
+        <div class="svc" data-num="03">
+          <div class="svc-icon-box">🧠</div>
+          <span class="svc-category">Autonomous AI Agents</span>
+          <h3>AI That Thinks, Decides &amp; Acts</h3>
+          <p>Agents that handle complete multi-step tasks independently — researching, reasoning, and taking action — without waiting for a human trigger.</p>
+          <p class="svc-eg">A new lead arrives. The agent researches, scores, and drafts a tailored outreach — ready before you open your inbox.</p>
+        </div>
+
+        <div class="svc" data-num="04">
+          <div class="svc-icon-box">📚</div>
+          <span class="svc-category">Document Intelligence</span>
+          <h3>Query Any Document in Plain Language</h3>
+          <p>Upload contracts, manuals, reports, or policies and ask questions in plain English. Every answer is cited with the exact source and page number.</p>
+          <p class="svc-eg">"What are the penalty clauses in this contract?" — answered in seconds, with the clause highlighted.</p>
+        </div>
+
+        <div class="svc" data-num="05">
+          <div class="svc-icon-box">📄</div>
+          <span class="svc-category">Intelligent Data Extraction</span>
+          <h3>Structured Data from Any Document</h3>
+          <p>AI reads PDFs, scanned forms, invoices, and handwritten documents — extracting the exact fields you need, structured and ready to use.</p>
+          <p class="svc-eg">Hundreds of supplier invoices processed overnight, data entered into your system without a single keystroke.</p>
+        </div>
+
+        <div class="svc" data-num="06">
+          <div class="svc-icon-box">🔗</div>
+          <span class="svc-category">System Integration</span>
+          <h3>AI That Plugs Into Your Existing Stack</h3>
+          <p>We connect AI to the tools you already use — CRM, ERP, email, spreadsheets — so it fits your workflow rather than disrupting it.</p>
+          <p class="svc-eg">Your CRM updated automatically after every sales call, without your team touching it.</p>
+        </div>
+
+        <div class="svc" data-num="07">
+          <div class="svc-icon-box">📊</div>
+          <span class="svc-category">Business Intelligence</span>
+          <h3>Turn Business Data into Clear Decisions</h3>
+          <p>AI that analyses your operational data and surfaces the insights that matter — in plain language, not dashboards you have to interpret.</p>
+          <p class="svc-eg">"Which customers are most likely to churn this quarter?" — answered from your own data, automatically.</p>
+        </div>
+
+        <div class="svc" data-num="08">
+          <div class="svc-icon-box">✍️</div>
+          <span class="svc-category">Content Automation</span>
+          <h3>Consistent Content, Generated at Scale</h3>
+          <p>AI that writes in your brand's voice — product descriptions, email campaigns, social content, and articles — accurately and efficiently.</p>
+          <p class="svc-eg">Product catalogue updated with consistent, on-brand descriptions across every SKU — overnight.</p>
+        </div>
+
+        <div class="svc" data-num="09">
+          <div class="svc-icon-box">🎯</div>
+          <span class="svc-category">Custom AI Development</span>
+          <h3>AI Built for Your Industry &amp; Workflows</h3>
+          <p>When generic AI doesn't understand your domain, terminology, or processes — we build a model that does, trained on your data and requirements.</p>
+          <p class="svc-eg">A legal AI that knows your firm's contract templates and precedents, not just generic legal language.</p>
+        </div>
+
+      </div><!-- /track -->
+    </div><!-- /wrap -->
+
+    <!-- Dot pagination -->
+    <div class="svc-dots" id="svcDots"></div>
+
   </div>
 </section>
 
@@ -512,9 +807,9 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <span class="who-chip">⚖️ Legal Firms</span>
       <span class="who-chip">🏥 Healthcare</span>
       <span class="who-chip">🏦 BFSI</span>
-      <span class="who-chip">👥 HR & Operations</span>
+      <span class="who-chip">👥 HR &amp; Operations</span>
       <span class="who-chip">🏭 Manufacturing</span>
-      <span class="who-chip">🚀 Startups & SaaS</span>
+      <span class="who-chip">🚀 Startups &amp; SaaS</span>
       <span class="who-chip">🏢 Consulting</span>
       <span class="who-chip">🎓 EdTech</span>
     </div>
@@ -552,6 +847,9 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
           </div>
         </div>
         <div>
+          <!-- DocuAgent video preview — click to expand -->
+          <div class="proj-video-preview" data-video-id="docuagent" title="Watch DocuAgent AI demo"></div>
+
           <div class="proj-outcomes dark-outcomes">
             <div class="proj-outcomes-lbl">What This System Does</div>
             <ul>
@@ -584,6 +882,10 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
         <h3>InboxIQ</h3>
         <p class="proj-tagline">AI email management and smart reply system</p>
         <p class="proj-desc">InboxIQ brings AI directly into your inbox — reading, categorising, and drafting context-aware replies to incoming emails so your team spends less time writing and more time doing. It learns your communication style, understands email intent, and generates replies that sound like you wrote them.</p>
+
+        <!-- InboxIQ video preview — click to expand -->
+        <div class="proj-video-preview" data-video-id="inboxiq" title="Watch InboxIQ demo"></div>
+
         <div class="proj-outcomes">
           <div class="proj-outcomes-lbl">What This System Does</div>
           <ul>
@@ -624,17 +926,17 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       </div>
       <div class="process-step reveal d1" data-num="2">
         <span class="process-icon">📐</span>
-        <h3>Scope & Proposal</h3>
+        <h3>Scope &amp; Proposal</h3>
         <p>We document the exact system to build, the outcomes it will deliver, the timeline, and the investment. You approve before any work begins.</p>
       </div>
       <div class="process-step reveal d2" data-num="3">
         <span class="process-icon">⚙️</span>
-        <h3>Build & Test</h3>
+        <h3>Build &amp; Test</h3>
         <p>We build the system on your data, your workflows, and your infrastructure. Weekly updates throughout. You test and give feedback before it goes live.</p>
       </div>
       <div class="process-step reveal d3" data-num="4">
         <span class="process-icon">🚀</span>
-        <h3>Deploy & Support</h3>
+        <h3>Deploy &amp; Support</h3>
         <p>We deploy to your environment — on-premise, private cloud, or hybrid — and provide ongoing support, monitoring, and iteration as your needs evolve.</p>
       </div>
     </div>
@@ -671,7 +973,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
           <li>Your account, your keys, your data</li>
           <li>Scales automatically with your usage</li>
           <li>Accessible from any browser, anywhere</li>
-          <li>Stop instances when idle — pay only when running</li>
+          <li>Pay only when running</li>
         </ul>
       </div>
       <div class="deploy-card reveal d2">
@@ -695,18 +997,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   <div class="section-inner">
     <div class="about-grid">
       <div class="reveal">
-        <div class="eyebrow">About Adaptive Minds</div>
+        <div class="eyebrow">About Adaptive Minds AI</div>
         <h2 class="about-heading">
           We automate the work<br/>your team
           <em> shouldn't be doing</em>
         </h2>
-        <p class="about-body">Adaptive Minds is an AI automation agency founded by <strong>Yogesh Shishodia</strong> — an AI engineer and builder who has designed and delivered over 20 AI projects for businesses across India and globally. Our focus is practical, high-impact automation: systems that solve real business problems, remove genuine bottlenecks, and scale real teams.</p>
-        <p class="about-body">We don't sell platforms or generic tools. Every system we build is custom to your workflow, your data, and your compliance requirements — because no two businesses have the same problems.</p>
+        <p class="about-body">Adaptive Minds AI is an AI automation agency founded by <strong>Yogesh Shishodia</strong> — an AI engineer and builder focused on one thing: building systems that actually work inside real businesses. We've delivered over 20 AI projects across India and globally, each one designed from scratch around the client's workflow, data, and compliance requirements.</p>
+        <p class="about-body">We don't sell off-the-shelf tools or generic platforms. Every system we build is an asset you own — one that removes genuine bottlenecks, runs the way your team works, and scales as your business grows. No vendor lock-in. No shortcuts.</p>
         <div style="margin-top:2rem;">
           <a href="#contact" class="btn btn-navy">Talk to Us →</a>
         </div>
         <div class="trust-boxes">
-          <div class="trust-box"><div class="trust-box-num">20+</div><div class="trust-box-label">AI projects designed & delivered</div></div>
+          <div class="trust-box"><div class="trust-box-num">20+</div><div class="trust-box-label">AI projects designed &amp; delivered</div></div>
           <div class="trust-box"><div class="trust-box-num">5+</div><div class="trust-box-label">Industries served globally</div></div>
           <div class="trust-box"><div class="trust-box-num">100%</div><div class="trust-box-label">Custom-built, no templates</div></div>
           <div class="trust-box"><div class="trust-box-num">3</div><div class="trust-box-label">Deployment modes available</div></div>
@@ -756,9 +1058,9 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <h2>Ready to automate your<br/><em>most time-consuming manual work?</em></h2>
       <p>Book a free 30-minute AI audit. We'll map exactly where automation can save your team the most time — no commitment required.</p>
       <div class="cta-contacts">
-        <a href="mailto:shishodia.yogesh14@gmail.com?subject=AI Automation Enquiry" class="contact-pill">
+        <a href="mailto:contact@adaptivemindsai.com?subject=AI Automation Enquiry" class="contact-pill">
           <span class="cp-icon">✉️</span>
-          <div><div class="cp-label">Email us</div><div class="cp-value">shishodia.yogesh14@gmail.com</div></div>
+          <div><div class="cp-label">Email us</div><div class="cp-value">contact@adaptivemindsai.com</div></div>
         </a>
         <a href="https://wa.me/918130247554" class="contact-pill" target="_blank">
           <span class="cp-icon">💬</span>
@@ -766,7 +1068,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
         </a>
         <a href="https://linkedin.com/company/adaptive-minds-ai" class="contact-pill" target="_blank">
           <span class="cp-icon">💼</span>
-          <div><div class="cp-label">LinkedIn</div><div class="cp-value">Adaptive Minds</div></div>
+          <div><div class="cp-label">LinkedIn</div><div class="cp-value">Adaptive Minds AI</div></div>
         </a>
       </div>
     </div>
@@ -782,7 +1084,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
           <div class="footer-brand-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
           </div>
-          <span class="footer-brand-name">Adaptive <span>Minds</span></span>
+          <span class="footer-brand-name">Adaptive <span>Minds AI</span></span>
         </div>
         <p class="footer-desc">AI automation agency building intelligent systems that eliminate manual work, reduce operational costs, and scale businesses — across India and globally.</p>
       </div>
@@ -799,25 +1101,42 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
         <a href="#work">Our Work</a>
         <a href="#process">Process</a>
         <a href="#about">About</a>
-        <a href="mailto:shishodia.yogesh14@gmail.com">Contact</a>
+        <a href="mailto:contact@adaptivemindsai.com">Contact</a>
         <a href="https://linkedin.com/company/adaptive-minds-ai" target="_blank">LinkedIn</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Adaptive Minds. All rights reserved.</span>
-      <span>On-premise · Cloud · Hybrid · India & Global</span>
+      <span>© 2026 Adaptive Minds AI. All rights reserved.</span>
+      <span>On-premise · Cloud · Hybrid · India &amp; Global</span>
     </div>
   </div>
 </footer>
 
+<!-- VIDEO MODAL -->
+<div class="vid-modal" id="vidModal" role="dialog" aria-modal="true" aria-label="Product demo video">
+  <div class="vid-modal-inner">
+    <div class="vid-modal-player" id="vidModalPlayer"></div>
+    <div class="vid-modal-bar">
+      <span class="vid-modal-title" id="vidModalTitle"></span>
+      <button class="vid-modal-close" id="vidModalClose" aria-label="Close video">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
-// Scroll reveal
+/* =====================================================
+   Scroll Reveal
+   ===================================================== */
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.06 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Animated counters
+/* =====================================================
+   Animated Counters
+   ===================================================== */
 function animateCounter(el) {
   const target = parseInt(el.dataset.target);
   const suffix = el.dataset.suffix || '';
@@ -826,23 +1145,258 @@ function animateCounter(el) {
   let current = 0;
   const timer = setInterval(() => {
     current += step;
-    if (current >= target) {
-      current = target;
-      clearInterval(timer);
-    }
+    if (current >= target) { current = target; clearInterval(timer); }
     el.textContent = Math.floor(current) + suffix;
   }, 16);
 }
-
 const counterObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      animateCounter(e.target);
-      counterObs.unobserve(e.target);
-    }
+    if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }
   });
 }, { threshold: 0.3 });
 document.querySelectorAll('.counter-num[data-target]').forEach(el => counterObs.observe(el));
+
+/* =====================================================
+   Services Carousel
+   ===================================================== */
+(function () {
+  const track = document.getElementById('svcTrack');
+  const prevBtn = document.getElementById('svcPrev');
+  const nextBtn = document.getElementById('svcNext');
+  const counterEl = document.getElementById('svcCounter');
+  const dotsWrap = document.getElementById('svcDots');
+  const cards = track.querySelectorAll('.svc');
+  const total = cards.length;
+
+  let current = 0;      // index of leftmost visible card
+  let perPage = 3;      // how many cards visible at once
+
+  function getPerPage() {
+    const w = window.innerWidth;
+    if (w <= 768) return 1;
+    if (w <= 1100) return 2;
+    return 3;
+  }
+
+  function maxIndex() { return Math.max(0, total - perPage); }
+
+  /* Build dots */
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    const numDots = maxIndex() + 1;
+    for (let i = 0; i < numDots; i++) {
+      const d = document.createElement('span');
+      d.className = 'svc-dot' + (i === current ? ' active' : '');
+      d.addEventListener('click', () => goto(i));
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function updateDots() {
+    dotsWrap.querySelectorAll('.svc-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function getCardWidth() {
+    /* Card width = (track width - gaps) / perPage */
+    const trackW = track.parentElement.offsetWidth;
+    const gap = 19.2; /* 1.2rem gap in px */
+    return (trackW - gap * (perPage - 1)) / perPage;
+  }
+
+  function goto(idx) {
+    current = Math.max(0, Math.min(idx, maxIndex()));
+    const cardW = getCardWidth();
+    const gap = 19.2;
+    const offset = current * (cardW + gap);
+    track.style.transform = `translateX(-${offset}px)`;
+
+    /* Update counter */
+    counterEl.textContent = `${current + 1} / ${maxIndex() + 1}`;
+
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current >= maxIndex();
+
+    /* Update card widths in case resize happened */
+    cards.forEach(c => { c.style.flex = `0 0 ${cardW}px`; });
+
+    updateDots();
+  }
+
+  function setup() {
+    perPage = getPerPage();
+    const cardW = getCardWidth();
+    cards.forEach(c => { c.style.flex = `0 0 ${cardW}px`; });
+    /* Clamp current to new maxIndex */
+    current = Math.min(current, maxIndex());
+    buildDots();
+    goto(current);
+  }
+
+  prevBtn.addEventListener('click', () => goto(current - 1));
+  nextBtn.addEventListener('click', () => goto(current + 1));
+
+  /* Touch/swipe support */
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goto(dx < 0 ? current + 1 : current - 1);
+  });
+
+  /* Keyboard */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goto(current + 1);
+    if (e.key === 'ArrowLeft') goto(current - 1);
+  });
+
+  window.addEventListener('resize', setup);
+  setup();
+})();
+
+/* =====================================================
+   Video Preview + Modal
+   =====================================================
+   HOW TO PLUG IN YOUR VIDEOS WHEN READY
+   ─────────────────────────────────────────────────────
+   Each entry below has two URLs:
+
+   previewSrc  → Short 5-15 sec muted MP4 loop (the "GIF").
+                 Best hosted on: Cloudinary (free), your own
+                 server, or any CDN. Keep it under 5 MB.
+                 To create: open OBS / QuickTime, record 10s
+                 of the key moment, export as MP4.
+
+   fullSrc     → The full demo video.
+                 EASIEST: Upload to YouTube as "Unlisted"
+                 (free, fast CDN, no branding on embedded).
+                 Then paste the YouTube video ID below —
+                 e.g. for https://youtu.be/dQw4w9WgXcQ
+                 the ID is dQw4w9WgXcQ.
+                 Alternatively paste a direct .mp4 URL.
+   ─────────────────────────────────────────────────────
+*/
+
+const VIDEO_CONFIG = {
+  docuagent: {
+    previewSrc: '',         // ← paste your 10-sec MP4 preview URL here
+    fullSrc:    '',         // ← paste YouTube video ID  e.g. 'dQw4w9WgXcQ'
+    title:      'DocuAgent AI — Product Demo',
+    poster:     '',         // ← optional: thumbnail image URL for poster frame
+  },
+  inboxiq: {
+    previewSrc: '',         // ← paste your 10-sec MP4 preview URL here
+    fullSrc:    '',         // ← paste YouTube video ID  e.g. 'dQw4w9WgXcQ'
+    title:      'InboxIQ — Product Demo',
+    poster:     '',
+  },
+};
+
+(function () {
+  const modal      = document.getElementById('vidModal');
+  const modalPlayer= document.getElementById('vidModalPlayer');
+  const modalTitle = document.getElementById('vidModalTitle');
+  const closeBtn   = document.getElementById('vidModalClose');
+
+  /* ── Build preview elements for each card ── */
+  document.querySelectorAll('[data-video-id]').forEach(trigger => {
+    const id  = trigger.dataset.videoId;
+    const cfg = VIDEO_CONFIG[id];
+    if (!cfg) return;
+
+    /* Muted autoplay preview video */
+    const vid = document.createElement('video');
+    vid.muted = true;
+    vid.loop  = true;
+    vid.playsInline = true;
+    vid.autoplay = true;
+    if (cfg.previewSrc) vid.src = cfg.previewSrc;
+    if (cfg.poster)     vid.poster = cfg.poster;
+
+    /* Overlay + play button */
+    const overlay = document.createElement('div');
+    overlay.className = 'vid-overlay';
+
+    const playBtn = document.createElement('div');
+    playBtn.className = 'vid-play-btn';
+    playBtn.innerHTML = `<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>`;
+
+    const label = document.createElement('div');
+    label.className = 'vid-label';
+    label.innerHTML = cfg.previewSrc
+      ? `<span class="vid-label-dot"></span><span class="vid-label-text">Watch Demo</span>`
+      : `<span class="vid-label-text">Demo coming soon</span>`;
+
+    trigger.appendChild(vid);
+    trigger.appendChild(overlay);
+    trigger.appendChild(playBtn);
+    trigger.appendChild(label);
+
+    /* Start playing when visible */
+    if (cfg.previewSrc) {
+      const ioVid = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { vid.play().catch(()=>{}); }
+          else { vid.pause(); }
+        });
+      }, { threshold: 0.3 });
+      ioVid.observe(trigger);
+    }
+
+    /* Click → open modal */
+    trigger.addEventListener('click', () => openModal(cfg));
+  });
+
+  /* ── Modal open / close ── */
+  function openModal(cfg) {
+    /* Clear previous content */
+    modalPlayer.innerHTML = '';
+    modalTitle.textContent = cfg.title;
+
+    if (cfg.fullSrc) {
+      /* Detect YouTube ID (11 chars, no slashes) vs direct URL */
+      const isYT = cfg.fullSrc.length <= 15 && !/[./]/.test(cfg.fullSrc);
+      if (isYT) {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${cfg.fullSrc}?autoplay=1&rel=0&modestbranding=1`;
+        iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+        iframe.allowFullscreen = true;
+        modalPlayer.appendChild(iframe);
+      } else {
+        const v = document.createElement('video');
+        v.src = cfg.fullSrc;
+        v.controls = true;
+        v.autoplay = true;
+        if (cfg.poster) v.poster = cfg.poster;
+        modalPlayer.appendChild(v);
+      }
+    } else {
+      /* No video yet — show placeholder */
+      modalPlayer.innerHTML = `
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:#060d18;">
+          <div style="font-size:2.5rem;">🎬</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:rgba(255,255,255,0.7);">Demo video coming soon</div>
+          <div style="font-size:0.8rem;color:rgba(255,255,255,0.3);">Check back or <a href="#contact" onclick="closeModal()" style="color:var(--gold);text-decoration:none;">request a live demo →</a></div>
+        </div>`;
+    }
+
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    /* Destroy iframe/video to stop audio */
+    setTimeout(() => { modalPlayer.innerHTML = ''; }, 350);
+  }
+  window.closeModal = closeModal;
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+})();
 </script>
 </body>
 </html>
