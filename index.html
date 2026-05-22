@@ -969,10 +969,12 @@ const VIDEO_CONFIG = {
     const id = trigger.dataset.videoId;
     const cfg = VIDEO_CONFIG[id];
     if (!cfg) return;
+    if (cfg.poster) trigger.style.backgroundImage = `url('${cfg.poster}')`;
+    trigger.style.backgroundSize = 'cover';
+    trigger.style.backgroundPosition = 'center';
     const vid = document.createElement('video');
     vid.muted = true; vid.loop = true; vid.playsInline = true; vid.autoplay = true;
     if (cfg.previewSrc) vid.src = cfg.previewSrc;
-    if (cfg.poster)     vid.poster = cfg.poster;
     const overlay = document.createElement('div');
     overlay.className = 'vid-overlay';
     const playBtn = document.createElement('div');
@@ -980,7 +982,7 @@ const VIDEO_CONFIG = {
     playBtn.innerHTML = `<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>`;
     const label = document.createElement('div');
     label.className = 'vid-label';
-    label.innerHTML = cfg.previewSrc
+    label.innerHTML = (cfg.previewSrc || cfg.fullSrc)
       ? `<span class="vid-label-dot"></span><span class="vid-label-text">Watch Demo</span>`
       : `<span class="vid-label-text">Demo coming soon</span>`;
     trigger.appendChild(vid);
