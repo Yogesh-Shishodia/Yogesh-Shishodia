@@ -957,8 +957,8 @@ document.querySelectorAll('.counter-num[data-target]').forEach(el => counterObs.
 
 /* Video Modal */
 const VIDEO_CONFIG = {
-  docuagent: { previewSrc: '', fullSrc: '', title: 'DocuAgent AI — Product Demo', poster: '' },
-  inboxiq:   { previewSrc: '', fullSrc: '', title: 'InboxIQ — Product Demo', poster: '' },
+  docuagent: { previewSrc: '', fullSrc: 'https://drive.google.com/file/d/11ZYvTi34KlII2nOxJL5foy5KhzdGRhJw/preview', title: 'DocuAgent AI — Product Demo', poster: 'https://drive.google.com/uc?export=view&id=1mBNLXyMPaHjUnUnSddFSJXRTuanE_4EW' },
+  inboxiq:   { previewSrc: 'inboxiq.mp4',   fullSrc: 'inboxiq.mp4',   title: 'InboxIQ — Product Demo',    poster: 'inboxiq.jpg'   },
 };
 (function () {
   const modal       = document.getElementById('vidModal');
@@ -999,11 +999,18 @@ const VIDEO_CONFIG = {
     modalPlayer.innerHTML = '';
     modalTitle.textContent = cfg.title;
     if (cfg.fullSrc) {
-      const isYT = cfg.fullSrc.length <= 15 && !/[./]/.test(cfg.fullSrc);
+      const isYT     = cfg.fullSrc.length <= 15 && !/[./]/.test(cfg.fullSrc);
+      const isGDrive = cfg.fullSrc.includes('drive.google.com');
       if (isYT) {
         const iframe = document.createElement('iframe');
         iframe.src = `https://www.youtube.com/embed/${cfg.fullSrc}?autoplay=1&rel=0&modestbranding=1`;
         iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+        iframe.allowFullscreen = true;
+        modalPlayer.appendChild(iframe);
+      } else if (isGDrive) {
+        const iframe = document.createElement('iframe');
+        iframe.src = cfg.fullSrc;
+        iframe.allow = 'autoplay; fullscreen';
         iframe.allowFullscreen = true;
         modalPlayer.appendChild(iframe);
       } else {
