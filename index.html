@@ -700,7 +700,7 @@ body.modal-open{overflow:hidden;}
     <input type="password" id="apiKeyInp" placeholder="sk-or-v1-xxxxxxxxxx..." autocomplete="off"/>
     <button id="saveKey">Activate Assistant →</button>
     <a href="https://openrouter.ai/keys" target="_blank" class="setup-link">Get a free key at openrouter.ai →</a>
-    <p style="font-size:0.68rem;color:var(--text-faint);margin-top:-0.3rem;">Free model: Llama 3.3 8B · No credit card needed</p>
+    <p style="font-size:0.68rem;color:var(--text-faint);margin-top:-0.3rem;">Free model · No credit card needed</p>
   </div>
 
   <!-- Messages -->
@@ -722,7 +722,7 @@ body.modal-open{overflow:hidden;}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
     </button>
   </div>
-  <div class="chat-foot" id="chatFoot" style="display:none;">Powered by OpenRouter · Free Llama 3.3</div>
+  <div class="chat-foot" id="chatFoot" style="display:none;">Powered by OpenRouter · Free AI</div>
 </div>
 
 <script>
@@ -949,7 +949,7 @@ function send(text){
       'X-Title':'Adaptive Minds AI Assistant'
     },
     body:JSON.stringify({
-      model:'meta-llama/llama-3.3-8b-instruct:free',
+      model:'google/gemma-3-12b-it:free',
       messages:[{role:'system',content:SYSTEM},...history],
       max_tokens:400,
       temperature:0.7
