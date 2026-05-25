@@ -15,15 +15,12 @@
   --border:#dddbd4;--border2:#c8c5bc;
   --text:#0e1520;--text-dim:#5e5c56;--text-faint:#a8a59e;
   --green:#1a7a50;--green-soft:rgba(26,122,80,0.09);
-  --r:12px;
-  --shadow:0 1px 8px rgba(0,0,0,0.07);
-  --shadow-lg:0 8px 40px rgba(0,0,0,0.12);
+  --r:12px;--shadow:0 1px 8px rgba(0,0,0,0.07);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;align-items:center;padding:0 5%;background:rgba(245,244,240,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
 .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;}
@@ -37,7 +34,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .nav-cta{background:var(--navy)!important;color:#fff!important;font-weight:600!important;border-radius:9px!important;}
 .nav-cta:hover{background:var(--navy2)!important;transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(14,21,32,0.22)!important;}
 
-/* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;padding:90px 5% 60px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:0;right:0;width:55%;height:100%;background:var(--navy);clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%);z-index:0;}
 .hero::after{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(33,70,240,0.18) 0%,transparent 65%);z-index:1;pointer-events:none;}
@@ -56,79 +52,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .btn-blue:hover{background:#1a38d8;transform:translateY(-2px);box-shadow:0 10px 28px rgba(33,70,240,0.3);}
 .btn-outline{background:transparent;color:var(--text-dim);border:1.5px solid var(--border2);}
 .btn-outline:hover{border-color:var(--navy);color:var(--navy);}
-
-/* ── HERO RIGHT — redesigned ── */
-.hero-right{
-  padding:2.4rem 2.2rem;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:20px;
-  animation:fadeUp 0.9s 0.18s ease both;
-  backdrop-filter:blur(10px);
-}
-.hero-right-label{
-  font-size:0.6rem;
-  font-weight:700;
-  letter-spacing:0.22em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.28);
-  margin-bottom:1.6rem;
-}
-.hero-metric{
-  display:flex;
-  align-items:flex-start;
-  gap:1rem;
-  padding:1.25rem 0;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-}
+.hero-right{padding:2.4rem 2.2rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;animation:fadeUp 0.9s 0.18s ease both;backdrop-filter:blur(10px);}
+.hero-right-label{font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:1.6rem;}
+.hero-metric{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
 .hero-metric:last-of-type{border-bottom:none;}
-.hm-icon{
-  width:42px;height:42px;
-  border-radius:11px;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;font-size:1.15rem;margin-top:1px;
-}
+.hm-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.15rem;margin-top:1px;}
 .hm-icon-green{background:rgba(26,180,100,0.12);border:1px solid rgba(26,180,100,0.25);}
-.hm-icon-blue {background:rgba(33,70,240,0.12); border:1px solid rgba(33,70,240,0.22);}
-.hm-icon-gold {background:rgba(201,148,58,0.10);border:1px solid rgba(201,148,58,0.25);}
-.hm-label{
-  font-size:0.91rem;
-  font-weight:600;
-  color:#ffffff;
-  line-height:1.3;
-  margin-bottom:0.3rem;
-}
+.hm-icon-blue{background:rgba(33,70,240,0.12);border:1px solid rgba(33,70,240,0.22);}
+.hm-icon-gold{background:rgba(201,148,58,0.10);border:1px solid rgba(201,148,58,0.25);}
+.hm-label{font-size:0.91rem;font-weight:600;color:#ffffff;line-height:1.3;margin-bottom:0.3rem;}
 .hm-label .accent-green{color:#4ade80;}
-.hm-label .accent-blue {color:#7ba8ff;}
-.hm-label .accent-gold {color:#c9943a;}
-.hm-sub{
-  font-size:0.76rem;
-  color:rgba(255,255,255,0.44);
-  line-height:1.58;
-  font-weight:400;
-}
-.hero-right-foot{
-  margin-top:1.5rem;
-  padding-top:1.4rem;
-  border-top:1px solid rgba(255,255,255,0.08);
-  display:flex;flex-wrap:wrap;gap:0.5rem;
-}
-.hero-badge{
-  font-size:0.65rem;font-weight:600;
-  padding:0.25rem 0.7rem;border-radius:999px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-  color:rgba(255,255,255,0.5);
-}
+.hm-label .accent-blue{color:#7ba8ff;}
+.hm-label .accent-gold{color:#c9943a;}
+.hm-sub{font-size:0.76rem;color:rgba(255,255,255,0.44);line-height:1.58;font-weight:400;}
+.hero-right-foot{margin-top:1.5rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-wrap:wrap;gap:0.5rem;}
+.hero-badge{font-size:0.65rem;font-weight:600;padding:0.25rem 0.7rem;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);}
 
-/* TRUST BAR */
 .trust-bar{background:var(--navy);padding:1.3rem 5%;}
 .trust-bar-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:center;}
 .trust-item{display:flex;align-items:center;gap:0.5rem;font-size:0.77rem;font-weight:500;color:rgba(255,255,255,0.42);white-space:nowrap;}
 .trust-item svg{width:13px;height:13px;opacity:0.45;}
 .trust-sep{width:1px;height:16px;background:rgba(255,255,255,0.1);}
 
-/* SECTION */
 .section{padding:6.5rem 5%;}
 .section-inner{max-width:1280px;margin:0 auto;}
 .eyebrow{font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:0.7rem;margin-bottom:1rem;}
@@ -142,7 +87,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .dark-bg .section-sub{color:rgba(255,255,255,0.45);}
 .alt-bg{background:var(--bg2);}
 
-/* SERVICES */
 #services{position:relative;overflow:hidden;}
 #services::before{content:'';position:absolute;top:-200px;left:-200px;width:650px;height:650px;background:radial-gradient(circle,rgba(33,70,240,0.13) 0%,transparent 65%);pointer-events:none;z-index:0;}
 #services::after{content:'';position:absolute;bottom:-100px;right:-150px;width:550px;height:550px;background:radial-gradient(circle,rgba(201,148,58,0.09) 0%,transparent 65%);pointer-events:none;z-index:0;}
@@ -153,110 +97,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .svc-nav-btn:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.3);color:#fff;}
 .svc-nav-btn svg{width:18px;height:18px;}
 .svc-pause-hint{font-size:0.68rem;color:rgba(255,255,255,0.22);letter-spacing:0.04em;white-space:nowrap;}
-.services-marquee-outer{position:relative;overflow:hidden;mask-image:linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);-webkit-mask-image:linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);padding:0.6rem 0 1rem;}
+.services-marquee-outer{position:relative;overflow:hidden;mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);padding:0.6rem 0 1rem;}
 .services-track{display:flex;gap:1.4rem;width:max-content;animation:marqueeScroll 38s linear infinite;will-change:transform;}
 .services-marquee-outer:hover .services-track,.services-track[data-paused="true"]{animation-play-state:paused;}
-.services-track[data-paused="true"] .svc{animation-play-state:paused;}
 @keyframes marqueeScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-/* card float animation — staggered per card */
 @keyframes cardFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 @keyframes iconPop{0%{transform:scale(1);}40%{transform:scale(1.22);}70%{transform:scale(0.93);}100%{transform:scale(1);}}
-@keyframes borderPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
 @keyframes shimmerSlide{0%{background-position:200% center;}100%{background-position:-200% center;}}
-@keyframes egSlideUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 @keyframes glowRing{0%,100%{box-shadow:0 0 0 0 var(--svc-accent,#2146f0);}50%{box-shadow:0 0 18px 4px var(--svc-accent,#2146f0);}}
-
-.svc{
-  background:#0f1e32;
-  border:1px solid rgba(255,255,255,0.07);
-  border-top:3px solid var(--svc-accent,#2146f0);
-  border-radius:18px;
-  padding:2rem 1.8rem;
-  position:relative;overflow:hidden;
-  flex:0 0 300px;width:300px;
-  transition:background 0.35s,transform 0.35s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.35s;
-  cursor:default;
-  animation:cardFloat 5s ease-in-out infinite;
-}
-.svc:nth-child(2){animation-delay:0.4s;}
-.svc:nth-child(3){animation-delay:0.8s;}
-.svc:nth-child(4){animation-delay:1.2s;}
-.svc:nth-child(5){animation-delay:1.6s;}
-.svc:nth-child(6){animation-delay:2s;}
-.svc:nth-child(7){animation-delay:2.4s;}
-.svc:nth-child(8){animation-delay:2.8s;}
-.svc:nth-child(9){animation-delay:3.2s;}
-
-/* pause float while marquee is hovered so it doesn't fight the pause */
+.svc{background:#0f1e32;border:1px solid rgba(255,255,255,0.07);border-top:3px solid var(--svc-accent,#2146f0);border-radius:18px;padding:2rem 1.8rem;position:relative;overflow:hidden;flex:0 0 300px;width:300px;transition:background 0.35s,transform 0.35s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.35s;cursor:default;animation:cardFloat 5s ease-in-out infinite;}
+.svc:nth-child(2){animation-delay:0.4s;}.svc:nth-child(3){animation-delay:0.8s;}.svc:nth-child(4){animation-delay:1.2s;}.svc:nth-child(5){animation-delay:1.6s;}.svc:nth-child(6){animation-delay:2s;}.svc:nth-child(7){animation-delay:2.4s;}.svc:nth-child(8){animation-delay:2.8s;}.svc:nth-child(9){animation-delay:3.2s;}
 .services-marquee-outer:hover .svc{animation-play-state:paused;}
-
-.svc::before{
-  content:'';
-  position:absolute;top:0;left:-100%;
-  width:60%;height:3px;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);
-  animation:shimmerSlide 3s linear infinite;
-}
-.svc::after{
-  content:attr(data-num);
-  position:absolute;bottom:-1rem;right:1rem;
-  font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:300;font-style:italic;
-  color:rgba(255,255,255,0.03);line-height:1;pointer-events:none;user-select:none;
-  transition:color 0.4s;
-}
-.svc:hover{
-  background:#152840;
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 28px 60px rgba(0,0,0,0.5), 0 0 40px -10px var(--svc-accent,#2146f0);
-  animation-play-state:paused;
-}
+.svc::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:3px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);animation:shimmerSlide 3s linear infinite;}
+.svc::after{content:attr(data-num);position:absolute;bottom:-1rem;right:1rem;font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.03);line-height:1;pointer-events:none;user-select:none;transition:color 0.4s;}
+.svc:hover{background:#152840;transform:translateY(-10px) scale(1.02);box-shadow:0 28px 60px rgba(0,0,0,0.5),0 0 40px -10px var(--svc-accent,#2146f0);animation-play-state:paused;}
 .svc:hover::after{color:rgba(255,255,255,0.06);}
-
-.svc-icon-box{
-  width:46px;height:46px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;margin-bottom:1rem;
-  background:var(--svc-icon-bg,rgba(33,70,240,0.12));
-  border:1px solid var(--svc-icon-bd,rgba(33,70,240,0.28));
-  transition:transform 0.3s,box-shadow 0.3s;
-  flex-shrink:0;
-}
-.svc:hover .svc-icon-box{
-  animation:iconPop 0.5s cubic-bezier(0.34,1.56,0.64,1) both, glowRing 1.8s ease-in-out 0.5s infinite;
-}
-
-.svc-category{
-  font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--svc-accent,#c9943a);
-  margin-bottom:0.45rem;display:block;
-  background:linear-gradient(90deg,var(--svc-accent),rgba(255,255,255,0.9),var(--svc-accent));
-  background-size:200% auto;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  animation:shimmerSlide 4s linear infinite;
-}
-
-.svc h3{
-  font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:500;
-  color:#fff;margin-bottom:0.5rem;line-height:1.18;letter-spacing:-0.01em;
-  transition:color 0.3s;
-}
-.svc:hover h3{color:#fff;}
-
+.svc-icon-box{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem;background:var(--svc-icon-bg,rgba(33,70,240,0.12));border:1px solid var(--svc-icon-bd,rgba(33,70,240,0.28));transition:transform 0.3s,box-shadow 0.3s;flex-shrink:0;}
+.svc:hover .svc-icon-box{animation:iconPop 0.5s cubic-bezier(0.34,1.56,0.64,1) both,glowRing 1.8s ease-in-out 0.5s infinite;}
+.svc-category{font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--svc-accent,#c9943a);margin-bottom:0.45rem;display:block;background:linear-gradient(90deg,var(--svc-accent),rgba(255,255,255,0.9),var(--svc-accent));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerSlide 4s linear infinite;}
+.svc h3{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:500;color:#fff;margin-bottom:0.5rem;line-height:1.18;letter-spacing:-0.01em;transition:color 0.3s;}
 .svc p{font-size:0.8rem;color:rgba(255,255,255,0.5);line-height:1.65;margin-bottom:0;}
-
-.svc-eg{
-  font-size:0.7rem;color:var(--svc-accent,#c9943a);
-  opacity:0;transform:translateY(8px);
-  line-height:1.45;padding-top:0.75rem;
-  border-top:1px solid rgba(255,255,255,0.07);
-  display:flex;gap:0.4rem;align-items:flex-start;
-  margin-top:0.8rem;font-style:normal;font-weight:500;
-  transition:opacity 0.3s 0.1s,transform 0.3s 0.1s;
-}
+.svc-eg{font-size:0.7rem;color:var(--svc-accent,#c9943a);opacity:0;transform:translateY(8px);line-height:1.45;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.07);display:flex;gap:0.4rem;align-items:flex-start;margin-top:0.8rem;font-style:normal;font-weight:500;transition:opacity 0.3s 0.1s,transform 0.3s 0.1s;}
 .svc:hover .svc-eg{opacity:1;transform:translateY(0);}
 .svc-eg::before{content:'→';flex-shrink:0;}
 
-/* WHO */
 .who-strip{padding:2.5rem 5%;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .who-strip-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
 .who-label{font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-faint);white-space:nowrap;flex-shrink:0;}
@@ -264,7 +128,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .who-chip{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;font-weight:500;color:var(--text-dim);background:var(--surface);border:1px solid var(--border);padding:0.35rem 0.85rem;border-radius:999px;transition:all 0.18s;}
 .who-chip:hover{border-color:var(--border2);color:var(--text);}
 
-/* PROCESS */
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
 .process-step{position:relative;padding:2rem 1.8rem;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);transition:all 0.22s;}
 .process-step:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
@@ -273,7 +136,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .process-step h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;margin-bottom:0.5rem;letter-spacing:-0.01em;}
 .process-step p{font-size:0.81rem;color:var(--text-dim);line-height:1.65;}
 
-/* PROJECTS */
 .projects-stack{display:flex;flex-direction:column;gap:1.4rem;}
 .proj-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2.5rem;display:flex;flex-direction:column;transition:all 0.25s;box-shadow:var(--shadow);}
 .proj-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
@@ -284,9 +146,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .proj-icon-box{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
 .pib-blue{background:var(--blue-soft);border:1px solid var(--blue-line);}
 .pib-dark{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);}
-.pib-gold{background:var(--gold-soft);border:1px solid var(--gold-line);}
 .proj-badge{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.22rem 0.7rem;border-radius:999px;}
-.badge-live{background:var(--green-soft);color:var(--green);border:1px solid rgba(26,122,80,0.2);}
 .badge-new{background:var(--blue-soft);color:var(--blue);border:1px solid var(--blue-line);}
 .proj-category{font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:0.5rem;}
 .featured-dark .proj-category{color:var(--gold);}
@@ -319,7 +179,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .pmb-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:#fff;line-height:1;margin-bottom:0.2rem;}
 .pmb-label{font-size:0.68rem;color:rgba(255,255,255,0.32);}
 
-/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
 .about-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1.5rem;}
 .about-heading em{font-style:italic;color:var(--text-dim);}
@@ -335,7 +194,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .trust-box-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;color:var(--blue);line-height:1;margin-bottom:0.25rem;}
 .trust-box-label{font-size:0.73rem;color:var(--text-dim);font-weight:500;line-height:1.4;}
 
-/* DEPLOY */
 .deploy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
 .deploy-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:2rem 1.8rem;transition:all 0.25s;position:relative;}
 .deploy-card:hover{background:rgba(255,255,255,0.07);transform:translateY(-4px);}
@@ -349,7 +207,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .deploy-list li{font-size:0.77rem;color:rgba(255,255,255,0.52);display:flex;gap:0.5rem;line-height:1.4;}
 .deploy-list li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;}
 
-/* CTA */
 .cta-wrap{background:var(--navy);border-radius:24px;padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;}
 .cta-wrap::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(33,70,240,0.15) 0%,transparent 65%);pointer-events:none;}
 .cta-wrap::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,148,58,0.1) 0%,transparent 65%);pointer-events:none;}
@@ -363,7 +220,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 .cp-label{font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
 .cp-value{font-size:0.88rem;font-weight:600;color:#fff;}
 
-/* FOOTER */
 footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:4rem 5% 2.5rem;}
 .footer-inner{max-width:1280px;margin:0 auto;}
 .footer-top{display:grid;grid-template-columns:2.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
@@ -380,56 +236,138 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 .footer-bottom span{font-size:0.73rem;color:rgba(255,255,255,0.22);}
 .divider{height:1px;background:var(--border);}
 
-/* COUNTERS */
 .counters-section{padding:5rem 5%;background:var(--bg);}
 .counters-inner{max-width:1280px;margin:0 auto;}
 .counters-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow);}
 .counter-box{padding:2.5rem 2rem;text-align:center;border-right:1px solid var(--border);position:relative;}
 .counter-box:last-child{border-right:none;}
 .counter-num{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:400;color:var(--blue);line-height:1;margin-bottom:0.4rem;display:block;}
-.counter-suffix{font-size:2rem;color:var(--gold);}
 .counter-label{font-size:0.82rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:0.25rem;}
 .counter-sub{font-size:0.72rem;color:var(--text-faint);}
 
-/* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .d1{transition-delay:0.07s;}.d2{transition-delay:0.14s;}.d3{transition-delay:0.21s;}.d4{transition-delay:0.28s;}
 
-/* VIDEO */
-.proj-video-preview{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;margin-bottom:2rem;background:var(--navy);cursor:pointer;flex-shrink:0;transform:translateZ(0);-webkit-transform:translateZ(0);}
+.proj-video-preview{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;margin-bottom:2rem;background:var(--navy);cursor:pointer;flex-shrink:0;}
 .proj-video-preview::before{content:'';position:absolute;inset:0;background:linear-gradient(110deg,rgba(255,255,255,0.03) 0%,rgba(255,255,255,0.07) 40%,rgba(255,255,255,0.03) 60%);background-size:200% 100%;animation:shimmer 2.2s infinite;z-index:1;}
 @keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
-.proj-video-preview video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
-.proj-video-preview:hover video{transform:scale(1.03);}
-.proj-video-preview .vid-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(10,16,28,0.65) 100%);z-index:2;transition:background 0.3s;}
-.proj-video-preview:hover .vid-overlay{background:linear-gradient(to bottom,rgba(10,16,28,0.1) 0%,rgba(10,16,28,0.7) 100%);}
-.vid-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.9);width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.35);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:3;transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1),background 0.2s,border-color 0.2s;}
-.proj-video-preview:hover .vid-play-btn{transform:translate(-50%,-50%) scale(1);background:rgba(255,255,255,0.22);border-color:rgba(255,255,255,0.6);}
+.proj-video-preview .vid-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(10,16,28,0.65) 100%);z-index:2;}
+.vid-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.9);width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.35);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:3;transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1),background 0.2s;}
+.proj-video-preview:hover .vid-play-btn{transform:translate(-50%,-50%) scale(1);background:rgba(255,255,255,0.22);}
 .vid-play-btn svg{width:22px;height:22px;fill:white;margin-left:3px;}
 .vid-label{position:absolute;bottom:0;left:0;right:0;padding:0.8rem 1rem;z-index:3;display:flex;align-items:center;gap:0.5rem;}
-.vid-label-dot{width:7px;height:7px;border-radius:50%;background:#ef4444;box-shadow:0 0 6px #ef4444;animation:livePulse 1.8s infinite;flex-shrink:0;}
-@keyframes livePulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.75);}}
 .vid-label-text{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);}
-.featured-dark .proj-video-preview{background:#060d18;}
-.accent-card .proj-video-preview{background:#0e1520;}
-.accent-card .proj-video-preview .vid-overlay{background:linear-gradient(to bottom,transparent 30%,rgba(14,21,32,0.65) 100%);}
-.vid-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(5,9,18,0.92);backdrop-filter:blur(18px);opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+.vid-modal{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center;background:rgba(5,9,18,0.92);backdrop-filter:blur(18px);opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
 .vid-modal.open{opacity:1;pointer-events:all;}
 .vid-modal-inner{position:relative;width:min(90vw,1100px);background:var(--navy);border-radius:18px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,0.7);transform:scale(0.94) translateY(20px);transition:transform 0.35s cubic-bezier(0.34,1.2,0.64,1);}
 .vid-modal.open .vid-modal-inner{transform:scale(1) translateY(0);}
 .vid-modal-player{position:relative;width:100%;aspect-ratio:16/9;background:#000;}
-.vid-modal-player iframe,.vid-modal-player video{position:absolute;inset:0;width:100%;height:100%;border:none;display:block;}
+.vid-modal-player iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block;}
 .vid-modal-bar{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.4rem;border-top:1px solid rgba(255,255,255,0.07);}
 .vid-modal-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:rgba(255,255,255,0.75);}
 .vid-modal-close{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.6);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
-.vid-modal-close:hover{background:rgba(255,255,255,0.12);color:#fff;border-color:rgba(255,255,255,0.3);}
+.vid-modal-close:hover{background:rgba(255,255,255,0.12);color:#fff;}
 .vid-modal-close svg{width:16px;height:16px;}
 body.modal-open{overflow:hidden;}
 
-/* RESPONSIVE */
-@media(max-width:1100px){
+/* ═══════════════════════════════
+   CHATBOT WIDGET
+═══════════════════════════════ */
+#chatbot-launcher{
+  position:fixed;bottom:28px;right:28px;z-index:10000;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,#2146f0 0%,#1134c4 100%);
+  border:none;cursor:pointer;
+  box-shadow:0 8px 32px rgba(33,70,240,0.45),0 2px 8px rgba(0,0,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s;
+  outline:none;
+}
+#chatbot-launcher:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(33,70,240,0.55);}
+#chatbot-launcher .l-icon{transition:opacity 0.2s,transform 0.2s;position:absolute;}
+.l-icon-open{opacity:1;transform:rotate(0) scale(1);}
+.l-icon-close{opacity:0;transform:rotate(-90deg) scale(0.6);}
+#chatbot-launcher.open .l-icon-open{opacity:0;transform:rotate(90deg) scale(0.6);}
+#chatbot-launcher.open .l-icon-close{opacity:1;transform:rotate(0deg) scale(1);}
+.chat-pulse{position:absolute;inset:-3px;border-radius:50%;border:2px solid rgba(33,70,240,0.4);animation:chatPulse 2.5s ease-out infinite;}
+@keyframes chatPulse{0%{transform:scale(1);opacity:0.8;}100%{transform:scale(1.55);opacity:0;}}
+#chatbot-launcher.open .chat-pulse{display:none;}
+
+#chatbot-panel{
+  position:fixed;bottom:100px;right:28px;z-index:9999;
+  width:400px;max-width:calc(100vw - 40px);
+  height:580px;max-height:calc(100vh - 130px);
+  background:#fff;border-radius:20px;
+  box-shadow:0 20px 80px rgba(0,0,0,0.18),0 4px 20px rgba(0,0,0,0.1);
+  display:flex;flex-direction:column;overflow:hidden;
+  border:1px solid var(--border);
+  transform:translateY(20px) scale(0.95);opacity:0;pointer-events:none;
+  transition:transform 0.35s cubic-bezier(0.34,1.2,0.64,1),opacity 0.3s ease;
+}
+#chatbot-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all;}
+
+.chat-hdr{background:var(--navy);padding:1rem 1.2rem;display:flex;align-items:center;gap:0.75rem;flex-shrink:0;}
+.chat-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#2146f0,#c9943a);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.chat-hdr-info{flex:1;min-width:0;}
+.chat-hdr-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:#fff;line-height:1.2;}
+.chat-hdr-status{font-size:0.68rem;color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:0.35rem;}
+.s-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,0.7);animation:sPulse 2s infinite;}
+@keyframes sPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+.chat-hdr-btn{width:30px;height:30px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.55);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.18s;font-size:0.85rem;}
+.chat-hdr-btn:hover{background:rgba(255,255,255,0.12);color:#fff;}
+
+.chat-msgs{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:0.75rem;scroll-behavior:smooth;}
+.chat-msgs::-webkit-scrollbar{width:4px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+
+.cm{display:flex;gap:0.55rem;align-items:flex-end;}
+.cm.user{flex-direction:row-reverse;}
+.cm-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0;}
+.cm-av.bot{background:linear-gradient(135deg,#2146f0,#1134c4);color:#fff;}
+.cm-av.usr{background:var(--bg2);border:1px solid var(--border);font-size:0.8rem;}
+.cm-bub{max-width:78%;padding:0.65rem 0.9rem;border-radius:16px;font-size:0.83rem;line-height:1.55;}
+.cm.bot .cm-bub{background:#f4f5f7;color:var(--text);border-bottom-left-radius:4px;}
+.cm.user .cm-bub{background:var(--navy);color:#fff;border-bottom-right-radius:4px;}
+.cm-time{font-size:0.6rem;color:var(--text-faint);margin-top:0.25rem;}
+.cm.user .cm-time{text-align:right;}
+
+.typing-wrap{display:flex;gap:0.55rem;align-items:flex-end;}
+.typing-bub{background:#f4f5f7;border-radius:16px;border-bottom-left-radius:4px;padding:0.65rem 0.85rem;display:flex;gap:0.3rem;align-items:center;}
+.t-dot{width:6px;height:6px;border-radius:50%;background:var(--text-faint);animation:tBounce 1.2s infinite ease-in-out;}
+.t-dot:nth-child(2){animation-delay:0.15s;}.t-dot:nth-child(3){animation-delay:0.3s;}
+@keyframes tBounce{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-6px);}}
+
+.chat-qr{padding:0.5rem 1rem 0;display:flex;flex-wrap:wrap;gap:0.4rem;}
+.qr{font-size:0.72rem;font-weight:500;color:var(--blue);background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:999px;padding:0.3rem 0.75rem;cursor:pointer;transition:all 0.18s;font-family:'Outfit',sans-serif;white-space:nowrap;}
+.qr:hover{background:var(--blue);color:#fff;border-color:var(--blue);}
+
+.chat-inp-area{padding:0.85rem 1rem;border-top:1px solid var(--border);display:flex;gap:0.6rem;align-items:flex-end;background:#fff;flex-shrink:0;}
+#chat-input{flex:1;border:1px solid var(--border);border-radius:12px;padding:0.6rem 0.85rem;font-family:'Outfit',sans-serif;font-size:0.83rem;color:var(--text);background:var(--bg);resize:none;outline:none;transition:border-color 0.2s;min-height:38px;max-height:100px;line-height:1.4;}
+#chat-input:focus{border-color:var(--blue);}
+#chat-input::placeholder{color:var(--text-faint);}
+#chat-send{width:38px;height:38px;border-radius:10px;background:var(--blue);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;color:#fff;}
+#chat-send:hover{background:#1a38d8;transform:scale(1.05);}
+#chat-send:disabled{background:var(--border2);cursor:not-allowed;transform:none;}
+#chat-send svg{width:16px;height:16px;}
+.chat-foot{text-align:center;font-size:0.62rem;color:var(--text-faint);padding:0 1rem 0.6rem;flex-shrink:0;}
+
+/* Setup screen */
+.chat-setup{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;gap:0.8rem;}
+.chat-setup-icon{font-size:2.5rem;}
+.chat-setup h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--text);}
+.chat-setup p{font-size:0.78rem;color:var(--text-dim);line-height:1.55;}
+.chat-setup input{width:100%;border:1px solid var(--border);border-radius:10px;padding:0.65rem 0.9rem;font-family:'Outfit',sans-serif;font-size:0.82rem;color:var(--text);outline:none;transition:border-color 0.2s;background:var(--bg);}
+.chat-setup input:focus{border-color:var(--blue);}
+.chat-setup button{width:100%;background:var(--navy);color:#fff;border:none;border-radius:10px;padding:0.75rem;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;transition:background 0.2s;}
+.chat-setup button:hover{background:var(--navy2);}
+.setup-link{font-size:0.7rem;color:var(--blue);text-decoration:none;}
+.setup-link:hover{text-decoration:underline;}
+
+@media(max-width:768px){
+  #chatbot-panel{width:calc(100vw - 24px);right:12px;bottom:90px;height:calc(100vh - 110px);}
+  #chatbot-launcher{right:16px;bottom:16px;}
   .hero-inner{grid-template-columns:1fr;}
   .hero::before{display:none;}
   .hero-right{background:var(--navy);border-color:rgba(255,255,255,0.1);}
@@ -437,27 +375,14 @@ body.modal-open{overflow:hidden;}
   .process-grid{grid-template-columns:1fr 1fr;}
   .footer-top{grid-template-columns:1fr 1fr;}
   .about-grid{grid-template-columns:1fr;}
-  .svc{flex:0 0 calc(50% - 0.6rem);}
-}
-@media(max-width:768px){
   .nav-links a:not(.nav-cta){display:none;}
   .hero{padding:80px 5% 50px;}
-  .hero h1{font-size:clamp(2.2rem,9vw,3rem);}
-  .hero-sub{font-size:0.9rem;}
-  .hero-right{padding:1.8rem 1.5rem;}
-  .svc{flex:0 0 calc(100% - 0px);min-width:0;}
   .counters-row{grid-template-columns:1fr 1fr;}
   .counter-box{border-right:none;border-bottom:1px solid var(--border);padding:1.8rem 1rem;}
   .counter-box:nth-child(odd){border-right:1px solid var(--border);}
   .counter-box:nth-child(3),.counter-box:nth-child(4){border-bottom:none;}
-  .counter-num{font-size:2.8rem;}
-  .counter-label{font-size:0.75rem;}
-  .counter-sub{font-size:0.65rem;}
-  .trust-sep{display:none;}
-  .trust-item{font-size:0.72rem;}
   .deploy-grid{grid-template-columns:1fr;}
   .process-grid{grid-template-columns:1fr;}
-  .trust-boxes{grid-template-columns:1fr 1fr;}
   .footer-top{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:0.4rem;}
   .cta-wrap{padding:3rem 1.5rem;}
@@ -465,9 +390,7 @@ body.modal-open{overflow:hidden;}
   .cta-contacts{flex-direction:column;}
   .who-strip-inner{flex-direction:column;align-items:flex-start;gap:1rem;}
   .services-header{flex-direction:column;align-items:flex-start;gap:1.2rem;}
-  .section-sub{margin-bottom:1.5rem;}
   .svc{flex:0 0 280px;width:280px;}
-  .proj-card{padding:1.8rem 1.5rem;}
 }
 @media(max-width:480px){
   .hero-actions{flex-direction:column;}
@@ -478,222 +401,126 @@ body.modal-open{overflow:hidden;}
   .counter-box{border-right:none!important;border-bottom:1px solid var(--border);}
   .counter-box:last-child{border-bottom:none;}
 }
-@media(max-width:600px){
-  .vid-modal-inner{width:95vw;border-radius:12px;}
-  .vid-play-btn{width:48px;height:48px;}
-  .vid-play-btn svg{width:18px;height:18px;}
-}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
       <div class="nav-logo-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
       </div>
       <span class="nav-logo-name">Adaptive <span>Minds AI</span></span>
     </a>
     <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="#process">Process</a>
-      <a href="#about">About</a>
+      <a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a>
       <a href="#contact" class="nav-cta">Talk to Us →</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow"><span class="dot"></span>AI Automation Agency · India &amp; Global</div>
-      <h1>
-        AI that works<br/>
-        as hard as<br/>
-        <em>your team does</em>
-      </h1>
-      <p class="hero-sub">
-        We design and deploy AI systems that handle the work your team repeats every day — so your people do what only people can.
-      </p>
+      <h1>AI that works<br/>as hard as<br/><em>your team does</em></h1>
+      <p class="hero-sub">We design and deploy AI systems that handle the work your team repeats every day — so your people do what only people can.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-blue">Get a Free AI Audit →</a>
         <a href="#work" class="btn btn-outline">See Our Work</a>
       </div>
     </div>
-
-    <!-- ── HERO RIGHT — updated ── -->
     <div class="hero-right">
       <div class="hero-right-label">Why businesses work with us</div>
-
-      <div class="hero-metric">
-        <div class="hm-icon hm-icon-green">💰</div>
-        <div class="hm-info">
-          <div class="hm-label">Replaces expensive manual work — <span class="accent-green">at a fraction of the cost</span></div>
-          <div class="hm-sub">Tasks that once needed a full-time hire — data entry, document review, email handling — now run automatically, 24/7, without adding headcount.</div>
-        </div>
-      </div>
-
-      <div class="hero-metric">
-        <div class="hm-icon hm-icon-blue">📈</div>
-        <div class="hm-info">
-          <div class="hm-label">Your team handles <span class="accent-blue">10× more volume</span> — without growing headcount</div>
-          <div class="hm-sub">AI takes on the repetitive load. Your people stay focused on decisions, relationships, and work that actually moves the business forward.</div>
-        </div>
-      </div>
-
-      <div class="hero-metric">
-        <div class="hm-icon hm-icon-gold">🔒</div>
-        <div class="hm-info">
-          <div class="hm-label"><span class="accent-gold">100% custom-built</span> — you own it, no lock-in</div>
-          <div class="hm-sub">No monthly subscriptions to someone else's platform. Every system is purpose-built for your workflow and handed over to you completely.</div>
-        </div>
-      </div>
-
+      <div class="hero-metric"><div class="hm-icon hm-icon-green">💰</div><div class="hm-info"><div class="hm-label">Replaces expensive manual work — <span class="accent-green">at a fraction of the cost</span></div><div class="hm-sub">Tasks that once needed a full-time hire now run automatically, 24/7, without adding headcount.</div></div></div>
+      <div class="hero-metric"><div class="hm-icon hm-icon-blue">📈</div><div class="hm-info"><div class="hm-label">Your team handles <span class="accent-blue">10× more volume</span> — without growing headcount</div><div class="hm-sub">AI takes on the repetitive load. Your people stay focused on decisions and work that moves the business forward.</div></div></div>
+      <div class="hero-metric"><div class="hm-icon hm-icon-gold">🔒</div><div class="hm-info"><div class="hm-label"><span class="accent-gold">100% custom-built</span> — you own it, no lock-in</div><div class="hm-sub">No monthly subscriptions. Every system is purpose-built for your workflow and handed over to you completely.</div></div></div>
       <div class="hero-right-foot">
-        <span class="hero-badge">HIPAA Ready</span>
-        <span class="hero-badge">GDPR Compliant</span>
-        <span class="hero-badge">On-Premise</span>
-        <span class="hero-badge">Audit Trail</span>
+        <span class="hero-badge">HIPAA Ready</span><span class="hero-badge">GDPR Compliant</span><span class="hero-badge">On-Premise</span><span class="hero-badge">Audit Trail</span>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-bar-inner">
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Enterprise-grade security
-    </div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Enterprise-grade security</div>
     <div class="trust-sep"></div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      Runs on your hardware or cloud
-    </div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Runs on your hardware or cloud</div>
     <div class="trust-sep"></div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      Full audit trail on every action
-    </div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Full audit trail on every action</div>
     <div class="trust-sep"></div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Custom-built — not off-the-shelf tools
-    </div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Custom-built — not off-the-shelf tools</div>
   </div>
 </div>
 
-<!-- ANIMATED COUNTERS -->
 <section class="counters-section">
   <div class="counters-inner">
     <div class="counters-row">
-      <div class="counter-box">
-        <span class="counter-num" data-target="20" data-suffix="+">0</span>
-        <div class="counter-label">AI Projects Delivered</div>
-        <div class="counter-sub">Across India and global clients</div>
-      </div>
-      <div class="counter-box">
-        <span class="counter-num" data-target="5" data-suffix="+">0</span>
-        <div class="counter-label">Industries Served</div>
-        <div class="counter-sub">Legal, HR, Finance, Sales, Ops</div>
-      </div>
-      <div class="counter-box">
-        <span class="counter-num" data-target="100" data-suffix="%">0</span>
-        <div class="counter-label">Custom-Built Systems</div>
-        <div class="counter-sub">No templates, no shortcuts</div>
-      </div>
-      <div class="counter-box">
-        <span class="counter-num" data-target="3" data-suffix="">0</span>
-        <div class="counter-label">Deployment Modes</div>
-        <div class="counter-sub">On-Premise · Cloud · Hybrid</div>
-      </div>
+      <div class="counter-box"><span class="counter-num" data-target="20" data-suffix="+">0</span><div class="counter-label">AI Projects Delivered</div><div class="counter-sub">Across India and global clients</div></div>
+      <div class="counter-box"><span class="counter-num" data-target="5" data-suffix="+">0</span><div class="counter-label">Industries Served</div><div class="counter-sub">Legal, HR, Finance, Sales, Ops</div></div>
+      <div class="counter-box"><span class="counter-num" data-target="100" data-suffix="%">0</span><div class="counter-label">Custom-Built Systems</div><div class="counter-sub">No templates, no shortcuts</div></div>
+      <div class="counter-box"><span class="counter-num" data-target="3" data-suffix="">0</span><div class="counter-label">Deployment Modes</div><div class="counter-sub">On-Premise · Cloud · Hybrid</div></div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="section dark-bg" id="services">
   <div class="section-inner">
     <div class="services-header">
       <div class="services-header-left">
-        <div class="reveal" style="display:inline-flex;align-items:center;gap:0.55rem;background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.35);padding:0.38rem 1rem 0.38rem 0.7rem;border-radius:999px;margin-bottom:1.4rem;">
-          <span style="width:7px;height:7px;border-radius:50%;background:#c9943a;flex-shrink:0;display:inline-block;"></span>
-          <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9943a;">Our Services</span>
-        </div>
-        <h2 class="section-title reveal" style="color:#fff;margin-bottom:0.6rem;">AI automation across<br/><em style="font-style:italic;color:rgba(255,255,255,0.38);">your entire business</em></h2>
-        <p class="section-sub reveal" style="margin-bottom:0;">Every service below targets a real task your team does manually today. <strong style="color:rgba(255,255,255,0.72);font-weight:500;">Browse what we automate</strong> — if you recognise a bottleneck, that's where we start.</p>
+        <div class="reveal" style="display:inline-flex;align-items:center;gap:0.55rem;background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.35);padding:0.38rem 1rem 0.38rem 0.7rem;border-radius:999px;margin-bottom:1.4rem;"><span style="width:7px;height:7px;border-radius:50%;background:#c9943a;display:inline-block;"></span><span style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9943a;">Our Services</span></div>
+        <h2 class="section-title reveal" style="color:#fff;margin-bottom:0.6rem;">AI automation across<br/><em style="color:rgba(255,255,255,0.38);">your entire business</em></h2>
+        <p class="section-sub reveal" style="margin-bottom:0;">Every service below targets a real task your team does manually today.</p>
       </div>
       <div class="services-nav reveal">
         <span class="svc-pause-hint">Hover to pause</span>
-        <button class="svc-nav-btn" id="svcSlower" title="Slow down" aria-label="Slow down">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-        </button>
-        <button class="svc-nav-btn" id="svcToggle" title="Pause / Play" aria-label="Pause or play">
-          <svg id="svcToggleIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5,3 19,12 5,21"/></svg>
-        </button>
-        <button class="svc-nav-btn" id="svcFaster" title="Speed up" aria-label="Speed up">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5,3 19,12 5,21"/><line x1="19" y1="3" x2="19" y2="21"/></svg>
-        </button>
+        <button class="svc-nav-btn" id="svcSlower"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></button>
+        <button class="svc-nav-btn" id="svcToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg></button>
+        <button class="svc-nav-btn" id="svcFaster"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/><line x1="19" y1="3" x2="19" y2="21"/></svg></button>
       </div>
     </div>
-
-    <div class="services-marquee-outer" id="svcMarqueeOuter">
+    <div class="services-marquee-outer">
       <div class="services-track" id="svcTrack">
         <div class="svc" data-num="01" style="--svc-accent:#3b82f6;--svc-icon-bg:rgba(59,130,246,0.12);--svc-icon-bd:rgba(59,130,246,0.28);"><div class="svc-icon-box">⚙️</div><span class="svc-category">Workflow Automation</span><h3>Automate Your Repetitive Work</h3><p>Approvals, data entry, and notifications — mapped and automated so your team never touches them again.</p><p class="svc-eg">Invoice approvals cut from 2 days to minutes.</p></div>
-        <div class="svc" data-num="02" style="--svc-accent:#06b6d4;--svc-icon-bg:rgba(6,182,212,0.12);--svc-icon-bd:rgba(6,182,212,0.28);"><div class="svc-icon-box">🤖</div><span class="svc-category">AI Assistants &amp; Chatbots</span><h3>Always-On Customer Support</h3><p>AI trained on your business answers customer and team queries on WhatsApp, your website, or Slack — day or night.</p><p class="svc-eg">Zero missed queries, even at 2am.</p></div>
+        <div class="svc" data-num="02" style="--svc-accent:#06b6d4;--svc-icon-bg:rgba(6,182,212,0.12);--svc-icon-bd:rgba(6,182,212,0.28);"><div class="svc-icon-box">🤖</div><span class="svc-category">AI Assistants &amp; Chatbots</span><h3>Always-On Customer Support</h3><p>AI trained on your business answers queries on WhatsApp, your website, or Slack — day or night.</p><p class="svc-eg">Zero missed queries, even at 2am.</p></div>
         <div class="svc" data-num="03" style="--svc-accent:#a855f7;--svc-icon-bg:rgba(168,85,247,0.12);--svc-icon-bd:rgba(168,85,247,0.28);"><div class="svc-icon-box">🧠</div><span class="svc-category">Autonomous AI Agents</span><h3>AI That Acts Without Being Asked</h3><p>Agents handle full multi-step tasks — research, decisions, and actions — with no human trigger needed.</p><p class="svc-eg">New leads researched and outreached before you open your inbox.</p></div>
         <div class="svc" data-num="04" style="--svc-accent:#f59e0b;--svc-icon-bg:rgba(245,158,11,0.12);--svc-icon-bd:rgba(245,158,11,0.28);"><div class="svc-icon-box">📚</div><span class="svc-category">Document Intelligence</span><h3>Chat With Any Document</h3><p>Ask questions across contracts, reports, or policies in plain English — every answer cited by page and section.</p><p class="svc-eg">Penalty clauses found in seconds, not hours.</p></div>
         <div class="svc" data-num="05" style="--svc-accent:#f97316;--svc-icon-bg:rgba(249,115,22,0.12);--svc-icon-bd:rgba(249,115,22,0.28);"><div class="svc-icon-box">📄</div><span class="svc-category">Intelligent Data Extraction</span><h3>Pull Structured Data From Any File</h3><p>AI reads PDFs, scanned invoices, and forms — extracting exact fields into your systems automatically.</p><p class="svc-eg">Hundreds of invoices processed overnight, zero keystrokes.</p></div>
-        <div class="svc" data-num="06" style="--svc-accent:#10b981;--svc-icon-bg:rgba(16,185,129,0.12);--svc-icon-bd:rgba(16,185,129,0.28);"><div class="svc-icon-box">🔗</div><span class="svc-category">System Integration</span><h3>AI Inside the Tools You Already Use</h3><p>We connect AI to your CRM, ERP, email, and spreadsheets — no new platforms, no retraining your team.</p><p class="svc-eg">CRM updated after every sales call, automatically.</p></div>
+        <div class="svc" data-num="06" style="--svc-accent:#10b981;--svc-icon-bg:rgba(16,185,129,0.12);--svc-icon-bd:rgba(16,185,129,0.28);"><div class="svc-icon-box">🔗</div><span class="svc-category">System Integration</span><h3>AI Inside the Tools You Already Use</h3><p>We connect AI to your CRM, ERP, email, and spreadsheets — no new platforms needed.</p><p class="svc-eg">CRM updated after every sales call, automatically.</p></div>
         <div class="svc" data-num="07" style="--svc-accent:#22d3ee;--svc-icon-bg:rgba(34,211,238,0.12);--svc-icon-bd:rgba(34,211,238,0.28);"><div class="svc-icon-box">📊</div><span class="svc-category">Business Intelligence</span><h3>Turn Your Data Into Clear Answers</h3><p>AI reads your operational data and surfaces what matters — in plain language, not charts you have to interpret.</p><p class="svc-eg">Churn risk flagged a full quarter early.</p></div>
         <div class="svc" data-num="08" style="--svc-accent:#ec4899;--svc-icon-bg:rgba(236,72,153,0.12);--svc-icon-bd:rgba(236,72,153,0.28);"><div class="svc-icon-box">✍️</div><span class="svc-category">Content Automation</span><h3>Scale Content Without Scaling Your Team</h3><p>AI writes in your brand's voice — product descriptions, email campaigns, and posts — consistently and instantly.</p><p class="svc-eg">Full product catalogue rewritten overnight.</p></div>
         <div class="svc" data-num="09" style="--svc-accent:#ef4444;--svc-icon-bg:rgba(239,68,68,0.12);--svc-icon-bd:rgba(239,68,68,0.28);"><div class="svc-icon-box">🎯</div><span class="svc-category">Custom AI Development</span><h3>AI Built for Your Industry</h3><p>When generic AI doesn't know your domain — we train one that does, on your own data and terminology.</p><p class="svc-eg">Legal AI that knows your firm's own contract templates.</p></div>
-        <!-- SET 2 duplicates -->
+        <!-- SET 2 -->
         <div class="svc" data-num="01" aria-hidden="true" style="--svc-accent:#3b82f6;--svc-icon-bg:rgba(59,130,246,0.12);--svc-icon-bd:rgba(59,130,246,0.28);"><div class="svc-icon-box">⚙️</div><span class="svc-category">Workflow Automation</span><h3>Automate Your Repetitive Work</h3><p>Approvals, data entry, and notifications — mapped and automated so your team never touches them again.</p><p class="svc-eg">Invoice approvals cut from 2 days to minutes.</p></div>
-        <div class="svc" data-num="02" aria-hidden="true" style="--svc-accent:#06b6d4;--svc-icon-bg:rgba(6,182,212,0.12);--svc-icon-bd:rgba(6,182,212,0.28);"><div class="svc-icon-box">🤖</div><span class="svc-category">AI Assistants &amp; Chatbots</span><h3>Always-On Customer Support</h3><p>AI trained on your business answers customer and team queries on WhatsApp, your website, or Slack — day or night.</p><p class="svc-eg">Zero missed queries, even at 2am.</p></div>
+        <div class="svc" data-num="02" aria-hidden="true" style="--svc-accent:#06b6d4;--svc-icon-bg:rgba(6,182,212,0.12);--svc-icon-bd:rgba(6,182,212,0.28);"><div class="svc-icon-box">🤖</div><span class="svc-category">AI Assistants &amp; Chatbots</span><h3>Always-On Customer Support</h3><p>AI trained on your business answers queries on WhatsApp, your website, or Slack — day or night.</p><p class="svc-eg">Zero missed queries, even at 2am.</p></div>
         <div class="svc" data-num="03" aria-hidden="true" style="--svc-accent:#a855f7;--svc-icon-bg:rgba(168,85,247,0.12);--svc-icon-bd:rgba(168,85,247,0.28);"><div class="svc-icon-box">🧠</div><span class="svc-category">Autonomous AI Agents</span><h3>AI That Acts Without Being Asked</h3><p>Agents handle full multi-step tasks — research, decisions, and actions — with no human trigger needed.</p><p class="svc-eg">New leads researched and outreached before you open your inbox.</p></div>
-        <div class="svc" data-num="04" aria-hidden="true" style="--svc-accent:#f59e0b;--svc-icon-bg:rgba(245,158,11,0.12);--svc-icon-bd:rgba(245,158,11,0.28);"><div class="svc-icon-box">📚</div><span class="svc-category">Document Intelligence</span><h3>Chat With Any Document</h3><p>Ask questions across contracts, reports, or policies in plain English — every answer cited by page and section.</p><p class="svc-eg">Penalty clauses found in seconds, not hours.</p></div>
-        <div class="svc" data-num="05" aria-hidden="true" style="--svc-accent:#f97316;--svc-icon-bg:rgba(249,115,22,0.12);--svc-icon-bd:rgba(249,115,22,0.28);"><div class="svc-icon-box">📄</div><span class="svc-category">Intelligent Data Extraction</span><h3>Pull Structured Data From Any File</h3><p>AI reads PDFs, scanned invoices, and forms — extracting exact fields into your systems automatically.</p><p class="svc-eg">Hundreds of invoices processed overnight, zero keystrokes.</p></div>
-        <div class="svc" data-num="06" aria-hidden="true" style="--svc-accent:#10b981;--svc-icon-bg:rgba(16,185,129,0.12);--svc-icon-bd:rgba(16,185,129,0.28);"><div class="svc-icon-box">🔗</div><span class="svc-category">System Integration</span><h3>AI Inside the Tools You Already Use</h3><p>We connect AI to your CRM, ERP, email, and spreadsheets — no new platforms, no retraining your team.</p><p class="svc-eg">CRM updated after every sales call, automatically.</p></div>
-        <div class="svc" data-num="07" aria-hidden="true" style="--svc-accent:#22d3ee;--svc-icon-bg:rgba(34,211,238,0.12);--svc-icon-bd:rgba(34,211,238,0.28);"><div class="svc-icon-box">📊</div><span class="svc-category">Business Intelligence</span><h3>Turn Your Data Into Clear Answers</h3><p>AI reads your operational data and surfaces what matters — in plain language, not charts you have to interpret.</p><p class="svc-eg">Churn risk flagged a full quarter early.</p></div>
-        <div class="svc" data-num="08" aria-hidden="true" style="--svc-accent:#ec4899;--svc-icon-bg:rgba(236,72,153,0.12);--svc-icon-bd:rgba(236,72,153,0.28);"><div class="svc-icon-box">✍️</div><span class="svc-category">Content Automation</span><h3>Scale Content Without Scaling Your Team</h3><p>AI writes in your brand's voice — product descriptions, email campaigns, and posts — consistently and instantly.</p><p class="svc-eg">Full product catalogue rewritten overnight.</p></div>
-        <div class="svc" data-num="09" aria-hidden="true" style="--svc-accent:#ef4444;--svc-icon-bg:rgba(239,68,68,0.12);--svc-icon-bd:rgba(239,68,68,0.28);"><div class="svc-icon-box">🎯</div><span class="svc-category">Custom AI Development</span><h3>AI Built for Your Industry</h3><p>When generic AI doesn't know your domain — we train one that does, on your own data and terminology.</p><p class="svc-eg">Legal AI that knows your firm's own contract templates.</p></div>
+        <div class="svc" data-num="04" aria-hidden="true" style="--svc-accent:#f59e0b;--svc-icon-bg:rgba(245,158,11,0.12);--svc-icon-bd:rgba(245,158,11,0.28);"><div class="svc-icon-box">📚</div><span class="svc-category">Document Intelligence</span><h3>Chat With Any Document</h3><p>Ask questions across contracts, reports, or policies in plain English.</p><p class="svc-eg">Penalty clauses found in seconds, not hours.</p></div>
+        <div class="svc" data-num="05" aria-hidden="true" style="--svc-accent:#f97316;--svc-icon-bg:rgba(249,115,22,0.12);--svc-icon-bd:rgba(249,115,22,0.28);"><div class="svc-icon-box">📄</div><span class="svc-category">Intelligent Data Extraction</span><h3>Pull Structured Data From Any File</h3><p>AI reads PDFs, scanned invoices, and forms — extracting exact fields automatically.</p><p class="svc-eg">Hundreds of invoices processed overnight.</p></div>
+        <div class="svc" data-num="06" aria-hidden="true" style="--svc-accent:#10b981;--svc-icon-bg:rgba(16,185,129,0.12);--svc-icon-bd:rgba(16,185,129,0.28);"><div class="svc-icon-box">🔗</div><span class="svc-category">System Integration</span><h3>AI Inside the Tools You Already Use</h3><p>We connect AI to your CRM, ERP, email, and spreadsheets.</p><p class="svc-eg">CRM updated after every sales call, automatically.</p></div>
+        <div class="svc" data-num="07" aria-hidden="true" style="--svc-accent:#22d3ee;--svc-icon-bg:rgba(34,211,238,0.12);--svc-icon-bd:rgba(34,211,238,0.28);"><div class="svc-icon-box">📊</div><span class="svc-category">Business Intelligence</span><h3>Turn Your Data Into Clear Answers</h3><p>AI reads your operational data and surfaces what matters in plain language.</p><p class="svc-eg">Churn risk flagged a full quarter early.</p></div>
+        <div class="svc" data-num="08" aria-hidden="true" style="--svc-accent:#ec4899;--svc-icon-bg:rgba(236,72,153,0.12);--svc-icon-bd:rgba(236,72,153,0.28);"><div class="svc-icon-box">✍️</div><span class="svc-category">Content Automation</span><h3>Scale Content Without Scaling Your Team</h3><p>AI writes in your brand's voice consistently and instantly.</p><p class="svc-eg">Full product catalogue rewritten overnight.</p></div>
+        <div class="svc" data-num="09" aria-hidden="true" style="--svc-accent:#ef4444;--svc-icon-bg:rgba(239,68,68,0.12);--svc-icon-bd:rgba(239,68,68,0.28);"><div class="svc-icon-box">🎯</div><span class="svc-category">Custom AI Development</span><h3>AI Built for Your Industry</h3><p>We train AI on your own data and terminology for domain-specific precision.</p><p class="svc-eg">Legal AI that knows your firm's own contract templates.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHO WE WORK WITH -->
 <div class="who-strip">
   <div class="who-strip-inner">
     <span class="who-label">Who we work with</span>
     <div class="who-chips">
-      <span class="who-chip">⚖️ Legal Firms</span>
-      <span class="who-chip">🏥 Healthcare</span>
-      <span class="who-chip">🏦 BFSI</span>
-      <span class="who-chip">👥 HR &amp; Operations</span>
-      <span class="who-chip">🏭 Manufacturing</span>
-      <span class="who-chip">🚀 Startups &amp; SaaS</span>
-      <span class="who-chip">🏢 Consulting</span>
-      <span class="who-chip">🎓 EdTech</span>
+      <span class="who-chip">⚖️ Legal Firms</span><span class="who-chip">🏥 Healthcare</span><span class="who-chip">🏦 BFSI</span><span class="who-chip">👥 HR &amp; Operations</span><span class="who-chip">🏭 Manufacturing</span><span class="who-chip">🚀 Startups &amp; SaaS</span><span class="who-chip">🏢 Consulting</span><span class="who-chip">🎓 EdTech</span>
     </div>
   </div>
 </div>
 
-<!-- OUR WORK -->
 <section class="section alt-bg" id="work">
   <div class="section-inner">
     <div class="eyebrow reveal">Our Work</div>
     <h2 class="section-title reveal">Built. Deployed. <em>Proven.</em></h2>
-    <p class="section-sub reveal">A selection of AI systems we have designed and delivered for clients across industries. Every project starts with a specific business problem and ends with a working system.</p>
+    <p class="section-sub reveal">A selection of AI systems we have designed and delivered for clients across industries.</p>
     <div class="projects-stack">
       <div class="proj-card featured-dark reveal">
         <div>
@@ -701,67 +528,52 @@ body.modal-open{overflow:hidden;}
           <div class="proj-category">Document Intelligence · Privacy</div>
           <h3>DocuAgent AI</h3>
           <p class="proj-tagline">Secure on-premise document intelligence platform</p>
-          <p class="proj-desc">A secure AI system that lets law firms, hospitals, and consultants chat with any document — contracts, reports, PDFs — entirely on their own hardware. No data leaves the building. Every answer is cited with the exact source and page number, making it defensible for regulated workflows.</p>
-          <div class="proj-tags">
-            <span class="proj-tag">Legal</span>
-            <span class="proj-tag">Healthcare</span>
-            <span class="proj-tag">On-Premise</span>
-            <span class="proj-tag">Document AI</span>
-            <span class="proj-tag">Compliance</span>
-          </div>
+          <p class="proj-desc">A secure AI system that lets law firms, hospitals, and consultants chat with any document — contracts, reports, PDFs — entirely on their own hardware. No data leaves the building.</p>
+          <div class="proj-tags"><span class="proj-tag">Legal</span><span class="proj-tag">Healthcare</span><span class="proj-tag">On-Premise</span><span class="proj-tag">Document AI</span><span class="proj-tag">Compliance</span></div>
           <div class="proj-footer"><a href="#contact" class="proj-cta white-cta">Request Demo →</a></div>
         </div>
         <div>
-          <div class="proj-video-preview" data-video-id="docuagent" title="Watch DocuAgent AI demo"></div>
+          <div class="proj-video-preview" data-video-id="docuagent" title="Watch DocuAgent AI demo">
+            <div class="vid-overlay"></div>
+            <div class="vid-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <div class="vid-label"><span class="vid-label-text">Watch Demo</span></div>
+          </div>
           <div class="proj-outcomes dark-outcomes">
             <div class="proj-outcomes-lbl">What This System Does</div>
             <ul>
-              <li>Instantly query any document in plain English — contracts, reports, records</li>
+              <li>Instantly query any document in plain English</li>
               <li>Zero cloud exposure — all data stays on your network</li>
               <li>Full audit trail for HIPAA, GDPR, and DPDP compliance</li>
-              <li>Every answer cited with exact source, page, and section</li>
+              <li>Every answer cited with exact source and page number</li>
               <li>Supports PDF, DOCX, XLSX, PPTX, and scanned documents</li>
             </ul>
           </div>
           <div class="proj-metrics">
-            <div class="proj-metric-box">
-              <div class="pmb-num">12<span style="font-size:1rem;color:var(--gold);">+</span></div>
-              <div class="pmb-label">Supported document formats</div>
-            </div>
-            <div class="proj-metric-box">
-              <div class="pmb-num">100<span style="font-size:1rem;color:var(--gold);">%</span></div>
-              <div class="pmb-label">On-premise — data never leaves your network</div>
-            </div>
+            <div class="proj-metric-box"><div class="pmb-num">12<span style="font-size:1rem;color:var(--gold);">+</span></div><div class="pmb-label">Supported document formats</div></div>
+            <div class="proj-metric-box"><div class="pmb-num">100<span style="font-size:1rem;color:var(--gold);">%</span></div><div class="pmb-label">On-premise — data never leaves</div></div>
           </div>
         </div>
       </div>
       <div class="proj-card accent-card reveal">
-        <div class="proj-header">
-          <div class="proj-icon-box pib-blue">📬</div>
-          <span class="proj-badge badge-new">New</span>
-        </div>
+        <div class="proj-header"><div class="proj-icon-box pib-blue">📬</div><span class="proj-badge badge-new">New</span></div>
         <div class="proj-category">Lead Handling · Email Triage · Sales Ops</div>
         <h3>InboxIQ</h3>
         <p class="proj-tagline">Your inbox — triaged, prioritised, and actioned by AI</p>
-        <p class="proj-desc">Every sales team loses revenue to slow follow-ups and buried leads. InboxIQ sits inside your Gmail or Outlook, instantly identifies high-priority emails — new leads, client escalations, payment queries — and drafts ready-to-send replies so your team responds in minutes, not hours. No lead goes cold. No urgent email gets missed.</p>
-        <div class="proj-video-preview" data-video-id="inboxiq" title="Watch InboxIQ demo"></div>
+        <p class="proj-desc">InboxIQ sits inside your Gmail or Outlook, instantly identifies high-priority emails — new leads, client escalations, payment queries — and drafts ready-to-send replies so your team responds in minutes, not hours.</p>
+        <div class="proj-video-preview" data-video-id="inboxiq" title="Watch InboxIQ demo">
+          <div class="vid-overlay"></div>
+          <div class="vid-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="vid-label"><span class="vid-label-text">Watch Demo</span></div>
+        </div>
         <div class="proj-outcomes">
           <div class="proj-outcomes-lbl">Business Problems It Solves</div>
           <ul>
-            <li><strong>Lead triage</strong> — new enquiries flagged and replied to instantly, before competitors do</li>
+            <li><strong>Lead triage</strong> — new enquiries flagged and replied to instantly</li>
             <li><strong>Email overload</strong> — inbox sorted by urgency so your team works the right emails first</li>
-            <li><strong>Client escalations</strong> — urgent client emails detected and escalated automatically</li>
-            <li><strong>Follow-up gaps</strong> — AI tracks unanswered threads and prompts action before deals go cold</li>
-            <li><strong>Sales ops</strong> — meeting requests, proposals, and pricing queries handled without manual effort</li>
+            <li><strong>Follow-up gaps</strong> — AI tracks unanswered threads and prompts action</li>
           </ul>
         </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Lead Handling</span>
-          <span class="proj-tag">Email Triage</span>
-          <span class="proj-tag">Sales Ops</span>
-          <span class="proj-tag">Gmail · Outlook</span>
-          <span class="proj-tag">Follow-up Automation</span>
-        </div>
+        <div class="proj-tags"><span class="proj-tag">Lead Handling</span><span class="proj-tag">Email Triage</span><span class="proj-tag">Sales Ops</span><span class="proj-tag">Gmail · Outlook</span></div>
         <div class="proj-footer"><a href="#contact" class="proj-cta">Request Demo →</a></div>
       </div>
     </div>
@@ -770,46 +582,43 @@ body.modal-open{overflow:hidden;}
 
 <div class="divider"></div>
 
-<!-- PROCESS -->
 <section class="section" id="process">
   <div class="section-inner">
     <div class="eyebrow reveal">How We Work</div>
     <h2 class="section-title reveal">A focused process,<br/>built around your business</h2>
-    <p class="section-sub reveal">We keep things simple and transparent. Four clear stages — from understanding your problem to deploying a working system.</p>
+    <p class="section-sub reveal">Four clear stages — from understanding your problem to deploying a working system.</p>
     <div class="process-grid">
       <div class="process-step reveal" data-num="1"><span class="process-icon">🔍</span><h3>Free AI Audit</h3><p>A 30-minute call where we map your biggest manual bottlenecks and identify exactly where AI automation would save the most time and money. No commitment, no sales pitch.</p></div>
       <div class="process-step reveal d1" data-num="2"><span class="process-icon">📐</span><h3>Scope &amp; Proposal</h3><p>We document the exact system to build, the outcomes it will deliver, the timeline, and the investment. You approve before any work begins.</p></div>
-      <div class="process-step reveal d2" data-num="3"><span class="process-icon">⚙️</span><h3>Build &amp; Test</h3><p>We build the system on your data, your workflows, and your infrastructure. Weekly updates throughout. You test and give feedback before it goes live.</p></div>
-      <div class="process-step reveal d3" data-num="4"><span class="process-icon">🚀</span><h3>Deploy &amp; Support</h3><p>We deploy to your environment — on-premise, private cloud, or hybrid — and provide ongoing support, monitoring, and iteration as your needs evolve.</p></div>
+      <div class="process-step reveal d2" data-num="3"><span class="process-icon">⚙️</span><h3>Build &amp; Test</h3><p>We build the system on your data, your workflows, and your infrastructure. Weekly updates. You test and give feedback before it goes live.</p></div>
+      <div class="process-step reveal d3" data-num="4"><span class="process-icon">🚀</span><h3>Deploy &amp; Support</h3><p>We deploy to your environment — on-premise, private cloud, or hybrid — and provide ongoing support, monitoring, and iteration.</p></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- DEPLOYMENT -->
 <section class="section dark-bg">
   <div class="section-inner">
     <div class="eyebrow reveal">Deployment</div>
     <h2 class="section-title reveal">Your data stays<br/>under your control</h2>
-    <p class="section-sub reveal">On-premise, private cloud, or hybrid — we build for all three and recommend the right fit based on your compliance needs and team size.</p>
+    <p class="section-sub reveal">On-premise, private cloud, or hybrid — we build for all three.</p>
     <div class="deploy-grid">
-      <div class="deploy-card reveal"><span class="deploy-icon">🖥️</span><h3>On-Premise</h3><div class="deploy-who">Best for: Legal, Healthcare, Defense, Government</div><p>The AI model, your data, and every query runs entirely on hardware you own. Nothing leaves your network — ever.</p><ul class="deploy-list"><li>Data never leaves your building</li><li>HIPAA, GDPR, DPDP compliant</li><li>Works completely offline after setup</li><li>Full audit log on every interaction</li></ul></div>
-      <div class="deploy-card featured-deploy reveal d1"><span class="deploy-icon">☁️</span><h3>Private Cloud</h3><div class="deploy-who">Best for: Scale-ups, SaaS, Distributed Teams</div><p>Your own cloud account (AWS, Azure, GCP). Globally accessible, infinitely scalable, and entirely under your control — no shared infrastructure.</p><ul class="deploy-list"><li>Your account, your keys, your data</li><li>Scales automatically with your usage</li><li>Accessible from any browser, anywhere</li><li>Pay only when running</li></ul></div>
-      <div class="deploy-card reveal d2"><span class="deploy-icon">🔀</span><h3>Hybrid</h3><div class="deploy-who">Best for: Enterprises with mixed requirements</div><p>Sensitive data stays on-premise. Non-sensitive workflows run on cloud. Compliance without sacrificing speed or scale.</p><ul class="deploy-list"><li>Sensitive and non-sensitive data handled separately</li><li>Single interface — complexity stays hidden</li><li>Configured per department or workflow</li><li>Grows and adapts as your business evolves</li></ul></div>
+      <div class="deploy-card reveal"><span class="deploy-icon">🖥️</span><h3>On-Premise</h3><div class="deploy-who">Best for: Legal, Healthcare, Defense, Government</div><p>The AI model, your data, and every query runs entirely on hardware you own.</p><ul class="deploy-list"><li>Data never leaves your building</li><li>HIPAA, GDPR, DPDP compliant</li><li>Works completely offline after setup</li><li>Full audit log on every interaction</li></ul></div>
+      <div class="deploy-card featured-deploy reveal d1"><span class="deploy-icon">☁️</span><h3>Private Cloud</h3><div class="deploy-who">Best for: Scale-ups, SaaS, Distributed Teams</div><p>Your own cloud account (AWS, Azure, GCP). Globally accessible, infinitely scalable.</p><ul class="deploy-list"><li>Your account, your keys, your data</li><li>Scales automatically with your usage</li><li>Accessible from any browser, anywhere</li><li>Pay only when running</li></ul></div>
+      <div class="deploy-card reveal d2"><span class="deploy-icon">🔀</span><h3>Hybrid</h3><div class="deploy-who">Best for: Enterprises with mixed requirements</div><p>Sensitive data stays on-premise. Non-sensitive workflows run on cloud.</p><ul class="deploy-list"><li>Sensitive and non-sensitive data handled separately</li><li>Single interface — complexity stays hidden</li><li>Configured per department or workflow</li><li>Grows and adapts as your business evolves</li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="section" id="about">
   <div class="section-inner">
     <div class="about-grid">
       <div class="reveal">
         <div class="eyebrow">About Adaptive Minds AI</div>
         <h2 class="about-heading">We automate the work<br/>your team<em> shouldn't be doing</em></h2>
-        <p class="about-body">Adaptive Minds AI is an AI automation agency founded by <strong>Yogesh Shishodia</strong> — an AI engineer and builder focused on one thing: building systems that actually work inside real businesses. We've delivered over 20 AI projects across India and globally, each one designed from scratch around the client's workflow, data, and compliance requirements.</p>
-        <p class="about-body">We don't sell off-the-shelf tools or generic platforms. Every system we build is an asset you own — one that removes genuine bottlenecks, runs the way your team works, and scales as your business grows. No vendor lock-in. No shortcuts.</p>
+        <p class="about-body">Adaptive Minds AI is an AI automation agency founded by <strong>Yogesh Shishodia</strong> — an AI engineer and builder focused on one thing: building systems that actually work inside real businesses. We've delivered over 20 AI projects across India and globally.</p>
+        <p class="about-body">We don't sell off-the-shelf tools or generic platforms. Every system we build is an asset you own — no vendor lock-in, no shortcuts.</p>
         <div style="margin-top:2rem;"><a href="#contact" class="btn btn-navy">Talk to Us →</a></div>
         <div class="trust-boxes">
           <div class="trust-box"><div class="trust-box-num">20+</div><div class="trust-box-label">AI projects designed &amp; delivered</div></div>
@@ -827,219 +636,343 @@ body.modal-open{overflow:hidden;}
   </div>
 </section>
 
-<!-- CTA -->
 <section class="section" id="contact" style="padding-top:0;">
   <div class="section-inner">
     <div class="cta-wrap reveal">
       <h2>Ready to automate your<br/><em>most time-consuming manual work?</em></h2>
       <p>Book a free 30-minute AI audit. We'll map exactly where automation can save your team the most time — no commitment required.</p>
       <div class="cta-contacts">
-        <a href="mailto:contact@adaptivemindsai.com?subject=AI Automation Enquiry" class="contact-pill">
-          <span class="cp-icon">✉️</span>
-          <div><div class="cp-label">Email us</div><div class="cp-value">contact@adaptivemindsai.com</div></div>
-        </a>
-        <a href="https://wa.me/918130247554" class="contact-pill" target="_blank">
-          <span class="cp-icon">💬</span>
-          <div><div class="cp-label">WhatsApp</div><div class="cp-value">+91 81302 47554</div></div>
-        </a>
-        <a href="https://linkedin.com/company/adaptive-minds-ai" class="contact-pill" target="_blank">
-          <span class="cp-icon">💼</span>
-          <div><div class="cp-label">LinkedIn</div><div class="cp-value">Adaptive Minds AI</div></div>
-        </a>
+        <a href="mailto:contact@adaptivemindsai.com?subject=AI Automation Enquiry" class="contact-pill"><span class="cp-icon">✉️</span><div><div class="cp-label">Email us</div><div class="cp-value">contact@adaptivemindsai.com</div></div></a>
+        <a href="https://wa.me/918130247554" class="contact-pill" target="_blank"><span class="cp-icon">💬</span><div><div class="cp-label">WhatsApp</div><div class="cp-value">+91 81302 47554</div></div></a>
+        <a href="https://linkedin.com/company/adaptive-minds-ai" class="contact-pill" target="_blank"><span class="cp-icon">💼</span><div><div class="cp-label">LinkedIn</div><div class="cp-value">Adaptive Minds AI</div></div></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-brand">
-          <div class="footer-brand-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
-          </div>
-          <span class="footer-brand-name">Adaptive <span>Minds AI</span></span>
-        </div>
-        <p class="footer-desc">AI automation agency building intelligent systems that eliminate manual work, reduce operational costs, and scale businesses — across India and globally.</p>
+        <div class="footer-brand"><div class="footer-brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg></div><span class="footer-brand-name">Adaptive <span>Minds AI</span></span></div>
+        <p class="footer-desc">AI automation agency building intelligent systems that eliminate manual work and scale businesses — across India and globally.</p>
       </div>
-      <div class="footer-col">
-        <h5>Services</h5>
-        <a href="#services">Stop Doing Repetitive Tasks Manually</a>
-        <a href="#services">24/7 AI Assistants</a>
-        <a href="#services">Ask Questions Across Your Documents</a>
-        <a href="#services">AI Built for Your Business</a>
-        <a href="#services">Connect AI to Your Existing Tools</a>
-      </div>
-      <div class="footer-col">
-        <h5>Company</h5>
-        <a href="#work">Our Work</a>
-        <a href="#process">Process</a>
-        <a href="#about">About</a>
-        <a href="mailto:contact@adaptivemindsai.com">Contact</a>
-        <a href="https://linkedin.com/company/adaptive-minds-ai" target="_blank">LinkedIn</a>
-      </div>
+      <div class="footer-col"><h5>Services</h5><a href="#services">Workflow Automation</a><a href="#services">AI Assistants</a><a href="#services">Document Intelligence</a><a href="#services">Custom AI Development</a></div>
+      <div class="footer-col"><h5>Company</h5><a href="#work">Our Work</a><a href="#process">Process</a><a href="#about">About</a><a href="mailto:contact@adaptivemindsai.com">Contact</a><a href="https://linkedin.com/company/adaptive-minds-ai" target="_blank">LinkedIn</a></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Adaptive Minds AI. All rights reserved.</span>
-      <span>On-premise · Cloud · Hybrid · India &amp; Global</span>
-    </div>
+    <div class="footer-bottom"><span>© 2026 Adaptive Minds AI. All rights reserved.</span><span>On-premise · Cloud · Hybrid · India &amp; Global</span></div>
   </div>
 </footer>
 
 <!-- VIDEO MODAL -->
-<div class="vid-modal" id="vidModal" role="dialog" aria-modal="true" aria-label="Product demo video">
+<div class="vid-modal" id="vidModal">
   <div class="vid-modal-inner">
     <div class="vid-modal-player" id="vidModalPlayer"></div>
     <div class="vid-modal-bar">
       <span class="vid-modal-title" id="vidModalTitle"></span>
-      <button class="vid-modal-close" id="vidModalClose" aria-label="Close video">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
+      <button class="vid-modal-close" id="vidModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
   </div>
 </div>
 
+<!-- ═══════════════ CHATBOT WIDGET ═══════════════ -->
+<button id="chatbot-launcher" aria-label="Open AI assistant">
+  <div class="chat-pulse"></div>
+  <svg class="l-icon l-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <svg class="l-icon l-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>
+
+<div id="chatbot-panel">
+  <div class="chat-hdr">
+    <div class="chat-av">🤖</div>
+    <div class="chat-hdr-info">
+      <div class="chat-hdr-name">Adaptive Minds AI</div>
+      <div class="chat-hdr-status"><span class="s-dot"></span>AI Assistant · Ask me anything</div>
+    </div>
+    <button class="chat-hdr-btn" id="chatClear" title="Clear chat">🗑</button>
+  </div>
+
+  <!-- Setup screen -->
+  <div class="chat-setup" id="chatSetup">
+    <div class="chat-setup-icon">🔑</div>
+    <h3>Connect via OpenRouter</h3>
+    <p>Enter your free OpenRouter API key to start chatting. It's stored only in your browser — never on our servers.</p>
+    <input type="password" id="apiKeyInp" placeholder="sk-or-v1-xxxxxxxxxx..." autocomplete="off"/>
+    <button id="saveKey">Activate Assistant →</button>
+    <a href="https://openrouter.ai/keys" target="_blank" class="setup-link">Get a free key at openrouter.ai →</a>
+    <p style="font-size:0.68rem;color:var(--text-faint);margin-top:-0.3rem;">Free model: Llama 3.3 8B · No credit card needed</p>
+  </div>
+
+  <!-- Messages -->
+  <div class="chat-msgs" id="chatMsgs" style="display:none;"></div>
+
+  <!-- Quick replies -->
+  <div class="chat-qr" id="chatQR" style="display:none;">
+    <button class="qr">What services do you offer?</button>
+    <button class="qr">How does the process work?</button>
+    <button class="qr">Tell me about DocuAgent AI</button>
+    <button class="qr">How do I get started?</button>
+    <button class="qr">What's the pricing?</button>
+  </div>
+
+  <!-- Input -->
+  <div class="chat-inp-area" id="chatInpArea" style="display:none;">
+    <textarea id="chat-input" placeholder="Ask anything about our AI services..." rows="1"></textarea>
+    <button id="chat-send" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+  <div class="chat-foot" id="chatFoot" style="display:none;">Powered by OpenRouter · Free Llama 3.3</div>
+</div>
+
 <script>
-/* Scroll Reveal */
+/* ─── Scroll Reveal ─── */
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.06 });
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.06});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* Counters */
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target);
-  const suffix = el.dataset.suffix || '';
-  const duration = 1800;
-  const step = target / (duration / 16);
-  let current = 0;
-  const timer = setInterval(() => {
-    current += step;
-    if (current >= target) { current = target; clearInterval(timer); }
-    el.textContent = Math.floor(current) + suffix;
-  }, 16);
+/* ─── Counters ─── */
+function animateCounter(el){
+  const target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'',step=target/(1800/16);
+  let c=0;
+  const t=setInterval(()=>{ c+=step; if(c>=target){c=target;clearInterval(t);} el.textContent=Math.floor(c)+suffix; },16);
 }
-const counterObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('.counter-num[data-target]').forEach(el => counterObs.observe(el));
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){animateCounter(e.target);cObs.unobserve(e.target);} });
+},{threshold:0.3});
+document.querySelectorAll('.counter-num[data-target]').forEach(el=>cObs.observe(el));
 
-/* Services Marquee */
-(function () {
-  const track      = document.getElementById('svcTrack');
-  const toggleBtn  = document.getElementById('svcToggle');
-  const fasterBtn  = document.getElementById('svcFaster');
-  const slowerBtn  = document.getElementById('svcSlower');
-  const SPEEDS = [60, 45, 38, 28, 20];
-  let speedIdx = 2, paused = false;
-  const PAUSE_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
-  const PLAY_SVG  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5,3 19,12 5,21"/></svg>`;
-  function applySpeed() { track.style.animationDuration = SPEEDS[speedIdx] + 's'; }
-  function togglePause() {
-    paused = !paused;
-    track.style.animationPlayState = paused ? 'paused' : 'running';
-    toggleBtn.innerHTML = paused ? PLAY_SVG : PAUSE_SVG;
-    toggleBtn.title = paused ? 'Play' : 'Pause';
-  }
-  toggleBtn.innerHTML = PAUSE_SVG;
-  applySpeed();
-  toggleBtn.addEventListener('click', togglePause);
-  fasterBtn.addEventListener('click', () => { if (speedIdx < SPEEDS.length - 1) { speedIdx++; applySpeed(); } });
-  slowerBtn.addEventListener('click', () => { if (speedIdx > 0) { speedIdx--; applySpeed(); } });
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    track.style.animationPlayState = 'paused'; paused = true; toggleBtn.innerHTML = PLAY_SVG;
-  }
+/* ─── Marquee ─── */
+(function(){
+  const track=document.getElementById('svcTrack');
+  const tBtn=document.getElementById('svcToggle');
+  const fBtn=document.getElementById('svcFaster');
+  const sBtn=document.getElementById('svcSlower');
+  const SPEEDS=[60,45,38,28,20];
+  let idx=2,paused=false;
+  const PAUSE=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
+  const PLAY=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>`;
+  function speed(){track.style.animationDuration=SPEEDS[idx]+'s';}
+  tBtn.innerHTML=PAUSE;speed();
+  tBtn.onclick=()=>{paused=!paused;track.style.animationPlayState=paused?'paused':'running';tBtn.innerHTML=paused?PLAY:PAUSE;};
+  fBtn.onclick=()=>{if(idx<SPEEDS.length-1){idx++;speed();}};
+  sBtn.onclick=()=>{if(idx>0){idx--;speed();}};
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){track.style.animationPlayState='paused';paused=true;tBtn.innerHTML=PLAY;}
 })();
 
-/* Video Modal */
-const VIDEO_CONFIG = {
-  docuagent: { previewSrc: '', fullSrc: 'https://drive.google.com/file/d/11ZYvTi34KlII2nOxJL5foy5KhzdGRhJw/preview', title: 'DocuAgent AI — Product Demo', poster: 'docuagent.png' },
-  inboxiq:   { previewSrc: '', fullSrc: 'https://drive.google.com/file/d/1JEIwCUv4iUI_BUbN1leLYya1LxKoensn/preview', title: 'InboxIQ — Product Demo', poster: 'inboxiq.png' },
-};
-(function () {
-  const modal       = document.getElementById('vidModal');
-  const modalPlayer = document.getElementById('vidModalPlayer');
-  const modalTitle  = document.getElementById('vidModalTitle');
-  const closeBtn    = document.getElementById('vidModalClose');
-  document.querySelectorAll('[data-video-id]').forEach(trigger => {
-    const id = trigger.dataset.videoId;
-    const cfg = VIDEO_CONFIG[id];
-    if (!cfg) return;
-    if (cfg.poster) {
-      const posterEl = document.createElement('img');
-      posterEl.src = cfg.poster;
-      posterEl.alt = '';
-      posterEl.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;';
-      trigger.appendChild(posterEl);
-    }
-    const vid = document.createElement('video');
-    vid.muted = true; vid.loop = true; vid.playsInline = true; vid.autoplay = true;
-    if (cfg.previewSrc) vid.src = cfg.previewSrc;
-    const overlay = document.createElement('div');
-    overlay.className = 'vid-overlay';
-    const playBtn = document.createElement('div');
-    playBtn.className = 'vid-play-btn';
-    playBtn.innerHTML = `<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>`;
-    const label = document.createElement('div');
-    label.className = 'vid-label';
-    label.innerHTML = (cfg.previewSrc || cfg.fullSrc)
-      ? `<span class="vid-label-dot"></span><span class="vid-label-text">Watch Demo</span>`
-      : `<span class="vid-label-text">Demo coming soon</span>`;
-    trigger.appendChild(vid);
-    trigger.appendChild(overlay);
-    trigger.appendChild(playBtn);
-    trigger.appendChild(label);
-    if (cfg.previewSrc) {
-      const ioVid = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) vid.play().catch(()=>{}); else vid.pause(); });
-      }, { threshold: 0.3 });
-      ioVid.observe(trigger);
-    }
-    trigger.addEventListener('click', () => openModal(cfg));
+/* ─── Video Modal ─── */
+(function(){
+  const VIDS={
+    docuagent:{src:'https://drive.google.com/file/d/11ZYvTi34KlII2nOxJL5foy5KhzdGRhJw/preview',title:'DocuAgent AI Demo'},
+    inboxiq:{src:'https://drive.google.com/file/d/1JEIwCUv4iUI_BUbN1leLYya1LxKoensn/preview',title:'InboxIQ Demo'}
+  };
+  const modal=document.getElementById('vidModal');
+  const player=document.getElementById('vidModalPlayer');
+  const titleEl=document.getElementById('vidModalTitle');
+  document.querySelectorAll('[data-video-id]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const cfg=VIDS[el.dataset.videoId];
+      if(!cfg) return;
+      titleEl.textContent=cfg.title;
+      player.innerHTML='';
+      const iframe=document.createElement('iframe');
+      iframe.src=cfg.src; iframe.allow='autoplay;fullscreen'; iframe.allowFullscreen=true;
+      player.appendChild(iframe);
+      modal.classList.add('open'); document.body.classList.add('modal-open');
+    });
   });
-  function openModal(cfg) {
-    modalPlayer.innerHTML = '';
-    modalTitle.textContent = cfg.title;
-    if (cfg.fullSrc) {
-      const isYT     = cfg.fullSrc.length <= 15 && !/[./]/.test(cfg.fullSrc);
-      const isGDrive = cfg.fullSrc.includes('drive.google.com');
-      if (isYT) {
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${cfg.fullSrc}?autoplay=1&rel=0&modestbranding=1`;
-        iframe.allow = 'autoplay; fullscreen; picture-in-picture';
-        iframe.allowFullscreen = true;
-        modalPlayer.appendChild(iframe);
-      } else if (isGDrive) {
-        const iframe = document.createElement('iframe');
-        iframe.src = cfg.fullSrc;
-        iframe.allow = 'autoplay; fullscreen';
-        iframe.allowFullscreen = true;
-        modalPlayer.appendChild(iframe);
-      } else {
-        const v = document.createElement('video');
-        v.src = cfg.fullSrc; v.controls = true; v.autoplay = true;
-        if (cfg.poster) v.poster = cfg.poster;
-        modalPlayer.appendChild(v);
-      }
+  function closeVid(){modal.classList.remove('open');document.body.classList.remove('modal-open');setTimeout(()=>player.innerHTML='',350);}
+  document.getElementById('vidModalClose').onclick=closeVid;
+  modal.addEventListener('click',e=>{if(e.target===modal)closeVid();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeVid();});
+})();
+
+/* ════════════════════════════════
+   CHATBOT
+════════════════════════════════ */
+(function(){
+const SYSTEM=`You are the AI assistant for Adaptive Minds AI, an AI automation agency based in India serving global clients. Help potential clients understand our services.
+
+COMPANY:
+- Name: Adaptive Minds AI | Founded by: Yogesh Shishodia
+- India-based, serving global clients | 20+ AI projects, 5+ industries, 100% custom-built
+- Deployment: On-Premise, Private Cloud (AWS/Azure/GCP), Hybrid
+- Contact: contact@adaptivemindsai.com | WhatsApp: +91 81302 47554
+
+SERVICES:
+1. Workflow Automation — automate approvals, data entry, notifications
+2. AI Assistants & Chatbots — 24/7 support on WhatsApp, website, Slack
+3. Autonomous AI Agents — multi-step tasks without human triggers
+4. Document Intelligence — chat with any document, answers with citations
+5. Intelligent Data Extraction — extract structured data from PDFs, invoices, forms
+6. System Integration — connect AI to CRM (Salesforce/Zoho/HubSpot), ERP (SAP/Oracle/Tally), email
+7. Business Intelligence — surface insights from operational data in plain language
+8. Content Automation — AI writing in your brand's voice
+9. Custom AI Development — domain-specific AI trained on client data
+
+PRODUCTS:
+- DocuAgent AI: Secure on-premise document intelligence. Chat with contracts/reports/PDFs on your own hardware. HIPAA/GDPR/DPDP compliant. Supports 12+ formats. Every answer cited.
+- InboxIQ: AI email triage for Gmail/Outlook. Identifies high-priority emails, drafts replies, tracks unanswered threads.
+
+WHO WE SERVE: Legal Firms, Healthcare, BFSI, HR & Operations, Manufacturing, Startups & SaaS, Consulting, EdTech
+
+OUR PROCESS:
+1. Free AI Audit (30-min call, no commitment)
+2. Scope & Proposal (client approves before work starts)
+3. Build & Test (weekly updates, client tests before go-live)
+4. Deploy & Support (ongoing support and iteration)
+
+COMPLIANCE: HIPAA Ready, GDPR Compliant, DPDP compliant. Full audit trail on every AI action.
+
+PRICING: Custom quotes after the free AI audit — every system is bespoke.
+
+YOUR BEHAVIOR:
+- Be concise (under 200 words), warm, professional
+- Use bullet points when listing multiple items
+- For pricing questions: explain custom quotes post-audit
+- To get started: direct to Free AI Audit via email or WhatsApp
+- Stay on topic about Adaptive Minds AI only
+- Don't make up facts not mentioned above`;
+
+const launcher=document.getElementById('chatbot-launcher');
+const panel=document.getElementById('chatbot-panel');
+const setupEl=document.getElementById('chatSetup');
+const msgsEl=document.getElementById('chatMsgs');
+const qrEl=document.getElementById('chatQR');
+const inpArea=document.getElementById('chatInpArea');
+const footEl=document.getElementById('chatFoot');
+const input=document.getElementById('chat-input');
+const sendBtn=document.getElementById('chat-send');
+const clearBtn=document.getElementById('chatClear');
+const apiInp=document.getElementById('apiKeyInp');
+const saveBtn=document.getElementById('saveKey');
+
+let key=localStorage.getItem('am_key')||'';
+let history=[];
+let open=false;
+let busy=false;
+
+function ts(){return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});}
+
+function showChat(){
+  setupEl.style.display='none';
+  msgsEl.style.display='flex';
+  qrEl.style.display='flex';
+  inpArea.style.display='flex';
+  footEl.style.display='block';
+  if(history.length===0) botMsg("Hi! I'm the Adaptive Minds AI assistant 👋\n\nAsk me anything about our AI automation services, products, process, or how we can help your business.");
+}
+
+function showSetup(){
+  setupEl.style.display='flex';
+  msgsEl.style.display='none';
+  qrEl.style.display='none';
+  inpArea.style.display='none';
+  footEl.style.display='none';
+}
+
+function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmt(t){
+  return esc(t)
+    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g,'<em>$1</em>')
+    .replace(/\n- /g,'<br>• ').replace(/^- /gm,'• ')
+    .replace(/\n/g,'<br>');
+}
+
+function botMsg(text){
+  const d=document.createElement('div');
+  d.className='cm bot';
+  d.innerHTML=`<div class="cm-av bot">🤖</div><div><div class="cm-bub">${fmt(text)}</div><div class="cm-time">${ts()}</div></div>`;
+  msgsEl.appendChild(d); scroll();
+}
+function userMsg(text){
+  const d=document.createElement('div');
+  d.className='cm user';
+  d.innerHTML=`<div class="cm-av usr">👤</div><div><div class="cm-bub">${esc(text).replace(/\n/g,'<br>')}</div><div class="cm-time">${ts()}</div></div>`;
+  msgsEl.appendChild(d); scroll();
+}
+function showTyping(){
+  const d=document.createElement('div');
+  d.className='typing-wrap'; d.id='typing';
+  d.innerHTML=`<div class="cm-av bot">🤖</div><div class="typing-bub"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>`;
+  msgsEl.appendChild(d); scroll(); return d;
+}
+function scroll(){setTimeout(()=>msgsEl.scrollTop=msgsEl.scrollHeight,60);}
+
+launcher.addEventListener('click',()=>{
+  open=!open;
+  launcher.classList.toggle('open',open);
+  panel.classList.toggle('open',open);
+  if(open){ key?showChat():showSetup(); }
+});
+
+saveBtn.onclick=()=>{
+  const k=apiInp.value.trim();
+  if(!k){apiInp.style.borderColor='#ef4444';return;}
+  key=k; localStorage.setItem('am_key',k); showChat();
+};
+apiInp.addEventListener('keydown',e=>{if(e.key==='Enter')saveBtn.click();});
+
+clearBtn.onclick=()=>{
+  if(!confirm('Clear the conversation?')) return;
+  history=[]; msgsEl.innerHTML='';
+  if(key) showChat();
+};
+
+qrEl.addEventListener('click',e=>{
+  if(e.target.classList.contains('qr')){ send(e.target.textContent); qrEl.style.display='none'; }
+});
+
+sendBtn.onclick=()=>send();
+input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}});
+input.addEventListener('input',()=>{input.style.height='auto';input.style.height=Math.min(input.scrollHeight,100)+'px';});
+
+function send(text){
+  text=text||input.value.trim();
+  if(!text||busy) return;
+  input.value=''; input.style.height='auto';
+  if(!key){showSetup();return;}
+  busy=true; sendBtn.disabled=true;
+  qrEl.style.display='none';
+  userMsg(text);
+  history.push({role:'user',content:text});
+  const typing=showTyping();
+
+  fetch('https://openrouter.ai/api/v1/chat/completions',{
+    method:'POST',
+    headers:{
+      'Authorization':`Bearer ${key}`,
+      'Content-Type':'application/json',
+      'HTTP-Referer':window.location.href,
+      'X-Title':'Adaptive Minds AI Assistant'
+    },
+    body:JSON.stringify({
+      model:'meta-llama/llama-3.3-8b-instruct:free',
+      messages:[{role:'system',content:SYSTEM},...history],
+      max_tokens:400,
+      temperature:0.7
+    })
+  })
+  .then(r=>r.json())
+  .then(data=>{
+    typing.remove();
+    if(data.error){
+      botMsg(`⚠️ ${data.error.message||'API error. Please check your key.'}`);
     } else {
-      modalPlayer.innerHTML = `<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:#060d18;"><div style="font-size:2.5rem;">🎬</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:rgba(255,255,255,0.7);">Demo video coming soon</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.3);">Check back or <a href="#contact" onclick="closeModal()" style="color:var(--gold);text-decoration:none;">request a live demo →</a></div></div>`;
+      const reply=data.choices?.[0]?.message?.content||'Sorry, I had trouble responding. Please try again.';
+      history.push({role:'assistant',content:reply});
+      botMsg(reply);
     }
-    modal.classList.add('open');
-    document.body.classList.add('modal-open');
-  }
-  function closeModal() {
-    modal.classList.remove('open');
-    document.body.classList.remove('modal-open');
-    setTimeout(() => { modalPlayer.innerHTML = ''; }, 350);
-  }
-  window.closeModal = closeModal;
-  closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  })
+  .catch(()=>{
+    typing.remove();
+    botMsg('⚠️ Network error. Please check your connection and try again.');
+  })
+  .finally(()=>{busy=false;sendBtn.disabled=false;input.focus();});
+}
+
 })();
 </script>
 </body>
