@@ -278,20 +278,20 @@ body.modal-open{overflow:hidden;}
 #chatbot-launcher{
   position:fixed;bottom:28px;right:28px;z-index:10000;
   width:58px;height:58px;border-radius:50%;
-  background:linear-gradient(135deg,#2146f0 0%,#1134c4 100%);
+  background:linear-gradient(135deg,#f97316 0%,#c2410c 100%);
   border:none;cursor:pointer;
-  box-shadow:0 8px 32px rgba(33,70,240,0.45),0 2px 8px rgba(0,0,0,0.2);
+  box-shadow:0 8px 32px rgba(249,115,22,0.45),0 2px 8px rgba(0,0,0,0.2);
   display:flex;align-items:center;justify-content:center;
   transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s;
   outline:none;
 }
-#chatbot-launcher:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(33,70,240,0.55);}
+#chatbot-launcher:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(249,115,22,0.6);}
 #chatbot-launcher .l-icon{transition:opacity 0.2s,transform 0.2s;position:absolute;}
 .l-icon-open{opacity:1;transform:rotate(0) scale(1);}
 .l-icon-close{opacity:0;transform:rotate(-90deg) scale(0.6);}
 #chatbot-launcher.open .l-icon-open{opacity:0;transform:rotate(90deg) scale(0.6);}
 #chatbot-launcher.open .l-icon-close{opacity:1;transform:rotate(0deg) scale(1);}
-.chat-pulse{position:absolute;inset:-3px;border-radius:50%;border:2px solid rgba(33,70,240,0.4);animation:chatPulse 2.5s ease-out infinite;}
+.chat-pulse{position:absolute;inset:-3px;border-radius:50%;border:2px solid rgba(249,115,22,0.45);animation:chatPulse 2.5s ease-out infinite;}
 @keyframes chatPulse{0%{transform:scale(1);opacity:0.8;}100%{transform:scale(1.55);opacity:0;}}
 #chatbot-launcher.open .chat-pulse{display:none;}
 
@@ -309,7 +309,7 @@ body.modal-open{overflow:hidden;}
 #chatbot-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all;}
 
 .chat-hdr{background:var(--navy);padding:1rem 1.2rem;display:flex;align-items:center;gap:0.75rem;flex-shrink:0;}
-.chat-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#2146f0,#c9943a);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.chat-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#f97316,#c2410c);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;overflow:hidden;}
 .chat-hdr-info{flex:1;min-width:0;}
 .chat-hdr-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:#fff;line-height:1.2;}
 .chat-hdr-status{font-size:0.68rem;color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:0.35rem;}
@@ -325,7 +325,7 @@ body.modal-open{overflow:hidden;}
 .cm{display:flex;gap:0.55rem;align-items:flex-end;}
 .cm.user{flex-direction:row-reverse;}
 .cm-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0;}
-.cm-av.bot{background:linear-gradient(135deg,#2146f0,#1134c4);color:#fff;}
+.cm-av.bot{background:linear-gradient(135deg,#f97316,#c2410c);color:#fff;overflow:hidden;}
 .cm-av.usr{background:var(--bg2);border:1px solid var(--border);font-size:0.8rem;}
 .cm-bub{max-width:78%;padding:0.65rem 0.9rem;border-radius:16px;font-size:0.83rem;line-height:1.55;}
 .cm.bot .cm-bub{background:#f4f5f7;color:var(--text);border-bottom-left-radius:4px;}
@@ -364,6 +364,15 @@ body.modal-open{overflow:hidden;}
 .chat-setup button:hover{background:var(--navy2);}
 .setup-link{font-size:0.7rem;color:var(--blue);text-decoration:none;}
 .setup-link:hover{text-decoration:underline;}
+
+/* Hanu AI face animations */
+@keyframes hanuEyeBlink{0%,85%,100%{transform:scaleY(1);}90%{transform:scaleY(0.07);}93%{transform:scaleY(1);}}
+@keyframes hanuCrownGlow{0%,100%{filter:drop-shadow(0 0 1px rgba(251,191,36,0.5));}50%{filter:drop-shadow(0 0 5px rgba(251,191,36,1));}}
+@keyframes hanuBobble{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}
+.hanu-eye-g{animation:hanuEyeBlink 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
+.hanu-eye-r{animation:hanuEyeBlink 5s ease-in-out infinite;animation-delay:0.09s;transform-box:fill-box;transform-origin:center;}
+.hanu-crown-g{animation:hanuCrownGlow 2.5s ease-in-out infinite;}
+.hanu-launcher-svg{animation:hanuBobble 3s ease-in-out infinite;}
 
 @media(max-width:768px){
   #chatbot-panel{width:calc(100vw - 24px);right:12px;bottom:90px;height:calc(100vh - 110px);}
@@ -678,15 +687,51 @@ body.modal-open{overflow:hidden;}
 <!-- ═══════════════ CHATBOT WIDGET ═══════════════ -->
 <button id="chatbot-launcher" aria-label="Open AI assistant">
   <div class="chat-pulse"></div>
-  <svg class="l-icon l-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <div class="l-icon l-icon-open" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;">
+    <svg class="hanu-launcher-svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g class="hanu-crown-g">
+        <path d="M7 15 L11 8.5 L16 13 L21 8.5 L25 15" fill="#fde68a" stroke="#fbbf24" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="16" cy="7" r="1.9" fill="#fbbf24"/>
+        <circle cx="10.5" cy="9" r="1.1" fill="#fde68a"/>
+        <circle cx="21.5" cy="9" r="1.1" fill="#fde68a"/>
+      </g>
+      <ellipse cx="16" cy="22" rx="10" ry="9.5" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.32)" stroke-width="0.8"/>
+      <g class="hanu-eye-g">
+        <ellipse cx="12" cy="21.5" rx="2.4" ry="2.7" fill="white"/>
+        <circle cx="12" cy="21.7" r="1.55" fill="#0f172a"/>
+        <circle cx="12.65" cy="20.9" r="0.52" fill="white"/>
+      </g>
+      <g class="hanu-eye-r">
+        <ellipse cx="20" cy="21.5" rx="2.4" ry="2.7" fill="white"/>
+        <circle cx="20" cy="21.7" r="1.55" fill="#0f172a"/>
+        <circle cx="20.65" cy="20.9" r="0.52" fill="white"/>
+      </g>
+      <circle cx="14.5" cy="24.5" r="0.75" fill="rgba(255,255,255,0.4)"/>
+      <circle cx="17.5" cy="24.5" r="0.75" fill="rgba(255,255,255,0.4)"/>
+      <path d="M12.5 26.5 Q16 29.5 19.5 26.5" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
   <svg class="l-icon l-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
 </button>
 
 <div id="chatbot-panel">
   <div class="chat-hdr">
-    <div class="chat-av">🤖</div>
+    <div class="chat-av">
+      <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 15 L11 8.5 L16 13 L21 8.5 L25 15" fill="#fde68a" stroke="#fbbf24" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="16" cy="7" r="1.9" fill="#fbbf24"/>
+        <ellipse cx="16" cy="22" rx="10" ry="9.5" fill="rgba(255,255,255,0.15)"/>
+        <ellipse cx="12" cy="21.5" rx="2.4" ry="2.7" fill="white"/>
+        <circle cx="12" cy="21.7" r="1.55" fill="#0f172a"/>
+        <circle cx="12.65" cy="20.9" r="0.52" fill="white"/>
+        <ellipse cx="20" cy="21.5" rx="2.4" ry="2.7" fill="white"/>
+        <circle cx="20" cy="21.7" r="1.55" fill="#0f172a"/>
+        <circle cx="20.65" cy="20.9" r="0.52" fill="white"/>
+        <path d="M12.5 26.5 Q16 29.5 19.5 26.5" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
     <div class="chat-hdr-info">
-      <div class="chat-hdr-name">Adaptive Minds AI</div>
+      <div class="chat-hdr-name">Hanu AI</div>
       <div class="chat-hdr-status"><span class="s-dot"></span>AI Assistant · Ask me anything</div>
     </div>
     <button class="chat-hdr-btn" id="chatClear" title="Clear chat">🗑</button>
@@ -835,6 +880,8 @@ YOUR BEHAVIOR:
 - Stay on topic about Adaptive Minds AI only
 - Don't make up facts not mentioned above`;
 
+const BOT_AV=`<svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 15 L11 8.5 L16 13 L21 8.5 L25 15" fill="#fde68a" stroke="#fbbf24" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/><circle cx="16" cy="7" r="1.9" fill="#fbbf24"/><ellipse cx="16" cy="22" rx="10" ry="9.5" fill="rgba(255,255,255,0.15)"/><ellipse cx="12" cy="21.5" rx="2.4" ry="2.7" fill="white"/><circle cx="12" cy="21.7" r="1.55" fill="#0f172a"/><ellipse cx="20" cy="21.5" rx="2.4" ry="2.7" fill="white"/><circle cx="20" cy="21.7" r="1.55" fill="#0f172a"/><path d="M12.5 26.5 Q16 29.5 19.5 26.5" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`;
+
 const launcher=document.getElementById('chatbot-launcher');
 const panel=document.getElementById('chatbot-panel');
 const setupEl=document.getElementById('chatSetup');
@@ -861,7 +908,7 @@ function showChat(){
   qrEl.style.display='flex';
   inpArea.style.display='flex';
   footEl.style.display='block';
-  if(history.length===0) botMsg("Hi! I'm the Adaptive Minds AI assistant 👋\n\nAsk me anything about our AI automation services, products, process, or how we can help your business.");
+  if(history.length===0) botMsg("Hi! I'm Hanu AI 👋\n\nAsk me anything about Adaptive Minds AI's services, products, process, or how we can help your business.");
 }
 
 function showSetup(){
@@ -884,7 +931,7 @@ function fmt(t){
 function botMsg(text){
   const d=document.createElement('div');
   d.className='cm bot';
-  d.innerHTML=`<div class="cm-av bot">🤖</div><div><div class="cm-bub">${fmt(text)}</div><div class="cm-time">${ts()}</div></div>`;
+  d.innerHTML=`<div class="cm-av bot">${BOT_AV}</div><div><div class="cm-bub">${fmt(text)}</div><div class="cm-time">${ts()}</div></div>`;
   msgsEl.appendChild(d); scroll();
 }
 function userMsg(text){
@@ -896,7 +943,7 @@ function userMsg(text){
 function showTyping(){
   const d=document.createElement('div');
   d.className='typing-wrap'; d.id='typing';
-  d.innerHTML=`<div class="cm-av bot">🤖</div><div class="typing-bub"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>`;
+  d.innerHTML=`<div class="cm-av bot">${BOT_AV}</div><div class="typing-bub"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>`;
   msgsEl.appendChild(d); scroll(); return d;
 }
 function scroll(){setTimeout(()=>msgsEl.scrollTop=msgsEl.scrollHeight,60);}
