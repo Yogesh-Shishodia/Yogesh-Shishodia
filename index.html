@@ -23,11 +23,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);over
 
 nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;align-items:center;padding:0 5%;background:rgba(245,244,240,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;}
-.nav-logo-icon{width:36px;height:36px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.nav-logo-icon svg{width:18px;height:18px;}
-.nav-logo-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;letter-spacing:-0.01em;color:var(--text);}
-.nav-logo-name span{color:var(--blue);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
+.nav-logo-img{height:46px;width:auto;display:block;object-fit:contain;}
 .nav-links{display:flex;align-items:center;gap:0.2rem;}
 .nav-links a{font-size:0.82rem;font-weight:500;color:var(--text-dim);text-decoration:none;padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;}
 .nav-links a:hover{color:var(--text);background:var(--bg2);}
@@ -223,11 +220,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;ali
 footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:4rem 5% 2.5rem;}
 .footer-inner{max-width:1280px;margin:0 auto;}
 .footer-top{display:grid;grid-template-columns:2.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
-.footer-brand{display:flex;align-items:center;gap:0.65rem;margin-bottom:1.2rem;}
-.footer-brand-icon{width:32px;height:32px;background:rgba(255,255,255,0.07);border-radius:9px;display:flex;align-items:center;justify-content:center;}
-.footer-brand-icon svg{width:16px;height:16px;}
-.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#fff;font-weight:500;}
-.footer-brand-name span{color:var(--gold);}
+.footer-brand{display:flex;align-items:center;margin-bottom:1.2rem;}
+.footer-logo-img{height:52px;width:auto;object-fit:contain;background:#fff;border-radius:8px;padding:4px 8px;display:block;}
 .footer-desc{font-size:0.79rem;color:rgba(255,255,255,0.3);line-height:1.7;max-width:300px;}
 .footer-col h5{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1rem;}
 .footer-col a{display:block;font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;margin-bottom:0.55rem;transition:color 0.2s;}
@@ -413,6 +407,9 @@ body.modal-open{overflow:hidden;}
   .svc{flex:0 0 280px;width:280px;}
 }
 @media(max-width:480px){
+  .nav-logo-img{height:36px;}
+  .footer-logo-img{height:42px;}
+
   .hero-actions{flex-direction:column;}
   .btn{width:100%;justify-content:center;}
   .trust-boxes{grid-template-columns:1fr;}
@@ -428,10 +425,7 @@ body.modal-open{overflow:hidden;}
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-      </div>
-      <span class="nav-logo-name">Adaptive <span>Minds AI</span></span>
+      <img src="logo.png" alt="Adaptive Minds AI" class="nav-logo-img">
     </a>
     <div class="nav-links">
       <a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a>
@@ -674,7 +668,7 @@ body.modal-open{overflow:hidden;}
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-brand"><div class="footer-brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg></div><span class="footer-brand-name">Adaptive <span>Minds AI</span></span></div>
+        <div class="footer-brand"><img src="logo.png" alt="Adaptive Minds AI" class="footer-logo-img"></div>
         <p class="footer-desc">AI automation agency building intelligent systems that eliminate manual work and scale businesses — across India and globally.</p>
       </div>
       <div class="footer-col"><h5>Services</h5><a href="#services">Workflow Automation</a><a href="#services">AI Assistants</a><a href="#services">Document Intelligence</a><a href="#services">Custom AI Development</a></div>
