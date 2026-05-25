@@ -737,19 +737,8 @@ body.modal-open{overflow:hidden;}
     <button class="chat-hdr-btn" id="chatClear" title="Clear chat">🗑</button>
   </div>
 
-  <!-- Setup screen -->
-  <div class="chat-setup" id="chatSetup">
-    <div class="chat-setup-icon">🔑</div>
-    <h3>Connect via OpenRouter</h3>
-    <p>Enter your free OpenRouter API key to start chatting. It's stored only in your browser — never on our servers.</p>
-    <input type="password" id="apiKeyInp" placeholder="sk-or-v1-xxxxxxxxxx..." autocomplete="off"/>
-    <button id="saveKey">Activate Assistant →</button>
-    <a href="https://openrouter.ai/keys" target="_blank" class="setup-link">Get a free key at openrouter.ai →</a>
-    <p style="font-size:0.68rem;color:var(--text-faint);margin-top:-0.3rem;">Free model · No credit card needed</p>
-  </div>
-
   <!-- Messages -->
-  <div class="chat-msgs" id="chatMsgs" style="display:none;"></div>
+  <div class="chat-msgs" id="chatMsgs"></div>
 
   <!-- Quick replies -->
   <div class="chat-qr" id="chatQR" style="display:none;">
@@ -761,13 +750,13 @@ body.modal-open{overflow:hidden;}
   </div>
 
   <!-- Input -->
-  <div class="chat-inp-area" id="chatInpArea" style="display:none;">
+  <div class="chat-inp-area" id="chatInpArea">
     <textarea id="chat-input" placeholder="Ask anything about our AI services..." rows="1"></textarea>
     <button id="chat-send" aria-label="Send">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
     </button>
   </div>
-  <div class="chat-foot" id="chatFoot" style="display:none;">Powered by OpenRouter · Free AI</div>
+  <div class="chat-foot" id="chatFoot">Powered by OpenRouter · Free AI</div>
 </div>
 
 <script>
@@ -884,7 +873,6 @@ const BOT_AV=`<svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns=
 
 const launcher=document.getElementById('chatbot-launcher');
 const panel=document.getElementById('chatbot-panel');
-const setupEl=document.getElementById('chatSetup');
 const msgsEl=document.getElementById('chatMsgs');
 const qrEl=document.getElementById('chatQR');
 const inpArea=document.getElementById('chatInpArea');
@@ -892,10 +880,8 @@ const footEl=document.getElementById('chatFoot');
 const input=document.getElementById('chat-input');
 const sendBtn=document.getElementById('chat-send');
 const clearBtn=document.getElementById('chatClear');
-const apiInp=document.getElementById('apiKeyInp');
-const saveBtn=document.getElementById('saveKey');
 
-let key=localStorage.getItem('am_key')||'';
+const key=atob('c2stb3ItdjEtMDhlZDM0MmU3YWNkNDFjMmNiMjUwMGRjMzlmNDNmYTY5NTFhNDEwYTVkYWEzMmEzNDUwZmJiZmJhZTNmMjUxOQ==');
 let history=[];
 let open=false;
 let busy=false;
@@ -903,20 +889,11 @@ let busy=false;
 function ts(){return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});}
 
 function showChat(){
-  setupEl.style.display='none';
   msgsEl.style.display='flex';
   qrEl.style.display='flex';
   inpArea.style.display='flex';
   footEl.style.display='block';
   if(history.length===0) botMsg("Hi! I'm Hanu AI 👋\n\nAsk me anything about Adaptive Minds AI's services, products, process, or how we can help your business.");
-}
-
-function showSetup(){
-  setupEl.style.display='flex';
-  msgsEl.style.display='none';
-  qrEl.style.display='none';
-  inpArea.style.display='none';
-  footEl.style.display='none';
 }
 
 function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
@@ -952,20 +929,13 @@ launcher.addEventListener('click',()=>{
   open=!open;
   launcher.classList.toggle('open',open);
   panel.classList.toggle('open',open);
-  if(open){ key?showChat():showSetup(); }
+  if(open){ showChat(); }
 });
-
-saveBtn.onclick=()=>{
-  const k=apiInp.value.trim();
-  if(!k){apiInp.style.borderColor='#ef4444';return;}
-  key=k; localStorage.setItem('am_key',k); showChat();
-};
-apiInp.addEventListener('keydown',e=>{if(e.key==='Enter')saveBtn.click();});
 
 clearBtn.onclick=()=>{
   if(!confirm('Clear the conversation?')) return;
   history=[]; msgsEl.innerHTML='';
-  if(key) showChat();
+  showChat();
 };
 
 qrEl.addEventListener('click',e=>{
@@ -980,7 +950,6 @@ function send(text){
   text=text||input.value.trim();
   if(!text||busy) return;
   input.value=''; input.style.height='auto';
-  if(!key){showSetup();return;}
   busy=true; sendBtn.disabled=true;
   qrEl.style.display='none';
   userMsg(text);
