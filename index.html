@@ -23,9 +23,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);over
 
 nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;align-items:center;padding:0 5%;background:rgba(245,244,240,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{display:flex;align-items:center;text-decoration:none;gap:0;}
-.nav-logo-text{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--navy);line-height:1.15;}
-.nav-logo-text .logo-sub{display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;color:var(--blue);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
+.nav-logo-img{height:46px;width:auto;display:block;object-fit:contain;}
 .hero-left{position:relative;}
 .hero-logo-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;max-width:100%;opacity:0.07;pointer-events:none;z-index:0;user-select:none;}
 .hero-left > *:not(.hero-logo-bg){position:relative;z-index:1;}
@@ -428,7 +427,7 @@ body.modal-open{overflow:hidden;}
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <span class="nav-logo-text">ADAPTIVE<span class="logo-sub">MINDS AI</span></span>
+      <img src="logo2.png" alt="Adaptive Minds AI" class="nav-logo-img">
     </a>
     <div class="nav-links">
       <a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a>
