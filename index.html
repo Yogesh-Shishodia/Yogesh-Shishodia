@@ -43,9 +43,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold-line);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
 .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse2 2s infinite;}
 @keyframes pulse2{0%,100%{opacity:1;}50%{opacity:0.3;}}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5.5vw,5rem);font-weight:500;line-height:1.04;letter-spacing:-0.025em;margin-bottom:1.6rem;animation:fadeUp 0.9s 0.08s ease both;}
-.hero h1 em{font-style:italic;color:var(--text-dim);}
-.hero-sub{font-size:1rem;color:var(--text-dim);line-height:1.75;max-width:480px;margin-bottom:2.5rem;font-weight:400;animation:fadeUp 0.9s 0.14s ease both;}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1.6rem;animation:fadeUp 0.9s 0.08s ease both;}
+.hero-sub{font-size:1.05rem;color:var(--text-dim);line-height:1.78;max-width:480px;margin-bottom:2.5rem;font-weight:400;animation:fadeUp 0.9s 0.14s ease both;}
 .hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fadeUp 0.9s 0.2s ease both;}
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;}
 .btn-navy{background:var(--navy);color:#fff;}
@@ -130,13 +129,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .who-chip{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;font-weight:500;color:var(--text-dim);background:var(--surface);border:1px solid var(--border);padding:0.35rem 0.85rem;border-radius:999px;transition:all 0.18s;}
 .who-chip:hover{border-color:var(--border2);color:var(--text);}
 
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-.process-step{position:relative;padding:2rem 1.8rem;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);transition:all 0.22s;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
+.process-step{position:relative;padding:1.6rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:14px;box-shadow:var(--shadow);transition:all 0.22s;}
 .process-step:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
-.process-step::before{content:attr(data-num);position:absolute;top:1.5rem;right:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--blue);opacity:0.08;line-height:1;font-style:italic;}
-.process-icon{font-size:1.8rem;margin-bottom:1.1rem;display:block;}
-.process-step h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;margin-bottom:0.5rem;letter-spacing:-0.01em;}
-.process-step p{font-size:0.81rem;color:var(--text-dim);line-height:1.65;}
+.process-step-num{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:0.55rem;}
+.process-icon{font-size:1.5rem;margin-bottom:0.6rem;display:block;}
+.process-step h3{font-family:'Outfit',sans-serif;font-size:0.97rem;font-weight:700;margin-bottom:0.4rem;letter-spacing:-0.01em;color:var(--navy);}
+.process-step p{font-size:0.84rem;color:var(--text-dim);line-height:1.62;}
 
 .projects-stack{display:flex;flex-direction:column;gap:1.4rem;}
 .proj-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2.5rem;display:flex;flex-direction:column;transition:all 0.25s;box-shadow:var(--shadow);}
@@ -156,14 +155,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .featured-dark h3{color:#fff;font-size:2rem;}
 .proj-tagline{font-size:0.78rem;font-weight:500;margin-bottom:1rem;color:var(--text-dim);}
 .featured-dark .proj-tagline{color:rgba(255,255,255,0.4);}
-.proj-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.72;flex:1;margin-bottom:1.4rem;}
+.proj-desc{font-size:0.9rem;color:var(--text-dim);line-height:1.72;flex:1;margin-bottom:1.4rem;}
 .featured-dark .proj-desc{color:rgba(255,255,255,0.5);}
 .proj-outcomes{padding:1.2rem;background:var(--green-soft);border:1px solid rgba(26,122,80,0.15);border-radius:10px;margin-bottom:1.2rem;}
 .proj-outcomes.dark-outcomes{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);}
 .proj-outcomes-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--green);margin-bottom:0.6rem;}
 .dark-outcomes .proj-outcomes-lbl{color:rgba(255,255,255,0.3);}
 .proj-outcomes ul{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
-.proj-outcomes li{font-size:0.78rem;color:var(--text-dim);display:flex;gap:0.4rem;line-height:1.35;}
+.proj-outcomes li{font-size:0.84rem;color:var(--text-dim);display:flex;gap:0.4rem;line-height:1.4;}
+.proj-metric-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;}
+.proj-metric-pill{font-size:0.72rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(201,148,58,0.35);color:var(--gold);letter-spacing:0.01em;}
 .dark-outcomes li{color:rgba(255,255,255,0.55);}
 .proj-outcomes li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
 .dark-outcomes li::before{color:var(--gold);}
@@ -235,14 +236,6 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 .footer-bottom span{font-size:0.73rem;color:rgba(255,255,255,0.22);}
 .divider{height:1px;background:var(--border);}
 
-.counters-section{padding:5rem 5%;background:var(--bg);}
-.counters-inner{max-width:1280px;margin:0 auto;}
-.counters-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow);}
-.counter-box{padding:2.5rem 2rem;text-align:center;border-right:1px solid var(--border);position:relative;}
-.counter-box:last-child{border-right:none;}
-.counter-num{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:400;color:var(--blue);line-height:1;margin-bottom:0.4rem;display:block;}
-.counter-label{font-size:0.82rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:0.25rem;}
-.counter-sub{font-size:0.72rem;color:var(--text-faint);}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
@@ -398,10 +391,6 @@ body.modal-open{overflow:hidden;}
   .hero{padding:90px 5% 50px;}
   .nav-logo-img{height:48px;max-width:180px;}
   .nav-brand-text{display:none;}
-  .counters-row{grid-template-columns:1fr 1fr;}
-  .counter-box{border-right:none;border-bottom:1px solid var(--border);padding:1.8rem 1rem;}
-  .counter-box:nth-child(odd){border-right:1px solid var(--border);}
-  .counter-box:nth-child(3),.counter-box:nth-child(4){border-bottom:none;}
   .deploy-grid{grid-template-columns:1fr;}
   .process-grid{grid-template-columns:1fr;}
   .footer-top{grid-template-columns:1fr;}
@@ -420,9 +409,6 @@ body.modal-open{overflow:hidden;}
   .btn{width:100%;justify-content:center;}
   .trust-boxes{grid-template-columns:1fr;}
   .proj-metrics{grid-template-columns:1fr;}
-  .counters-row{grid-template-columns:1fr;}
-  .counter-box{border-right:none!important;border-bottom:1px solid var(--border);}
-  .counter-box:last-child{border-bottom:none;}
 }
 </style>
 </head>
@@ -446,8 +432,8 @@ body.modal-open{overflow:hidden;}
     <div class="hero-left">
       <img src="logo.png" alt="" class="hero-logo-bg" aria-hidden="true">
       <div class="hero-eyebrow"><span class="dot"></span>AI Automation Agency · India &amp; Global</div>
-      <h1>AI that works<br/>as hard as<br/><em>your team does</em></h1>
-      <p class="hero-sub">We design and deploy AI systems that handle the work your team repeats every day — so your people do what only people can.</p>
+      <h1>Enterprise-Grade AI Automation for Complex Workflows</h1>
+      <p class="hero-sub">We design and deploy custom, secure AI systems that handle your repetitive daily tasks — so your team can focus on growth, strategy, and the work only humans can do.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-blue">Get a Free AI Audit →</a>
         <a href="#work" class="btn btn-outline">See Our Work</a>
@@ -477,16 +463,6 @@ body.modal-open{overflow:hidden;}
   </div>
 </div>
 
-<section class="counters-section">
-  <div class="counters-inner">
-    <div class="counters-row">
-      <div class="counter-box"><span class="counter-num" data-target="20" data-suffix="+">0</span><div class="counter-label">AI Projects Delivered</div><div class="counter-sub">Across India and global clients</div></div>
-      <div class="counter-box"><span class="counter-num" data-target="5" data-suffix="+">0</span><div class="counter-label">Industries Served</div><div class="counter-sub">Legal, HR, Finance, Sales, Ops</div></div>
-      <div class="counter-box"><span class="counter-num" data-target="100" data-suffix="%">0</span><div class="counter-label">Custom-Built Systems</div><div class="counter-sub">No templates, no shortcuts</div></div>
-      <div class="counter-box"><span class="counter-num" data-target="3" data-suffix="">0</span><div class="counter-label">Deployment Modes</div><div class="counter-sub">On-Premise · Cloud · Hybrid</div></div>
-    </div>
-  </div>
-</section>
 
 <section class="section dark-bg" id="services">
   <div class="section-inner">
@@ -570,9 +546,9 @@ body.modal-open{overflow:hidden;}
               <li>Supports PDF, DOCX, XLSX, PPTX, and scanned documents</li>
             </ul>
           </div>
-          <div class="proj-metrics">
-            <div class="proj-metric-box"><div class="pmb-num">12<span style="font-size:1rem;color:var(--gold);">+</span></div><div class="pmb-label">Supported document formats</div></div>
-            <div class="proj-metric-box"><div class="pmb-num">100<span style="font-size:1rem;color:var(--gold);">%</span></div><div class="pmb-label">On-premise — data never leaves</div></div>
+          <div class="proj-metric-pills">
+            <span class="proj-metric-pill">📄 12+ Supported Formats</span>
+            <span class="proj-metric-pill">🔒 100% On-Premise</span>
           </div>
         </div>
       </div>
@@ -610,10 +586,10 @@ body.modal-open{overflow:hidden;}
     <h2 class="section-title reveal">A focused process,<br/>built around your business</h2>
     <p class="section-sub reveal">Four clear stages — from understanding your problem to deploying a working system.</p>
     <div class="process-grid">
-      <div class="process-step reveal" data-num="1"><span class="process-icon">🔍</span><h3>Free AI Audit</h3><p>A 30-minute call where we map your biggest manual bottlenecks and identify exactly where AI automation would save the most time and money. No commitment, no sales pitch.</p></div>
-      <div class="process-step reveal d1" data-num="2"><span class="process-icon">📐</span><h3>Scope &amp; Proposal</h3><p>We document the exact system to build, the outcomes it will deliver, the timeline, and the investment. You approve before any work begins.</p></div>
-      <div class="process-step reveal d2" data-num="3"><span class="process-icon">⚙️</span><h3>Build &amp; Test</h3><p>We build the system on your data, your workflows, and your infrastructure. Weekly updates. You test and give feedback before it goes live.</p></div>
-      <div class="process-step reveal d3" data-num="4"><span class="process-icon">🚀</span><h3>Deploy &amp; Support</h3><p>We deploy to your environment — on-premise, private cloud, or hybrid — and provide ongoing support, monitoring, and iteration.</p></div>
+      <div class="process-step reveal" data-num="1"><div class="process-step-num">Step 01</div><span class="process-icon">🔍</span><h3>Free AI Audit</h3><p>A 30-min call to map your operational bottlenecks. No pitch, just strategy.</p></div>
+      <div class="process-step reveal d1" data-num="2"><div class="process-step-num">Step 02</div><span class="process-icon">📐</span><h3>Scope &amp; Proposal</h3><p>Exact system, outcomes, timeline, and cost — documented and approved before any work begins.</p></div>
+      <div class="process-step reveal d2" data-num="3"><div class="process-step-num">Step 03</div><span class="process-icon">⚙️</span><h3>Build &amp; Test</h3><p>Built on your data and infrastructure. Weekly updates. You test before it goes live.</p></div>
+      <div class="process-step reveal d3" data-num="4"><div class="process-step-num">Step 04</div><span class="process-icon">🚀</span><h3>Deploy &amp; Support</h3><p>Deployed to your environment with ongoing support, monitoring, and iteration.</p></div>
     </div>
   </div>
 </section>
@@ -639,8 +615,8 @@ body.modal-open{overflow:hidden;}
       <div class="reveal">
         <div class="eyebrow">About Adaptive Minds AI</div>
         <h2 class="about-heading">We automate the work<br/>your team<em> shouldn't be doing</em></h2>
-        <p class="about-body">Adaptive Minds AI is an AI automation agency founded by <strong>Yogesh Shishodia</strong> — an AI engineer and builder focused on one thing: building systems that actually work inside real businesses. We've delivered over 20 AI projects across India and globally.</p>
-        <p class="about-body">We don't sell off-the-shelf tools or generic platforms. Every system we build is an asset you own — no vendor lock-in, no shortcuts.</p>
+        <p class="about-body">Adaptive Minds AI was founded by <strong>Yogesh Shishodia</strong> to bridge the gap between bleeding-edge AI research and practical business infrastructure. We don't sell generic platforms or rigid SaaS tools.</p>
+        <p class="about-body">Every system we deploy is a fully custom corporate asset — engineered for your workflows, hosted on your infrastructure, and owned entirely by you. Delivered in weeks, not months.</p>
         <div style="margin-top:2rem;"><a href="#contact" class="btn btn-navy">Talk to Us →</a></div>
         <div class="trust-boxes">
           <div class="trust-box"><div class="trust-box-num">20+</div><div class="trust-box-label">AI projects designed &amp; delivered</div></div>
