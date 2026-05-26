@@ -418,6 +418,32 @@ body.modal-open{overflow:hidden;}
   .trust-boxes{grid-template-columns:1fr;}
   .proj-metrics{grid-template-columns:1fr;}
 }
+
+/* ═══════════════════════════════
+   LEAD CAPTURE POPUP
+═══════════════════════════════ */
+#lead-modal{position:fixed;inset:0;z-index:10001;display:flex;align-items:center;justify-content:center;background:rgba(5,9,18,0.84);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity 0.32s ease;}
+#lead-modal.lm-open{opacity:1;pointer-events:all;}
+.lm-card{background:#0f1520;border:1px solid rgba(255,255,255,0.09);border-top:3px solid var(--gold);border-radius:18px;width:90%;max-width:460px;padding:2.4rem 2rem;position:relative;box-shadow:0 40px 80px rgba(0,0,0,0.6);transform:translateY(28px) scale(0.96);transition:transform 0.38s cubic-bezier(0.34,1.2,0.64,1);}
+#lead-modal.lm-open .lm-card{transform:translateY(0) scale(1);}
+.lm-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);font-size:1.1rem;line-height:1;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.lm-close:hover{background:rgba(255,255,255,0.12);color:#fff;}
+.lm-badge{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold-line);padding:0.25rem 0.8rem;border-radius:999px;display:inline-block;margin-bottom:1rem;}
+.lm-card h2{font-family:'Outfit',sans-serif;font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:0.5rem;letter-spacing:-0.02em;line-height:1.25;}
+.lm-desc{font-size:0.84rem;color:rgba(255,255,255,0.48);line-height:1.65;margin-bottom:1.5rem;}
+.lm-field{margin-bottom:0.9rem;}
+.lm-field label{display:block;font-size:0.71rem;font-weight:600;color:rgba(255,255,255,0.65);margin-bottom:0.38rem;letter-spacing:0.01em;font-family:'Outfit',sans-serif;}
+.lm-field label .lm-opt{color:rgba(255,255,255,0.28);font-weight:400;}
+.lm-field input{width:100%;padding:0.72rem 0.95rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:9px;color:#fff;font-size:0.87rem;font-family:'Outfit',sans-serif;outline:none;transition:border-color 0.2s,background 0.2s;}
+.lm-field input::placeholder{color:rgba(255,255,255,0.2);}
+.lm-field input:focus{border-color:var(--gold);background:rgba(201,148,58,0.05);}
+.lm-submit{width:100%;padding:0.85rem;background:var(--navy);color:#fff;border:none;border-radius:9px;font-size:0.9rem;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;margin-top:0.4rem;letter-spacing:0.01em;transition:background 0.2s,transform 0.15s;}
+.lm-submit:hover{background:var(--blue);transform:translateY(-1px);}
+.lm-privacy{font-size:0.67rem;color:rgba(255,255,255,0.22);text-align:center;margin-top:0.85rem;line-height:1.5;}
+.lm-success{display:none;text-align:center;padding:0.5rem 0 0.25rem;}
+.lm-success-icon{font-size:2.4rem;margin-bottom:0.7rem;}
+.lm-success h3{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.45rem;}
+.lm-success p{font-size:0.83rem;color:rgba(255,255,255,0.48);line-height:1.65;}
 </style>
 </head>
 <body>
@@ -667,6 +693,37 @@ body.modal-open{overflow:hidden;}
   </div>
 </footer>
 
+<!-- LEAD CAPTURE POPUP -->
+<div id="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lmTitle">
+  <div class="lm-card">
+    <button class="lm-close" id="lmClose" aria-label="Close">&times;</button>
+    <span class="lm-badge">Free Resource</span>
+    <h2 id="lmTitle">The Enterprise AI Deployment Blueprint</h2>
+    <p class="lm-desc">A practical guide on deploying secure, on-premise AI pipelines that eliminate manual work — without sending corporate data to the cloud.</p>
+    <form id="lmForm" novalidate>
+      <div class="lm-field">
+        <label for="lm-email">Work Email</label>
+        <input type="email" id="lm-email" name="email" placeholder="name@company.com" required autocomplete="email"/>
+      </div>
+      <div class="lm-field">
+        <label for="lm-phone">WhatsApp / Phone <span class="lm-opt">(Optional)</span></label>
+        <input type="tel" id="lm-phone" name="phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel"/>
+      </div>
+      <div class="lm-field">
+        <label for="lm-usecase">What do you want to automate?</label>
+        <input type="text" id="lm-usecase" name="usecase" placeholder="e.g. contract review, invoice processing…"/>
+      </div>
+      <button type="submit" class="lm-submit">Send Me The Blueprint →</button>
+      <p class="lm-privacy">🔒 Zero spam. We respect corporate data privacy.</p>
+    </form>
+    <div class="lm-success" id="lmSuccess">
+      <div class="lm-success-icon">✅</div>
+      <h3>You're all set!</h3>
+      <p>We'll send the blueprint to your work email shortly.<br/>Questions? WhatsApp us at <strong style="color:rgba(255,255,255,0.75)">+91 81302 47554</strong></p>
+    </div>
+  </div>
+</div>
+
 <!-- VIDEO MODAL -->
 <div class="vid-modal" id="vidModal">
   <div class="vid-modal-inner">
@@ -814,6 +871,66 @@ document.querySelectorAll('.counter-num[data-target]').forEach(el=>cObs.observe(
   document.getElementById('vidModalClose').onclick=closeVid;
   modal.addEventListener('click',e=>{if(e.target===modal)closeVid();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeVid();});
+})();
+
+/* ─── Lead Capture Popup ─── */
+(function(){
+  const KEY='lm_dismissed';
+  const DAYS=30;
+  const modal=document.getElementById('lead-modal');
+  const form=document.getElementById('lmForm');
+  const success=document.getElementById('lmSuccess');
+
+  function isDismissed(){
+    const t=localStorage.getItem(KEY);
+    return t && Date.now()-parseInt(t) < DAYS*864e5;
+  }
+  function dismiss(){ localStorage.setItem(KEY,Date.now()); }
+  function openModal(){
+    if(isDismissed()) return;
+    modal.classList.add('lm-open');
+    document.body.classList.add('modal-open');
+  }
+  function closeModal(){
+    modal.classList.remove('lm-open');
+    document.body.classList.remove('modal-open');
+    dismiss();
+  }
+
+  /* Trigger: 50% scroll OR 30 seconds — whichever fires first */
+  let fired=false;
+  function trigger(){ if(fired||isDismissed()) return; fired=true; openModal(); }
+  window.addEventListener('scroll',()=>{
+    const pct=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight;
+    if(pct>=0.5) trigger();
+  },{passive:true});
+  setTimeout(trigger,30000);
+
+  /* Close handlers */
+  document.getElementById('lmClose').addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&modal.classList.contains('lm-open')) closeModal(); });
+
+  /* Form submit — swap form for success state */
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const email=document.getElementById('lm-email').value.trim();
+    if(!email) return;
+    fetch('https://script.google.com/macros/s/AKfycbzAMT2aj19m0UuEVWGYHtVfJqD3wOgrWs7L4sZqrw0vunpPvXgqnEzq3p28iPC6B9DV/exec',{
+      method:'POST',
+      body:JSON.stringify({
+        email,
+        phone:document.getElementById('lm-phone').value.trim(),
+        usecase:document.getElementById('lm-usecase').value.trim(),
+        source:'popup'
+      }),
+      headers:{'Content-Type':'application/json'}
+    }).catch(()=>{});
+    form.style.display='none';
+    success.style.display='block';
+    dismiss();
+    setTimeout(closeModal,5000);
+  });
 })();
 
 /* ════════════════════════════════
