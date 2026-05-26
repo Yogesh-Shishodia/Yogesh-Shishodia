@@ -247,6 +247,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 .reveal.visible{opacity:1;transform:translateY(0);}
 .d1{transition-delay:0.07s;}.d2{transition-delay:0.14s;}.d3{transition-delay:0.21s;}.d4{transition-delay:0.28s;}
 
+.proj-screenshot{width:100%;border-radius:12px;overflow:hidden;margin-bottom:2rem;background:var(--navy);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;}
+.proj-screenshot img{width:100%;height:auto;display:block;object-fit:contain;border-radius:12px;}
 .proj-video-preview{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;margin-bottom:2rem;background:var(--navy);cursor:pointer;flex-shrink:0;}
 .proj-video-preview::before{content:'';position:absolute;inset:0;background:linear-gradient(110deg,rgba(255,255,255,0.03) 0%,rgba(255,255,255,0.07) 40%,rgba(255,255,255,0.03) 60%);background-size:200% 100%;animation:shimmer 2.2s infinite;z-index:1;}
 @keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
@@ -537,10 +539,8 @@ body.modal-open{overflow:hidden;}
           <div class="proj-footer"><a href="#contact" class="proj-cta white-cta">Request Demo →</a></div>
         </div>
         <div>
-          <div class="proj-video-preview" data-video-id="docuagent" title="Watch DocuAgent AI demo">
-            <div class="vid-overlay"></div>
-            <div class="vid-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-            <div class="vid-label"><span class="vid-label-text">Watch Demo</span></div>
+          <div class="proj-screenshot">
+            <img src="docuagent.png" alt="DocuAgent AI — secure document intelligence platform screenshot"/>
           </div>
           <div class="proj-outcomes dark-outcomes">
             <div class="proj-outcomes-lbl">What This System Does</div>
@@ -564,10 +564,8 @@ body.modal-open{overflow:hidden;}
         <h3>InboxIQ</h3>
         <p class="proj-tagline">Your inbox — triaged, prioritised, and actioned by AI</p>
         <p class="proj-desc">InboxIQ sits inside your Gmail or Outlook, instantly identifies high-priority emails — new leads, client escalations, payment queries — and drafts ready-to-send replies so your team responds in minutes, not hours.</p>
-        <div class="proj-video-preview" data-video-id="inboxiq" title="Watch InboxIQ demo">
-          <div class="vid-overlay"></div>
-          <div class="vid-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
-          <div class="vid-label"><span class="vid-label-text">Watch Demo</span></div>
+        <div class="proj-screenshot">
+          <img src="inboxiq.png" alt="InboxIQ — AI email triage and lead handling screenshot"/>
         </div>
         <div class="proj-outcomes">
           <div class="proj-outcomes-lbl">Business Problems It Solves</div>
