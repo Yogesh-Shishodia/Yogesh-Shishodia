@@ -918,13 +918,14 @@ document.querySelectorAll('.counter-num[data-target]').forEach(el=>cObs.observe(
     if(!email) return;
     fetch('https://script.google.com/macros/s/AKfycbzAMT2aj19m0UuEVWGYHtVfJqD3wOgrWs7L4sZqrw0vunpPvXgqnEzq3p28iPC6B9DV/exec',{
       method:'POST',
+      mode:'no-cors',
       body:JSON.stringify({
         email,
         phone:document.getElementById('lm-phone').value.trim(),
         usecase:document.getElementById('lm-usecase').value.trim(),
         source:'popup'
       }),
-      headers:{'Content-Type':'application/json'}
+      headers:{'Content-Type':'text/plain'}
     }).catch(()=>{});
     form.style.display='none';
     success.style.display='block';
