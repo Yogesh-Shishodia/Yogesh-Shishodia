@@ -532,7 +532,7 @@ body.modal-open{overflow:hidden;}
 .mkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:1.2rem;}
 .mkt-card{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--mkt-accent,#25d366);border-radius:16px;padding:1.8rem 1.6rem;cursor:pointer;transition:all 0.25s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 .mkt-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.1);border-color:var(--border2);}
-.mkt-card-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:1rem;flex-shrink:0;}
+.mkt-card-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.2rem;flex-shrink:0;}
 .mkt-tag{font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--mkt-accent,#25d366);display:block;margin-bottom:0.45rem;}
 .mkt-card h3{font-family:'Outfit',sans-serif;font-size:0.98rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;line-height:1.25;letter-spacing:-0.01em;}
 .mkt-card p{font-size:0.82rem;color:var(--text-dim);line-height:1.65;margin-bottom:1rem;flex:1;}
@@ -599,8 +599,8 @@ body.modal-open{overflow:hidden;}
   <div class="section-inner">
     <div class="services-header">
       <div class="services-header-left">
-        <div class="reveal" style="display:inline-flex;align-items:center;gap:0.55rem;background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.35);padding:0.38rem 1rem 0.38rem 0.7rem;border-radius:999px;margin-bottom:1.4rem;"><span style="width:7px;height:7px;border-radius:50%;background:#c9943a;display:inline-block;"></span><span style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9943a;">AI Automation Suite</span></div>
-        <h2 class="section-title reveal" style="color:#fff;margin-bottom:0.6rem;">Systems that run<br/><em style="color:rgba(255,255,255,0.38);">your entire operation</em></h2>
+        <div class="reveal" style="display:inline-flex;align-items:center;gap:0.55rem;background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.35);padding:0.38rem 1rem 0.38rem 0.7rem;border-radius:999px;margin-bottom:1.4rem;"><span style="width:7px;height:7px;border-radius:50%;background:#c9943a;display:inline-block;"></span><span style="font-size:0.9rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9943a;">AI Automation Suite</span></div>
+        <h2 class="section-title reveal" style="color:#fff;margin-bottom:0.6rem;font-size:clamp(2.8rem,5vw,4.4rem);">Stop doing it manually.<br/><em style="color:rgba(255,255,255,0.38);">Let AI do it for you.</em></h2>
         <p class="section-sub reveal" style="margin-bottom:0;">Nine purpose-built AI systems that eliminate manual work from your business — built, deployed, and maintained by us.</p>
       </div>
       <div class="services-nav reveal">
@@ -612,25 +612,25 @@ body.modal-open{overflow:hidden;}
     </div>
     <div class="services-marquee-outer">
       <div class="services-track" id="svcTrack">
-        <div class="svc" data-num="01" style="--svc-accent:#3b82f6;--svc-icon-bg:rgba(59,130,246,0.12);--svc-icon-bd:rgba(59,130,246,0.28);"><div class="svc-icon-box">⚙️</div><span class="svc-category">Workflow Automation</span><h3>Automate Your Repetitive Work</h3><p>Approvals, data entry, and notifications — mapped and automated so your team never touches them again.</p><p class="svc-eg">Invoice approvals cut from 2 days to minutes.</p></div>
-        <div class="svc" data-num="02" style="--svc-accent:#06b6d4;--svc-icon-bg:rgba(6,182,212,0.12);--svc-icon-bd:rgba(6,182,212,0.28);"><div class="svc-icon-box">🤖</div><span class="svc-category">AI Assistants &amp; Chatbots</span><h3>Always-On Customer Support</h3><p>AI trained on your business answers queries on WhatsApp, your website, or Slack — day or night.</p><p class="svc-eg">Zero missed queries, even at 2am.</p></div>
+        <div class="svc" data-num="01" style="--svc-accent:#3b82f6;--svc-icon-bg:rgba(59,130,246,0.12);--svc-icon-bd:rgba(59,130,246,0.28);"><div class="svc-icon-box">⚡</div><span class="svc-category">Workflow Automation</span><h3>Automate Your Repetitive Work</h3><p>Approvals, data entry, and notifications — mapped and automated so your team never touches them again.</p><p class="svc-eg">Invoice approvals cut from 2 days to minutes.</p></div>
+        <div class="svc" data-num="02" style="--svc-accent:#06b6d4;--svc-icon-bg:rgba(6,182,212,0.12);--svc-icon-bd:rgba(6,182,212,0.28);"><div class="svc-icon-box">💬</div><span class="svc-category">AI Assistants &amp; Chatbots</span><h3>Always-On Customer Support</h3><p>AI trained on your business answers queries on WhatsApp, your website, or Slack — day or night.</p><p class="svc-eg">Zero missed queries, even at 2am.</p></div>
         <div class="svc" data-num="03" style="--svc-accent:#a855f7;--svc-icon-bg:rgba(168,85,247,0.12);--svc-icon-bd:rgba(168,85,247,0.28);"><div class="svc-icon-box">🧠</div><span class="svc-category">Autonomous AI Agents</span><h3>AI That Acts Without Being Asked</h3><p>Agents handle full multi-step tasks — research, decisions, and actions — with no human trigger needed.</p><p class="svc-eg">New leads researched and outreached before you open your inbox.</p></div>
-        <div class="svc" data-num="04" style="--svc-accent:#f59e0b;--svc-icon-bg:rgba(245,158,11,0.12);--svc-icon-bd:rgba(245,158,11,0.28);"><div class="svc-icon-box">📚</div><span class="svc-category">Document Intelligence</span><h3>Chat With Any Document</h3><p>Ask questions across contracts, reports, or policies in plain English — every answer cited by page and section.</p><p class="svc-eg">Penalty clauses found in seconds, not hours.</p></div>
-        <div class="svc" data-num="05" style="--svc-accent:#f97316;--svc-icon-bg:rgba(249,115,22,0.12);--svc-icon-bd:rgba(249,115,22,0.28);"><div class="svc-icon-box">📄</div><span class="svc-category">Intelligent Data Extraction</span><h3>Pull Structured Data From Any File</h3><p>AI reads PDFs, scanned invoices, and forms — extracting exact fields into your systems automatically.</p><p class="svc-eg">Hundreds of invoices processed overnight, zero keystrokes.</p></div>
-        <div class="svc" data-num="06" style="--svc-accent:#10b981;--svc-icon-bg:rgba(16,185,129,0.12);--svc-icon-bd:rgba(16,185,129,0.28);"><div class="svc-icon-box">🔗</div><span class="svc-category">System Integration</span><h3>AI Inside the Tools You Already Use</h3><p>We connect AI to your CRM, ERP, email, and spreadsheets — no new platforms needed.</p><p class="svc-eg">CRM updated after every sales call, automatically.</p></div>
-        <div class="svc" data-num="07" style="--svc-accent:#22d3ee;--svc-icon-bg:rgba(34,211,238,0.12);--svc-icon-bd:rgba(34,211,238,0.28);"><div class="svc-icon-box">📊</div><span class="svc-category">Business Intelligence</span><h3>Turn Your Data Into Clear Answers</h3><p>AI reads your operational data and surfaces what matters — in plain language, not charts you have to interpret.</p><p class="svc-eg">Churn risk flagged a full quarter early.</p></div>
-        <div class="svc" data-num="08" style="--svc-accent:#ec4899;--svc-icon-bg:rgba(236,72,153,0.12);--svc-icon-bd:rgba(236,72,153,0.28);"><div class="svc-icon-box">✍️</div><span class="svc-category">Content Automation</span><h3>Scale Content Without Scaling Your Team</h3><p>AI writes in your brand's voice — product descriptions, email campaigns, and posts — consistently and instantly.</p><p class="svc-eg">Full product catalogue rewritten overnight.</p></div>
-        <div class="svc" data-num="09" style="--svc-accent:#ef4444;--svc-icon-bg:rgba(239,68,68,0.12);--svc-icon-bd:rgba(239,68,68,0.28);"><div class="svc-icon-box">🎯</div><span class="svc-category">Custom AI Development</span><h3>AI Built for Your Industry</h3><p>When generic AI doesn't know your domain — we train one that does, on your own data and terminology.</p><p class="svc-eg">Legal AI that knows your firm's own contract templates.</p></div>
+        <div class="svc" data-num="04" style="--svc-accent:#f59e0b;--svc-icon-bg:rgba(245,158,11,0.12);--svc-icon-bd:rgba(245,158,11,0.28);"><div class="svc-icon-box">📋</div><span class="svc-category">Document Intelligence</span><h3>Chat With Any Document</h3><p>Ask questions across contracts, reports, or policies in plain English — every answer cited by page and section.</p><p class="svc-eg">Penalty clauses found in seconds, not hours.</p></div>
+        <div class="svc" data-num="05" style="--svc-accent:#f97316;--svc-icon-bg:rgba(249,115,22,0.12);--svc-icon-bd:rgba(249,115,22,0.28);"><div class="svc-icon-box">📥</div><span class="svc-category">Intelligent Data Extraction</span><h3>Pull Structured Data From Any File</h3><p>AI reads PDFs, scanned invoices, and forms — extracting exact fields into your systems automatically.</p><p class="svc-eg">Hundreds of invoices processed overnight, zero keystrokes.</p></div>
+        <div class="svc" data-num="06" style="--svc-accent:#10b981;--svc-icon-bg:rgba(16,185,129,0.12);--svc-icon-bd:rgba(16,185,129,0.28);"><div class="svc-icon-box">🔌</div><span class="svc-category">System Integration</span><h3>AI Inside the Tools You Already Use</h3><p>We connect AI to your CRM, ERP, email, and spreadsheets — no new platforms needed.</p><p class="svc-eg">CRM updated after every sales call, automatically.</p></div>
+        <div class="svc" data-num="07" style="--svc-accent:#22d3ee;--svc-icon-bg:rgba(34,211,238,0.12);--svc-icon-bd:rgba(34,211,238,0.28);"><div class="svc-icon-box">📈</div><span class="svc-category">Business Intelligence</span><h3>Turn Your Data Into Clear Answers</h3><p>AI reads your operational data and surfaces what matters — in plain language, not charts you have to interpret.</p><p class="svc-eg">Churn risk flagged a full quarter early.</p></div>
+        <div class="svc" data-num="08" style="--svc-accent:#ec4899;--svc-icon-bg:rgba(236,72,153,0.12);--svc-icon-bd:rgba(236,72,153,0.28);"><div class="svc-icon-box">✏️</div><span class="svc-category">Content Automation</span><h3>Scale Content Without Scaling Your Team</h3><p>AI writes in your brand's voice — product descriptions, email campaigns, and posts — consistently and instantly.</p><p class="svc-eg">Full product catalogue rewritten overnight.</p></div>
+        <div class="svc" data-num="09" style="--svc-accent:#ef4444;--svc-icon-bg:rgba(239,68,68,0.12);--svc-icon-bd:rgba(239,68,68,0.28);"><div class="svc-icon-box">🛠️</div><span class="svc-category">Custom AI Development</span><h3>AI Built for Your Industry</h3><p>When generic AI doesn't know your domain — we train one that does, on your own data and terminology.</p><p class="svc-eg">Legal AI that knows your firm's own contract templates.</p></div>
         <!-- SET 2 -->
-        <div class="svc" data-num="01" aria-hidden="true" style="--svc-accent:#3b82f6;--svc-icon-bg:rgba(59,130,246,0.12);--svc-icon-bd:rgba(59,130,246,0.28);"><div class="svc-icon-box">⚙️</div><span class="svc-category">Workflow Automation</span><h3>Automate Your Repetitive Work</h3><p>Approvals, data entry, and notifications — mapped and automated so your team never touches them again.</p><p class="svc-eg">Invoice approvals cut from 2 days to minutes.</p></div>
-        <div class="svc" data-num="02" aria-hidden="true" style="--svc-accent:#06b6d4;--svc-icon-bg:rgba(6,182,212,0.12);--svc-icon-bd:rgba(6,182,212,0.28);"><div class="svc-icon-box">🤖</div><span class="svc-category">AI Assistants &amp; Chatbots</span><h3>Always-On Customer Support</h3><p>AI trained on your business answers queries on WhatsApp, your website, or Slack — day or night.</p><p class="svc-eg">Zero missed queries, even at 2am.</p></div>
+        <div class="svc" data-num="01" aria-hidden="true" style="--svc-accent:#3b82f6;--svc-icon-bg:rgba(59,130,246,0.12);--svc-icon-bd:rgba(59,130,246,0.28);"><div class="svc-icon-box">⚡</div><span class="svc-category">Workflow Automation</span><h3>Automate Your Repetitive Work</h3><p>Approvals, data entry, and notifications — mapped and automated so your team never touches them again.</p><p class="svc-eg">Invoice approvals cut from 2 days to minutes.</p></div>
+        <div class="svc" data-num="02" aria-hidden="true" style="--svc-accent:#06b6d4;--svc-icon-bg:rgba(6,182,212,0.12);--svc-icon-bd:rgba(6,182,212,0.28);"><div class="svc-icon-box">💬</div><span class="svc-category">AI Assistants &amp; Chatbots</span><h3>Always-On Customer Support</h3><p>AI trained on your business answers queries on WhatsApp, your website, or Slack — day or night.</p><p class="svc-eg">Zero missed queries, even at 2am.</p></div>
         <div class="svc" data-num="03" aria-hidden="true" style="--svc-accent:#a855f7;--svc-icon-bg:rgba(168,85,247,0.12);--svc-icon-bd:rgba(168,85,247,0.28);"><div class="svc-icon-box">🧠</div><span class="svc-category">Autonomous AI Agents</span><h3>AI That Acts Without Being Asked</h3><p>Agents handle full multi-step tasks — research, decisions, and actions — with no human trigger needed.</p><p class="svc-eg">New leads researched and outreached before you open your inbox.</p></div>
-        <div class="svc" data-num="04" aria-hidden="true" style="--svc-accent:#f59e0b;--svc-icon-bg:rgba(245,158,11,0.12);--svc-icon-bd:rgba(245,158,11,0.28);"><div class="svc-icon-box">📚</div><span class="svc-category">Document Intelligence</span><h3>Chat With Any Document</h3><p>Ask questions across contracts, reports, or policies in plain English.</p><p class="svc-eg">Penalty clauses found in seconds, not hours.</p></div>
-        <div class="svc" data-num="05" aria-hidden="true" style="--svc-accent:#f97316;--svc-icon-bg:rgba(249,115,22,0.12);--svc-icon-bd:rgba(249,115,22,0.28);"><div class="svc-icon-box">📄</div><span class="svc-category">Intelligent Data Extraction</span><h3>Pull Structured Data From Any File</h3><p>AI reads PDFs, scanned invoices, and forms — extracting exact fields automatically.</p><p class="svc-eg">Hundreds of invoices processed overnight.</p></div>
-        <div class="svc" data-num="06" aria-hidden="true" style="--svc-accent:#10b981;--svc-icon-bg:rgba(16,185,129,0.12);--svc-icon-bd:rgba(16,185,129,0.28);"><div class="svc-icon-box">🔗</div><span class="svc-category">System Integration</span><h3>AI Inside the Tools You Already Use</h3><p>We connect AI to your CRM, ERP, email, and spreadsheets.</p><p class="svc-eg">CRM updated after every sales call, automatically.</p></div>
-        <div class="svc" data-num="07" aria-hidden="true" style="--svc-accent:#22d3ee;--svc-icon-bg:rgba(34,211,238,0.12);--svc-icon-bd:rgba(34,211,238,0.28);"><div class="svc-icon-box">📊</div><span class="svc-category">Business Intelligence</span><h3>Turn Your Data Into Clear Answers</h3><p>AI reads your operational data and surfaces what matters in plain language.</p><p class="svc-eg">Churn risk flagged a full quarter early.</p></div>
-        <div class="svc" data-num="08" aria-hidden="true" style="--svc-accent:#ec4899;--svc-icon-bg:rgba(236,72,153,0.12);--svc-icon-bd:rgba(236,72,153,0.28);"><div class="svc-icon-box">✍️</div><span class="svc-category">Content Automation</span><h3>Scale Content Without Scaling Your Team</h3><p>AI writes in your brand's voice consistently and instantly.</p><p class="svc-eg">Full product catalogue rewritten overnight.</p></div>
-        <div class="svc" data-num="09" aria-hidden="true" style="--svc-accent:#ef4444;--svc-icon-bg:rgba(239,68,68,0.12);--svc-icon-bd:rgba(239,68,68,0.28);"><div class="svc-icon-box">🎯</div><span class="svc-category">Custom AI Development</span><h3>AI Built for Your Industry</h3><p>We train AI on your own data and terminology for domain-specific precision.</p><p class="svc-eg">Legal AI that knows your firm's own contract templates.</p></div>
+        <div class="svc" data-num="04" aria-hidden="true" style="--svc-accent:#f59e0b;--svc-icon-bg:rgba(245,158,11,0.12);--svc-icon-bd:rgba(245,158,11,0.28);"><div class="svc-icon-box">📋</div><span class="svc-category">Document Intelligence</span><h3>Chat With Any Document</h3><p>Ask questions across contracts, reports, or policies in plain English.</p><p class="svc-eg">Penalty clauses found in seconds, not hours.</p></div>
+        <div class="svc" data-num="05" aria-hidden="true" style="--svc-accent:#f97316;--svc-icon-bg:rgba(249,115,22,0.12);--svc-icon-bd:rgba(249,115,22,0.28);"><div class="svc-icon-box">📥</div><span class="svc-category">Intelligent Data Extraction</span><h3>Pull Structured Data From Any File</h3><p>AI reads PDFs, scanned invoices, and forms — extracting exact fields automatically.</p><p class="svc-eg">Hundreds of invoices processed overnight.</p></div>
+        <div class="svc" data-num="06" aria-hidden="true" style="--svc-accent:#10b981;--svc-icon-bg:rgba(16,185,129,0.12);--svc-icon-bd:rgba(16,185,129,0.28);"><div class="svc-icon-box">🔌</div><span class="svc-category">System Integration</span><h3>AI Inside the Tools You Already Use</h3><p>We connect AI to your CRM, ERP, email, and spreadsheets.</p><p class="svc-eg">CRM updated after every sales call, automatically.</p></div>
+        <div class="svc" data-num="07" aria-hidden="true" style="--svc-accent:#22d3ee;--svc-icon-bg:rgba(34,211,238,0.12);--svc-icon-bd:rgba(34,211,238,0.28);"><div class="svc-icon-box">📈</div><span class="svc-category">Business Intelligence</span><h3>Turn Your Data Into Clear Answers</h3><p>AI reads your operational data and surfaces what matters in plain language.</p><p class="svc-eg">Churn risk flagged a full quarter early.</p></div>
+        <div class="svc" data-num="08" aria-hidden="true" style="--svc-accent:#ec4899;--svc-icon-bg:rgba(236,72,153,0.12);--svc-icon-bd:rgba(236,72,153,0.28);"><div class="svc-icon-box">✏️</div><span class="svc-category">Content Automation</span><h3>Scale Content Without Scaling Your Team</h3><p>AI writes in your brand's voice consistently and instantly.</p><p class="svc-eg">Full product catalogue rewritten overnight.</p></div>
+        <div class="svc" data-num="09" aria-hidden="true" style="--svc-accent:#ef4444;--svc-icon-bg:rgba(239,68,68,0.12);--svc-icon-bd:rgba(239,68,68,0.28);"><div class="svc-icon-box">🛠️</div><span class="svc-category">Custom AI Development</span><h3>AI Built for Your Industry</h3><p>We train AI on your own data and terminology for domain-specific precision.</p><p class="svc-eg">Legal AI that knows your firm's own contract templates.</p></div>
       </div>
     </div>
   </div>
@@ -647,13 +647,13 @@ body.modal-open{overflow:hidden;}
 
 <section class="section" id="marketing">
   <div class="section-inner">
-    <div class="eyebrow reveal">AI Growth Engine</div>
-    <h2 class="section-title reveal">Marketing that works<br/><em>while you sleep</em></h2>
+    <div class="eyebrow reveal" style="font-size:0.9rem;letter-spacing:0.16em;">AI Growth Engine</div>
+    <h2 class="section-title reveal" style="font-size:clamp(2.8rem,5vw,4.4rem);">Reach more customers.<br/><em>Generate more leads.</em></h2>
     <p class="section-sub reveal">Seven AI-powered marketing services that reach more customers, generate more leads, and convert more sales — automatically, across every channel your audience uses.</p>
     <div class="mkt-grid">
 
       <div class="mkt-card reveal" data-mkt="10" style="--mkt-accent:#25d366;">
-        <div class="mkt-card-icon" style="background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.2);">📱</div>
+        <div class="mkt-card-icon" style="background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.2);">💬</div>
         <span class="mkt-tag">WhatsApp Marketing</span>
         <h3>Reach 95% of Your Audience — Guaranteed</h3>
         <p>Official Meta WhatsApp API broadcasts with professional copywriting, rich media, and CTA buttons. Your message lands in the inbox people actually check — not a spam folder.</p>
@@ -662,7 +662,7 @@ body.modal-open{overflow:hidden;}
       </div>
 
       <div class="mkt-card reveal d1" data-mkt="11" style="--mkt-accent:#0077b5;">
-        <div class="mkt-card-icon" style="background:rgba(0,119,181,0.1);border:1px solid rgba(0,119,181,0.2);">💼</div>
+        <div class="mkt-card-icon" style="background:rgba(0,119,181,0.1);border:1px solid rgba(0,119,181,0.2);">🤝</div>
         <span class="mkt-tag">LinkedIn Outreach</span>
         <h3>Automated B2B Lead Generation on LinkedIn</h3>
         <p>AI personalizes connection requests and message sequences for every prospect based on their profile, company, and role. You wake up to booked meetings — not manual prospecting.</p>
@@ -671,7 +671,7 @@ body.modal-open{overflow:hidden;}
       </div>
 
       <div class="mkt-card reveal d2" data-mkt="12" style="--mkt-accent:#4285f4;">
-        <div class="mkt-card-icon" style="background:rgba(66,133,244,0.1);border:1px solid rgba(66,133,244,0.2);">📣</div>
+        <div class="mkt-card-icon" style="background:rgba(66,133,244,0.1);border:1px solid rgba(66,133,244,0.2);">🎯</div>
         <span class="mkt-tag">Google &amp; Meta Ads</span>
         <h3>AI-Managed Ads That Optimise Themselves</h3>
         <p>AI writes ad copy, designs creatives, manages bids, and kills underperformers automatically. Your ad budget always flows to what works — without daily manual intervention.</p>
@@ -680,7 +680,7 @@ body.modal-open{overflow:hidden;}
       </div>
 
       <div class="mkt-card reveal d3" data-mkt="13" style="--mkt-accent:#f59e0b;">
-        <div class="mkt-card-icon" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);">✉️</div>
+        <div class="mkt-card-icon" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);">📩</div>
         <span class="mkt-tag">Email Drip Automation</span>
         <h3>Nurture Every Lead Without Lifting a Finger</h3>
         <p>AI-written email sequences that trigger on real behaviour — sign-up, demo request, abandoned cart, inactivity — and guide each lead through your funnel automatically, forever.</p>
@@ -689,7 +689,7 @@ body.modal-open{overflow:hidden;}
       </div>
 
       <div class="mkt-card reveal" data-mkt="14" style="--mkt-accent:#8b5cf6;">
-        <div class="mkt-card-icon" style="background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);">🎙️</div>
+        <div class="mkt-card-icon" style="background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);">📞</div>
         <span class="mkt-tag">Voice AI &amp; Call Automation</span>
         <h3>Never Miss a Call — Even at Midnight</h3>
         <p>AI answers inbound calls, qualifies leads, books appointments, and sends follow-ups in a natural voice. Handles hundreds of calls simultaneously, 24/7 — at a fraction of a call centre cost.</p>
@@ -698,7 +698,7 @@ body.modal-open{overflow:hidden;}
       </div>
 
       <div class="mkt-card reveal d1" data-mkt="15" style="--mkt-accent:#ef4444;">
-        <div class="mkt-card-icon" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);">🎯</div>
+        <div class="mkt-card-icon" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);">🔍</div>
         <span class="mkt-tag">AI Lead Generation</span>
         <h3>A Full Pipeline of Qualified Leads — On Autopilot</h3>
         <p>AI identifies your ideal customers across LinkedIn, the web, and databases — enriches their profiles, scores them by fit, and launches personalised multi-channel outreach automatically.</p>
@@ -707,7 +707,7 @@ body.modal-open{overflow:hidden;}
       </div>
 
       <div class="mkt-card reveal d2" data-mkt="16" style="--mkt-accent:#ec4899;">
-        <div class="mkt-card-icon" style="background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.2);">📲</div>
+        <div class="mkt-card-icon" style="background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.2);">🌐</div>
         <span class="mkt-tag">Social Media AI</span>
         <h3>30 Days of Content in 60 Minutes — Auto-Posted</h3>
         <p>AI plans your content calendar, writes posts in your brand voice, and publishes on schedule across Instagram, LinkedIn, X, and Facebook — with zero daily effort from your team.</p>
@@ -716,7 +716,7 @@ body.modal-open{overflow:hidden;}
       </div>
 
       <div class="mkt-card reveal d3" data-mkt="17" style="--mkt-accent:#14b8a6;">
-        <div class="mkt-card-icon" style="background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.2);">🗂️</div>
+        <div class="mkt-card-icon" style="background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.2);">📊</div>
         <span class="mkt-tag">AI-Driven CRM</span>
         <h3>A CRM That Thinks, Updates &amp; Acts — Automatically</h3>
         <p>AI keeps your CRM accurate and actionable without your team touching a single field. Every call, email, and meeting is auto-logged, every deal scored, and every follow-up triggered on time.</p>
