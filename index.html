@@ -82,7 +82,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 
 .section{padding:6.5rem 5%;}
 .section-inner{max-width:1280px;margin:0 auto;}
-.eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:0.7rem;margin-bottom:1rem;}
+.eyebrow{font-size:0.9rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:0.7rem;margin-bottom:1rem;}
 .eyebrow::after{content:'';height:1px;width:44px;background:var(--blue-line);}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1rem;}
 .section-sub{color:var(--text-dim);font-size:0.95rem;line-height:1.75;max-width:580px;margin-bottom:3.5rem;font-weight:400;}
@@ -134,13 +134,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .who-chip{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.84rem;font-weight:500;color:var(--text-dim);background:var(--surface);border:1px solid var(--border);padding:0.35rem 0.85rem;border-radius:999px;transition:all 0.18s;}
 .who-chip:hover{border-color:var(--border2);color:var(--text);}
 
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
-.process-step{position:relative;padding:1.6rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:14px;box-shadow:var(--shadow);transition:all 0.22s;}
-.process-step:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
-.process-step-num{font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:0.55rem;}
-.process-icon{font-size:1.5rem;margin-bottom:0.6rem;display:block;}
-.process-step h3{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:0.4rem;letter-spacing:-0.01em;color:var(--navy);}
-.process-step p{font-size:0.88rem;color:var(--text-dim);line-height:1.62;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;position:relative;}
+.process-step{position:relative;padding:2rem 1.6rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);transition:all 0.28s;overflow:hidden;display:flex;flex-direction:column;}
+.process-step::after{content:attr(data-num);position:absolute;bottom:-1.2rem;right:0.5rem;font-family:'Cormorant Garamond',serif;font-size:9rem;font-weight:700;color:rgba(33,70,240,0.05);line-height:1;pointer-events:none;user-select:none;}
+.process-step:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,0.13);border-color:var(--blue-line);}
+.process-step:hover .ps-badge{box-shadow:0 8px 24px rgba(33,70,240,0.45);}
+.ps-badge{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;letter-spacing:0.04em;margin-bottom:1.5rem;flex-shrink:0;box-shadow:0 5px 16px rgba(33,70,240,0.32);font-family:'Outfit',sans-serif;position:relative;z-index:1;transition:box-shadow 0.28s;}
+.ps-icon{width:50px;height:50px;border-radius:14px;background:var(--blue-soft);border:1px solid var(--blue-line);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;flex-shrink:0;position:relative;z-index:1;transition:background 0.28s;}
+.process-step:hover .ps-icon{background:rgba(33,70,240,0.12);}
+.ps-icon svg{width:24px;height:24px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.process-step h3{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.01em;color:var(--navy);position:relative;z-index:1;}
+.process-step p{font-size:0.88rem;color:var(--text-dim);line-height:1.65;flex:1;position:relative;z-index:1;}
+.ps-result{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.78rem;font-weight:600;color:var(--blue);display:flex;align-items:center;gap:0.35rem;position:relative;z-index:1;}
+.ps-result::before{content:'→';}
 
 .projects-stack{display:flex;flex-direction:column;gap:1.4rem;}
 .proj-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2.5rem;display:flex;flex-direction:column;transition:all 0.25s;box-shadow:var(--shadow);}
@@ -654,7 +660,7 @@ body.modal-open{overflow:hidden;}
 
 <section class="section" id="marketing">
   <div class="section-inner">
-    <div class="eyebrow reveal" style="font-size:0.9rem;letter-spacing:0.16em;">AI Growth Engine</div>
+    <div class="eyebrow reveal">AI Growth Engine</div>
     <h2 class="section-title reveal" style="font-size:clamp(2.8rem,5vw,4.4rem);">Reach more customers.<br/><em>Generate more leads.</em></h2>
     <p class="section-sub reveal">Seven AI-powered marketing services that reach more customers, generate more leads, and convert more sales — automatically, across every channel your audience uses.</p>
     <div class="mkt-grid">
@@ -804,10 +810,34 @@ body.modal-open{overflow:hidden;}
     <h2 class="section-title reveal">A focused process,<br/>built around your business</h2>
     <p class="section-sub reveal">Four clear stages — from understanding your problem to deploying a working system.</p>
     <div class="process-grid">
-      <div class="process-step reveal" data-num="1"><div class="process-step-num">Step 01</div><span class="process-icon">🔍</span><h3>Free AI Audit</h3><p>A 30-min call to map your operational bottlenecks. No pitch, just strategy.</p></div>
-      <div class="process-step reveal d1" data-num="2"><div class="process-step-num">Step 02</div><span class="process-icon">📐</span><h3>Scope &amp; Proposal</h3><p>Exact system, outcomes, timeline, and cost — documented and approved before any work begins.</p></div>
-      <div class="process-step reveal d2" data-num="3"><div class="process-step-num">Step 03</div><span class="process-icon">⚙️</span><h3>Build &amp; Test</h3><p>Built on your data and infrastructure. Weekly updates. You test before it goes live.</p></div>
-      <div class="process-step reveal d3" data-num="4"><div class="process-step-num">Step 04</div><span class="process-icon">🚀</span><h3>Deploy &amp; Support</h3><p>Deployed to your environment with ongoing support, monitoring, and iteration.</p></div>
+      <div class="process-step reveal" data-num="1">
+        <div class="ps-badge">01</div>
+        <div class="ps-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>Free AI Audit</h3>
+        <p>A 30-min call to map your operational bottlenecks. No pitch, just strategy.</p>
+        <div class="ps-result">Automation roadmap in hand</div>
+      </div>
+      <div class="process-step reveal d1" data-num="2">
+        <div class="ps-badge">02</div>
+        <div class="ps-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
+        <h3>Scope &amp; Proposal</h3>
+        <p>Exact system, outcomes, timeline, and cost — documented and approved before any work begins.</p>
+        <div class="ps-result">Fixed-price proposal signed</div>
+      </div>
+      <div class="process-step reveal d2" data-num="3">
+        <div class="ps-badge">03</div>
+        <div class="ps-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Build &amp; Test</h3>
+        <p>Built on your data and infrastructure. Weekly updates. You test before it goes live.</p>
+        <div class="ps-result">System tested &amp; approved</div>
+      </div>
+      <div class="process-step reveal d3" data-num="4">
+        <div class="ps-badge">04</div>
+        <div class="ps-icon"><svg viewBox="0 0 24 24"><path d="M12 2L8.5 8.5H2l5.25 5-2 7.5L12 17l6.75 4-2-7.5L22 8.5h-6.5L12 2z"/></svg></div>
+        <h3>Deploy &amp; Support</h3>
+        <p>Deployed to your environment with ongoing support, monitoring, and iteration.</p>
+        <div class="ps-result">Live &amp; continuously improving</div>
+      </div>
     </div>
   </div>
 </section>
