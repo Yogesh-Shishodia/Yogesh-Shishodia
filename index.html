@@ -702,6 +702,10 @@ body.modal-open{overflow:hidden;}
     <p class="lm-desc">A practical guide on deploying secure, on-premise AI pipelines that eliminate manual work — without sending corporate data to the cloud.</p>
     <form id="lmForm" novalidate>
       <div class="lm-field">
+        <label for="lm-name">Your Name</label>
+        <input type="text" id="lm-name" name="name" placeholder="John Smith" required autocomplete="name"/>
+      </div>
+      <div class="lm-field">
         <label for="lm-email">Work Email</label>
         <input type="email" id="lm-email" name="email" placeholder="name@company.com" required autocomplete="email"/>
       </div>
@@ -920,6 +924,7 @@ document.querySelectorAll('.counter-num[data-target]').forEach(el=>cObs.observe(
       method:'POST',
       mode:'no-cors',
       body:JSON.stringify({
+        name:document.getElementById('lm-name').value.trim(),
         email,
         phone:document.getElementById('lm-phone').value.trim(),
         usecase:document.getElementById('lm-usecase').value.trim(),
