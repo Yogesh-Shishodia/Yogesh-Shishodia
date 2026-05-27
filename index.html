@@ -444,6 +444,84 @@ body.modal-open{overflow:hidden;}
 .lm-success-icon{font-size:2.4rem;margin-bottom:0.7rem;}
 .lm-success h3{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.45rem;}
 .lm-success p{font-size:0.83rem;color:rgba(255,255,255,0.48);line-height:1.65;}
+
+/* ═══════════════════════════════
+   SERVICE DETAIL MODAL
+═══════════════════════════════ */
+#svc-modal{position:fixed;inset:0;z-index:10002;display:flex;align-items:center;justify-content:center;background:rgba(5,9,18,0.9);backdrop-filter:blur(16px);opacity:0;pointer-events:none;transition:opacity 0.32s ease;padding:1.25rem;}
+#svc-modal.sm-open{opacity:1;pointer-events:all;}
+.sm-card{background:#0c1624;border:1px solid rgba(255,255,255,0.08);border-top:3px solid var(--sm-accent,#3b82f6);border-radius:20px;width:100%;max-width:860px;max-height:calc(100vh - 2.5rem);overflow-y:auto;position:relative;box-shadow:0 40px 100px rgba(0,0,0,0.7);transform:translateY(32px) scale(0.96);transition:transform 0.38s cubic-bezier(0.34,1.2,0.64,1);}
+#svc-modal.sm-open .sm-card{transform:translateY(0) scale(1);}
+.sm-card::-webkit-scrollbar{width:4px;}
+.sm-card::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.sm-close{position:absolute;top:1.1rem;right:1.1rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);font-size:1rem;width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:2;}
+.sm-close:hover{background:rgba(255,255,255,0.14);color:#fff;}
+.sm-hero{padding:2.4rem 2.4rem 1.6rem;}
+.sm-eyebrow{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:999px;display:inline-block;margin-bottom:1rem;}
+.sm-hero h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:500;color:#fff;letter-spacing:-0.025em;line-height:1.1;margin-bottom:0.6rem;}
+.sm-hero-sub{font-size:0.92rem;color:rgba(255,255,255,0.45);line-height:1.7;max-width:600px;}
+.sm-visual{margin:0 2.4rem 1.8rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:1.6rem 1.8rem;overflow:hidden;}
+.sm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);margin:0 2.4rem 1.8rem;border-radius:14px;overflow:hidden;}
+.sm-stat{background:#0c1624;padding:1.2rem 1rem;text-align:center;}
+.sm-stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--sm-accent,#3b82f6);line-height:1;margin-bottom:0.2rem;}
+.sm-stat-label{font-size:0.68rem;color:rgba(255,255,255,0.35);line-height:1.35;}
+.sm-body{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;padding:0 2.4rem 1.8rem;}
+.sm-section-title{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:1rem;}
+.sm-steps{display:flex;flex-direction:column;gap:0.75rem;}
+.sm-step{display:flex;gap:0.85rem;align-items:flex-start;}
+.sm-step-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;margin-top:2px;}
+.sm-step-text h4{font-size:0.85rem;font-weight:600;color:#fff;margin-bottom:0.2rem;line-height:1.3;}
+.sm-step-text p{font-size:0.77rem;color:rgba(255,255,255,0.42);line-height:1.55;}
+.sm-benefits{display:flex;flex-direction:column;gap:0.45rem;}
+.sm-benefit{display:flex;gap:0.6rem;align-items:flex-start;font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.45;padding:0.6rem 0.75rem;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid rgba(255,255,255,0.05);}
+.sm-benefit::before{content:'✓';color:var(--sm-accent,#3b82f6);font-weight:700;flex-shrink:0;margin-top:1px;}
+.sm-usecases{padding:0 2.4rem 1.6rem;}
+.sm-uc-grid{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem;}
+.sm-uc-chip{font-size:0.75rem;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);padding:0.3rem 0.85rem;border-radius:999px;}
+.sm-footer{padding:1.6rem 2.4rem 2.2rem;border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.sm-footer-text{font-size:0.82rem;color:rgba(255,255,255,0.38);}
+.sm-cta{display:inline-flex;align-items:center;gap:0.5rem;color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.88rem;padding:0.8rem 1.8rem;border-radius:10px;text-decoration:none;border:none;cursor:pointer;transition:filter 0.2s,transform 0.15s;}
+.sm-cta:hover{filter:brightness(1.15);transform:translateY(-1px);}
+.sm-flow{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;row-gap:0.8rem;}
+.sm-flow-node{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.7rem 1rem;text-align:center;flex-shrink:0;}
+.sm-flow-node .fn-icon{font-size:1.4rem;display:block;margin-bottom:0.3rem;}
+.sm-flow-node .fn-label{font-size:0.72rem;font-weight:600;color:#fff;white-space:nowrap;display:block;}
+.sm-flow-node .fn-sub{font-size:0.62rem;color:rgba(255,255,255,0.35);margin-top:0.15rem;white-space:nowrap;display:block;}
+.sm-flow-arrow{color:rgba(255,255,255,0.2);font-size:1.2rem;padding:0 0.4rem;flex-shrink:0;}
+.sm-chat{display:flex;flex-direction:column;gap:0.65rem;max-width:440px;margin:0 auto;}
+.sm-chat-msg{display:flex;gap:0.5rem;align-items:flex-end;}
+.sm-chat-msg.right{flex-direction:row-reverse;}
+.sm-chat-av{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;}
+.sm-chat-av.bot{background:linear-gradient(135deg,#f97316,#c2410c);}
+.sm-chat-av.usr{background:rgba(255,255,255,0.1);font-size:0.7rem;color:rgba(255,255,255,0.6);}
+.sm-chat-bub{padding:0.55rem 0.85rem;border-radius:14px;font-size:0.78rem;line-height:1.5;max-width:78%;}
+.sm-chat-msg:not(.right) .sm-chat-bub{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);border-bottom-left-radius:3px;}
+.sm-chat-msg.right .sm-chat-bub{background:rgba(6,182,212,0.18);color:rgba(255,255,255,0.85);border-bottom-right-radius:3px;}
+.sm-loop{display:flex;align-items:center;justify-content:center;gap:0.5rem;flex-wrap:wrap;}
+.sm-loop-item{display:flex;flex-direction:column;align-items:center;gap:0.4rem;}
+.sm-loop-circle{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2px solid rgba(168,85,247,0.4);background:rgba(168,85,247,0.1);}
+.sm-loop-label{font-size:0.63rem;color:rgba(255,255,255,0.45);text-align:center;font-weight:700;letter-spacing:0.08em;}
+.sm-loop-arrow{color:rgba(168,85,247,0.4);font-size:1.4rem;padding-bottom:18px;}
+.sm-ba{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.sm-ba-col{border-radius:10px;padding:1rem;}
+.sm-ba-col.before{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18);}
+.sm-ba-col.after{background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);}
+.sm-ba-label{font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.7rem;}
+.sm-ba-col.before .sm-ba-label{color:rgba(239,68,68,0.7);}
+.sm-ba-col.after .sm-ba-label{color:rgba(16,185,129,0.7);}
+.sm-ba-item{font-size:0.78rem;color:rgba(255,255,255,0.5);display:flex;gap:0.4rem;margin-bottom:0.35rem;line-height:1.4;}
+.svc:not([aria-hidden]){cursor:pointer;}
+@media(max-width:768px){
+  .sm-card{max-height:calc(100vh - 1.5rem);}
+  .sm-hero{padding:1.6rem 1.3rem 1.2rem;}
+  .sm-visual{margin:0 1.3rem 1.4rem;padding:1.2rem;}
+  .sm-stats{grid-template-columns:repeat(2,1fr);margin:0 1.3rem 1.4rem;}
+  .sm-body{grid-template-columns:1fr;padding:0 1.3rem 1.3rem;}
+  .sm-usecases{padding:0 1.3rem 1.3rem;}
+  .sm-footer{padding:1.2rem 1.3rem 1.8rem;flex-direction:column;align-items:flex-start;}
+  .sm-ba{grid-template-columns:1fr;}
+  #svc-modal{padding:0.5rem;}
+}
 </style>
 </head>
 <body>
@@ -724,6 +802,38 @@ body.modal-open{overflow:hidden;}
       <div class="lm-success-icon">✅</div>
       <h3>You're all set!</h3>
       <p>We'll send the blueprint to your work email shortly.<br/>Questions? WhatsApp us at <strong style="color:rgba(255,255,255,0.75)">+91 81302 47554</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE DETAIL MODAL -->
+<div id="svc-modal" role="dialog" aria-modal="true" aria-labelledby="smTitle">
+  <div class="sm-card" id="smCard">
+    <button class="sm-close" id="smClose" aria-label="Close">&times;</button>
+    <div class="sm-hero">
+      <span class="sm-eyebrow" id="smEyebrow"></span>
+      <h2 id="smTitle"></h2>
+      <p class="sm-hero-sub" id="smSub"></p>
+    </div>
+    <div class="sm-visual" id="smVisual"></div>
+    <div class="sm-stats" id="smStats"></div>
+    <div class="sm-body">
+      <div>
+        <div class="sm-section-title">How it works</div>
+        <div class="sm-steps" id="smSteps"></div>
+      </div>
+      <div>
+        <div class="sm-section-title">What you get</div>
+        <div class="sm-benefits" id="smBenefits"></div>
+      </div>
+    </div>
+    <div class="sm-usecases">
+      <div class="sm-section-title">Use Cases</div>
+      <div class="sm-uc-grid" id="smUseCases"></div>
+    </div>
+    <div class="sm-footer">
+      <p class="sm-footer-text" id="smFooterText"></p>
+      <a href="#contact" class="sm-cta" id="smCta">Book a Free AI Audit →</a>
     </div>
   </div>
 </div>
@@ -1107,6 +1217,361 @@ function send(text){
   .finally(()=>{busy=false;sendBtn.disabled=false;input.focus();});
 }
 
+})();
+
+/* ─── Service Detail Modal ─── */
+(function(){
+  const SERVICES = {
+    '01':{
+      accent:'#3b82f6',category:'Workflow Automation',icon:'⚙️',
+      title:'Automate Your Repetitive Work',
+      sub:'Map your manual processes once — approvals, data entry, routing, notifications — and replace them with AI pipelines that run automatically, 24/7, without errors or delays.',
+      visual:`
+        <div style="text-align:center;margin-bottom:1rem;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);">A typical approval workflow — fully automated</div>
+        <div class="sm-flow">
+          <div class="sm-flow-node"><span class="fn-icon">📥</span><span class="fn-label">Incoming Task</span><span class="fn-sub">Email / Form / CRM</span></div>
+          <div class="sm-flow-arrow">→</div>
+          <div class="sm-flow-node"><span class="fn-icon">🤖</span><span class="fn-label">AI Classifies</span><span class="fn-sub">Reads &amp; routes instantly</span></div>
+          <div class="sm-flow-arrow">→</div>
+          <div class="sm-flow-node"><span class="fn-icon">⚡</span><span class="fn-label">Auto-Execute</span><span class="fn-sub">Updates, sends, logs</span></div>
+          <div class="sm-flow-arrow">→</div>
+          <div class="sm-flow-node"><span class="fn-icon">✅</span><span class="fn-label">Done</span><span class="fn-sub">Zero human input</span></div>
+        </div>
+        <div style="margin-top:1.2rem;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+          <span style="font-size:0.72rem;color:rgba(239,68,68,0.75);background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);padding:0.3rem 0.75rem;border-radius:999px;">❌ Before: 2–3 days, manual handoffs</span>
+          <span style="font-size:0.72rem;color:rgba(74,222,128,0.75);background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);padding:0.3rem 0.75rem;border-radius:999px;">✓ After: &lt;5 minutes, fully automated</span>
+        </div>`,
+      stats:[{num:'90%',label:'Reduction in manual time'},{num:'24/7',label:'Runs without human input'},{num:'<5 min',label:'Avg. task completion'},{num:'0',label:'Manual entry errors'}],
+      steps:[
+        {icon:'🗺️',title:'Workflow Audit',desc:'We document every manual step and identify all bottlenecks and handoff points.'},
+        {icon:'⚙️',title:'Build the Automation',desc:'Custom pipelines built on your existing tools — no new software needed.'},
+        {icon:'✅',title:'Test Every Edge Case',desc:'You approve all paths and edge cases before anything runs live.'},
+        {icon:'🚀',title:'Deploy & Monitor',desc:'Live in your environment with a dashboard showing every automated run.'},
+      ],
+      benefits:['Zero manual data entry or copy-paste work','Approvals routed and resolved in minutes','Real-time status updates across all systems','Full audit log of every automated action','Works with email, Slack, WhatsApp, ERP, CRM'],
+      useCases:['Invoice approval routing','Employee onboarding tasks','Lead assignment & CRM updates','Daily report generation','Purchase order processing','SLA breach alerts'],
+      footerText:'Ready to map your first workflow?',
+    },
+    '02':{
+      accent:'#06b6d4',category:'AI Assistants & Chatbots',icon:'🤖',
+      title:'Always-On Customer Support',
+      sub:'An AI trained on your business, products, policies, and FAQs — answering queries on WhatsApp, your website, or Slack in under 3 seconds, around the clock.',
+      visual:`
+        <div style="text-align:center;margin-bottom:1rem;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);">Live conversation — 2:14 AM</div>
+        <div class="sm-chat">
+          <div class="sm-chat-msg right"><div class="sm-chat-av usr">U</div><div class="sm-chat-bub">What's your refund policy for enterprise plans?</div></div>
+          <div class="sm-chat-msg"><div class="sm-chat-av bot">🤖</div><div class="sm-chat-bub">Enterprise plans include a 30-day full refund window. After that, unused months are refunded pro-rata. Want me to initiate a refund request for your account?</div></div>
+          <div class="sm-chat-msg right"><div class="sm-chat-av usr">U</div><div class="sm-chat-bub">Yes please, for invoice #INV-2024-881</div></div>
+          <div class="sm-chat-msg"><div class="sm-chat-av bot">🤖</div><div class="sm-chat-bub">Done ✅ Refund request #RF-4421 submitted. You'll receive confirmation within 2 business days at your registered email.</div></div>
+        </div>`,
+      stats:[{num:'<3s',label:'Average response time'},{num:'24/7',label:'Always available'},{num:'80%',label:'Queries resolved without escalation'},{num:'0',label:'Missed messages'}],
+      steps:[
+        {icon:'📚',title:'Train on Your Knowledge',desc:'Fed your docs, FAQs, policies, product info, and past conversations.'},
+        {icon:'🔗',title:'Connect Your Channels',desc:'Deployed on WhatsApp, website chat, Slack, or any custom interface.'},
+        {icon:'🎯',title:'Define Escalation Rules',desc:'Any query it cannot resolve is instantly handed to a human with full context.'},
+        {icon:'📈',title:'Continuously Improve',desc:'We monitor conversation quality and retrain on real usage data monthly.'},
+      ],
+      benefits:['Answers queries instantly at 2am or 2pm','Handles orders, billing, and technical questions','Speaks your brand\'s exact tone and language','Escalates to humans with full chat context','Multilingual support across all channels'],
+      useCases:['Customer support & FAQs','Lead qualification','Internal HR helpdesk','Product onboarding','Order tracking & returns','Appointment booking'],
+      footerText:'See it answer questions about your business.',
+    },
+    '03':{
+      accent:'#a855f7',category:'Autonomous AI Agents',icon:'🧠',
+      title:'AI That Acts Without Being Asked',
+      sub:'Agents that perceive changes in your environment, plan multi-step responses, execute actions across your tools, and report back — all without any human trigger.',
+      visual:`
+        <div style="text-align:center;margin-bottom:1.2rem;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);">The autonomous agent loop</div>
+        <div class="sm-loop">
+          <div class="sm-loop-item"><div class="sm-loop-circle">👁️</div><div class="sm-loop-label">PERCEIVE</div></div>
+          <div class="sm-loop-arrow">→</div>
+          <div class="sm-loop-item"><div class="sm-loop-circle">💭</div><div class="sm-loop-label">PLAN</div></div>
+          <div class="sm-loop-arrow">→</div>
+          <div class="sm-loop-item"><div class="sm-loop-circle">⚡</div><div class="sm-loop-label">ACT</div></div>
+          <div class="sm-loop-arrow">→</div>
+          <div class="sm-loop-item"><div class="sm-loop-circle">📊</div><div class="sm-loop-label">REPORT</div></div>
+        </div>
+        <div style="margin-top:1.2rem;background:rgba(168,85,247,0.07);border:1px solid rgba(168,85,247,0.15);border-radius:10px;padding:0.85rem 1rem;">
+          <div style="font-size:0.68rem;color:rgba(168,85,247,0.8);font-weight:700;letter-spacing:0.1em;margin-bottom:0.5rem;">EXAMPLE · Lead Intelligence Agent</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);display:flex;flex-direction:column;gap:0.28rem;">
+            <span>👁️ Detects new lead in CRM at 3:00 AM</span>
+            <span>💭 Plans: research company, score lead, draft outreach email</span>
+            <span>⚡ Enriches CRM record, queues personalised email for approval</span>
+            <span>📊 Sales rep wakes up to a fully researched, ready-to-act lead</span>
+          </div>
+        </div>`,
+      stats:[{num:'∞',label:'Tasks handled in parallel'},{num:'0',label:'Human triggers needed'},{num:'24/7',label:'Monitors your environment'},{num:'10×',label:'More output per team member'}],
+      steps:[
+        {icon:'🎯',title:'Define Agent Goals',desc:'We specify what the agent monitors, decides, and acts on — in plain language.'},
+        {icon:'🔧',title:'Connect Tools & Data',desc:'Agent gets access to your CRM, email, calendar, databases, and web.'},
+        {icon:'🧪',title:'Supervised Dry Run',desc:'Runs in observation mode first — you approve its decisions before it goes autonomous.'},
+        {icon:'🚀',title:'Fully Autonomous Operation',desc:'Runs silently, escalating only when genuine human judgement is needed.'},
+      ],
+      benefits:['Works through the night while your team sleeps','Handles research, outreach, scheduling, and follow-up','Escalates only truly ambiguous decisions','Full decision and action log for every run','Can control browsers, APIs, and native apps'],
+      useCases:['Lead research & enrichment','Competitor monitoring','Automated report generation','Email follow-up sequences','Contract renewal tracking','Inventory reorder triggers'],
+      footerText:'Show us a task you want eliminated from your calendar.',
+    },
+    '04':{
+      accent:'#f59e0b',category:'Document Intelligence',icon:'📚',
+      title:'Chat With Any Document',
+      sub:'Ask questions across contracts, reports, policies, or entire document libraries in plain English — every answer cited by exact page and section, entirely on your hardware.',
+      visual:`
+        <div class="sm-ba">
+          <div class="sm-ba-col before">
+            <div class="sm-ba-label">❌ Without AI</div>
+            <div class="sm-ba-item">📄 Open 40-page contract manually</div>
+            <div class="sm-ba-item">🔍 Ctrl+F for keyword — 12 results</div>
+            <div class="sm-ba-item">📖 Read each clause in context</div>
+            <div class="sm-ba-item">📝 Cross-reference with Exhibit 3</div>
+            <div class="sm-ba-item">⏱️ 2–3 hours per document</div>
+          </div>
+          <div class="sm-ba-col after">
+            <div class="sm-ba-label">✓ With Document AI</div>
+            <div class="sm-ba-item">💬 "What are all the penalty clauses?"</div>
+            <div class="sm-ba-item">⚡ Full answer in under 5 seconds</div>
+            <div class="sm-ba-item">📌 Every answer cited — page &amp; clause</div>
+            <div class="sm-ba-item">🔗 Cross-document queries supported</div>
+            <div class="sm-ba-item">✅ Done in 2 minutes.</div>
+          </div>
+        </div>`,
+      stats:[{num:'100+',label:'Page documents handled'},{num:'<5s',label:'Answer time per query'},{num:'100%',label:'On-premise — data never leaves'},{num:'12+',label:'Supported file formats'}],
+      steps:[
+        {icon:'📥',title:'Upload Your Documents',desc:'PDF, DOCX, XLSX, PPTX, or scanned files — all supported formats.'},
+        {icon:'🧠',title:'AI Indexes Everything',desc:'Every paragraph, table, and clause is embedded for instant retrieval.'},
+        {icon:'💬',title:'Ask in Plain English',desc:'Query across one document or your entire library simultaneously.'},
+        {icon:'📌',title:'Get Cited Answers',desc:'Every response includes exact source, page number, and highlighted passage.'},
+      ],
+      benefits:['Query entire document libraries, not just single files','All data stays on your hardware — never sent to cloud','Full HIPAA, GDPR, and DPDP audit trail','Supports scanned and image-based documents','Access controls per team, department, or role'],
+      useCases:['Contract due diligence','Legal clause extraction','Policy compliance checks','Medical record review','Financial audit prep','RFP / tender analysis'],
+      footerText:'Bring your most complex document. We\'ll show you in 10 minutes.',
+    },
+    '05':{
+      accent:'#f97316',category:'Intelligent Data Extraction',icon:'📄',
+      title:'Pull Structured Data From Any File',
+      sub:'AI reads PDFs, scanned invoices, handwritten forms, and images — extracting exactly the fields you need into your systems automatically, at scale, overnight.',
+      visual:`
+        <div style="text-align:center;margin-bottom:1rem;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);">From raw document to structured data</div>
+        <div class="sm-flow">
+          <div class="sm-flow-node"><span class="fn-icon">📄</span><span class="fn-label">Input</span><span class="fn-sub">PDF · Scan · Image</span></div>
+          <div class="sm-flow-arrow">→</div>
+          <div class="sm-flow-node"><span class="fn-icon">🔍</span><span class="fn-label">AI Reads</span><span class="fn-sub">OCR + LLM context</span></div>
+          <div class="sm-flow-arrow">→</div>
+          <div class="sm-flow-node"><span class="fn-icon">✅</span><span class="fn-label">Validates</span><span class="fn-sub">Checks &amp; flags errors</span></div>
+          <div class="sm-flow-arrow">→</div>
+          <div class="sm-flow-node"><span class="fn-icon">🗄️</span><span class="fn-label">Pushes Out</span><span class="fn-sub">ERP · CRM · DB</span></div>
+        </div>
+        <div style="margin-top:1.2rem;display:flex;justify-content:center;gap:0.45rem;flex-wrap:wrap;">
+          <span style="font-size:0.7rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);color:rgba(249,115,22,0.85);padding:0.25rem 0.65rem;border-radius:6px;">Invoices</span>
+          <span style="font-size:0.7rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);color:rgba(249,115,22,0.85);padding:0.25rem 0.65rem;border-radius:6px;">KYC Forms</span>
+          <span style="font-size:0.7rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);color:rgba(249,115,22,0.85);padding:0.25rem 0.65rem;border-radius:6px;">Receipts</span>
+          <span style="font-size:0.7rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);color:rgba(249,115,22,0.85);padding:0.25rem 0.65rem;border-radius:6px;">Purchase Orders</span>
+          <span style="font-size:0.7rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);color:rgba(249,115,22,0.85);padding:0.25rem 0.65rem;border-radius:6px;">Medical Records</span>
+          <span style="font-size:0.7rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);color:rgba(249,115,22,0.85);padding:0.25rem 0.65rem;border-radius:6px;">Bank Statements</span>
+        </div>`,
+      stats:[{num:'99%+',label:'Extraction accuracy'},{num:'1000s',label:'Documents per night'},{num:'0',label:'Manual keystrokes needed'},{num:'Any',label:'Format supported'}],
+      steps:[
+        {icon:'📋',title:'Define Your Fields',desc:'Tell us exactly what data you need extracted from each document type.'},
+        {icon:'🧠',title:'AI Learns Your Layouts',desc:'Trained on your specific document formats — your suppliers, your templates.'},
+        {icon:'🔄',title:'Batch Processing',desc:'Drop hundreds of files in overnight — wake up to clean structured data.'},
+        {icon:'🔗',title:'Push to Your Systems',desc:'Data lands directly in your ERP, CRM, database, or spreadsheet.'},
+      ],
+      benefits:['Handles handwritten, printed, and scanned documents','Flags anomalies and outliers for human review','Learns vendor-specific invoice layouts','Zero re-keying into downstream systems','Works in bulk — thousands of docs per run'],
+      useCases:['AP invoice processing','KYC & onboarding docs','Purchase order extraction','Medical record digitization','Bank statement analysis','Customs & shipping docs'],
+      footerText:'Send us 10 sample documents. We\'ll extract them for free.',
+    },
+    '06':{
+      accent:'#10b981',category:'System Integration',icon:'🔗',
+      title:'AI Inside the Tools You Already Use',
+      sub:'We connect AI to your CRM, ERP, email, spreadsheets, and communication tools — so everything talks to everything, automatically, in real time.',
+      visual:`
+        <div style="text-align:center;margin-bottom:1rem;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);">Your AI hub — connecting every tool you use</div>
+        <div style="position:relative;height:180px;display:flex;align-items:center;justify-content:center;">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(16,185,129,0.15);border:2px solid rgba(16,185,129,0.5);display:flex;align-items:center;justify-content:center;font-size:1.4rem;z-index:2;">🤖</div>
+          <div style="position:absolute;top:6%;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.3rem 0.65rem;font-size:0.68rem;color:rgba(255,255,255,0.65);">📧 Email</div>
+          <div style="position:absolute;bottom:6%;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.3rem 0.65rem;font-size:0.68rem;color:rgba(255,255,255,0.65);">📊 Sheets</div>
+          <div style="position:absolute;top:50%;left:3%;transform:translateY(-50%);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.3rem 0.65rem;font-size:0.68rem;color:rgba(255,255,255,0.65);">🏢 CRM</div>
+          <div style="position:absolute;top:50%;right:3%;transform:translateY(-50%);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.3rem 0.65rem;font-size:0.68rem;color:rgba(255,255,255,0.65);">🏭 ERP</div>
+          <div style="position:absolute;top:14%;left:10%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.3rem 0.65rem;font-size:0.68rem;color:rgba(255,255,255,0.65);">💬 Slack</div>
+          <div style="position:absolute;bottom:14%;right:10%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.3rem 0.65rem;font-size:0.68rem;color:rgba(255,255,255,0.65);">📱 WhatsApp</div>
+        </div>
+        <div style="text-align:center;font-size:0.74rem;color:rgba(255,255,255,0.28);margin-top:0.5rem;">Bi-directional, real-time sync — no manual export or import ever again</div>`,
+      stats:[{num:'50+',label:'Integrations supported'},{num:'0',label:'New tools to purchase'},{num:'Real-time',label:'Data sync across systems'},{num:'2-way',label:'Bi-directional data flow'}],
+      steps:[
+        {icon:'🗂️',title:'Audit Your Tech Stack',desc:'We map every tool you use and identify where data gets stuck or duplicated.'},
+        {icon:'🔌',title:'Build Native Connectors',desc:'Custom integrations using your APIs, webhooks, and native SDKs.'},
+        {icon:'🔄',title:'Map Data Flows',desc:'Define exactly what triggers what — a new deal, a signed contract, a payment.'},
+        {icon:'📡',title:'Monitor & Maintain',desc:'We watch for API changes and keep all integrations running reliably.'},
+      ],
+      benefits:['One action in one tool updates everything else','No more manual data exports or imports','Works with any tool that has an API','Handles auth, rate limits, and retries automatically','Alerts you when any integration breaks'],
+      useCases:['CRM auto-update from calls & email','ERP triggers from signed contracts','Slack alerts from operational events','Cross-platform lead scoring','Invoice auto-generation from CRM deals','HR onboarding automation'],
+      footerText:'Tell us your stack — we\'ll map the integration in the first call.',
+    },
+    '07':{
+      accent:'#22d3ee',category:'Business Intelligence',icon:'📊',
+      title:'Turn Your Data Into Clear Answers',
+      sub:'AI reads your operational, sales, and financial data — surfacing risks, trends, and opportunities in plain language before you even think to look.',
+      visual:`
+        <div style="text-align:center;margin-bottom:1.2rem;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);">Revenue by quarter — AI flagged Q3 dip 3 weeks before month-end</div>
+        <div style="display:flex;align-items:flex-end;gap:0.6rem;height:100px;padding:0 1rem;">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0.3rem;"><div style="height:14px;"></div><div style="width:100%;border-radius:4px 4px 0 0;height:55px;background:rgba(34,211,238,0.45);border:1px solid rgba(34,211,238,0.6);"></div><div style="font-size:0.6rem;color:rgba(255,255,255,0.3);">Q1</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0.3rem;"><div style="height:14px;"></div><div style="width:100%;border-radius:4px 4px 0 0;height:70px;background:rgba(34,211,238,0.45);border:1px solid rgba(34,211,238,0.6);"></div><div style="font-size:0.6rem;color:rgba(255,255,255,0.3);">Q2</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0.3rem;"><div style="font-size:0.65rem;color:rgba(239,68,68,0.85);">⚠️</div><div style="width:100%;border-radius:4px 4px 0 0;height:40px;background:rgba(239,68,68,0.55);border:1px solid rgba(239,68,68,0.75);"></div><div style="font-size:0.6rem;color:rgba(255,255,255,0.3);">Q3</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0.3rem;"><div style="height:14px;"></div><div style="width:100%;border-radius:4px 4px 0 0;height:85px;background:rgba(34,211,238,0.45);border:1px solid rgba(34,211,238,0.6);"></div><div style="font-size:0.6rem;color:rgba(255,255,255,0.3);">Q4</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0.3rem;"><div style="height:14px;"></div><div style="width:100%;border-radius:4px 4px 0 0;height:62px;background:rgba(34,211,238,0.45);border:1px solid rgba(34,211,238,0.6);"></div><div style="font-size:0.6rem;color:rgba(255,255,255,0.3);">Q1</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0.3rem;"><div style="height:14px;"></div><div style="width:100%;border-radius:4px 4px 0 0;height:90px;background:rgba(34,211,238,0.45);border:1px solid rgba(34,211,238,0.6);"></div><div style="font-size:0.6rem;color:rgba(255,255,255,0.3);">Q2</div></div>
+        </div>
+        <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:0.75rem 0.9rem;font-size:0.75rem;color:rgba(255,255,255,0.5);display:flex;gap:0.5rem;align-items:flex-start;margin-top:1rem;">
+          <span style="color:rgba(239,68,68,0.8);flex-shrink:0;">⚠️</span>
+          <span><strong style="color:rgba(255,255,255,0.75);">AI Alert — sent 3 weeks before Q3 close:</strong> "Revenue is tracking 38% below Q2. Top 3 at-risk accounts flagged. Suggested: escalate to account managers immediately."</span>
+        </div>`,
+      stats:[{num:'Real-time',label:'Continuous data monitoring'},{num:'Plain',label:'English answers — no SQL'},{num:'Proactive',label:'Alerts before problems grow'},{num:'∞',label:'Data sources connected'}],
+      steps:[
+        {icon:'🔌',title:'Connect Your Data',desc:'Link databases, spreadsheets, CRMs, and operational tools as live sources.'},
+        {icon:'🧠',title:'Define Your KPIs',desc:'We configure what "good" looks like — your thresholds, targets, and business rules.'},
+        {icon:'💬',title:'Query in Plain Language',desc:'"Which customers are at risk of churning?" — answered in seconds, no analyst needed.'},
+        {icon:'🔔',title:'Proactive Alerts',desc:'AI monitors continuously and notifies you the moment something needs attention.'},
+      ],
+      benefits:['No SQL or analyst needed to get answers','Spots trends and anomalies automatically','Alerts via Slack, email, or WhatsApp','Connects across all your data sources at once','Answers questions you didn\'t know to ask'],
+      useCases:['Revenue & churn forecasting','Ops performance dashboards','Customer health scoring','Inventory & demand planning','Financial variance analysis','Sales pipeline analytics'],
+      footerText:'What\'s the one metric you wish you could see in real time?',
+    },
+    '08':{
+      accent:'#ec4899',category:'Content Automation',icon:'✍️',
+      title:'Scale Content Without Scaling Your Team',
+      sub:'AI trained on your brand voice writes product descriptions, email campaigns, social posts, and SEO content — consistently on-brand, overnight, at any volume.',
+      visual:`
+        <div style="text-align:center;margin-bottom:1rem;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);">From brief to published — fully automated pipeline</div>
+        <div class="sm-flow">
+          <div class="sm-flow-node"><span class="fn-icon">📋</span><span class="fn-label">Brief / Data</span><span class="fn-sub">SKU list, topic, tone</span></div>
+          <div class="sm-flow-arrow">→</div>
+          <div class="sm-flow-node"><span class="fn-icon">✍️</span><span class="fn-label">AI Drafts</span><span class="fn-sub">In your brand voice</span></div>
+          <div class="sm-flow-arrow">→</div>
+          <div class="sm-flow-node"><span class="fn-icon">✅</span><span class="fn-label">Brand Check</span><span class="fn-sub">Tone + compliance</span></div>
+          <div class="sm-flow-arrow">→</div>
+          <div class="sm-flow-node"><span class="fn-icon">🚀</span><span class="fn-label">Published</span><span class="fn-sub">CMS · Email · Social</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1.2rem;">
+          <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18);border-radius:8px;padding:0.75rem;">
+            <div style="font-size:0.6rem;color:rgba(239,68,68,0.7);font-weight:700;letter-spacing:0.12em;margin-bottom:0.4rem;">BEFORE</div>
+            <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);">1 writer → ~20 descriptions / day</div>
+          </div>
+          <div style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.18);border-radius:8px;padding:0.75rem;">
+            <div style="font-size:0.6rem;color:rgba(74,222,128,0.7);font-weight:700;letter-spacing:0.12em;margin-bottom:0.4rem;">AFTER</div>
+            <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);">AI → 2,000 descriptions / night</div>
+          </div>
+        </div>`,
+      stats:[{num:'100×',label:'Content output increase'},{num:'100%',label:'On-brand, every single piece'},{num:'Overnight',label:'Entire catalogue rewritten'},{num:'0',label:'Manual drafts needed'}],
+      steps:[
+        {icon:'🎨',title:'Brand Voice Training',desc:'We feed AI your best-performing content until it writes exactly like you.'},
+        {icon:'📋',title:'Template System',desc:'Reusable prompt templates built for every content type you produce.'},
+        {icon:'⚙️',title:'Automated Pipeline',desc:'New product added → description generated and published automatically.'},
+        {icon:'📈',title:'Performance Feedback Loop',desc:'Top-performing content feeds back to continuously improve output quality.'},
+      ],
+      benefits:['Writes in your brand tone, not generic AI text','Handles product pages, emails, SEO, social posts','Processes thousands of items overnight in bulk','Multilingual content at no extra cost','Integrates with your CMS, Shopify, or email platform'],
+      useCases:['E-commerce product descriptions','Email marketing campaigns','SEO blog & landing pages','Social media scheduling','WhatsApp broadcast content','Sales proposal templates'],
+      footerText:'Share a content backlog. We\'ll clear it overnight.',
+    },
+    '09':{
+      accent:'#ef4444',category:'Custom AI Development',icon:'🎯',
+      title:'AI Built for Your Industry',
+      sub:'When off-the-shelf AI doesn\'t understand your domain, terminology, or compliance requirements — we build one that does, trained exclusively on your own data.',
+      visual:`
+        <div class="sm-ba">
+          <div class="sm-ba-col before">
+            <div class="sm-ba-label">❌ Generic AI</div>
+            <div class="sm-ba-item">Doesn't know your contract templates</div>
+            <div class="sm-ba-item">Misses industry-specific terminology</div>
+            <div class="sm-ba-item">Wrong on domain regulations</div>
+            <div class="sm-ba-item">Fabricated case citations</div>
+            <div class="sm-ba-item">Not usable in regulated work</div>
+          </div>
+          <div class="sm-ba-col after">
+            <div class="sm-ba-label">✓ Your Custom AI</div>
+            <div class="sm-ba-item">Trained on your own case library</div>
+            <div class="sm-ba-item">Knows your exact terminology</div>
+            <div class="sm-ba-item">Understands your compliance rules</div>
+            <div class="sm-ba-item">Cites only verified, real sources</div>
+            <div class="sm-ba-item">Audit-ready for regulators</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18);border-radius:8px;padding:0.85rem 1rem;">
+          <div style="font-size:0.68rem;color:rgba(239,68,68,0.7);font-weight:700;letter-spacing:0.1em;margin-bottom:0.6rem;">BUILT FOR REGULATED INDUSTRIES</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+            <span style="font-size:0.72rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.55);padding:0.25rem 0.65rem;border-radius:6px;">⚖️ Legal Firms</span>
+            <span style="font-size:0.72rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.55);padding:0.25rem 0.65rem;border-radius:6px;">🏥 Healthcare</span>
+            <span style="font-size:0.72rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.55);padding:0.25rem 0.65rem;border-radius:6px;">🏦 BFSI</span>
+            <span style="font-size:0.72rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.55);padding:0.25rem 0.65rem;border-radius:6px;">🏭 Manufacturing</span>
+            <span style="font-size:0.72rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.55);padding:0.25rem 0.65rem;border-radius:6px;">🎓 EdTech</span>
+          </div>
+        </div>`,
+      stats:[{num:'100%',label:'Trained on your data'},{num:'On-prem',label:'Deployment option available'},{num:'Domain',label:'Specific precision'},{num:'0',label:'Data shared with third parties'}],
+      steps:[
+        {icon:'📦',title:'Data Collection & Prep',desc:'We gather, clean, and structure your proprietary data — cases, records, documents.'},
+        {icon:'🧠',title:'Fine-Tune the Model',desc:'Base model trained on your domain until it understands your world precisely.'},
+        {icon:'🔬',title:'Accuracy Evaluation',desc:'Tested against real queries from your team. We don\'t ship until it\'s right.'},
+        {icon:'🚀',title:'Private Deployment',desc:'On your servers or private cloud — no external APIs, full data control.'},
+      ],
+      benefits:['Understands your specific jargon, templates, and rules','Deployable fully on-premise for maximum privacy','No hallucinations on domain-specific facts','Compliant with HIPAA, GDPR, DPDP requirements','You own the trained model — no vendor lock-in'],
+      useCases:['Legal contract AI','Medical coding assistant','Financial analysis AI','Manufacturing fault detection','Insurance claim processing','EdTech personalised tutoring'],
+      footerText:'Tell us your domain. We\'ll scope a custom model.',
+    },
+  };
+
+  const modal=document.getElementById('svc-modal');
+  const card=document.getElementById('smCard');
+
+  function openModal(idx){
+    const svc=SERVICES[idx];
+    if(!svc) return;
+    card.style.setProperty('--sm-accent',svc.accent);
+    card.style.borderTopColor=svc.accent;
+
+    const eyebrow=document.getElementById('smEyebrow');
+    eyebrow.textContent=svc.category;
+    eyebrow.style.cssText=`background:${svc.accent}1a;border:1px solid ${svc.accent}40;color:${svc.accent};`;
+
+    document.getElementById('smTitle').textContent=svc.title;
+    document.getElementById('smSub').textContent=svc.sub;
+    document.getElementById('smVisual').innerHTML=svc.visual;
+
+    document.getElementById('smStats').innerHTML=svc.stats.map(s=>
+      `<div class="sm-stat"><div class="sm-stat-num">${s.num}</div><div class="sm-stat-label">${s.label}</div></div>`
+    ).join('');
+
+    document.getElementById('smSteps').innerHTML=svc.steps.map(s=>
+      `<div class="sm-step"><div class="sm-step-icon">${s.icon}</div><div class="sm-step-text"><h4>${s.title}</h4><p>${s.desc}</p></div></div>`
+    ).join('');
+
+    document.getElementById('smBenefits').innerHTML=svc.benefits.map(b=>
+      `<div class="sm-benefit">${b}</div>`
+    ).join('');
+
+    document.getElementById('smUseCases').innerHTML=svc.useCases.map(u=>
+      `<span class="sm-uc-chip">${u}</span>`
+    ).join('');
+
+    document.getElementById('smFooterText').textContent=svc.footerText;
+    const cta=document.getElementById('smCta');
+    cta.style.background=svc.accent;
+    cta.onclick=()=>{ closeModal(); document.getElementById('contact')?.scrollIntoView({behavior:'smooth'}); };
+
+    modal.classList.add('sm-open');
+    document.body.classList.add('modal-open');
+    card.scrollTop=0;
+  }
+
+  function closeModal(){
+    modal.classList.remove('sm-open');
+    document.body.classList.remove('modal-open');
+  }
+
+  document.getElementById('smClose').addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&modal.classList.contains('sm-open')) closeModal(); });
+
+  document.querySelectorAll('.svc:not([aria-hidden])').forEach((el,i)=>{
+    const id=String(i+1).padStart(2,'0');
+    el.addEventListener('click',()=>openModal(id));
+  });
 })();
 </script>
 </body>
