@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Autonomous AI Agents — Multi-Step Task Execution | Adaptive Minds AI</title>
+<meta name="description" content="AI agents that research, decide, and act without being asked. New leads researched before you open your inbox. Competitor pricing monitored before your Monday meeting. It all just happens."/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="manifest" href="site.webmanifest"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:#f5f4f0;--bg2:#edecea;--surface:#ffffff;
+  --navy:#0e1520;--navy2:#162030;
+  --gold:#c9943a;--gold-soft:rgba(201,148,58,0.10);--gold-line:rgba(201,148,58,0.28);
+  --border:#dddbd4;--border2:#c8c5bc;
+  --text:#0e1520;--text-dim:#5e5c56;--text-faint:#a8a59e;
+  --green:#1a7a50;
+  --accent:#a855f7;--accent-soft:rgba(168,85,247,0.10);--accent-line:rgba(168,85,247,0.25);
+  --r:12px;--shadow:0 1px 8px rgba(0,0,0,0.07);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;padding:0 5%;background:rgba(235,235,238,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-img{height:64px;width:auto;display:block;object-fit:contain;max-width:420px;}
+.nav-links{display:flex;align-items:center;gap:0.2rem;}
+.nav-links a{font-size:0.95rem;font-weight:500;color:var(--text-dim);text-decoration:none;padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;}
+.nav-links a:hover{color:var(--text);background:var(--bg2);}
+.nav-links a.gold-link{color:var(--gold);font-weight:700;}
+.nav-cta{background:var(--navy)!important;color:#fff!important;font-weight:600!important;border-radius:9px!important;}
+.nav-cta:hover{background:var(--navy2)!important;transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(14,21,32,0.22)!important;}
+.nav-has-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dd-trigger{font-size:0.95rem;font-weight:500;color:var(--text-dim);padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;cursor:pointer;display:flex;align-items:center;gap:0.3rem;border:none;background:none;font-family:'Outfit',sans-serif;line-height:1;}
+.nav-dd-trigger:hover,.nav-has-dropdown:hover .nav-dd-trigger{color:var(--text);background:var(--bg2);}
+.nav-dd-chevron{transition:transform 0.22s;display:flex;align-items:center;}
+.nav-has-dropdown:hover .nav-dd-chevron{transform:rotate(180deg);}
+.nav-dd-menu{position:absolute;top:calc(100% + 14px);left:-12px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 0.2s,transform 0.2s,visibility 0.2s;z-index:500;padding:0.6rem;}
+.nav-has-dropdown:hover .nav-dd-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dd-label{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-faint);padding:0.3rem 0.65rem 0.6rem;border-bottom:1px solid var(--border);margin-bottom:0.4rem;}
+.nav-dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.2rem;}
+.nav-dd-item{display:flex;align-items:center;gap:0.65rem;padding:0.6rem 0.7rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+.nav-dd-item:hover{background:var(--bg);}
+.nav-dd-item.current{background:var(--accent-soft);border:1px solid var(--accent-line);}
+.nav-dd-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+.nav-dd-name{font-size:0.83rem;font-weight:600;color:var(--navy);line-height:1.2;}
+.nav-dd-item.current .nav-dd-name{color:var(--accent);}
+.nav-dd-sub{font-size:0.69rem;color:var(--text-faint);margin-top:0.1rem;line-height:1.3;}
+@media(max-width:768px){.nav-has-dropdown{display:none;}}
+
+/* ── Shared ── */
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-navy:hover{background:var(--navy2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,21,32,0.25);}
+.btn-accent{background:var(--accent);color:#fff;}
+.btn-accent:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 10px 28px rgba(168,85,247,0.35);}
+.btn-outline-light{background:transparent;color:rgba(255,255,255,0.7);border:1.5px solid rgba(255,255,255,0.2);}
+.btn-outline-light:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+.section{padding:6rem 5%;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.eyebrow{font-size:0.9rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:0.7rem;margin-bottom:1rem;}
+.eyebrow::after{content:'';height:1px;width:44px;background:var(--accent-line);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1rem;}
+.section-sub{color:var(--text-dim);font-size:0.95rem;line-height:1.75;max-width:600px;margin-bottom:2.5rem;font-weight:400;}
+.divider{height:1px;background:var(--border);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse2{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.07s;}.d2{transition-delay:0.14s;}.d3{transition-delay:0.21s;}.d4{transition-delay:0.28s;}.d5{transition-delay:0.35s;}.d6{transition-delay:0.42s;}
+
+/* ── Hero ── */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 5% 70px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-200px;left:-200px;width:800px;height:800px;background:radial-gradient(circle,rgba(168,85,247,0.13) 0%,transparent 65%);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-150px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,148,58,0.10) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse2 2s infinite;}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700;line-height:1.07;letter-spacing:-0.03em;color:#fff;margin-bottom:1.4rem;animation:fadeUp 0.9s 0.08s ease both;}
+.hero h1 em{font-style:italic;color:rgba(255,255,255,0.36);font-family:'Cormorant Garamond',serif;}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.48);line-height:1.8;max-width:480px;margin-bottom:2.2rem;font-weight:400;animation:fadeUp 0.9s 0.14s ease both;}
+.hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fadeUp 0.9s 0.2s ease both;}
+.hero-right{animation:fadeUp 0.9s 0.22s ease both;}
+.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2.2rem;backdrop-filter:blur(10px);}
+.hero-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1.4rem;}
+.hero-stat-row{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.hero-stat-row:last-of-type{border-bottom:none;}
+.hero-stat-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
+.hero-stat-icon.purple{background:rgba(168,85,247,0.18);border:1px solid rgba(168,85,247,0.35);}
+.hero-stat-icon.gold{background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.3);}
+.hero-stat-icon.green{background:rgba(26,122,80,0.12);border:1px solid rgba(26,122,80,0.25);}
+.hero-stat-label{font-size:0.9rem;font-weight:600;color:#fff;line-height:1.3;margin-bottom:0.25rem;}
+.hero-stat-sub{font-size:0.82rem;color:rgba(255,255,255,0.38);line-height:1.55;}
+.hero-foot{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-wrap:wrap;gap:0.45rem;}
+.hero-badge{font-size:0.7rem;font-weight:600;padding:0.22rem 0.65rem;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);}
+
+/* ── Stats bar ── */
+.stats-bar{background:rgba(14,21,32,0.98);padding:2rem 5%;border-bottom:1px solid rgba(255,255,255,0.06);}
+.stats-bar-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.stat-block{padding:0.5rem 1.5rem;text-align:center;position:relative;}
+.stat-block+.stat-block::before{content:'';position:absolute;left:0;top:15%;height:70%;width:1px;background:rgba(255,255,255,0.08);}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:#fff;line-height:1;letter-spacing:-0.03em;}
+.stat-num span{color:var(--accent);}
+.stat-label{font-size:0.78rem;color:rgba(255,255,255,0.38);margin-top:0.35rem;line-height:1.4;}
+
+/* ── Chatbot vs Agent ── */
+.compare-section{background:var(--bg);}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem;}
+.compare-col{border-radius:20px;padding:2.4rem;border:1px solid;}
+.compare-col.chatbot{background:rgba(100,116,139,0.05);border-color:rgba(100,116,139,0.2);}
+.compare-col.agent{background:var(--accent-soft);border-color:var(--accent-line);}
+.compare-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.8rem;}
+.compare-tag{font-size:0.68rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;padding:0.22rem 0.75rem;border-radius:999px;}
+.compare-tag.grey{background:rgba(100,116,139,0.12);color:#64748b;}
+.compare-tag.purple{background:var(--accent-soft);color:var(--accent);}
+.compare-title{font-size:1.05rem;font-weight:700;color:var(--navy);}
+.compare-list{list-style:none;display:flex;flex-direction:column;gap:0.9rem;margin-bottom:1.6rem;}
+.compare-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.9rem;color:var(--text-dim);line-height:1.6;}
+.compare-dot{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0;margin-top:0.12rem;}
+.compare-dot.grey{background:rgba(100,116,139,0.12);color:#64748b;}
+.compare-dot.purple{background:var(--accent-soft);color:var(--accent);}
+.compare-example{background:rgba(255,255,255,0.7);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.3rem;margin-top:0.5rem;}
+.compare-example-label{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.45rem;}
+.compare-example p{font-size:0.85rem;color:var(--text-dim);line-height:1.65;}
+.compare-col.agent .compare-example{background:rgba(168,85,247,0.06);border-color:var(--accent-line);}
+.compare-col.agent .compare-example p{color:var(--navy);}
+
+/* ── What Agents Do ── */
+.agents-section{background:var(--bg2);}
+.agents-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.5rem;}
+.agent-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.8rem;transition:all 0.25s;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.agent-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),rgba(168,85,247,0.3));opacity:0;transition:opacity 0.25s;}
+.agent-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.agent-card:hover::before{opacity:1;}
+.agent-icon{font-size:2.2rem;margin-bottom:1rem;display:block;}
+.agent-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.55rem;}
+.agent-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.7;}
+
+/* ── Process ── */
+.process-section{background:var(--bg);}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem;position:relative;}
+.steps-grid::before{content:'';position:absolute;top:52px;left:calc(12.5% + 28px);right:calc(12.5% + 28px);height:1px;background:linear-gradient(90deg,var(--accent-line),var(--accent-line));z-index:0;}
+.step-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.6rem;position:relative;transition:all 0.25s;box-shadow:var(--shadow);z-index:1;}
+.step-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--accent-soft);border:1.5px solid var(--accent-line);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:var(--accent);margin-bottom:1.2rem;}
+.step-icon{font-size:1.8rem;margin-bottom:0.8rem;display:block;}
+.step-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.55rem;}
+.step-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.68;}
+
+/* ── Included ── */
+.included-section{background:var(--bg2);}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem;}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:2rem 1.7rem;transition:all 0.25s;box-shadow:var(--shadow);}
+.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.feature-icon{font-size:2.1rem;margin-bottom:0.9rem;display:block;}
+.feature-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.45rem;}
+.feature-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.68;}
+
+/* ── Who Should Use ── */
+.who-section{background:var(--bg);}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem;}
+.who-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.8rem 1.6rem;transition:all 0.25s;box-shadow:var(--shadow);}
+.who-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.who-icon{font-size:2rem;margin-bottom:0.8rem;display:block;}
+.who-card h4{font-size:0.98rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+.who-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.65;}
+
+/* ── FAQ ── */
+.faq-section{background:var(--bg2);}
+.faq-list{max-width:820px;margin:2.5rem auto 0;display:flex;flex-direction:column;gap:0.75rem;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all 0.22s;box-shadow:var(--shadow);}
+.faq-item.open{border-color:var(--accent-line);box-shadow:0 2px 20px rgba(168,85,247,0.08);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.3rem 1.6rem;cursor:pointer;gap:1rem;}
+.faq-q-text{font-size:0.95rem;font-weight:600;color:var(--navy);line-height:1.4;}
+.faq-chevron{width:28px;height:28px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.22s;}
+.faq-item.open .faq-chevron{background:var(--accent);border-color:var(--accent);transform:rotate(180deg);}
+.faq-chevron svg{transition:stroke 0.22s;}
+.faq-item.open .faq-chevron svg polyline{stroke:#fff;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.38s ease,padding 0.25s ease;}
+.faq-item.open .faq-a{max-height:500px;}
+.faq-a-inner{padding:0 1.6rem 1.4rem;font-size:0.9rem;color:var(--text-dim);line-height:1.78;border-top:1px solid var(--border);}
+.faq-a-inner p{padding-top:1rem;}
+
+/* ── CTA ── */
+.cta-section{padding:6rem 5%;}
+.cta-inner{max-width:1280px;margin:0 auto;}
+.cta-wrap{background:var(--navy);border-radius:24px;padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.cta-wrap::before{content:'';position:absolute;top:-150px;left:-150px;width:550px;height:550px;background:radial-gradient(circle,rgba(168,85,247,0.14) 0%,transparent 65%);pointer-events:none;}
+.cta-wrap::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,148,58,0.10) 0%,transparent 65%);pointer-events:none;}
+.cta-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.9rem;position:relative;z-index:1;}
+.cta-wrap h2 em{font-style:italic;color:rgba(255,255,255,0.35);}
+.cta-wrap p{color:rgba(255,255,255,0.45);font-size:0.95rem;max-width:500px;margin:0 auto 2.2rem;line-height:1.78;position:relative;z-index:1;}
+.cta-contacts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+.contact-pill{display:flex;align-items:center;gap:0.8rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.1rem 1.6rem;text-decoration:none;transition:background 0.2s;min-width:200px;}
+.contact-pill:hover{background:rgba(255,255,255,0.1);}
+.cp-icon{font-size:1.3rem;}
+.cp-label{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
+.cp-value{font-size:0.85rem;font-weight:600;color:#fff;}
+
+/* ── Footer ── */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:2rem 5%;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom span{font-size:0.79rem;color:rgba(255,255,255,0.22);}
+.footer-back{font-size:0.82rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-back:hover{color:rgba(255,255,255,0.75);}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .steps-grid{grid-template-columns:repeat(2,1fr);}
+  .steps-grid::before{display:none;}
+  .features-grid{grid-template-columns:repeat(2,1fr);}
+  .agents-grid{grid-template-columns:repeat(2,1fr);}
+  .stats-bar-inner{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .compare-grid{grid-template-columns:1fr;}
+  .steps-grid{grid-template-columns:1fr;}
+  .features-grid{grid-template-columns:1fr;}
+  .agents-grid{grid-template-columns:1fr;}
+  .who-grid{grid-template-columns:1fr;}
+  .cta-wrap{padding:3rem 1.5rem;}
+  .cta-contacts{flex-direction:column;}
+  .contact-pill{min-width:unset;width:100%;}
+  .nav-links a:not(.nav-cta){display:none;}
+  .nav-logo-img{height:44px;max-width:160px;}
+  .stats-bar-inner{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:480px){
+  .hero{padding:88px 5% 50px;}
+  .stats-bar-inner{grid-template-columns:1fr 1fr;}
+  .who-grid{grid-template-columns:1fr;}
+  .stat-block+.stat-block::before{display:none;}
+  .section{padding:4rem 5%;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo2.png" alt="Adaptive Minds AI" class="nav-logo-img">
+    </a>
+    <div class="nav-links">
+      <!-- Automation Dropdown -->
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">Automation <span class="nav-dd-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nav-dd-menu" style="width:620px;">
+          <div class="nav-dd-label">AI Automation Services</div>
+          <div class="nav-dd-grid" style="grid-template-columns:1fr 1fr 1fr;">
+            <a href="automation-workflow.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(59,130,246,0.12);">⚡</div>
+              <div><div class="nav-dd-name">Workflow Automation</div><div class="nav-dd-sub">Eliminate repetitive tasks</div></div>
+            </a>
+            <a href="automation-chatbots.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(6,182,212,0.12);">💬</div>
+              <div><div class="nav-dd-name">AI Assistants &amp; Chatbots</div><div class="nav-dd-sub">Always-on customer support</div></div>
+            </a>
+            <a href="automation-agents.html" class="nav-dd-item current">
+              <div class="nav-dd-icon" style="background:rgba(168,85,247,0.15);">🧠</div>
+              <div><div class="nav-dd-name">Autonomous AI Agents</div><div class="nav-dd-sub">AI that acts without being asked</div></div>
+            </a>
+            <a href="automation-documents.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(245,158,11,0.12);">📋</div>
+              <div><div class="nav-dd-name">Document Intelligence</div><div class="nav-dd-sub">Chat with any document</div></div>
+            </a>
+            <a href="automation-data.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(249,115,22,0.12);">📥</div>
+              <div><div class="nav-dd-name">Intelligent Data Extraction</div><div class="nav-dd-sub">Pull data from any file</div></div>
+            </a>
+            <a href="automation-integration.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(16,185,129,0.12);">🔌</div>
+              <div><div class="nav-dd-name">System Integration</div><div class="nav-dd-sub">AI in tools you already use</div></div>
+            </a>
+            <a href="automation-bi.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(34,211,238,0.12);">📈</div>
+              <div><div class="nav-dd-name">Business Intelligence</div><div class="nav-dd-sub">Data into clear answers</div></div>
+            </a>
+            <a href="automation-content.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(236,72,153,0.12);">✏️</div>
+              <div><div class="nav-dd-name">Content Automation</div><div class="nav-dd-sub">Scale content, not headcount</div></div>
+            </a>
+            <a href="automation-custom.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(239,68,68,0.12);">🛠️</div>
+              <div><div class="nav-dd-name">Custom AI Development</div><div class="nav-dd-sub">AI built for your industry</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Marketing Dropdown -->
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">Marketing <span class="nav-dd-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nav-dd-menu" style="width:520px;">
+          <div class="nav-dd-label">Marketing Services</div>
+          <div class="nav-dd-grid">
+            <a href="marketing-whatsapp.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(37,211,102,0.12);">💬</div>
+              <div><div class="nav-dd-name">WhatsApp Marketing</div><div class="nav-dd-sub">95%+ open rate broadcasts</div></div>
+            </a>
+            <a href="marketing-linkedin.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(0,119,181,0.12);">💼</div>
+              <div><div class="nav-dd-name">LinkedIn Outreach</div><div class="nav-dd-sub">Automated B2B lead gen</div></div>
+            </a>
+            <a href="marketing-google-ads.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(66,133,244,0.12);">📊</div>
+              <div><div class="nav-dd-name">Google &amp; Meta Ads</div><div class="nav-dd-sub">AI-managed, self-optimising</div></div>
+            </a>
+            <a href="marketing-email.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(245,158,11,0.12);">📧</div>
+              <div><div class="nav-dd-name">Email Drip Automation</div><div class="nav-dd-sub">Nurture every lead, always</div></div>
+            </a>
+            <a href="marketing-voice.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(139,92,246,0.12);">📞</div>
+              <div><div class="nav-dd-name">Voice AI &amp; Call Automation</div><div class="nav-dd-sub">Never miss a call</div></div>
+            </a>
+            <a href="marketing-lead-gen.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(239,68,68,0.12);">🎯</div>
+              <div><div class="nav-dd-name">AI Lead Generation</div><div class="nav-dd-sub">Full pipeline on autopilot</div></div>
+            </a>
+            <a href="marketing-social.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(236,72,153,0.12);">📱</div>
+              <div><div class="nav-dd-name">Social Media AI</div><div class="nav-dd-sub">30 days of content in 60 mins</div></div>
+            </a>
+            <a href="crm.html" class="nav-dd-item" style="background:rgba(201,148,58,0.07);border:1px solid rgba(201,148,58,0.2);">
+              <div class="nav-dd-icon" style="background:rgba(20,184,166,0.12);">🤝</div>
+              <div><div class="nav-dd-name" style="color:var(--gold);">AI-Driven CRM</div><div class="nav-dd-sub">The CRM that works 24/7</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="crm.html" class="gold-link">AI CRM</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact" class="nav-cta">Talk to Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Autonomous AI Agents &middot; Multi-Step Task Execution
+      </div>
+      <h1>AI That Acts Without<br><em>Being Asked.</em></h1>
+      <p class="hero-sub">Autonomous agents handle complete multi-step tasks — research, decision-making, and action — with no human trigger required. New leads are researched and outreached before you open your inbox. Competitor pricing is monitored and reported before your Monday meeting. It all just happens.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/918130247554" target="_blank" rel="noopener" class="btn btn-accent">See What Agents Can Do</a>
+        <a href="#compare" class="btn btn-outline-light">Learn More &darr;</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-label">Agent Capabilities</div>
+        <div class="hero-stat-row">
+          <div class="hero-stat-icon purple">🤖</div>
+          <div>
+            <div class="hero-stat-label">Fully autonomous — no human trigger needed</div>
+            <div class="hero-stat-sub">Agents monitor, decide, and act on defined logic</div>
+          </div>
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat-icon gold">🔗</div>
+          <div>
+            <div class="hero-stat-label">Works across multiple tools simultaneously</div>
+            <div class="hero-stat-sub">One agent can use 5+ systems in a single task chain</div>
+          </div>
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat-icon green">📊</div>
+          <div>
+            <div class="hero-stat-label">Every action logged with reasoning</div>
+            <div class="hero-stat-sub">Full transparency on what the agent did and why</div>
+          </div>
+        </div>
+        <div class="hero-foot">
+          <span class="hero-badge">Multi-Step</span>
+          <span class="hero-badge">Cross-System</span>
+          <span class="hero-badge">Audit Trail</span>
+          <span class="hero-badge">Supervised Autonomy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-block reveal">
+      <div class="stat-num"><span>Multi</span>-step</div>
+      <div class="stat-label">task chains executed per run</div>
+    </div>
+    <div class="stat-block reveal d1">
+      <div class="stat-num"><span>24</span>/7</div>
+      <div class="stat-label">autonomous operation, no downtime</div>
+    </div>
+    <div class="stat-block reveal d2">
+      <div class="stat-num"><span>0</span></div>
+      <div class="stat-label">manual triggers needed</div>
+    </div>
+    <div class="stat-block reveal d3">
+      <div class="stat-num"><span>Full</span></div>
+      <div class="stat-label">audit trail on every agent run</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHATBOT VS AGENT -->
+<section class="section compare-section" id="compare">
+  <div class="section-inner">
+    <div class="eyebrow">The Core Difference</div>
+    <h2 class="section-title">Chatbot vs Agent:<br>What's the Difference?</h2>
+    <p class="section-sub">Most people have used a chatbot. Very few have deployed an agent. Here's why it's not even the same category of tool.</p>
+    <div class="compare-grid">
+      <div class="compare-col chatbot reveal">
+        <div class="compare-header">
+          <div class="compare-tag grey">Chatbot</div>
+          <div class="compare-title">Reactive. Waits to be asked.</div>
+        </div>
+        <ul class="compare-list">
+          <li><div class="compare-dot grey">✕</div>Waits for a user message before doing anything</li>
+          <li><div class="compare-dot grey">✕</div>Answers one question at a time, then stops</li>
+          <li><div class="compare-dot grey">✕</div>Does one thing per interaction — no chaining</li>
+          <li><div class="compare-dot grey">✕</div>Cannot take actions in external systems</li>
+          <li><div class="compare-dot grey">✕</div>Forgets context between sessions</li>
+        </ul>
+        <div class="compare-example">
+          <div class="compare-example-label">Example</div>
+          <p>A chatbot answers "What's the status of my order?" — and waits for the next question.</p>
+        </div>
+      </div>
+      <div class="compare-col agent reveal d2">
+        <div class="compare-header">
+          <div class="compare-tag purple">AI Agent</div>
+          <div class="compare-title">Proactive. Operates independently.</div>
+        </div>
+        <ul class="compare-list">
+          <li><div class="compare-dot purple">✓</div>Monitors for conditions and acts without prompting</li>
+          <li><div class="compare-dot purple">✓</div>Takes chains of actions across multiple systems</li>
+          <li><div class="compare-dot purple">✓</div>Reasons through decisions within defined scope</li>
+          <li><div class="compare-dot purple">✓</div>Creates records, sends emails, updates databases</div></li>
+          <li><div class="compare-dot purple">✓</div>Escalates with context when it hits a limit</li>
+        </ul>
+        <div class="compare-example">
+          <div class="compare-example-label">Example</div>
+          <p>An agent monitors inventory levels, detects when a SKU drops below threshold, creates a purchase order draft, emails it to your supplier, and logs it in your ERP — all without being asked.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT AGENTS DO -->
+<section class="section agents-section" id="agents">
+  <div class="section-inner">
+    <div class="eyebrow">Real Agent Examples</div>
+    <h2 class="section-title">What Agents Do</h2>
+    <p class="section-sub">Not abstract AI capabilities — specific agents running specific tasks that directly replace hours of manual work.</p>
+    <div class="agents-grid">
+      <div class="agent-card reveal d1">
+        <span class="agent-icon">🔍</span>
+        <h4>Lead Research Agent</h4>
+        <p>When a new lead enters your CRM, the agent researches their company, LinkedIn, recent news, and prepares a briefing doc for your sales rep — before they make the first call.</p>
+      </div>
+      <div class="agent-card reveal d2">
+        <span class="agent-icon">📊</span>
+        <h4>Competitor Monitoring Agent</h4>
+        <p>Monitors competitor pricing pages, product updates, and news mentions daily. Sends you a digest every Monday morning — no manual searching required.</p>
+      </div>
+      <div class="agent-card reveal d3">
+        <span class="agent-icon">📧</span>
+        <h4>Outreach Agent</h4>
+        <p>Identifies qualified leads from LinkedIn, writes personalised outreach, sends connection requests and emails, tracks responses, and books meetings — end to end.</p>
+      </div>
+      <div class="agent-card reveal d4">
+        <span class="agent-icon">📋</span>
+        <h4>Report Generation Agent</h4>
+        <p>Pulls data from your CRM, finance system, and ops tools every Friday — generates a board-ready report and emails it to stakeholders automatically.</p>
+      </div>
+      <div class="agent-card reveal d5">
+        <span class="agent-icon">🚨</span>
+        <h4>Anomaly Detection Agent</h4>
+        <p>Monitors your sales pipeline, support tickets, or financial transactions for anomalies and alerts the right person within minutes of detection — not hours.</p>
+      </div>
+      <div class="agent-card reveal d6">
+        <span class="agent-icon">🔄</span>
+        <h4>Data Sync Agent</h4>
+        <p>Watches for new records in one system and ensures they're reflected accurately across all connected systems — no manual reconciliation, no data drift.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE BUILD YOUR AGENT -->
+<section class="section process-section" id="process">
+  <div class="section-inner">
+    <div class="eyebrow">Our Build Process</div>
+    <h2 class="section-title">How We Build Your Agent</h2>
+    <p class="section-sub">Four precise steps from objective definition to a live, monitored agent running in your environment.</p>
+    <div class="steps-grid">
+      <div class="step-card reveal d1">
+        <div class="step-num">01</div>
+        <span class="step-icon">🎯</span>
+        <h4>Define the Objective</h4>
+        <p>We work with you to define exactly what the agent should do: what triggers it, what data it uses, what actions it takes, and where it stops.</p>
+      </div>
+      <div class="step-card reveal d2">
+        <div class="step-num">02</div>
+        <span class="step-icon">🏗️</span>
+        <h4>Design the Task Chain</h4>
+        <p>We map the full sequence of actions the agent will take — including decision branches, exception handling, and escalation points.</p>
+      </div>
+      <div class="step-card reveal d3">
+        <div class="step-num">03</div>
+        <span class="step-icon">⚙️</span>
+        <h4>Build &amp; Sandbox Test</h4>
+        <p>Agent built and tested in a sandboxed environment against real data scenarios. We run 50+ test cases before going live.</p>
+      </div>
+      <div class="step-card reveal d4">
+        <div class="step-num">04</div>
+        <span class="step-icon">🚀</span>
+        <h4>Deploy with Monitoring</h4>
+        <p>Deployed with a dashboard showing every agent run: what triggered it, what it did, what it found, and whether it succeeded.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section included-section" id="included">
+  <div class="section-inner">
+    <div class="eyebrow">What's Included</div>
+    <h2 class="section-title">Everything Built Into Every Agent</h2>
+    <p class="section-sub">No stripped-down tiers. Every agent we deploy comes with the full stack of capabilities that make autonomous operation safe and reliable.</p>
+    <div class="features-grid">
+      <div class="feature-card reveal d1">
+        <span class="feature-icon">🎯</span>
+        <h4>Goal-Oriented Design</h4>
+        <p>Every agent designed with a clear objective, measurable outcome, and defined scope — not open-ended experimentation.</p>
+      </div>
+      <div class="feature-card reveal d2">
+        <span class="feature-icon">🔗</span>
+        <h4>Multi-Tool Integration</h4>
+        <p>Agents that work across CRM, email, LinkedIn, web, databases, and any system with an API — simultaneously, in a single task chain.</p>
+      </div>
+      <div class="feature-card reveal d3">
+        <span class="feature-icon">🔍</span>
+        <h4>Real-Time Web &amp; Data Access</h4>
+        <p>Agents can browse the web, pull live data, and process it — not just read static databases. Current intelligence, always.</p>
+      </div>
+      <div class="feature-card reveal d4">
+        <span class="feature-icon">📋</span>
+        <h4>Structured Output</h4>
+        <p>Every agent run produces a structured output: a report, a drafted document, an updated record, or a confirmed action taken.</p>
+      </div>
+      <div class="feature-card reveal d5">
+        <span class="feature-icon">👁️</span>
+        <h4>Supervised Autonomy</h4>
+        <p>Every action logged with full reasoning. You can review, pause, or override any agent at any time — full control, always.</p>
+      </div>
+      <div class="feature-card reveal d6">
+        <span class="feature-icon">🔄</span>
+        <h4>Self-Improving Logic</h4>
+        <p>Agent performance reviewed monthly. Task chains refined based on outcomes and edge cases discovered in production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO SHOULD USE THIS -->
+<section class="section who-section" id="who">
+  <div class="section-inner">
+    <div class="eyebrow">Built For</div>
+    <h2 class="section-title">Who Should Use This</h2>
+    <p class="section-sub">Autonomous agents deliver the highest leverage in teams that have complex, repetitive, multi-system workflows with clear decision rules.</p>
+    <div class="who-grid">
+      <div class="who-card reveal d1">
+        <span class="who-icon">💼</span>
+        <h4>Sales Teams</h4>
+        <p>Lead research, outreach, meeting prep, and follow-up — all handled before reps start their day. Every rep walks in fully briefed.</p>
+      </div>
+      <div class="who-card reveal d2">
+        <span class="who-icon">🏢</span>
+        <h4>Operations</h4>
+        <p>Monitoring, reconciliation, exception detection, and escalation across complex multi-system environments — without manual oversight.</p>
+      </div>
+      <div class="who-card reveal d3">
+        <span class="who-icon">📊</span>
+        <h4>Finance &amp; Accounting</h4>
+        <p>Report generation, anomaly detection, approval routing, and variance explanation — automated and delivered on schedule.</p>
+      </div>
+      <div class="who-card reveal d4">
+        <span class="who-icon">🏗️</span>
+        <h4>Procurement</h4>
+        <p>Supplier monitoring, PO generation, price comparison, and contract renewal alerts — handled before deadlines slip.</p>
+      </div>
+      <div class="who-card reveal d5">
+        <span class="who-icon">🎯</span>
+        <h4>Marketing</h4>
+        <p>Campaign monitoring, competitor tracking, content ideas from trend analysis, and performance anomaly alerts — proactive, not reactive.</p>
+      </div>
+      <div class="who-card reveal d6">
+        <span class="who-icon">⚖️</span>
+        <h4>Legal &amp; Compliance</h4>
+        <p>Contract monitoring for renewal dates, clause change alerts, and regulatory update scanning — nothing falls through the cracks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="section-inner">
+    <div class="eyebrow">Common Questions</div>
+    <h2 class="section-title" style="text-align:center;">Frequently Asked</h2>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How is this different from regular automation?</span>
+          <div class="faq-chevron"><svg width="10" height="7" viewBox="0 0 10 7" fill="none"><polyline points="1,1 5,6 9,1" stroke="#5e5c56" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Regular automation executes a fixed sequence of steps. Agents reason: they can adapt to what they find, make decisions within their defined scope, and handle situations that weren't explicitly pre-programmed. Give a standard automation an unexpected input and it either errors or produces a wrong output. An agent reads the situation, makes a judgment call within its parameters, and either handles it or escalates with context.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item reveal d1">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How do we make sure agents don't do something wrong?</span>
+          <div class="faq-chevron"><svg width="10" height="7" viewBox="0 0 10 7" fill="none"><polyline points="1,1 5,6 9,1" stroke="#5e5c56" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Every agent has a defined scope and guardrails. They can't take actions outside what they're authorised for. All actions are logged with reasoning — every decision the agent made is recorded. You can review or override at any point. We also sandbox-test with 50+ scenarios before deploying to production, specifically to surface edge cases before they reach live systems.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item reveal d2">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can agents work with our existing software?</span>
+          <div class="faq-chevron"><svg width="10" height="7" viewBox="0 0 10 7" fill="none"><polyline points="1,1 5,6 9,1" stroke="#5e5c56" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We connect agents to your existing systems via APIs, webhooks, and integrations. Most agents work across 3–7 existing tools without you needing any new software. If a system has an API, an agent can use it. If it doesn't, we explore alternative connection methods including browser automation and structured data exports.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item reveal d3">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What's the difference between an agent and a bot?</span>
+          <div class="faq-chevron"><svg width="10" height="7" viewBox="0 0 10 7" fill="none"><polyline points="1,1 5,6 9,1" stroke="#5e5c56" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>A bot follows a script. An agent reasons. Give a bot an unexpected situation and it fails — it has no ability to interpret what it's seeing. An agent reads the situation, makes a judgment call within its defined parameters, and either handles it or escalates with context. The practical result: agents require far less maintenance, handle far more edge cases, and degrade gracefully when something unexpected happens.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-wrap reveal">
+      <h2>Your most capable employees —<br><em>available 24/7, working while you sleep.</em></h2>
+      <p>Stop delegating to people what can be delegated to agents. Let's map the first agent for your business — no commitment, no jargon, just a clear plan.</p>
+      <div class="cta-contacts">
+        <a href="https://wa.me/918130247554" target="_blank" rel="noopener" class="contact-pill">
+          <span class="cp-icon">💬</span>
+          <div>
+            <div class="cp-label">WhatsApp</div>
+            <div class="cp-value">+91 81302 47554</div>
+          </div>
+        </a>
+        <a href="mailto:hello@adaptivemindsai.com" class="contact-pill">
+          <span class="cp-icon">✉️</span>
+          <div>
+            <div class="cp-label">Email</div>
+            <div class="cp-value">hello@adaptivemindsai.com</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Adaptive Minds AI. All rights reserved.</span>
+      <a href="index.html" class="footer-back">&larr; Back to main site</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// FAQ accordion
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

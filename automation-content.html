@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Email Drip Automation — Adaptive Minds AI</title>
+<title>Content Automation — Adaptive Minds AI</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"/>
 <link rel="icon" href="favicon.ico" sizes="any"/>
@@ -19,7 +19,7 @@
   --border:#dddbd4;--border2:#c8c5bc;
   --text:#0e1520;--text-dim:#5e5c56;--text-faint:#a8a59e;
   --green:#1a7a50;
-  --accent:#f59e0b;--accent-soft:rgba(245,158,11,0.10);--accent-line:rgba(245,158,11,0.25);
+  --accent:#ec4899;--accent-soft:rgba(236,72,153,0.10);--accent-line:rgba(236,72,153,0.25);
   --r:12px;--shadow:0 1px 8px rgba(0,0,0,0.07);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -58,7 +58,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .btn-navy{background:var(--navy);color:#fff;}
 .btn-navy:hover{background:var(--navy2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,21,32,0.25);}
 .btn-accent{background:var(--accent);color:#fff;}
-.btn-accent:hover{background:#d97706;transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,158,11,0.35);}
+.btn-accent:hover{background:#db2777;transform:translateY(-2px);box-shadow:0 10px 28px rgba(236,72,153,0.35);}
 .btn-outline-white{background:transparent;color:rgba(255,255,255,0.7);border:1.5px solid rgba(255,255,255,0.22);}
 .btn-outline-white:hover{background:rgba(255,255,255,0.07);color:#fff;border-color:rgba(255,255,255,0.4);}
 .section{padding:6rem 5%;}
@@ -67,7 +67,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .eyebrow::after{content:'';height:1px;width:44px;background:var(--accent-line);}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1rem;}
 .section-sub{color:var(--text-dim);font-size:0.95rem;line-height:1.75;max-width:620px;margin-bottom:2.5rem;font-weight:400;}
-.divider{height:1px;background:var(--border);}
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
 @keyframes pulse2{0%,100%{opacity:1;}50%{opacity:0.3;}}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
@@ -76,10 +75,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 
 /* ── Hero ── */
 .hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 5% 70px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-180px;left:-180px;width:700px;height:700px;background:radial-gradient(circle,rgba(245,158,11,0.13) 0%,transparent 65%);pointer-events:none;}
-.hero::after{content:'';position:absolute;bottom:-120px;right:-120px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,148,58,0.09) 0%,transparent 65%);pointer-events:none;}
+.hero::before{content:'';position:absolute;top:-180px;left:-180px;width:700px;height:700px;background:radial-gradient(circle,rgba(236,72,153,0.13) 0%,transparent 65%);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-120px;right:-120px;width:600px;height:600px;background:radial-gradient(circle,rgba(236,72,153,0.07) 0%,transparent 65%);pointer-events:none;}
 .hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.25);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
 .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse2 2s infinite;}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4rem);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:#fff;margin-bottom:1.4rem;animation:fadeUp 0.9s 0.08s ease both;}
 .hero h1 em{font-style:italic;color:rgba(255,255,255,0.35);}
@@ -91,9 +90,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .hero-stat-row{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
 .hero-stat-row:last-of-type{border-bottom:none;}
 .hero-stat-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
-.hero-stat-icon.amber{background:rgba(245,158,11,0.14);border:1px solid rgba(245,158,11,0.3);}
+.hero-stat-icon.pink{background:rgba(236,72,153,0.14);border:1px solid rgba(236,72,153,0.3);}
+.hero-stat-icon.amber{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);}
 .hero-stat-icon.green{background:rgba(26,180,100,0.12);border:1px solid rgba(26,180,100,0.25);}
-.hero-stat-icon.teal{background:rgba(20,184,166,0.12);border:1px solid rgba(20,184,166,0.25);}
 .hero-stat-label{font-size:0.9rem;font-weight:600;color:#fff;line-height:1.3;margin-bottom:0.25rem;}
 .hero-stat-sub{font-size:0.82rem;color:rgba(255,255,255,0.38);line-height:1.55;}
 .hero-foot{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-wrap:wrap;gap:0.45rem;}
@@ -107,41 +106,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .stat-num span{color:var(--accent);}
 .stat-label{font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:0.4rem;font-weight:400;line-height:1.4;}
 
-/* ── Comparison ── */
-.compare-section{background:var(--bg);}
-.compare-table{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
-.compare-col{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
-.compare-col-bad{border:1.5px solid var(--border2);}
-.compare-col-good{border:1.5px solid var(--accent);box-shadow:0 4px 32px rgba(245,158,11,0.14);}
-.compare-col-head{padding:1.4rem 1.8rem;display:flex;align-items:center;gap:0.7rem;}
-.compare-col-bad .compare-col-head{background:var(--bg2);}
-.compare-col-good .compare-col-head{background:rgba(245,158,11,0.08);}
-.compare-col-head-icon{font-size:1.3rem;}
-.compare-col-head-label{font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;}
-.compare-col-bad .compare-col-head-label{color:var(--text-faint);}
-.compare-col-good .compare-col-head-label{color:var(--accent);}
-.compare-col-body{background:var(--surface);}
-.compare-row-item{display:flex;align-items:flex-start;gap:0.75rem;padding:0.95rem 1.8rem;border-top:1px solid var(--border);}
-.compare-row-item:first-child{border-top:none;}
-.compare-icon-bad{width:20px;height:20px;border-radius:50%;background:#fdecea;display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0;margin-top:0.1rem;color:#c0392b;font-weight:700;}
-.compare-icon-good{width:20px;height:20px;border-radius:50%;background:rgba(26,122,80,0.1);display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0;margin-top:0.1rem;color:var(--green);font-weight:700;}
-.compare-text{font-size:0.87rem;color:var(--text-dim);line-height:1.5;}
-.compare-text strong{color:var(--text);font-weight:600;}
+/* ── Bottleneck section ── */
+.bottleneck-section{background:var(--bg);}
+.bottleneck-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:center;}
+.bottleneck-text p{font-size:0.95rem;color:var(--text-dim);line-height:1.8;margin-bottom:1.2rem;}
+.bottleneck-text p:last-child{margin-bottom:0;}
+.bottleneck-list{display:flex;flex-direction:column;gap:0.9rem;margin-top:1.6rem;}
+.bottleneck-item{display:flex;align-items:center;gap:0.85rem;padding:0.9rem 1.2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;}
+.bottleneck-item-icon{width:36px;height:36px;border-radius:10px;background:var(--accent-soft);border:1px solid var(--accent-line);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.bottleneck-item-text{font-size:0.87rem;color:var(--text-dim);line-height:1.45;}
+.bottleneck-item-text strong{color:var(--navy);font-weight:600;}
+.bottleneck-callout{background:var(--navy);border-radius:20px;padding:2.4rem;position:relative;overflow:hidden;}
+.bottleneck-callout::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(236,72,153,0.14) 0%,transparent 65%);pointer-events:none;}
+.bottleneck-callout h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:500;color:#fff;letter-spacing:-0.02em;margin-bottom:1rem;position:relative;z-index:1;}
+.bottleneck-callout p{font-size:0.88rem;color:rgba(255,255,255,0.45);line-height:1.75;position:relative;z-index:1;}
+.bottleneck-callout-accent{display:inline-block;margin-top:1.2rem;font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.25);padding:0.35rem 0.9rem;border-radius:999px;position:relative;z-index:1;}
 
-/* ── Sequence Types ── */
-.sequence-section{background:var(--bg2);}
-.seq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem;}
-.seq-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.7rem;transition:all 0.25s;position:relative;overflow:hidden;}
-.seq-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--border);transition:background 0.25s;}
-.seq-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
-.seq-card:hover::before{background:var(--accent);}
-.seq-icon{font-size:2rem;margin-bottom:1rem;display:block;}
-.seq-card h4{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;letter-spacing:-0.01em;}
-.seq-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.65;}
-.seq-badge{display:inline-block;margin-top:1rem;font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);padding:0.22rem 0.65rem;border-radius:999px;}
+/* ── Content Types ── */
+.types-section{background:var(--bg2);}
+.types-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem;}
+.type-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.7rem;transition:all 0.25s;position:relative;overflow:hidden;}
+.type-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--border);transition:background 0.25s;}
+.type-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
+.type-card:hover::before{background:var(--accent);}
+.type-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+.type-card h4{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;letter-spacing:-0.01em;}
+.type-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.65;}
 
-/* ── How We Build ── */
-.build-section{background:var(--bg);}
+/* ── How It Works ── */
+.how-section{background:var(--bg);}
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;position:relative;}
 .steps-grid::before{content:'';position:absolute;top:54px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,var(--accent-line),var(--accent-line),transparent);z-index:0;}
 .step-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.5rem;text-align:center;transition:all 0.25s;position:relative;z-index:1;}
@@ -185,8 +178,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 /* ── CTA ── */
 .cta-section{background:var(--bg);}
 .cta-wrap{background:var(--navy);border-radius:24px;padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;}
-.cta-wrap::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(245,158,11,0.13) 0%,transparent 65%);pointer-events:none;}
-.cta-wrap::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,148,58,0.08) 0%,transparent 65%);pointer-events:none;}
+.cta-wrap::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(236,72,153,0.13) 0%,transparent 65%);pointer-events:none;}
+.cta-wrap::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(236,72,153,0.07) 0%,transparent 65%);pointer-events:none;}
 .cta-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.9rem;position:relative;z-index:1;}
 .cta-wrap h2 em{font-style:italic;color:rgba(255,255,255,0.32);}
 .cta-wrap p{color:rgba(255,255,255,0.42);font-size:0.95rem;max-width:480px;margin:0 auto 2.5rem;line-height:1.75;position:relative;z-index:1;}
@@ -207,18 +200,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 
 /* ── Responsive ── */
 @media(max-width:1024px){
-  .seq-grid{grid-template-columns:repeat(2,1fr);}
+  .types-grid{grid-template-columns:repeat(2,1fr);}
   .steps-grid{grid-template-columns:repeat(2,1fr);}
   .steps-grid::before{display:none;}
   .included-grid{grid-template-columns:repeat(2,1fr);}
   .who-grid{grid-template-columns:repeat(2,1fr);}
   .stats-bar-inner{grid-template-columns:repeat(2,1fr);}
+  .bottleneck-grid{grid-template-columns:1fr;}
 }
 @media(max-width:768px){
   .hero-inner{grid-template-columns:1fr;}
   .hero-right{display:none;}
-  .compare-table{grid-template-columns:1fr;}
-  .seq-grid{grid-template-columns:1fr;}
+  .types-grid{grid-template-columns:1fr;}
   .steps-grid{grid-template-columns:1fr;}
   .included-grid{grid-template-columns:1fr;}
   .who-grid{grid-template-columns:1fr;}
@@ -252,13 +245,13 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
           <div class="nav-dd-label">AI Automation Services</div>
           <div class="nav-dd-grid" style="grid-template-columns:1fr 1fr 1fr;">
             <a href="automation-workflow.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(59,130,246,0.12);">⚡</div><div><div class="nav-dd-name">Workflow Automation</div><div class="nav-dd-sub">Eliminate repetitive tasks</div></div></a>
-            <a href="automation-chatbots.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(6,182,212,0.12);">💬</div><div><div class="nav-dd-name">AI Assistants       <a href="index.html#services">Automation</a>amp; Chatbots</div><div class="nav-dd-sub">Always-on customer support</div></div></a>
+            <a href="automation-chatbots.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(6,182,212,0.12);">💬</div><div><div class="nav-dd-name">AI Assistants &amp; Chatbots</div><div class="nav-dd-sub">Always-on customer support</div></div></a>
             <a href="automation-agents.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(168,85,247,0.12);">🧠</div><div><div class="nav-dd-name">Autonomous AI Agents</div><div class="nav-dd-sub">AI that acts without being asked</div></div></a>
             <a href="automation-documents.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(245,158,11,0.12);">📋</div><div><div class="nav-dd-name">Document Intelligence</div><div class="nav-dd-sub">Chat with any document</div></div></a>
             <a href="automation-data.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(249,115,22,0.12);">📥</div><div><div class="nav-dd-name">Intelligent Data Extraction</div><div class="nav-dd-sub">Pull data from any file</div></div></a>
             <a href="automation-integration.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(16,185,129,0.12);">🔌</div><div><div class="nav-dd-name">System Integration</div><div class="nav-dd-sub">AI in tools you already use</div></div></a>
             <a href="automation-bi.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(34,211,238,0.12);">📈</div><div><div class="nav-dd-name">Business Intelligence</div><div class="nav-dd-sub">Data into clear answers</div></div></a>
-            <a href="automation-content.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(236,72,153,0.12);">✏️</div><div><div class="nav-dd-name">Content Automation</div><div class="nav-dd-sub">Scale content, not headcount</div></div></a>
+            <a href="automation-content.html" class="nav-dd-item" style="background:rgba(236,72,153,0.07);border:1px solid rgba(236,72,153,0.18);"><div class="nav-dd-icon" style="background:rgba(236,72,153,0.15);">✏️</div><div><div class="nav-dd-name" style="color:var(--accent);">Content Automation</div><div class="nav-dd-sub">Scale content, not headcount</div></div></a>
             <a href="automation-custom.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(239,68,68,0.12);">🛠️</div><div><div class="nav-dd-name">Custom AI Development</div><div class="nav-dd-sub">AI built for your industry</div></div></a>
           </div>
         </div>
@@ -280,9 +273,9 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
               <div class="nav-dd-icon" style="background:rgba(66,133,244,0.12);">📊</div>
               <div><div class="nav-dd-name">Google &amp; Meta Ads</div><div class="nav-dd-sub">AI-managed, self-optimising</div></div>
             </a>
-            <a href="marketing-email.html" class="nav-dd-item" style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.18);">
-              <div class="nav-dd-icon" style="background:rgba(245,158,11,0.15);">📧</div>
-              <div><div class="nav-dd-name" style="color:var(--accent);">Email Drip Automation</div><div class="nav-dd-sub">Nurture every lead, always</div></div>
+            <a href="marketing-email.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(245,158,11,0.12);">📧</div>
+              <div><div class="nav-dd-name">Email Drip Automation</div><div class="nav-dd-sub">Nurture every lead, always</div></div>
             </a>
             <a href="marketing-voice.html" class="nav-dd-item">
               <div class="nav-dd-icon" style="background:rgba(139,92,246,0.12);">📞</div>
@@ -306,7 +299,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <a href="crm.html" style="color:var(--gold);font-weight:600;">AI CRM</a>
       <a href="index.html#work">Work</a>
       <a href="index.html#about">About</a>
-      <a href="index.html#contact" class="nav-cta">Talk to Us →</a>
+      <a href="index.html#contact" class="nav-cta">Talk to Us &rarr;</a>
     </div>
   </div>
 </nav>
@@ -315,44 +308,45 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow"><span class="dot"></span>Email Drip Automation &middot; Behaviour-Triggered Sequences</div>
-      <h1>Nurture Every Lead.<br/><em>Without Lifting a Finger.</em></h1>
-      <p class="hero-sub">AI-written email sequences that trigger on real behaviour — sign-up, demo request, abandoned form, 7-day silence — and guide each lead through your funnel automatically, from first touch to closed deal.</p>
+      <div class="hero-eyebrow"><span class="dot"></span>Content Automation &middot; Brand Voice AI</div>
+      <h1>Scale Content Without<br/><em>Scaling Your Team.</em></h1>
+      <p class="hero-sub">AI writes in your brand's exact voice — product descriptions, email campaigns, social posts, blog articles, and ad copy — consistently, accurately, and instantly. Full product catalogue rewritten overnight. A month of social content in 60 minutes.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/918130247554" class="btn btn-accent" target="_blank">Book Free Demo</a>
-        <a href="#sequence-types" class="btn btn-outline-white">See Sequence Types &darr;</a>
+        <a href="https://wa.me/918130247554" class="btn btn-accent" target="_blank">See What AI Can Write</a>
+        <a href="#content-types" class="btn btn-outline-white">View Content Types &darr;</a>
       </div>
     </div>
     <div class="hero-right">
       <div class="hero-card">
-        <div class="hero-card-label">Why drip sequences outperform everything else</div>
+        <div class="hero-card-label">What AI content automation delivers</div>
         <div class="hero-stat-row">
-          <div class="hero-stat-icon amber">📧</div>
+          <div class="hero-stat-icon pink">✍️</div>
           <div>
-            <div class="hero-stat-label">4&times; higher engagement vs broadcast emails</div>
-            <div class="hero-stat-sub">Triggered sequences reach people at exactly the right moment, so they read and act.</div>
+            <div class="hero-stat-label">Content written in your brand voice</div>
+            <div class="hero-stat-sub">Not generic AI — trained on your style, tone, and vocabulary to sound exactly like you.</div>
           </div>
         </div>
         <div class="hero-stat-row">
-          <div class="hero-stat-icon green">🔄</div>
+          <div class="hero-stat-icon amber">⚡</div>
           <div>
-            <div class="hero-stat-label">Sequences run 24/7 without your team touching them</div>
-            <div class="hero-stat-sub">Once built, every lead gets followed up — weekends, holidays, midnight included.</div>
+            <div class="hero-stat-label">10&times; faster than manual writing</div>
+            <div class="hero-stat-sub">What takes your team a week, AI does overnight — with consistency your best writer can't match at scale.</div>
           </div>
         </div>
         <div class="hero-stat-row">
-          <div class="hero-stat-icon teal">📈</div>
+          <div class="hero-stat-icon green">📊</div>
           <div>
-            <div class="hero-stat-label">2.1&times; average revenue per subscriber vs one-off emails</div>
-            <div class="hero-stat-sub">Consistent, contextual touchpoints compound into measurably more revenue.</div>
+            <div class="hero-stat-label">SEO-optimised by default</div>
+            <div class="hero-stat-sub">Keywords, metadata, and structure built in — every piece of content works harder from day one.</div>
           </div>
         </div>
         <div class="hero-foot">
-          <span class="hero-badge">Gmail</span>
-          <span class="hero-badge">Outlook</span>
-          <span class="hero-badge">HubSpot</span>
-          <span class="hero-badge">Zoho</span>
-          <span class="hero-badge">Mailchimp</span>
+          <span class="hero-badge">Brand Voice</span>
+          <span class="hero-badge">SEO</span>
+          <span class="hero-badge">Multi-Language</span>
+          <span class="hero-badge">Product Catalogues</span>
+          <span class="hero-badge">Email</span>
+          <span class="hero-badge">Social</span>
         </div>
       </div>
     </div>
@@ -363,164 +357,124 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 <div class="stats-bar">
   <div class="stats-bar-inner">
     <div class="stat-item">
-      <div class="stat-num"><span>4</span>&times;</div>
-      <div class="stat-label">engagement vs broadcast blasts</div>
+      <div class="stat-num"><span>10</span>&times;</div>
+      <div class="stat-label">faster than manual writing at scale</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num"><span>2.1</span>&times;</div>
-      <div class="stat-label">revenue per subscriber vs one-off emails</div>
+      <div class="stat-num"><span style="font-size:2rem;">Brand-</span></div>
+      <div class="stat-label">matched voice — trained on your content</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num"><span>72</span>h</div>
-      <div class="stat-label">average speed to first follow-up without drip</div>
+      <div class="stat-num"><span style="font-size:2rem;">Multi-</span></div>
+      <div class="stat-label">format output from a single brief</div>
     </div>
     <div class="stat-item">
       <div class="stat-num"><span>0</span></div>
-      <div class="stat-label">emails manually written after setup</div>
+      <div class="stat-label">brief templates or style guides to maintain</div>
     </div>
   </div>
 </div>
 
-<!-- COMPARISON -->
-<section class="section compare-section" id="comparison">
+<!-- BOTTLENECK -->
+<section class="section bottleneck-section" id="bottleneck">
   <div class="section-inner">
-    <div class="eyebrow reveal">Why Drip Wins</div>
-    <h2 class="section-title reveal">Broadcast Emails vs<br/>Drip Sequences</h2>
-    <p class="section-sub reveal">Most businesses are still sending the same email to everyone and wondering why it doesn't work. Here's the difference that matters.</p>
-    <div class="compare-table">
-      <div class="compare-col compare-col-bad reveal d1">
-        <div class="compare-col-head">
-          <span class="compare-col-head-icon">📢</span>
-          <span class="compare-col-head-label">Broadcast Blasts</span>
-        </div>
-        <div class="compare-col-body">
-          <div class="compare-row-item">
-            <div class="compare-icon-bad">&times;</div>
-            <p class="compare-text"><strong>Same email to everyone</strong> — whether they've been a customer for 3 years or signed up 10 minutes ago.</p>
+    <div class="eyebrow reveal">The Real Problem</div>
+    <h2 class="section-title reveal">The Content Bottleneck</h2>
+    <div class="bottleneck-grid">
+      <div class="bottleneck-text reveal">
+        <p>Growing businesses need more content than their teams can produce. The maths never work out. You need product descriptions for 1,000 SKUs. Marketing wants 30 social posts per month. Email campaigns need 10 variants for A/B testing. SEO needs 50 optimised pages per quarter.</p>
+        <p>Hiring writers doesn't scale — costs, onboarding, briefing, editing, maintaining brand consistency across a team. By the time you've hired enough writers to keep up, the content need has grown again.</p>
+        <div class="bottleneck-list">
+          <div class="bottleneck-item">
+            <div class="bottleneck-item-icon">🛍️</div>
+            <div class="bottleneck-item-text"><strong>1,000 product descriptions</strong> — weeks of writing time, inconsistent quality across writers</div>
           </div>
-          <div class="compare-row-item">
-            <div class="compare-icon-bad">&times;</div>
-            <p class="compare-text"><strong>Sent once, forgotten</strong> — if they didn't open it on Tuesday, the opportunity is gone.</p>
+          <div class="bottleneck-item">
+            <div class="bottleneck-item-icon">📱</div>
+            <div class="bottleneck-item-text"><strong>30 social posts per month</strong> — hours of briefs, drafts, revisions, approvals every cycle</div>
           </div>
-          <div class="compare-row-item">
-            <div class="compare-icon-bad">&times;</div>
-            <p class="compare-text"><strong>No logic based on what the recipient does</strong> — clicks, opens, replies, and silence all get the same treatment.</p>
-          </div>
-          <div class="compare-row-item">
-            <div class="compare-icon-bad">&times;</div>
-            <p class="compare-text"><strong>Irrelevant to most readers</strong> — a cold lead and a warm prospect receive identical messaging.</p>
-          </div>
-          <div class="compare-row-item">
-            <div class="compare-icon-bad">&times;</div>
-            <p class="compare-text"><strong>High unsubscribe rate</strong> — people opt out because the emails feel generic and poorly timed.</p>
+          <div class="bottleneck-item">
+            <div class="bottleneck-item-icon">📰</div>
+            <div class="bottleneck-item-text"><strong>SEO content at scale</strong> — keyword research, structure, writing, optimisation — specialist skills needed</div>
           </div>
         </div>
       </div>
-      <div class="compare-col compare-col-good reveal d2">
-        <div class="compare-col-head">
-          <span class="compare-col-head-icon">⚡</span>
-          <span class="compare-col-head-label">Drip Sequences</span>
-        </div>
-        <div class="compare-col-body">
-          <div class="compare-row-item">
-            <div class="compare-icon-good">&#10003;</div>
-            <p class="compare-text"><strong>Personalised to each person's actions</strong> — every lead gets a journey built around what they've actually done.</p>
-          </div>
-          <div class="compare-row-item">
-            <div class="compare-icon-good">&#10003;</div>
-            <p class="compare-text"><strong>Sends the right email at the right moment</strong> — triggered by behaviour, not a calendar date someone guessed at.</p>
-          </div>
-          <div class="compare-row-item">
-            <div class="compare-icon-good">&#10003;</div>
-            <p class="compare-text"><strong>Adapts based on opens, clicks, replies, and no-reply</strong> — the sequence forks based on what the lead actually does.</p>
-          </div>
-          <div class="compare-row-item">
-            <div class="compare-icon-good">&#10003;</div>
-            <p class="compare-text"><strong>Always contextually relevant</strong> — messaging matches precisely where each person is in their buying journey.</p>
-          </div>
-          <div class="compare-row-item">
-            <div class="compare-icon-good">&#10003;</div>
-            <p class="compare-text"><strong>High engagement, low churn</strong> — people stay subscribed because the emails feel like they were written for them.</p>
-          </div>
-        </div>
+      <div class="bottleneck-callout reveal d2">
+        <h3>AI scales.<br/>Hiring doesn't.</h3>
+        <p>AI trained on your brand voice produces content at any volume, in any format, at consistent quality — without briefings, revisions, or growing headcount. One setup, unlimited output.</p>
+        <span class="bottleneck-callout-accent">Your voice, at any scale</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SEQUENCE TYPES -->
-<section class="section sequence-section" id="sequence-types">
+<!-- CONTENT TYPES -->
+<section class="section types-section" id="content-types">
   <div class="section-inner">
-    <div class="eyebrow reveal">What We Build</div>
-    <h2 class="section-title reveal">Sequence Types We Build</h2>
-    <p class="section-sub reveal">Every sequence has a specific job to do. We build the right one for every stage of your funnel — not a one-size-fits-all template.</p>
-    <div class="seq-grid">
-      <div class="seq-card reveal d1">
-        <span class="seq-icon">🆕</span>
-        <h4>Welcome Sequence</h4>
-        <p>Onboard new leads with a 5-email introduction to your business, building trust and familiarity before they're ready to buy. First impressions that last.</p>
-        <span class="seq-badge">5 emails &middot; 2 weeks</span>
+    <div class="eyebrow reveal">What We Generate</div>
+    <h2 class="section-title reveal">Content Types We Generate</h2>
+    <p class="section-sub reveal">Six content formats, all in your brand voice, all SEO-optimised, all ready to publish — from product descriptions to board-ready business documents.</p>
+    <div class="types-grid">
+      <div class="type-card reveal d1">
+        <span class="type-icon">🛍️</span>
+        <h4>Product Descriptions</h4>
+        <p>SEO-optimised product descriptions for your full catalogue — in your brand voice, with features, benefits, and CTAs. Upload your product data, get publish-ready copy back.</p>
       </div>
-      <div class="seq-card reveal d2">
-        <span class="seq-icon">🛒</span>
-        <h4>Abandoned Cart / Form</h4>
-        <p>Re-engage users who started but didn't finish, with urgency-driven reminders and well-placed social proof to bring them back to the moment of intent.</p>
-        <span class="seq-badge">3 emails &middot; 72 hours</span>
+      <div class="type-card reveal d2">
+        <span class="type-icon">📧</span>
+        <h4>Email Campaigns</h4>
+        <p>Subject lines, preview text, body copy, and CTAs for every email in every campaign — A/B variants included. From welcome sequences to promotional blasts, all in your voice.</p>
       </div>
-      <div class="seq-card reveal d3">
-        <span class="seq-icon">📋</span>
-        <h4>Lead Nurture</h4>
-        <p>Long-form 8–12 email journeys that educate, build credibility, and move cold leads toward a sales conversation — even if they're months away from buying.</p>
-        <span class="seq-badge">8–12 emails &middot; 6–8 weeks</span>
+      <div class="type-card reveal d3">
+        <span class="type-icon">📱</span>
+        <h4>Social Media Content</h4>
+        <p>Platform-specific posts for Instagram, LinkedIn, X, and Facebook — hooks, captions, hashtags, and formatting for each channel. A full month of content in under an hour.</p>
       </div>
-      <div class="seq-card reveal d1">
-        <span class="seq-icon">🔥</span>
-        <h4>Re-Engagement</h4>
-        <p>Win back cold subscribers with a 3-email "are you still interested?" sequence before they churn forever. Recover revenue that most businesses leave on the table.</p>
-        <span class="seq-badge">3 emails &middot; 10 days</span>
+      <div class="type-card reveal d1">
+        <span class="type-icon">📰</span>
+        <h4>Blog &amp; SEO Articles</h4>
+        <p>Long-form, keyword-rich articles that build organic traffic — researched, structured with proper H-tags, internal linking suggestions, and meta data. Ready to publish.</p>
       </div>
-      <div class="seq-card reveal d2">
-        <span class="seq-icon">🤝</span>
-        <h4>Post-Purchase</h4>
-        <p>Turn buyers into repeat customers with thank-you emails, product tips, upsell offers at the right moment, and automated review and referral requests.</p>
-        <span class="seq-badge">6 emails &middot; 4 weeks</span>
+      <div class="type-card reveal d2">
+        <span class="type-icon">📣</span>
+        <h4>Ad Copy</h4>
+        <p>Google Search ads, Meta ad copy, banner text, and landing page headlines — in multiple variants for testing. Proven frameworks applied to your specific offer and audience.</p>
       </div>
-      <div class="seq-card reveal d3">
-        <span class="seq-icon">⚡</span>
-        <h4>Demo / Trial Follow-Up</h4>
-        <p>Accelerate conversion with proof-point emails, objection handling, and a time-limited incentive sequence designed to get demos-to-paid across the line.</p>
-        <span class="seq-badge">5 emails &middot; 14 days</span>
+      <div class="type-card reveal d3">
+        <span class="type-icon">📋</span>
+        <h4>Business Documents</h4>
+        <p>Proposals, reports, case studies, and presentations — structured and written in your professional voice. Client-ready documents without the hours of drafting and formatting.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW WE BUILD -->
-<section class="section build-section" id="how-we-build">
+<!-- HOW IT WORKS -->
+<section class="section how-section" id="how-it-works">
   <div class="section-inner">
     <div class="eyebrow reveal">Our Process</div>
-    <h2 class="section-title reveal">How We Build Your Sequences</h2>
-    <p class="section-sub reveal">From funnel mapping to live automation — a structured four-step process that gets your sequences working in days, not months.</p>
+    <h2 class="section-title reveal">How It Works</h2>
+    <p class="section-sub reveal">From brand voice training to publish-ready content — a four-step process that gets better with every piece of content we produce together.</p>
     <div class="steps-grid">
       <div class="step-card reveal d1">
-        <div class="step-num">🗺️</div>
-        <h4>Funnel Mapping</h4>
-        <p>We map your full customer journey: where leads enter, what triggers each stage, and what outcome each individual email should drive toward conversion.</p>
+        <div class="step-num">🎨</div>
+        <h4>Brand Voice Training</h4>
+        <p>We analyse your existing content — website, social, emails — and define your brand's unique voice: tone, vocabulary, sentence structure, and personality. This becomes the AI's permanent brief.</p>
       </div>
       <div class="step-card reveal d2">
-        <div class="step-num">✍️</div>
-        <h4>AI Copywriting</h4>
-        <p>Every email written by AI trained on your brand voice and offer details, then reviewed and approved by you before anything goes live. You'll love every word.</p>
+        <div class="step-num">📋</div>
+        <h4>Content Brief</h4>
+        <p>You provide the topic, product details, or campaign objective. That's it. For products: the product data. For articles: the keyword. For emails: the campaign goal. AI handles the rest.</p>
       </div>
       <div class="step-card reveal d3">
-        <div class="step-num">🔌</div>
-        <h4>Platform Setup</h4>
-        <p>Sequences built inside your existing email platform — HubSpot, Mailchimp, Zoho Campaigns, Mailerlite, or Outlook. No migration, no disruption.</p>
+        <div class="step-num">✍️</div>
+        <h4>AI Generation</h4>
+        <p>AI generates the content in your exact brand voice, formatted for the specific channel and purpose — SEO metadata included where relevant. Multiple variants produced simultaneously.</p>
       </div>
       <div class="step-card reveal d4">
-        <div class="step-num">📊</div>
-        <h4>Optimise &amp; Report</h4>
-        <p>Open rates, click rates, reply rates, and conversion events tracked monthly. Underperforming emails are rewritten based on data — nothing is ever guesswork.</p>
+        <div class="step-num">✅</div>
+        <h4>Review &amp; Publish</h4>
+        <p>You review and approve. AI incorporates your feedback to refine future outputs — it learns your preferences over time so the review cycle gets shorter every month.</p>
       </div>
     </div>
   </div>
@@ -531,48 +485,48 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   <div class="section-inner">
     <div class="eyebrow reveal">Everything You Get</div>
     <h2 class="section-title reveal">What's Included</h2>
-    <p class="section-sub reveal">Every engagement includes everything you need to run sequences that actually convert — no hidden add-ons, no surprises.</p>
+    <p class="section-sub reveal">Every engagement includes brand training, content planning, multi-format generation, SEO optimisation, and performance tracking — not just the writing.</p>
     <div class="included-grid">
       <div class="included-card reveal d1">
-        <div class="inc-icon-wrap">✍️</div>
+        <div class="inc-icon-wrap">🎨</div>
         <div>
-          <h4>Full AI Copywriting</h4>
-          <p>Subject lines, preview text, body copy, and CTA for every email in the sequence — written, reviewed, and refined before launch.</p>
+          <h4>Brand Voice Training</h4>
+          <p>AI trained on your existing content to match your exact tone, style, and vocabulary — so every piece reads like it came from your best writer, at any volume.</p>
         </div>
       </div>
       <div class="included-card reveal d2">
-        <div class="inc-icon-wrap">🎯</div>
+        <div class="inc-icon-wrap">📚</div>
         <div>
-          <h4>Behavioural Triggers</h4>
-          <p>Sequences fire based on real actions: form fill, link click, page visit, email open, or no-open after N days. Always contextual.</p>
+          <h4>Content Calendar</h4>
+          <p>Monthly plan of all content to be generated — topics, formats, channels — shared for approval before writing begins. No surprises, full visibility.</p>
         </div>
       </div>
       <div class="included-card reveal d3">
-        <div class="inc-icon-wrap">🖼️</div>
+        <div class="inc-icon-wrap">✍️</div>
         <div>
-          <h4>Branded Email Templates</h4>
-          <p>Clean, mobile-first HTML templates designed to match your brand colours, fonts, and visual identity — not generic stock layouts.</p>
+          <h4>Multi-Format Generation</h4>
+          <p>Same information reformatted for multiple channels: long blog post &rarr; 5 social posts &rarr; email teaser &rarr; ad copy. Maximum reach from minimum input.</p>
         </div>
       </div>
       <div class="included-card reveal d1">
-        <div class="inc-icon-wrap">🔗</div>
+        <div class="inc-icon-wrap">🔍</div>
         <div>
-          <h4>CRM &amp; Platform Integration</h4>
-          <p>Connected to your existing tools: HubSpot, Zoho, Mailchimp, Klaviyo, or Outlook. Leads flow in, data flows back — seamlessly.</p>
+          <h4>SEO Optimisation</h4>
+          <p>Target keywords, meta titles, meta descriptions, header structure, and internal linking — all built in by default. Every piece of content works harder from day one.</p>
         </div>
       </div>
       <div class="included-card reveal d2">
-        <div class="inc-icon-wrap">📊</div>
+        <div class="inc-icon-wrap">🌐</div>
         <div>
-          <h4>Conversion Tracking</h4>
-          <p>Every email tied to a measurable outcome: demo booked, product purchased, quote requested. You always know what's working.</p>
+          <h4>Multi-Language Output</h4>
+          <p>Content generated in English, Hindi, or any other language — same brand voice, localised naturally. Not translated — re-written for the language and culture.</p>
         </div>
       </div>
       <div class="included-card reveal d3">
-        <div class="inc-icon-wrap">🔄</div>
+        <div class="inc-icon-wrap">📊</div>
         <div>
-          <h4>A/B Testing</h4>
-          <p>Subject line and CTA variants tested continuously to improve open rates and click rates — sequences get better every month.</p>
+          <h4>Performance Tracking</h4>
+          <p>Content performance — traffic, engagement, conversions — reviewed monthly and fed back into future content strategy. The AI gets smarter about what works for your audience.</p>
         </div>
       </div>
     </div>
@@ -584,37 +538,37 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   <div class="section-inner">
     <div class="eyebrow reveal">Who It's Built For</div>
     <h2 class="section-title reveal">Who Should Use This</h2>
-    <p class="section-sub reveal">If you have a lead list, an email platform, and a sales funnel that depends on follow-up — drip automation is not optional.</p>
+    <p class="section-sub reveal">Any business where content volume exceeds what the team can produce — and quality and brand consistency still matter.</p>
     <div class="who-grid">
       <div class="who-card reveal d1">
         <span class="who-icon">🛒</span>
-        <h4>E-commerce Brands</h4>
-        <p>Cart recovery, post-purchase upsell, seasonal reactivation, and browse-abandonment sequences that recover revenue around the clock.</p>
+        <h4>E-commerce</h4>
+        <p>Product descriptions at scale, seasonal campaign copy, abandoned cart emails, promotional landing pages — all in brand voice, all SEO-optimised, all overnight.</p>
       </div>
       <div class="who-card reveal d2">
-        <span class="who-icon">💻</span>
-        <h4>SaaS &amp; Software</h4>
-        <p>Trial-to-paid conversion, feature adoption nudges, onboarding completion, and renewal sequences that reduce churn automatically.</p>
+        <span class="who-icon">🏢</span>
+        <h4>B2B Services</h4>
+        <p>Thought leadership articles, case studies, proposal templates, LinkedIn content — a consistent stream of credibility-building content without a full content team.</p>
       </div>
       <div class="who-card reveal d3">
-        <span class="who-icon">🏢</span>
-        <h4>B2B Service Firms</h4>
-        <p>Long-cycle nurture for enterprise leads who take months to decide — stay top of mind through every stage without manual effort.</p>
+        <span class="who-icon">🎓</span>
+        <h4>EdTech</h4>
+        <p>Course descriptions, admission emails, student success stories, enrollment campaigns — personalised at scale across every programme, intake, and audience segment.</p>
       </div>
       <div class="who-card reveal d1">
-        <span class="who-icon">🎓</span>
-        <h4>EdTech &amp; Coaching</h4>
-        <p>Enrolment sequences, course completion nudges, certification upsells, and premium programme offers delivered at exactly the right moment.</p>
+        <span class="who-icon">🏪</span>
+        <h4>Retail &amp; FMCG</h4>
+        <p>Store copy, promotional materials, offer announcements, loyalty program communication — consistent brand voice across every touchpoint, every campaign, every season.</p>
       </div>
       <div class="who-card reveal d2">
-        <span class="who-icon">🏥</span>
-        <h4>Healthcare</h4>
-        <p>Appointment follow-ups, health education series, preventive care sequences, and patient re-engagement — compliant and compassionate.</p>
-      </div>
-      <div class="who-card reveal d3">
         <span class="who-icon">🏗️</span>
         <h4>Real Estate</h4>
-        <p>Property enquiry nurture, site visit reminders, post-visit follow-up, and mortgage pre-approval nudges for long-cycle property buyers.</p>
+        <p>Property descriptions, project brochure copy, email campaigns, social content — every listing presented compellingly, every development launched with professional collateral.</p>
+      </div>
+      <div class="who-card reveal d3">
+        <span class="who-icon">💻</span>
+        <h4>SaaS &amp; Software</h4>
+        <p>Feature announcements, onboarding emails, help documentation, release notes — technical content that stays clear, helpful, and on-brand without specialist writers.</p>
       </div>
     </div>
   </div>
@@ -629,41 +583,41 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 
       <div class="faq-item reveal d1">
         <button class="faq-q" aria-expanded="false">
-          Which email platforms do you work with?
+          Will the content sound like AI?
           <span class="faq-chevron"><svg width="11" height="7" viewBox="0 0 11 7" fill="none"><polyline points="1,1 5.5,6 10,1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </button>
         <div class="faq-a">
-          <div class="faq-a-inner">We build sequences inside HubSpot, Zoho Campaigns, Mailchimp, Klaviyo, Mailerlite, and ActiveCampaign. We can also set up sequences directly in Gmail or Outlook using automation tools if you prefer not to switch platforms. No migration is ever required — we work within whatever you already have.</div>
+          <div class="faq-a-inner">No — if we train it properly on your brand. Our brand voice training process ensures the output reads like your best writer had a great day, not like a generic AI prompt. We analyse 50–100 samples of your existing content to define your voice precisely, and we don't publish until it sounds right. If you can tell it's AI, we revise it.</div>
         </div>
       </div>
 
       <div class="faq-item reveal d2">
         <button class="faq-q" aria-expanded="false">
-          How many emails are in a typical sequence?
+          How much input do we need to provide?
           <span class="faq-chevron"><svg width="11" height="7" viewBox="0 0 11 7" fill="none"><polyline points="1,1 5.5,6 10,1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </button>
         <div class="faq-a">
-          <div class="faq-a-inner">It depends on the sequence type. Welcome sequences are typically 4–6 emails delivered over 2 weeks. Lead nurture journeys can run 8–12 emails over 6–8 weeks. Re-engagement sequences are shorter — usually 3 emails over 10 days. We build the length based on your actual sales cycle, not a generic template.</div>
+          <div class="faq-a-inner">Minimal. For product descriptions: the product data (name, features, specs). For blog posts: the topic and target keyword. For emails: the campaign objective. For social content: the theme or promotion. AI does the research, structure, writing, and formatting. Your role is to approve, not to brief in detail.</div>
         </div>
       </div>
 
       <div class="faq-item reveal d3">
         <button class="faq-q" aria-expanded="false">
-          Do you write all the email copy or do we need to provide it?
+          Can it match our existing content style?
           <span class="faq-chevron"><svg width="11" height="7" viewBox="0 0 11 7" fill="none"><polyline points="1,1 5.5,6 10,1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </button>
         <div class="faq-a">
-          <div class="faq-a-inner">We write everything. Our AI drafts every email using your brand guidelines, tone of voice, and offer details — then you review and approve before anything goes live. You will never write a single word yourself. The only input we need from you is a brief onboarding call and access to your platform.</div>
+          <div class="faq-a-inner">Yes. We analyse 50–100 samples of your existing content to define your brand voice precisely — vocabulary choices, sentence length, tone, personality, what topics you lean into, what language you avoid — then replicate it consistently across every piece of content we generate.</div>
         </div>
       </div>
 
       <div class="faq-item reveal d4">
         <button class="faq-q" aria-expanded="false">
-          Can the sequences be paused or updated after they launch?
+          What about factual accuracy?
           <span class="faq-chevron"><svg width="11" height="7" viewBox="0 0 11 7" fill="none"><polyline points="1,1 5.5,6 10,1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </button>
         <div class="faq-a">
-          <div class="faq-a-inner">Yes. Sequences are living automations — we review performance monthly and rewrite or adjust emails based on open rate, click rate, and conversion data. Nothing is ever "set and forget" without measurement. You can also request pauses or changes at any time — we respond within one business day.</div>
+          <div class="faq-a-inner">AI generates content based on what you provide. For product descriptions, it uses your product data — so accuracy is as good as your product information. For articles, it research-reads specified sources. For campaign emails, it uses your offer details. We always recommend a human review pass before publishing, particularly for regulated industries or technical specifications.</div>
         </div>
       </div>
 
@@ -675,8 +629,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 <section class="section cta-section">
   <div class="section-inner">
     <div class="cta-wrap reveal">
-      <h2>Turn every lead into a customer —<br/><em>automatically, forever.</em></h2>
-      <p>Book a free 30-minute demo and we'll show you exactly which sequence types fit your funnel, and what they'd look like for your business.</p>
+      <h2>Give your team a content superpower —<br/><em>without hiring a single writer.</em></h2>
+      <p>Send us your website and we'll generate three sample pieces — in your brand voice, ready to publish — so you can see exactly what AI content looks like for your business.</p>
       <div class="cta-contacts">
         <a href="https://wa.me/918130247554" class="contact-pill" target="_blank">
           <span class="cp-icon">💬</span>
@@ -701,8 +655,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 <footer>
   <div class="footer-inner">
     <div class="footer-bottom">
-      <span>&copy; 2026 Adaptive Minds AI &mdash; Email Drip Automation</span>
-      <a href="index.html" class="footer-back">← Back to Home</a>
+      <span>&copy; 2026 Adaptive Minds AI &mdash; Content Automation</span>
+      <a href="index.html" class="footer-back">&larr; Back to Home</a>
     </div>
   </div>
 </footer>
