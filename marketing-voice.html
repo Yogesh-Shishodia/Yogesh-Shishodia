@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Voice AI & Call Automation — Adaptive Minds AI | Never Miss a Call</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="manifest" href="site.webmanifest"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:#f5f4f0;--bg2:#edecea;--surface:#ffffff;
+  --navy:#0e1520;--navy2:#162030;
+  --gold:#c9943a;--gold-soft:rgba(201,148,58,0.10);--gold-line:rgba(201,148,58,0.28);
+  --border:#dddbd4;--border2:#c8c5bc;
+  --text:#0e1520;--text-dim:#5e5c56;--text-faint:#a8a59e;
+  --green:#1a7a50;
+  --accent:#8b5cf6;--accent-soft:rgba(139,92,246,0.10);--accent-line:rgba(139,92,246,0.25);
+  --r:12px;--shadow:0 1px 8px rgba(0,0,0,0.07);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;padding:0 5%;background:rgba(235,235,238,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-img{height:64px;width:auto;display:block;object-fit:contain;max-width:420px;}
+.nav-links{display:flex;align-items:center;gap:0.2rem;}
+.nav-links a{font-size:0.95rem;font-weight:500;color:var(--text-dim);text-decoration:none;padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;}
+.nav-links a:hover{color:var(--text);background:var(--bg2);}
+.nav-links a.gold-link{color:var(--gold);font-weight:600;}
+.nav-links a.gold-link:hover{background:var(--gold-soft);}
+.nav-cta{background:var(--navy)!important;color:#fff!important;font-weight:600!important;border-radius:9px!important;}
+.nav-cta:hover{background:var(--navy2)!important;transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(14,21,32,0.22)!important;}
+.nav-has-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dd-trigger{font-size:0.95rem;font-weight:500;color:var(--text-dim);padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;cursor:pointer;display:flex;align-items:center;gap:0.3rem;border:none;background:none;font-family:'Outfit',sans-serif;line-height:1;}
+.nav-dd-trigger:hover,.nav-has-dropdown:hover .nav-dd-trigger{color:var(--text);background:var(--bg2);}
+.nav-dd-chevron{transition:transform 0.22s;display:flex;align-items:center;}
+.nav-has-dropdown:hover .nav-dd-chevron{transform:rotate(180deg);}
+.nav-dd-menu{position:absolute;top:calc(100% + 14px);left:-12px;width:540px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 0.2s,transform 0.2s,visibility 0.2s;z-index:500;padding:0.6rem;}
+.nav-has-dropdown:hover .nav-dd-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dd-label{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-faint);padding:0.3rem 0.65rem 0.6rem;border-bottom:1px solid var(--border);margin-bottom:0.4rem;}
+.nav-dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.2rem;}
+.nav-dd-item{display:flex;align-items:center;gap:0.65rem;padding:0.6rem 0.7rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+.nav-dd-item:hover{background:var(--bg);}
+.nav-dd-item.current{background:var(--accent-soft);border:1px solid var(--accent-line);}
+.nav-dd-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+.nav-dd-name{font-size:0.83rem;font-weight:600;color:var(--navy);line-height:1.2;}
+.nav-dd-name.current-name{color:var(--accent);}
+.nav-dd-sub{font-size:0.69rem;color:var(--text-faint);margin-top:0.1rem;line-height:1.3;}
+@media(max-width:768px){.nav-has-dropdown{display:none;}}
+
+/* ── Shared ── */
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-navy:hover{background:var(--navy2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,21,32,0.25);}
+.btn-accent{background:var(--accent);color:#fff;}
+.btn-accent:hover{background:#7c3aed;transform:translateY(-2px);box-shadow:0 10px 28px rgba(139,92,246,0.35);}
+.btn-outline-light{background:transparent;color:rgba(255,255,255,0.65);border:1.5px solid rgba(255,255,255,0.22);}
+.btn-outline-light:hover{border-color:rgba(255,255,255,0.5);color:#fff;background:rgba(255,255,255,0.06);}
+.section{padding:6rem 5%;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.eyebrow{font-size:0.9rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:0.7rem;margin-bottom:1rem;}
+.eyebrow::after{content:'';height:1px;width:44px;background:var(--accent-line);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1rem;}
+.section-sub{color:var(--text-dim);font-size:0.95rem;line-height:1.75;max-width:600px;margin-bottom:2.5rem;font-weight:400;}
+.divider{height:1px;background:var(--border);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse2{0%,100%{opacity:1;}50%{opacity:0.3;}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.07s;}.d2{transition-delay:0.14s;}.d3{transition-delay:0.21s;}.d4{transition-delay:0.28s;}.d5{transition-delay:0.35s;}.d6{transition-delay:0.42s;}
+
+/* ── Hero ── */
+.voice-hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 5% 70px;position:relative;overflow:hidden;}
+.voice-hero::before{content:'';position:absolute;top:-180px;left:-180px;width:700px;height:700px;background:radial-gradient(circle,rgba(139,92,246,0.14) 0%,transparent 65%);pointer-events:none;}
+.voice-hero::after{content:'';position:absolute;bottom:-150px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,148,58,0.10) 0%,transparent 65%);pointer-events:none;}
+.voice-hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1;}
+.voice-hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
+.voice-hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse2 2s infinite;}
+.voice-hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:#fff;margin-bottom:1.4rem;animation:fadeUp 0.9s 0.08s ease both;}
+.voice-hero h1 em{font-style:italic;color:rgba(255,255,255,0.38);font-family:'Cormorant Garamond',serif;}
+.voice-hero-sub{font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.78;max-width:480px;margin-bottom:2.2rem;font-weight:400;animation:fadeUp 0.9s 0.14s ease both;}
+.voice-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fadeUp 0.9s 0.2s ease both;}
+.voice-hero-right{animation:fadeUp 0.9s 0.22s ease both;}
+.voice-hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2.2rem;backdrop-filter:blur(10px);}
+.voice-hero-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1.4rem;}
+.voice-stat-row{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.voice-stat-row:last-of-type{border-bottom:none;}
+.voice-stat-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
+.voice-stat-icon.accent{background:rgba(139,92,246,0.14);border:1px solid rgba(139,92,246,0.3);}
+.voice-stat-icon.gold{background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.3);}
+.voice-stat-icon.green{background:rgba(26,180,100,0.12);border:1px solid rgba(26,180,100,0.25);}
+.voice-stat-label{font-size:0.9rem;font-weight:600;color:#fff;line-height:1.3;margin-bottom:0.25rem;}
+.voice-stat-sub{font-size:0.82rem;color:rgba(255,255,255,0.38);line-height:1.55;}
+.voice-hero-foot{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-wrap:wrap;gap:0.45rem;}
+.voice-badge{font-size:0.7rem;font-weight:600;padding:0.22rem 0.65rem;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);}
+
+/* ── Stats bar ── */
+.stats-bar{background:var(--accent);padding:0;}
+.stats-bar-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+.stat-item{padding:2rem 1.8rem;text-align:center;border-right:1px solid rgba(255,255,255,0.15);position:relative;}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Outfit',sans-serif;font-size:2.6rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-0.03em;margin-bottom:0.3rem;}
+.stat-label{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.65);line-height:1.4;}
+
+/* ── Missed Call Problem ── */
+.problem-section{background:var(--bg);}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.problem-stats{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;}
+.problem-stat-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.6rem;display:flex;align-items:center;gap:1.2rem;transition:all 0.22s;}
+.problem-stat-card:hover{transform:translateX(4px);box-shadow:var(--shadow);}
+.problem-stat-num{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:800;color:#e04040;line-height:1;flex-shrink:0;min-width:4rem;}
+.problem-stat-text{font-size:0.88rem;color:var(--text-dim);line-height:1.55;}
+.problem-contrast{background:var(--navy);border-radius:16px;padding:2rem;color:#fff;}
+.problem-contrast-label{font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;}
+.problem-contrast-row{display:flex;align-items:flex-start;gap:0.75rem;padding:0.8rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+.problem-contrast-row:last-child{border-bottom:none;}
+.problem-contrast-check{width:22px;height:22px;border-radius:50%;background:rgba(139,92,246,0.2);border:1px solid rgba(139,92,246,0.4);display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;margin-top:1px;}
+.problem-contrast-text{font-size:0.87rem;color:rgba(255,255,255,0.7);line-height:1.6;}
+.problem-contrast-text strong{color:#fff;}
+
+/* ── Call Flow ── */
+.callflow-section{background:var(--bg2);}
+.callflow-steps{display:flex;flex-direction:column;gap:0;position:relative;max-width:780px;margin:0 auto;}
+.callflow-step{display:flex;gap:2rem;align-items:flex-start;position:relative;}
+.callflow-step:not(:last-child)::after{content:'';position:absolute;left:27px;top:60px;width:2px;height:calc(100% - 20px);background:linear-gradient(to bottom,var(--accent-line),transparent);}
+.callflow-num{width:56px;height:56px;border-radius:50%;background:var(--surface);border:2px solid var(--accent-line);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;position:relative;z-index:1;transition:all 0.22s;box-shadow:var(--shadow);}
+.callflow-step:hover .callflow-num{background:var(--accent-soft);border-color:var(--accent);transform:scale(1.08);}
+.callflow-body{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.6rem 1.8rem;flex:1;margin-bottom:1.5rem;transition:all 0.22s;}
+.callflow-step:hover .callflow-body{box-shadow:var(--shadow-lg);border-color:var(--accent-line);transform:translateX(4px);}
+.callflow-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;}
+.callflow-body h4{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+.callflow-body p{font-size:0.87rem;color:var(--text-dim);line-height:1.65;}
+
+/* ── How It Works ── */
+.how-section{background:var(--bg);}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
+.how-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.6rem;position:relative;transition:all 0.25s;}
+.how-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
+.how-num{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:var(--accent-line);line-height:1;margin-bottom:0.5rem;}
+.how-icon{font-size:2rem;margin-bottom:0.9rem;display:block;}
+.how-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+.how-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.68;}
+
+/* ── What's Included ── */
+.included-section{background:var(--bg);}
+.included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.included-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.8rem 1.6rem;transition:all 0.25s;}
+.included-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.included-icon{font-size:2rem;margin-bottom:0.9rem;display:block;}
+.included-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.45rem;}
+.included-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.68;}
+
+/* ── Industries ── */
+.industries-section{background:var(--navy);}
+.industries-section .eyebrow{color:var(--accent);}
+.industries-section .eyebrow::after{background:var(--accent-line);}
+.industries-section .section-title{color:#fff;}
+.industries-section .section-sub{color:rgba(255,255,255,0.45);}
+.industries-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.industry-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.8rem 1.6rem;transition:all 0.25s;}
+.industry-card:hover{background:rgba(139,92,246,0.08);border-color:rgba(139,92,246,0.3);transform:translateY(-4px);}
+.industry-icon{font-size:2.2rem;margin-bottom:0.9rem;display:block;}
+.industry-card h4{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+.industry-card p{font-size:0.86rem;color:rgba(255,255,255,0.45);line-height:1.68;}
+
+/* ── FAQ ── */
+.faq-section{background:var(--bg2);}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:0.75rem;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.2s,box-shadow 0.2s;}
+.faq-item.open{border-color:var(--accent-line);box-shadow:0 4px 24px rgba(139,92,246,0.08);}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 1.6rem;background:none;border:none;cursor:pointer;text-align:left;font-family:'Outfit',sans-serif;font-size:0.96rem;font-weight:600;color:var(--navy);transition:color 0.18s;}
+.faq-item.open .faq-q{color:var(--accent);}
+.faq-chevron{width:24px;height:24px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.25s;}
+.faq-item.open .faq-chevron{background:var(--accent-soft);border-color:var(--accent-line);transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;}
+.faq-a-inner{padding:0 1.6rem 1.4rem;font-size:0.88rem;color:var(--text-dim);line-height:1.78;}
+.faq-item.open .faq-a{max-height:300px;}
+
+/* ── CTA ── */
+.voice-cta-wrap{background:var(--navy);border-radius:24px;padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.voice-cta-wrap::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(139,92,246,0.14) 0%,transparent 65%);pointer-events:none;}
+.voice-cta-wrap::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,148,58,0.10) 0%,transparent 65%);pointer-events:none;}
+.voice-cta-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.9rem;position:relative;z-index:1;}
+.voice-cta-wrap h2 em{font-style:italic;color:rgba(255,255,255,0.35);}
+.voice-cta-wrap p{color:rgba(255,255,255,0.45);font-size:0.95rem;max-width:480px;margin:0 auto 2.2rem;line-height:1.75;position:relative;z-index:1;}
+.cta-contacts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+.contact-pill{display:flex;align-items:center;gap:0.8rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.1rem 1.6rem;text-decoration:none;transition:background 0.2s;min-width:190px;}
+.contact-pill:hover{background:rgba(255,255,255,0.1);}
+.cp-icon{font-size:1.3rem;}
+.cp-label{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.2rem;}
+.cp-value{font-size:0.85rem;font-weight:600;color:#fff;}
+
+/* ── Footer ── */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:3rem 5% 2rem;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom span{font-size:0.79rem;color:rgba(255,255,255,0.22);}
+.footer-back{font-size:0.82rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-back:hover{color:rgba(255,255,255,0.75);}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .how-grid{grid-template-columns:repeat(2,1fr);}
+  .included-grid{grid-template-columns:repeat(2,1fr);}
+  .industries-grid{grid-template-columns:repeat(2,1fr);}
+  .problem-grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .voice-hero-inner{grid-template-columns:1fr;}
+  .voice-hero-right{display:none;}
+  .stats-bar-inner{grid-template-columns:repeat(2,1fr);}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .how-grid{grid-template-columns:1fr;}
+  .included-grid{grid-template-columns:1fr;}
+  .industries-grid{grid-template-columns:1fr;}
+  .voice-cta-wrap{padding:3rem 1.5rem;}
+  .cta-contacts{flex-direction:column;}
+  .contact-pill{min-width:unset;width:100%;}
+  .nav-links a:not(.nav-cta){display:none;}
+  .nav-logo-img{height:44px;max-width:160px;}
+  .callflow-step:not(:last-child)::after{display:none;}
+}
+@media(max-width:480px){
+  .voice-hero{padding:88px 5% 50px;}
+  .stats-bar-inner{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo2.png" alt="Adaptive Minds AI" class="nav-logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="index.html#services">Automation</a>
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">Marketing <span class="nav-dd-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nav-dd-menu">
+          <div class="nav-dd-label">Marketing Services</div>
+          <div class="nav-dd-grid">
+            <a href="marketing-whatsapp.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(37,211,102,0.12);">💬</div><div><div class="nav-dd-name">WhatsApp Marketing</div><div class="nav-dd-sub">95%+ open rate broadcasts</div></div></a>
+            <a href="marketing-linkedin.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(0,119,181,0.12);">💼</div><div><div class="nav-dd-name">LinkedIn Outreach</div><div class="nav-dd-sub">Automated B2B lead gen</div></div></a>
+            <a href="marketing-google-ads.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(66,133,244,0.12);">📊</div><div><div class="nav-dd-name">Google &amp; Meta Ads</div><div class="nav-dd-sub">AI-managed, self-optimising</div></div></a>
+            <a href="marketing-email.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(245,158,11,0.12);">📧</div><div><div class="nav-dd-name">Email Drip Automation</div><div class="nav-dd-sub">Nurture every lead, always</div></div></a>
+            <a href="marketing-voice.html" class="nav-dd-item current"><div class="nav-dd-icon" style="background:rgba(139,92,246,0.14);">📞</div><div><div class="nav-dd-name current-name">Voice AI &amp; Call Automation</div><div class="nav-dd-sub">Never miss a call</div></div></a>
+            <a href="marketing-lead-gen.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(239,68,68,0.12);">🎯</div><div><div class="nav-dd-name">AI Lead Generation</div><div class="nav-dd-sub">Full pipeline on autopilot</div></div></a>
+            <a href="marketing-social.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(236,72,153,0.12);">📱</div><div><div class="nav-dd-name">Social Media AI</div><div class="nav-dd-sub">30 days of content in 60 mins</div></div></a>
+            <a href="crm.html" class="nav-dd-item" style="background:rgba(201,148,58,0.07);border:1px solid rgba(201,148,58,0.2);"><div class="nav-dd-icon" style="background:rgba(20,184,166,0.12);">🤝</div><div><div class="nav-dd-name" style="color:var(--gold);">AI-Driven CRM</div><div class="nav-dd-sub">The CRM that works 24/7</div></div></a>
+          </div>
+        </div>
+      </div>
+      <a href="crm.html" class="gold-link">AI CRM</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact" class="nav-cta">Talk to Us →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="voice-hero">
+  <div class="voice-hero-inner">
+    <div>
+      <div class="voice-hero-eyebrow"><span class="dot"></span>Voice AI &amp; Call Automation · Hindi + English</div>
+      <h1>Never Miss a Call —<br/><em>Even at Midnight.</em></h1>
+      <p class="voice-hero-sub">AI answers every inbound call in a natural voice, qualifies the lead, books appointments, and sends follow-ups — all automatically. Handles hundreds of simultaneous calls, 24/7, at a fraction of a call centre's cost.</p>
+      <div class="voice-hero-actions">
+        <a href="index.html#contact" class="btn btn-accent">Book Free Demo →</a>
+        <a href="#callflow" class="btn btn-outline-light">Hear a Sample Call ↓</a>
+      </div>
+    </div>
+    <div class="voice-hero-right">
+      <div class="voice-hero-card">
+        <div class="voice-hero-card-label">Why Voice AI changes everything</div>
+        <div class="voice-stat-row">
+          <div class="voice-stat-icon accent">📞</div>
+          <div>
+            <div class="voice-stat-label">80% of calls resolved without a human agent</div>
+            <div class="voice-stat-sub">Qualification, booking, FAQs — handled end-to-end by AI without escalating.</div>
+          </div>
+        </div>
+        <div class="voice-stat-row">
+          <div class="voice-stat-icon green">🤖</div>
+          <div>
+            <div class="voice-stat-label">Handles 100s of simultaneous calls</div>
+            <div class="voice-stat-sub">No queue, no hold time, no missed leads — every caller answered in &lt;2 rings.</div>
+          </div>
+        </div>
+        <div class="voice-stat-row">
+          <div class="voice-stat-icon gold">💰</div>
+          <div>
+            <div class="voice-stat-label">90% cheaper than a call centre</div>
+            <div class="voice-stat-sub">AI works 24/7 at a fixed monthly cost — no salaries, no shifts, no training overhead.</div>
+          </div>
+        </div>
+        <div class="voice-hero-foot">
+          <span class="voice-badge">Hindi</span>
+          <span class="voice-badge">English</span>
+          <span class="voice-badge">Natural Voice</span>
+          <span class="voice-badge">CRM Sync</span>
+          <span class="voice-badge">24/7</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">80%</div>
+      <div class="stat-label">Calls resolved by AI<br/>without human agent</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100s</div>
+      <div class="stat-label">Simultaneous calls<br/>handled at once</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Availability — nights,<br/>weekends, holidays</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">90%</div>
+      <div class="stat-label">Cost saving vs a<br/>traditional call centre</div>
+    </div>
+  </div>
+</div>
+
+<!-- THE MISSED CALL PROBLEM -->
+<section class="section problem-section">
+  <div class="section-inner">
+    <div class="problem-grid">
+      <div>
+        <div class="eyebrow reveal">The Problem</div>
+        <h2 class="section-title reveal">Every unanswered call is a customer<br/><em>you just lost.</em></h2>
+        <p class="section-sub reveal">Most businesses are haemorrhaging leads through their phone lines and don't even know it. The numbers tell the real story.</p>
+        <div class="problem-stats">
+          <div class="problem-stat-card reveal d1">
+            <div class="problem-stat-num">62%</div>
+            <div class="problem-stat-text">of callers <strong>won't call back</strong> if they reach voicemail. They call the next business on Google.</div>
+          </div>
+          <div class="problem-stat-card reveal d2">
+            <div class="problem-stat-num">30%</div>
+            <div class="problem-stat-text">of inbound calls go unanswered at the <strong>average Indian business</strong> — even during business hours.</div>
+          </div>
+          <div class="problem-stat-card reveal d3">
+            <div class="problem-stat-num">100%</div>
+            <div class="problem-stat-text">of after-hours calls go unanswered <strong>without automation</strong> — your busiest callers are often working professionals who call at 8pm.</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="problem-contrast">
+          <div class="problem-contrast-label">With Voice AI — the difference</div>
+          <div class="problem-contrast-row">
+            <div class="problem-contrast-check">✓</div>
+            <div class="problem-contrast-text"><strong>Every call answered in &lt;2 rings</strong>, 24/7 — midnight, Sunday, Diwali, no exception.</div>
+          </div>
+          <div class="problem-contrast-row">
+            <div class="problem-contrast-check">✓</div>
+            <div class="problem-contrast-text"><strong>Caller's language detected instantly</strong> — Hindi or English, the AI responds in kind within the first sentence.</div>
+          </div>
+          <div class="problem-contrast-row">
+            <div class="problem-contrast-check">✓</div>
+            <div class="problem-contrast-text"><strong>Lead qualified on the same call</strong> — budget, timeline, requirement captured before the caller hangs up.</div>
+          </div>
+          <div class="problem-contrast-row">
+            <div class="problem-contrast-check">✓</div>
+            <div class="problem-contrast-text"><strong>Appointment booked live</strong> — calendar checked in real time, slot confirmed before call ends.</div>
+          </div>
+          <div class="problem-contrast-row">
+            <div class="problem-contrast-check">✓</div>
+            <div class="problem-contrast-text"><strong>Zero queue, zero hold music</strong> — hundreds of callers simultaneously served with no degradation in experience.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CALL FLOW -->
+<section class="section callflow-section" id="callflow">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="justify-content:center;">Call Flow</div>
+    <h2 class="section-title reveal" style="text-align:center;max-width:600px;margin:0 auto 0.75rem;">What the AI Voice Agent does<br/><em>on every single call.</em></h2>
+    <p class="section-sub reveal" style="text-align:center;margin:0 auto 3.5rem;">From the first ring to the follow-up message — here is exactly what happens, automatically, on every inbound call.</p>
+    <div class="callflow-steps">
+      <div class="callflow-step reveal">
+        <div class="callflow-num">📲</div>
+        <div class="callflow-body">
+          <div class="callflow-tag">Step 1 · Call Received</div>
+          <h4>AI answers within 2 rings — in a warm, natural voice</h4>
+          <p>The caller hears a confident, natural greeting — not a robotic IVR menu. The AI detects whether they're speaking Hindi or English and responds in the caller's language automatically. Your brand name, tone, and agent persona are fully customised.</p>
+        </div>
+      </div>
+      <div class="callflow-step reveal d1">
+        <div class="callflow-num">🎙️</div>
+        <div class="callflow-body">
+          <div class="callflow-tag">Step 2 · Lead Qualification</div>
+          <h4>AI asks your pre-set qualification questions naturally</h4>
+          <p>The AI holds a real conversation — asking what the caller is looking for, their budget, timeline, location, and any other questions you define. Responses are understood in natural language, not just keyword-matching. The lead is scored in real time as the call progresses.</p>
+        </div>
+      </div>
+      <div class="callflow-step reveal d2">
+        <div class="callflow-num">📅</div>
+        <div class="callflow-body">
+          <div class="callflow-tag">Step 3 · Appointment Booking</div>
+          <h4>Qualified leads get a slot booked — live, during the call</h4>
+          <p>If the caller meets your qualification criteria, the AI checks your calendar in real time (Google Calendar, Calendly, or your CRM) and offers available slots. The caller confirms, and the appointment is locked — all before they hang up. No callback needed.</p>
+        </div>
+      </div>
+      <div class="callflow-step reveal d3">
+        <div class="callflow-num">📝</div>
+        <div class="callflow-body">
+          <div class="callflow-tag">Step 4 · CRM Update</div>
+          <h4>Full call record logged to your CRM automatically</h4>
+          <p>Contact details, call summary, qualification score, sentiment analysis, and appointment details are written to your CRM the moment the call ends. Your team sees a briefed, scored lead — not a name and number. No manual data entry ever.</p>
+        </div>
+      </div>
+      <div class="callflow-step reveal d4">
+        <div class="callflow-num">💬</div>
+        <div class="callflow-body">
+          <div class="callflow-tag">Step 5 · Follow-Up Sent</div>
+          <h4>Confirmation WhatsApp/SMS sent automatically after the call</h4>
+          <p>Every caller receives a personalised confirmation message via WhatsApp or SMS within seconds of hanging up — appointment details, your contact number, and a reminder link. Reduces no-shows by up to 40% compared to calls alone.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">How We Set It Up</div>
+    <h2 class="section-title reveal">Live in days,<br/><em>not months.</em></h2>
+    <p class="section-sub reveal">We handle the entire setup — from call flow design to phone integration to go-live testing. Your team just starts receiving qualified, pre-briefed leads.</p>
+    <div class="how-grid">
+      <div class="how-card reveal">
+        <div class="how-num">01</div>
+        <span class="how-icon">🎙️</span>
+        <h4>Voice &amp; Script Design</h4>
+        <p>We design the full call flow, qualification questions, objection handling, and AI agent personality — tone, language, name, and conversation style — all matched to your brand and customer profile.</p>
+      </div>
+      <div class="how-card reveal d1">
+        <div class="how-num">02</div>
+        <span class="how-icon">🔌</span>
+        <h4>Phone Integration</h4>
+        <p>The AI is connected to your existing business number via VoIP — callers dial the same number they've always called. No new number to advertise. No disruption to existing marketing.</p>
+      </div>
+      <div class="how-card reveal d2">
+        <div class="how-num">03</div>
+        <span class="how-icon">🧪</span>
+        <h4>Testing &amp; QA</h4>
+        <p>We run 50+ test calls across every scenario: qualified leads, price-sensitive callers, wrong numbers, objections, mid-call language switches. Every edge case handled before you go live.</p>
+      </div>
+      <div class="how-card reveal d3">
+        <div class="how-num">04</div>
+        <span class="how-icon">📊</span>
+        <h4>Monitor &amp; Improve</h4>
+        <p>Call recordings are reviewed weekly. Scripts are updated based on real conversion data, common objections, and drop-off points. The system gets smarter every month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section included-section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">What's Included</div>
+    <h2 class="section-title reveal">Everything you need,<br/><em>nothing you don't.</em></h2>
+    <p class="section-sub reveal">Every Voice AI engagement includes the full stack — voice, booking, CRM sync, follow-up, and ongoing optimisation.</p>
+    <div class="included-grid">
+      <div class="included-card reveal">
+        <span class="included-icon">🗣️</span>
+        <h4>Natural Voice Conversations</h4>
+        <p>AI speaks in natural Hindi or English — or switches mid-call — using the latest conversational speech models. Not the robotic IVR menus of the past. Callers frequently don't realise they're speaking to AI.</p>
+      </div>
+      <div class="included-card reveal d1">
+        <span class="included-icon">📅</span>
+        <h4>Real-Time Appointment Booking</h4>
+        <p>Integrated with Google Calendar, Calendly, or your CRM. Slots are checked and confirmed live during the call — the caller leaves with a booked appointment, not a promise of a callback.</p>
+      </div>
+      <div class="included-card reveal d2">
+        <span class="included-icon">🔍</span>
+        <h4>Lead Qualification</h4>
+        <p>Custom qualification questions scored and logged on every call. Only serious, pre-qualified leads reach your human team — saving hours of time chasing unqualified enquiries.</p>
+      </div>
+      <div class="included-card reveal d3">
+        <span class="included-icon">📝</span>
+        <h4>Call Summaries &amp; Transcripts</h4>
+        <p>Every call is transcribed, summarised, and saved with a sentiment score and follow-up recommendation. Your team is fully briefed before they make a single outbound call.</p>
+      </div>
+      <div class="included-card reveal d4">
+        <span class="included-icon">💬</span>
+        <h4>Post-Call WhatsApp / SMS</h4>
+        <p>Automatic confirmation, reminder, or follow-up message sent within seconds of every call ending. Personalised with appointment details, next steps, and your contact information.</p>
+      </div>
+      <div class="included-card reveal d5">
+        <span class="included-icon">🔗</span>
+        <h4>CRM Integration</h4>
+        <p>Contact details, call outcome, qualification score, and notes synced to your CRM automatically after every call. Works with HubSpot, Zoho, our own AI CRM, or custom setups.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section industries-section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Industries</div>
+    <h2 class="section-title reveal">Built for high-call-volume<br/><em>Indian businesses.</em></h2>
+    <p class="section-sub reveal">Voice AI delivers the highest ROI in industries where inbound call volume is high, leads are valuable, and after-hours enquiries are common.</p>
+    <div class="industries-grid">
+      <div class="industry-card reveal">
+        <span class="industry-icon">🏥</span>
+        <h4>Healthcare &amp; Clinics</h4>
+        <p>Book appointments, answer FAQ, send reminders, and handle high call volume without extra front-desk staff. Patients get instant answers at any hour — even weekends and public holidays.</p>
+      </div>
+      <div class="industry-card reveal d1">
+        <span class="industry-icon">🏠</span>
+        <h4>Real Estate</h4>
+        <p>Qualify property enquiries, book site visits, and filter serious buyers from casual browsers — automatically. Captures working professionals who call at 9pm after seeing your listing.</p>
+      </div>
+      <div class="industry-card reveal d2">
+        <span class="industry-icon">🚗</span>
+        <h4>Automotive Dealerships</h4>
+        <p>Handle test drive bookings, service appointments, and new model enquiries 24/7. Never lose a high-intent buyer to a competitor because no one picked up on Saturday afternoon.</p>
+      </div>
+      <div class="industry-card reveal d3">
+        <span class="industry-icon">🎓</span>
+        <h4>EdTech &amp; Coaching</h4>
+        <p>Qualify course enquiries, book free demos, and answer admission FAQs at any hour. Peak demand often comes late evening when students and parents are free to research.</p>
+      </div>
+      <div class="industry-card reveal d4">
+        <span class="industry-icon">🏦</span>
+        <h4>BFSI &amp; Lending</h4>
+        <p>Qualify loan enquiries, verify eligibility criteria, and book advisor calls — compliantly. Scripts reviewed and approved before go-live. Sensitive data handled with full encryption.</p>
+      </div>
+      <div class="industry-card reveal d5">
+        <span class="industry-icon">🏗️</span>
+        <h4>Manufacturing &amp; B2B</h4>
+        <p>Handle RFQ calls, qualify order enquiries, and route to the right sales rep — automatically. AI captures all specifications and logs them to your CRM before passing the call on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="justify-content:center;">FAQ</div>
+    <h2 class="section-title reveal" style="text-align:center;max-width:540px;margin:0 auto 0.75rem;">Common questions,<br/><em>honest answers.</em></h2>
+    <p class="section-sub reveal" style="text-align:center;margin:0 auto 3rem;">Everything you wanted to ask before committing to AI on your phone line.</p>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Does the AI sound robotic?
+          <span class="faq-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-inner">No. Our Voice AI uses the latest text-to-speech and conversational AI models that produce natural, warm, human-sounding voices — not the robotic IVR menus of the past. The cadence, pacing, and intonation are fine-tuned for Indian English and Hindi. Callers frequently complete full conversations without realising they're speaking to AI. We also give the agent a name and personality that fits your brand.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Can it handle complex questions or objections?
+          <span class="faq-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-inner">Yes — within defined boundaries. We design the call flow to handle the most common 80% of enquiries: FAQs, pricing, availability, qualification, and booking. For complex, sensitive, or escalating queries, the AI seamlessly transfers to a human agent with a full briefing note — so the person picking up is already informed on the conversation. Nothing falls through the cracks.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Can it speak both Hindi and English?
+          <span class="faq-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-inner">Yes. The AI detects the caller's language within the first sentence and responds in kind — Hindi, English, or Hinglish (the natural code-switching most Indian callers use). It can also handle mid-conversation language switches naturally, without the caller needing to repeat themselves. Language detection is automatic and requires no input from the caller.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What happens to calls the AI can't fully handle?
+          <span class="faq-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-inner">Any call the AI can't fully resolve is flagged, fully recorded, and routed to your team with a complete summary — so the human picking up is already briefed on who called, what they want, and what was already discussed. No caller is left without a response, and no context is lost in the handoff. These edge cases are also reviewed weekly and used to improve the AI's handling for next time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="padding-top:0;">
+  <div class="section-inner">
+    <div class="voice-cta-wrap reveal">
+      <h2>Every missed call is a missed customer.<br/><em>Let AI answer them all.</em></h2>
+      <p>Book a free 30-minute demo and hear your AI voice agent live — set up for your exact business, your language, your script. No commitment. Always free.</p>
+      <div class="cta-contacts">
+        <a href="https://wa.me/918130247554" class="contact-pill" target="_blank">
+          <span class="cp-icon">💬</span>
+          <div><div class="cp-label">WhatsApp · Fastest</div><div class="cp-value">+91 81302 47554</div></div>
+        </a>
+        <a href="mailto:yogesh@adaptivemindsai.com?subject=Voice AI Demo Request" class="contact-pill">
+          <span class="cp-icon">✉️</span>
+          <div><div class="cp-label">Email</div><div class="cp-value">yogesh@adaptivemindsai.com</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <span>© 2026 Adaptive Minds AI · Voice AI &amp; Call Automation · Professional &amp; Confidential</span>
+      <a href="index.html" class="footer-back">← Back to main site</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Reveal on scroll ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+    });
+    // Open clicked if it was closed
+    if(!isOpen){
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+</script>
+</body>
+</html>

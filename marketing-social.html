@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Social Media AI — Adaptive Minds AI | Auto-Planned, Auto-Posted Content</title>
+<meta name="description" content="30 days of content planned and published in 60 minutes. AI writes in your brand voice, designs visuals, and auto-posts across Instagram, LinkedIn, X, and Facebook — every week, automatically."/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="manifest" href="site.webmanifest"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:#f5f4f0;--bg2:#edecea;--surface:#ffffff;
+  --navy:#0e1520;--navy2:#162030;
+  --gold:#c9943a;--gold-soft:rgba(201,148,58,0.10);--gold-line:rgba(201,148,58,0.28);
+  --border:#dddbd4;--border2:#c8c5bc;
+  --text:#0e1520;--text-dim:#5e5c56;--text-faint:#a8a59e;
+  --green:#1a7a50;
+  --accent:#ec4899;--accent-soft:rgba(236,72,153,0.10);--accent-line:rgba(236,72,153,0.25);
+  --r:12px;--shadow:0 1px 8px rgba(0,0,0,0.07);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;padding:0 5%;background:rgba(245,244,240,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-img{height:64px;width:auto;display:block;object-fit:contain;max-width:420px;}
+.nav-links{display:flex;align-items:center;gap:0.2rem;}
+.nav-links a{font-size:0.95rem;font-weight:500;color:var(--text-dim);text-decoration:none;padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;}
+.nav-links a:hover{color:var(--text);background:var(--bg2);}
+.nav-links a.crm-link{color:var(--gold);font-weight:700;}
+.nav-links a.crm-link:hover{background:var(--gold-soft);}
+.nav-cta{background:var(--navy)!important;color:#fff!important;font-weight:600!important;border-radius:9px!important;}
+.nav-cta:hover{background:var(--navy2)!important;transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(14,21,32,0.22)!important;}
+.nav-has-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dd-trigger{font-size:0.95rem;font-weight:500;color:var(--text-dim);padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;cursor:pointer;display:flex;align-items:center;gap:0.3rem;border:none;background:none;font-family:'Outfit',sans-serif;line-height:1;}
+.nav-dd-trigger:hover,.nav-has-dropdown:hover .nav-dd-trigger{color:var(--text);background:var(--bg2);}
+.nav-dd-chevron{transition:transform 0.22s;display:flex;align-items:center;}
+.nav-has-dropdown:hover .nav-dd-chevron{transform:rotate(180deg);}
+.nav-dd-menu{position:absolute;top:calc(100% + 14px);left:-12px;width:540px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 0.2s,transform 0.2s,visibility 0.2s;z-index:500;padding:0.6rem;}
+.nav-has-dropdown:hover .nav-dd-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dd-label{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-faint);padding:0.3rem 0.65rem 0.6rem;border-bottom:1px solid var(--border);margin-bottom:0.4rem;}
+.nav-dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.2rem;}
+.nav-dd-item{display:flex;align-items:center;gap:0.65rem;padding:0.6rem 0.7rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+.nav-dd-item:hover{background:var(--bg);}
+.nav-dd-item.current{background:var(--accent-soft);border:1px solid var(--accent-line);}
+.nav-dd-item.current .nav-dd-name{color:var(--accent);}
+.nav-dd-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+.nav-dd-name{font-size:0.83rem;font-weight:600;color:var(--navy);line-height:1.2;}
+.nav-dd-sub{font-size:0.69rem;color:var(--text-faint);margin-top:0.1rem;line-height:1.3;}
+@media(max-width:900px){.nav-has-dropdown{display:none;} .nav-links a.hide-mobile{display:none;}}
+
+/* ── Shared ── */
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-navy:hover{background:var(--navy2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,21,32,0.25);}
+.btn-accent{background:var(--accent);color:#fff;}
+.btn-accent:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 10px 28px rgba(236,72,153,0.35);}
+.btn-outline-light{background:transparent;color:rgba(255,255,255,0.7);border:1.5px solid rgba(255,255,255,0.18);}
+.btn-outline-light:hover{background:rgba(255,255,255,0.08);color:#fff;border-color:rgba(255,255,255,0.35);}
+.section{padding:6rem 5%;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.eyebrow{font-size:0.82rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1rem;}
+.eyebrow::after{content:'';height:1px;width:36px;background:var(--accent-line);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1rem;}
+.section-sub{color:var(--text-dim);font-size:0.95rem;line-height:1.75;max-width:600px;margin-bottom:2.5rem;font-weight:400;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse2{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.07s;}.d2{transition-delay:0.14s;}.d3{transition-delay:0.21s;}.d4{transition-delay:0.28s;}.d5{transition-delay:0.35s;}.d6{transition-delay:0.42s;}
+
+/* ── Hero ── */
+.sm-hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 5% 70px;position:relative;overflow:hidden;}
+.sm-hero::before{content:'';position:absolute;top:-200px;left:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(236,72,153,0.13) 0%,transparent 65%);pointer-events:none;}
+.sm-hero::after{content:'';position:absolute;bottom:-150px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(236,72,153,0.07) 0%,transparent 65%);pointer-events:none;}
+.sm-hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1;}
+.sm-hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
+.sm-hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse2 2s infinite;}
+.sm-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;line-height:1.06;letter-spacing:-0.03em;color:#fff;margin-bottom:1.4rem;animation:fadeUp 0.9s 0.08s ease both;}
+.sm-hero h1 em{font-style:italic;color:var(--accent);}
+.sm-hero-sub{font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.78;max-width:480px;margin-bottom:2.2rem;font-weight:400;animation:fadeUp 0.9s 0.14s ease both;}
+.sm-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fadeUp 0.9s 0.2s ease both;}
+.sm-hero-right{animation:fadeUp 0.9s 0.22s ease both;}
+.sm-hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2.2rem;backdrop-filter:blur(10px);}
+.sm-hero-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1.4rem;}
+.sm-stat-row{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.sm-stat-row:last-of-type{border-bottom:none;}
+.sm-stat-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
+.sm-stat-icon.pink{background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.25);}
+.sm-stat-icon.amber{background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.3);}
+.sm-stat-icon.blue{background:rgba(100,149,237,0.12);border:1px solid rgba(100,149,237,0.22);}
+.sm-stat-label{font-size:0.9rem;font-weight:600;color:#fff;line-height:1.3;margin-bottom:0.25rem;}
+.sm-stat-sub{font-size:0.82rem;color:rgba(255,255,255,0.38);line-height:1.55;}
+.sm-hero-foot{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-wrap:wrap;gap:0.45rem;}
+.sm-badge{font-size:0.7rem;font-weight:600;padding:0.22rem 0.65rem;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);}
+@media(max-width:768px){.sm-hero-inner{grid-template-columns:1fr;} .sm-hero-right{display:none;}}
+
+/* ── Stats bar ── */
+.stats-bar{background:rgba(14,21,32,0.97);border-top:1px solid rgba(236,72,153,0.12);border-bottom:1px solid rgba(236,72,153,0.12);padding:1.8rem 5%;}
+.stats-bar-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:center;}
+.stat-block{text-align:center;padding:0.5rem 1rem;border-right:1px solid rgba(255,255,255,0.07);}
+.stat-block:last-child{border-right:none;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,3rem);font-weight:500;color:var(--accent);line-height:1;margin-bottom:0.25rem;}
+.stat-label{font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;}
+@media(max-width:600px){.stats-bar-inner{grid-template-columns:1fr 1fr;} .stat-block{border-right:none;border-bottom:1px solid rgba(255,255,255,0.07);padding:1rem;} .stat-block:nth-child(odd){border-right:1px solid rgba(255,255,255,0.07);} .stat-block:last-child,.stat-block:nth-last-child(2){border-bottom:none;}}
+
+/* ── Problem Section ── */
+.problem-section{background:var(--bg);}
+.problem-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.problem-list{display:flex;flex-direction:column;gap:1.1rem;margin-bottom:2rem;}
+.problem-item{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem 1.4rem;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);}
+.problem-item-icon{width:38px;height:38px;border-radius:9px;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.problem-item-text h5{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.2rem;line-height:1.3;}
+.problem-item-text p{font-size:0.82rem;color:var(--text-dim);line-height:1.6;}
+.solution-box{background:var(--navy);border-radius:20px;padding:2.4rem;position:relative;overflow:hidden;}
+.solution-box::before{content:'';position:absolute;top:-80px;right:-80px;width:250px;height:250px;background:radial-gradient(circle,rgba(236,72,153,0.15) 0%,transparent 65%);pointer-events:none;}
+.solution-box-eyebrow{font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+.solution-box h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:500;color:#fff;letter-spacing:-0.02em;line-height:1.15;margin-bottom:1.2rem;}
+.solution-box h3 em{font-style:italic;color:var(--accent);}
+.solution-points{display:flex;flex-direction:column;gap:0.8rem;}
+.solution-point{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.86rem;color:rgba(255,255,255,0.6);line-height:1.55;}
+.solution-point-check{width:18px;height:18px;border-radius:50%;background:rgba(236,72,153,0.15);border:1px solid rgba(236,72,153,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;font-size:0.65rem;color:var(--accent);}
+@media(max-width:900px){.problem-inner{grid-template-columns:1fr;}}
+
+/* ── How It Works ── */
+.how-section{background:var(--bg2);}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
+.step-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.6rem;position:relative;transition:all 0.25s;box-shadow:var(--shadow);}
+.step-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.step-num{font-size:0.65rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+.step-num::before{content:attr(data-n);width:22px;height:22px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:800;color:var(--accent);}
+.step-icon{font-size:2rem;margin-bottom:0.9rem;display:block;}
+.step-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;line-height:1.3;}
+.step-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.68;}
+@media(max-width:900px){.steps-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.steps-grid{grid-template-columns:1fr;}}
+
+/* ── What's Included ── */
+.included-section{background:var(--bg);}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.6rem;transition:all 0.25s;box-shadow:var(--shadow);}
+.feature-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.feature-icon{font-size:2rem;margin-bottom:0.9rem;display:block;}
+.feature-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.45rem;line-height:1.3;}
+.feature-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.68;}
+@media(max-width:900px){.features-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.features-grid{grid-template-columns:1fr;}}
+
+/* ── Platform Strategy ── */
+.platform-section{background:var(--navy);padding:6rem 5%;}
+.platform-section .eyebrow{color:var(--accent);}
+.platform-section .section-title{color:#fff;}
+.platform-section .section-sub{color:rgba(255,255,255,0.45);}
+.platform-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
+.platform-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem 1.6rem;transition:all 0.25s;}
+.platform-card:hover{background:rgba(255,255,255,0.07);border-color:var(--accent-line);transform:translateY(-4px);}
+.platform-card-icon{font-size:2rem;margin-bottom:0.9rem;display:block;}
+.platform-card h4{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.9rem;line-height:1.3;}
+.platform-tag-list{display:flex;flex-direction:column;gap:0.45rem;}
+.platform-tag{font-size:0.78rem;color:rgba(255,255,255,0.45);display:flex;align-items:flex-start;gap:0.5rem;line-height:1.4;}
+.platform-tag::before{content:'→';color:var(--accent);flex-shrink:0;font-size:0.75rem;margin-top:0.05rem;}
+@media(max-width:900px){.platform-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.platform-grid{grid-template-columns:1fr;}}
+
+/* ── Who Should Use This ── */
+.who-section{background:var(--bg);}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.who-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem 1.6rem;transition:all 0.25s;box-shadow:var(--shadow);}
+.who-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.who-icon{font-size:2rem;margin-bottom:0.75rem;display:block;}
+.who-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.35rem;}
+.who-card p{font-size:0.84rem;color:var(--text-dim);line-height:1.6;}
+@media(max-width:900px){.who-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.who-grid{grid-template-columns:1fr;}}
+
+/* ── FAQ ── */
+.faq-section{background:var(--bg2);}
+.faq-list{display:flex;flex-direction:column;gap:0.75rem;max-width:780px;margin:0 auto;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.2s,box-shadow 0.2s;}
+.faq-item.open{border-color:var(--accent-line);box-shadow:0 4px 24px rgba(236,72,153,0.08);}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.3rem 1.5rem;background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-size:0.94rem;font-weight:600;color:var(--navy);text-align:left;gap:1rem;}
+.faq-q:hover{background:var(--bg);}
+.faq-toggle{width:28px;height:28px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;color:var(--text-dim);transition:all 0.2s;}
+.faq-item.open .faq-toggle{background:var(--accent-soft);border-color:var(--accent-line);color:var(--accent);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.38s ease;}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-a-inner{padding:0 1.5rem 1.4rem;font-size:0.88rem;color:var(--text-dim);line-height:1.75;border-top:1px solid var(--border);}
+.faq-a-inner p{padding-top:1rem;}
+
+/* ── CTA Section ── */
+.cta-section{padding:6rem 5%;}
+.sm-cta-wrap{background:var(--navy);border-radius:24px;padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;max-width:1280px;margin:0 auto;}
+.sm-cta-wrap::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(236,72,153,0.10) 0%,transparent 65%);pointer-events:none;}
+.sm-cta-wrap::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(236,72,153,0.07) 0%,transparent 65%);pointer-events:none;}
+.sm-cta-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.9rem;position:relative;z-index:1;}
+.sm-cta-wrap h2 em{font-style:italic;color:var(--accent);}
+.sm-cta-wrap p{color:rgba(255,255,255,0.45);font-size:0.95rem;max-width:520px;margin:0 auto 2.5rem;line-height:1.75;position:relative;z-index:1;}
+.cta-contacts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+.contact-pill{display:flex;align-items:center;gap:0.8rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.1rem 1.6rem;text-decoration:none;transition:background 0.2s;min-width:200px;}
+.contact-pill:hover{background:rgba(255,255,255,0.1);}
+.cp-icon{font-size:1.3rem;}
+.cp-label{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.2rem;}
+.cp-value{font-size:0.85rem;font-weight:600;color:#fff;}
+
+/* ── Footer ── */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:2.2rem 5%;}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+.footer-copy{font-size:0.82rem;color:rgba(255,255,255,0.3);}
+.footer-back{font-size:0.82rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s;display:flex;align-items:center;gap:0.4rem;}
+.footer-back:hover{color:rgba(255,255,255,0.7);}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ NAV ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo2.png" alt="Adaptive Minds AI" class="nav-logo-img"/>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#services">Automation</a>
+
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">
+          Marketing
+          <span class="nav-dd-chevron">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </button>
+        <div class="nav-dd-menu">
+          <div class="nav-dd-label">Marketing Services</div>
+          <div class="nav-dd-grid">
+            <a href="marketing-whatsapp.html" class="nav-dd-item">
+              <div class="nav-dd-icon">💬</div>
+              <div>
+                <div class="nav-dd-name">WhatsApp Marketing</div>
+                <div class="nav-dd-sub">Official Meta API broadcasts</div>
+              </div>
+            </a>
+            <a href="marketing-linkedin.html" class="nav-dd-item">
+              <div class="nav-dd-icon">💼</div>
+              <div>
+                <div class="nav-dd-name">LinkedIn Outreach</div>
+                <div class="nav-dd-sub">AI-powered B2B prospecting</div>
+              </div>
+            </a>
+            <a href="marketing-google-ads.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📊</div>
+              <div>
+                <div class="nav-dd-name">Google &amp; Meta Ads</div>
+                <div class="nav-dd-sub">Performance ad campaigns</div>
+              </div>
+            </a>
+            <a href="marketing-email.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📧</div>
+              <div>
+                <div class="nav-dd-name">Email Drip Automation</div>
+                <div class="nav-dd-sub">Nurture sequences that convert</div>
+              </div>
+            </a>
+            <a href="marketing-voice.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📞</div>
+              <div>
+                <div class="nav-dd-name">Voice AI &amp; Call Automation</div>
+                <div class="nav-dd-sub">AI-driven outbound calling</div>
+              </div>
+            </a>
+            <a href="marketing-lead-gen.html" class="nav-dd-item">
+              <div class="nav-dd-icon">🎯</div>
+              <div>
+                <div class="nav-dd-name">AI Lead Generation</div>
+                <div class="nav-dd-sub">Qualified leads, on demand</div>
+              </div>
+            </a>
+            <a href="marketing-social.html" class="nav-dd-item current">
+              <div class="nav-dd-icon">📱</div>
+              <div>
+                <div class="nav-dd-name">Social Media AI</div>
+                <div class="nav-dd-sub">Content, scheduling, analytics</div>
+              </div>
+            </a>
+            <a href="crm.html" class="nav-dd-item">
+              <div class="nav-dd-icon">🤝</div>
+              <div>
+                <div class="nav-dd-name">AI-Driven CRM</div>
+                <div class="nav-dd-sub">The CRM that works for you</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a href="crm.html" class="crm-link">AI CRM</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact" class="nav-cta">Talk to Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════ HERO ═══ -->
+<section class="sm-hero">
+  <div class="sm-hero-inner">
+    <!-- Left -->
+    <div class="sm-hero-left">
+      <div class="sm-hero-eyebrow">
+        <span class="dot"></span>
+        Social Media AI &middot; Auto-Planned, Auto-Posted
+      </div>
+      <h1>30 Days of Content<br>in <em>60 Minutes.</em></h1>
+      <p class="sm-hero-sub">AI plans your content calendar, writes posts in your brand voice, designs visuals, and publishes on schedule across Instagram, LinkedIn, X, and Facebook — every week, automatically, with zero daily effort from your team.</p>
+      <div class="sm-hero-actions">
+        <a href="https://wa.me/918130247554" class="btn btn-accent" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Book Free Demo
+        </a>
+        <a href="#included" class="btn btn-outline-light">See What We Post ↓</a>
+      </div>
+    </div>
+    <!-- Right card -->
+    <div class="sm-hero-right">
+      <div class="sm-hero-card">
+        <div class="sm-hero-card-label">What You Get Every Month</div>
+        <div class="sm-stat-row">
+          <div class="sm-stat-icon pink">📅</div>
+          <div>
+            <div class="sm-stat-label">30 days of content planned &amp; scheduled in one session</div>
+            <div class="sm-stat-sub">You review once, AI posts all month</div>
+          </div>
+        </div>
+        <div class="sm-stat-row">
+          <div class="sm-stat-icon amber">🎨</div>
+          <div>
+            <div class="sm-stat-label">Platform-optimised posts for each channel</div>
+            <div class="sm-stat-sub">Different format, tone, and length per platform</div>
+          </div>
+        </div>
+        <div class="sm-stat-row">
+          <div class="sm-stat-icon blue">📈</div>
+          <div>
+            <div class="sm-stat-label">Consistent posting = 3× more reach</div>
+            <div class="sm-stat-sub">Algorithms reward consistency</div>
+          </div>
+        </div>
+        <div class="sm-hero-foot">
+          <span class="sm-badge">Instagram</span>
+          <span class="sm-badge">LinkedIn</span>
+          <span class="sm-badge">X (Twitter)</span>
+          <span class="sm-badge">Facebook</span>
+          <span class="sm-badge">Auto-Scheduled</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ STATS BAR ═══ -->
+<section class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-block">
+      <div class="stat-num">30 days</div>
+      <div class="stat-label">Content in 60 mins</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Platforms simultaneously</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">3×</div>
+      <div class="stat-label">More reach vs inconsistent posting</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Daily effort after setup</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ PROBLEM ═══ -->
+<section class="problem-section section reveal">
+  <div class="section-inner">
+    <div class="problem-inner">
+      <!-- Left: problem -->
+      <div>
+        <div class="eyebrow">The Root Cause</div>
+        <h2 class="section-title">The Social Media<br>Consistency Problem</h2>
+        <p class="section-sub">Most businesses start strong, then fade. Here is exactly why social media fails — and why it never has to.</p>
+
+        <div class="problem-list">
+          <div class="problem-item reveal d1">
+            <div class="problem-item-icon">📉</div>
+            <div class="problem-item-text">
+              <h5>Businesses stop posting after 3 weeks</h5>
+              <p>The initial burst of enthusiasm runs out — content creation is harder than it looks and it shows on every timeline.</p>
+            </div>
+          </div>
+          <div class="problem-item reveal d2">
+            <div class="problem-item-icon">⚡</div>
+            <div class="problem-item-text">
+              <h5>Inconsistency tanks algorithmic reach</h5>
+              <p>Instagram, LinkedIn, and Facebook actively penalise accounts that go quiet. Sporadic posting means shrinking reach — even for your existing followers.</p>
+            </div>
+          </div>
+          <div class="problem-item reveal d3">
+            <div class="problem-item-icon">⏱️</div>
+            <div class="problem-item-text">
+              <h5>Manual content creation takes 3–5 hours per week</h5>
+              <p>Ideation, writing, designing, scheduling — it is a part-time job that pulls founders and marketers away from actual business work.</p>
+            </div>
+          </div>
+          <div class="problem-item reveal d4">
+            <div class="problem-item-icon">🗣️</div>
+            <div class="problem-item-text">
+              <h5>Brand voice drifts across platforms and people</h5>
+              <p>Different writers, different days, different moods — your brand sounds like three different companies across three platforms.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: solution -->
+      <div class="reveal d2">
+        <div class="solution-box">
+          <div class="solution-box-eyebrow">The Fix</div>
+          <h3>AI generates, schedules, and posts everything — <em>automatically.</em></h3>
+          <div class="solution-points">
+            <div class="solution-point">
+              <div class="solution-point-check">✓</div>
+              Brand voice stays consistent across all four platforms — every post sounds like you, not generic AI
+            </div>
+            <div class="solution-point">
+              <div class="solution-point-check">✓</div>
+              Posting schedule never breaks — 30 days planned and queued in one 60-minute session each month
+            </div>
+            <div class="solution-point">
+              <div class="solution-point-check">✓</div>
+              Each platform gets a different format, tone, and length — not copy-pasted content
+            </div>
+            <div class="solution-point">
+              <div class="solution-point-check">✓</div>
+              Your team focuses on the business — the social presence runs itself in the background
+            </div>
+            <div class="solution-point">
+              <div class="solution-point-check">✓</div>
+              Performance data feeds back into next month's plan — reach improves over time automatically
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ HOW IT WORKS ═══ -->
+<section class="how-section section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">Our Process</div>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Four focused steps from zero to a fully automated social presence — handled entirely by our team, reviewed and approved by you.</p>
+
+    <div class="steps-grid">
+      <div class="step-card reveal d1">
+        <div class="step-num" data-n="1">Step 1</div>
+        <div class="step-icon">🎨</div>
+        <h4>Brand Voice Audit</h4>
+        <p>We analyse your existing content, brand guidelines, tone, and audience to build an AI model of your brand's unique voice. Every post sounds like you — not AI.</p>
+      </div>
+      <div class="step-card reveal d2">
+        <div class="step-num" data-n="2">Step 2</div>
+        <div class="step-icon">📅</div>
+        <h4>Monthly Content Planning</h4>
+        <p>AI generates a 30-day content calendar: topics, post formats, hashtag strategy, and best posting times — tailored to your industry and audience. You review and approve.</p>
+      </div>
+      <div class="step-card reveal d3">
+        <div class="step-num" data-n="3">Step 3</div>
+        <div class="step-icon">✍️</div>
+        <h4>AI Content Creation</h4>
+        <p>Posts written for each platform with the right format: short-form for Instagram, professional for LinkedIn, punchy for X, engaging for Facebook. Different length and tone per platform.</p>
+      </div>
+      <div class="step-card reveal d4">
+        <div class="step-num" data-n="4">Step 4</div>
+        <div class="step-icon">🚀</div>
+        <h4>Auto-Scheduling &amp; Publishing</h4>
+        <p>Content scheduled and published automatically at optimal times. Performance data feeds back into next month's plan to improve reach over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ WHAT'S INCLUDED ═══ -->
+<section class="included-section section reveal" id="included">
+  <div class="section-inner">
+    <div class="eyebrow">Everything We Handle</div>
+    <h2 class="section-title">What's Included</h2>
+    <p class="section-sub">Every month is end-to-end. You approve once — we handle content, visuals, scheduling, publishing, and analytics.</p>
+
+    <div class="features-grid">
+      <div class="feature-card reveal d1">
+        <span class="feature-icon">✍️</span>
+        <h4>AI Copywriting</h4>
+        <p>Platform-specific post copy written in your brand voice: captions, hooks, CTAs, hashtags — for every platform, every post, every month.</p>
+      </div>
+      <div class="feature-card reveal d2">
+        <span class="feature-icon">🖼️</span>
+        <h4>Visual Content Brief</h4>
+        <p>Detailed design brief for every post. If you have a designer or use Canva, we brief them precisely. If you need a design resource, we coordinate that as an add-on.</p>
+      </div>
+      <div class="feature-card reveal d3">
+        <span class="feature-icon">📅</span>
+        <h4>Monthly Content Calendar</h4>
+        <p>Full 30-day calendar with post topics, formats, and platform assignments — shared with you for review before anything goes live.</p>
+      </div>
+      <div class="feature-card reveal d1">
+        <span class="feature-icon">🔄</span>
+        <h4>Auto-Publishing</h4>
+        <p>Content scheduled and published at algorithm-optimal times across all four platforms — no manual posting ever. Set it once, it runs all month.</p>
+      </div>
+      <div class="feature-card reveal d2">
+        <span class="feature-icon">📊</span>
+        <h4>Monthly Analytics Report</h4>
+        <p>Reach, engagement rate, follower growth, and top-performing content — reviewed monthly and fed back into next month's strategy to compound results.</p>
+      </div>
+      <div class="feature-card reveal d3">
+        <span class="feature-icon">🔁</span>
+        <h4>Content Repurposing</h4>
+        <p>Long-form content — blogs, videos, podcasts — broken into 10+ platform-ready social posts automatically. Get more from everything you already create.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ PLATFORM STRATEGY ═══ -->
+<section class="platform-section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">Platform Intelligence</div>
+    <h2 class="section-title">Platform-Specific Strategy</h2>
+    <p class="section-sub">One message, four formats. Each platform has its own algorithm, audience behaviour, and content style — we optimise for all of them simultaneously.</p>
+
+    <div class="platform-grid">
+      <div class="platform-card reveal d1">
+        <div class="platform-card-icon">📸</div>
+        <h4>Instagram</h4>
+        <div class="platform-tag-list">
+          <div class="platform-tag">Reels hooks engineered for the Explore page</div>
+          <div class="platform-tag">Carousel storytelling that drives saves and shares</div>
+          <div class="platform-tag">Story sequences to warm up cold audiences</div>
+          <div class="platform-tag">Hashtag research updated monthly per niche</div>
+          <div class="platform-tag">Explore page optimisation for organic discovery</div>
+        </div>
+      </div>
+      <div class="platform-card reveal d2">
+        <div class="platform-card-icon">💼</div>
+        <h4>LinkedIn</h4>
+        <div class="platform-tag-list">
+          <div class="platform-tag">Thought leadership posts that build authority</div>
+          <div class="platform-tag">Case study formatting that generates inbound</div>
+          <div class="platform-tag">Engagement-bait questions for comment volume</div>
+          <div class="platform-tag">Employee advocacy content and templates</div>
+          <div class="platform-tag">Long-form posts structured for algorithm reach</div>
+        </div>
+      </div>
+      <div class="platform-card reveal d3">
+        <div class="platform-card-icon">🐦</div>
+        <h4>X (Twitter)</h4>
+        <div class="platform-tag-list">
+          <div class="platform-tag">Thread strategy optimised for shares and follows</div>
+          <div class="platform-tag">Trending topic hooks that drive impressions</div>
+          <div class="platform-tag">Quote tweet strategy for community engagement</div>
+          <div class="platform-tag">Viral content structure based on top performers</div>
+          <div class="platform-tag">Concise, punchy copy tuned for the feed</div>
+        </div>
+      </div>
+      <div class="platform-card reveal d4">
+        <div class="platform-card-icon">📘</div>
+        <h4>Facebook</h4>
+        <div class="platform-tag-list">
+          <div class="platform-tag">Community posts that spark conversation</div>
+          <div class="platform-tag">Video captions optimised for watch time</div>
+          <div class="platform-tag">Event promotion and local reach content</div>
+          <div class="platform-tag">Group engagement strategy for warm audiences</div>
+          <div class="platform-tag">Local reach optimisation for location-based brands</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ WHO SHOULD USE THIS ═══ -->
+<section class="who-section section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">Ideal Fit</div>
+    <h2 class="section-title">Who Should Use This</h2>
+    <p class="section-sub">Social Media AI is built for businesses where consistent, professional content matters — and where your team's time is better spent elsewhere.</p>
+
+    <div class="who-grid">
+      <div class="who-card reveal d1">
+        <span class="who-icon">🛒</span>
+        <h4>E-commerce Brands</h4>
+        <p>Product launches, customer stories, seasonal campaigns, and UGC repurposing — consistent content that drives traffic and keeps your brand top of mind.</p>
+      </div>
+      <div class="who-card reveal d2">
+        <span class="who-icon">🏢</span>
+        <h4>B2B Service Firms</h4>
+        <p>Thought leadership, client success stories, and team culture content — build authority and generate inbound enquiries without writing a single post yourself.</p>
+      </div>
+      <div class="who-card reveal d3">
+        <span class="who-icon">🎓</span>
+        <h4>EdTech &amp; Coaching</h4>
+        <p>Curriculum teases, student success stories, and live session announcements — keep your audience engaged between cohorts and grow enrolment organically.</p>
+      </div>
+      <div class="who-card reveal d1">
+        <span class="who-icon">🏥</span>
+        <h4>Healthcare &amp; Wellness</h4>
+        <p>Health tips, doctor insights, patient education, and trust-building content — build credibility at scale while staying on the right side of compliance.</p>
+      </div>
+      <div class="who-card reveal d2">
+        <span class="who-icon">🏗️</span>
+        <h4>Real Estate</h4>
+        <p>Property showcases, market insights, agent spotlights, and virtual tour posts — maintain a premium digital presence that reflects the quality of your listings.</p>
+      </div>
+      <div class="who-card reveal d3">
+        <span class="who-icon">🏪</span>
+        <h4>Local Businesses &amp; Restaurants</h4>
+        <p>Daily specials, behind-the-scenes, community involvement, and local event coverage — stay relevant and visible in your neighbourhood every single day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FAQ ═══ -->
+<section class="faq-section section reveal">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <div class="eyebrow" style="justify-content:center;">Common Questions</div>
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Frequently Asked</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Do I need to provide the content ideas?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner"><p>No. AI generates all topics based on your industry, audience, and business goals. You review the monthly calendar once and approve or tweak — that's it. There is no ongoing brief required from your team once the initial brand voice audit is complete.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Who designs the visuals?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner"><p>We provide detailed design briefs for every post — exact dimensions, style direction, copy overlays, and visual references. If you have a designer or use Canva, we brief them directly. If you need a design resource, we can coordinate that as an add-on to your plan. Nothing goes live without a polished visual attached.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Can the AI write in our specific brand voice?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner"><p>Yes. We do a brand voice audit before we start — analysing your existing content, brand guidelines, tone preferences, and any do-not-use language. The AI model is trained specifically on your brand. Posts sound like your best writer had a very productive day — not like something that came out of a generic AI tool.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          What if we don't like a post?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner"><p>You review the full monthly calendar before anything is published. You can edit, reject, or request a rewrite on any individual post — we get it right before it goes live. Nothing is ever published without your explicit sign-off on the monthly calendar.</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CTA ═══ -->
+<section class="cta-section reveal">
+  <div class="sm-cta-wrap">
+    <h2>Post every day, on every platform —<br><em>without touching it yourself.</em></h2>
+    <p>Book a free 30-minute demo. We'll show you exactly what your brand's first month of AI-planned content looks like — no commitment required.</p>
+    <div class="cta-contacts">
+      <a href="https://wa.me/918130247554" class="contact-pill" target="_blank" rel="noopener">
+        <span class="cp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </span>
+        <div>
+          <div class="cp-label">WhatsApp</div>
+          <div class="cp-value">+91 81302 47554</div>
+        </div>
+      </a>
+      <a href="mailto:yogesh@adaptivemindsai.com" class="contact-pill">
+        <span class="cp-icon">✉️</span>
+        <div>
+          <div class="cp-label">Email</div>
+          <div class="cp-value">yogesh@adaptivemindsai.com</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Adaptive Minds AI &middot; All rights reserved.</span>
+    <a href="index.html" class="footer-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to main site
+    </a>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════ JS ═══ -->
+<script>
+/* ── Reveal on scroll ── */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ── FAQ toggle ── */
+(function(){
+  var qs = document.querySelectorAll('.faq-q');
+  qs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var toggle = btn.querySelector('.faq-toggle');
+      var isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+        openItem.classList.remove('open');
+        var t = openItem.querySelector('.faq-toggle');
+        if(t) t.textContent = '+';
+      });
+      // Open clicked if it was closed
+      if(!isOpen){
+        item.classList.add('open');
+        if(toggle) toggle.textContent = '×';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

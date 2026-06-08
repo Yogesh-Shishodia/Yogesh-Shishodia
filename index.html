@@ -550,8 +550,25 @@ body.modal-open{overflow:hidden;}
 .mkt-card h3{font-family:'Outfit',sans-serif;font-size:0.84rem;font-weight:400;color:var(--text-dim);margin-bottom:0.5rem;line-height:1.45;letter-spacing:0;}
 .mkt-card p{font-size:0.88rem;color:var(--text-dim);line-height:1.65;margin-bottom:1rem;flex:1;}
 .mkt-proof{font-size:0.77rem;font-weight:600;color:var(--text-dim);display:flex;align-items:center;gap:0.4rem;margin-bottom:1.2rem;padding:0.4rem 0.75rem;background:var(--bg2);border-radius:8px;border:1px solid var(--border);}
-.mkt-btn{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;font-weight:700;color:var(--navy);background:transparent;border:1.5px solid var(--border2);border-radius:8px;padding:0.5rem 1rem;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;align-self:flex-start;margin-top:auto;}
+.mkt-btn{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;font-weight:700;color:var(--navy);background:transparent;border:1.5px solid var(--border2);border-radius:8px;padding:0.5rem 1rem;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;align-self:flex-start;margin-top:auto;text-decoration:none;}
 .mkt-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+/* ── Nav Dropdown ── */
+.nav-has-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dd-trigger{font-size:0.95rem;font-weight:500;color:var(--text-dim);padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;cursor:pointer;display:flex;align-items:center;gap:0.3rem;border:none;background:none;font-family:'Outfit',sans-serif;line-height:1;}
+.nav-dd-trigger:hover,.nav-has-dropdown:hover .nav-dd-trigger{color:var(--text);background:var(--bg2);}
+.nav-dd-chevron{transition:transform 0.22s;display:flex;align-items:center;}
+.nav-has-dropdown:hover .nav-dd-chevron{transform:rotate(180deg);}
+.nav-dd-menu{position:absolute;top:calc(100% + 14px);left:-12px;width:540px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.12),0 2px 8px rgba(0,0,0,0.06);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 0.2s,transform 0.2s,visibility 0.2s;z-index:500;padding:0.6rem;}
+.nav-has-dropdown:hover .nav-dd-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dd-label{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-faint);padding:0.3rem 0.65rem 0.6rem;border-bottom:1px solid var(--border);margin-bottom:0.4rem;}
+.nav-dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.2rem;}
+.nav-dd-item{display:flex;align-items:center;gap:0.65rem;padding:0.6rem 0.7rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+.nav-dd-item:hover{background:var(--bg);}
+.nav-dd-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+.nav-dd-name{font-size:0.83rem;font-weight:600;color:var(--navy);line-height:1.2;}
+.nav-dd-sub{font-size:0.69rem;color:var(--text-faint);margin-top:0.1rem;line-height:1.3;}
+@media(max-width:768px){.nav-has-dropdown{display:none;}}
 .mkt-section-note{font-size:0.80rem;color:var(--text-faint);text-align:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);}
 @media(max-width:768px){.mkt-grid{grid-template-columns:1fr;}}
 
@@ -566,7 +583,24 @@ body.modal-open{overflow:hidden;}
       <span class="nav-brand-text">Adaptive Minds AI</span>
     </a>
     <div class="nav-links">
-      <a href="#services">Automation</a><a href="#marketing">Marketing</a><a href="crm.html" style="color:var(--gold);font-weight:700;">AI CRM</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a>
+      <a href="#services">Automation</a>
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">Marketing <span class="nav-dd-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nav-dd-menu">
+          <div class="nav-dd-label">Marketing Services</div>
+          <div class="nav-dd-grid">
+            <a href="marketing-whatsapp.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(37,211,102,0.12);">💬</div><div><div class="nav-dd-name">WhatsApp Marketing</div><div class="nav-dd-sub">95%+ open rate broadcasts</div></div></a>
+            <a href="marketing-linkedin.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(0,119,181,0.12);">💼</div><div><div class="nav-dd-name">LinkedIn Outreach</div><div class="nav-dd-sub">Automated B2B lead gen</div></div></a>
+            <a href="marketing-google-ads.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(66,133,244,0.12);">📊</div><div><div class="nav-dd-name">Google &amp; Meta Ads</div><div class="nav-dd-sub">AI-managed, self-optimising</div></div></a>
+            <a href="marketing-email.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(245,158,11,0.12);">📧</div><div><div class="nav-dd-name">Email Drip Automation</div><div class="nav-dd-sub">Nurture every lead, always</div></div></a>
+            <a href="marketing-voice.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(139,92,246,0.12);">📞</div><div><div class="nav-dd-name">Voice AI &amp; Call Automation</div><div class="nav-dd-sub">Never miss a call</div></div></a>
+            <a href="marketing-lead-gen.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(239,68,68,0.12);">🎯</div><div><div class="nav-dd-name">AI Lead Generation</div><div class="nav-dd-sub">Full pipeline on autopilot</div></div></a>
+            <a href="marketing-social.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(236,72,153,0.12);">📱</div><div><div class="nav-dd-name">Social Media AI</div><div class="nav-dd-sub">30 days of content in 60 mins</div></div></a>
+            <a href="crm.html" class="nav-dd-item"><div class="nav-dd-icon" style="background:rgba(20,184,166,0.12);">🤝</div><div><div class="nav-dd-name">AI-Driven CRM</div><div class="nav-dd-sub">The CRM that works 24/7</div></div></a>
+          </div>
+        </div>
+      </div>
+      <a href="crm.html" style="color:var(--gold);font-weight:700;">AI CRM</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a>
       <a href="#contact" class="nav-cta">Talk to Us →</a>
     </div>
   </div>
@@ -672,7 +706,7 @@ body.modal-open{overflow:hidden;}
         <h3>Reach 95% of Your Audience — Guaranteed</h3>
         <p>Official Meta WhatsApp API broadcasts with professional copywriting, rich media, and CTA buttons. Your message lands in the inbox people actually check — not a spam folder.</p>
         <div class="mkt-proof">📈 95%+ open rate vs ~20% for email</div>
-        <button class="mkt-btn">Explore Service →</button>
+        <a href="marketing-whatsapp.html" class="mkt-btn">Explore Service →</a>
       </div>
 
       <div class="mkt-card reveal d1" data-mkt="11" style="--mkt-accent:#0077b5;">
@@ -681,7 +715,7 @@ body.modal-open{overflow:hidden;}
         <h3>Automated B2B Lead Generation on LinkedIn</h3>
         <p>AI personalizes connection requests and message sequences for every prospect based on their profile, company, and role. You wake up to booked meetings — not manual prospecting.</p>
         <div class="mkt-proof">🤝 30%+ connection acceptance rate</div>
-        <button class="mkt-btn">Explore Service →</button>
+        <a href="marketing-linkedin.html" class="mkt-btn">Explore Service →</a>
       </div>
 
       <div class="mkt-card reveal d2" data-mkt="12" style="--mkt-accent:#4285f4;">
@@ -690,7 +724,7 @@ body.modal-open{overflow:hidden;}
         <h3>AI-Managed Ads That Optimise Themselves</h3>
         <p>AI writes ad copy, designs creatives, manages bids, and kills underperformers automatically. Your ad budget always flows to what works — without daily manual intervention.</p>
         <div class="mkt-proof">📊 Average 3× ROAS improvement</div>
-        <button class="mkt-btn">Explore Service →</button>
+        <a href="marketing-google-ads.html" class="mkt-btn">Explore Service →</a>
       </div>
 
       <div class="mkt-card reveal d3" data-mkt="13" style="--mkt-accent:#f59e0b;">
@@ -699,7 +733,7 @@ body.modal-open{overflow:hidden;}
         <h3>Nurture Every Lead Without Lifting a Finger</h3>
         <p>AI-written email sequences that trigger on real behaviour — sign-up, demo request, abandoned cart, inactivity — and guide each lead through your funnel automatically, forever.</p>
         <div class="mkt-proof">⚡ 4× higher engagement than broadcast emails</div>
-        <button class="mkt-btn">Explore Service →</button>
+        <a href="marketing-email.html" class="mkt-btn">Explore Service →</a>
       </div>
 
       <div class="mkt-card reveal" data-mkt="14" style="--mkt-accent:#8b5cf6;">
@@ -708,7 +742,7 @@ body.modal-open{overflow:hidden;}
         <h3>Never Miss a Call — Even at Midnight</h3>
         <p>AI answers inbound calls, qualifies leads, books appointments, and sends follow-ups in a natural voice. Handles hundreds of calls simultaneously, 24/7 — at a fraction of a call centre cost.</p>
         <div class="mkt-proof">📞 80% of calls resolved without a human agent</div>
-        <button class="mkt-btn">Explore Service →</button>
+        <a href="marketing-voice.html" class="mkt-btn">Explore Service →</a>
       </div>
 
       <div class="mkt-card reveal d1" data-mkt="15" style="--mkt-accent:#ef4444;">
@@ -717,7 +751,7 @@ body.modal-open{overflow:hidden;}
         <h3>A Full Pipeline of Qualified Leads — On Autopilot</h3>
         <p>AI identifies your ideal customers across LinkedIn, the web, and databases — enriches their profiles, scores them by fit, and launches personalised multi-channel outreach automatically.</p>
         <div class="mkt-proof">🚀 5–10× more pipeline, ICP-matched only</div>
-        <button class="mkt-btn">Explore Service →</button>
+        <a href="marketing-lead-gen.html" class="mkt-btn">Explore Service →</a>
       </div>
 
       <div class="mkt-card reveal d2" data-mkt="16" style="--mkt-accent:#ec4899;">
@@ -726,7 +760,7 @@ body.modal-open{overflow:hidden;}
         <h3>30 Days of Content in 60 Minutes — Auto-Posted</h3>
         <p>AI plans your content calendar, writes posts in your brand voice, and publishes on schedule across Instagram, LinkedIn, X, and Facebook — with zero daily effort from your team.</p>
         <div class="mkt-proof">🗓️ Full month planned, scheduled &amp; posted automatically</div>
-        <button class="mkt-btn">Explore Service →</button>
+        <a href="marketing-social.html" class="mkt-btn">Explore Service →</a>
       </div>
 
       <div class="mkt-card reveal d3" data-mkt="17" style="--mkt-accent:#14b8a6;">
@@ -2098,9 +2132,6 @@ function send(text){
     el.addEventListener('click',()=>openModal(id));
   });
 
-  document.querySelectorAll('.mkt-card[data-mkt]').forEach(el=>{
-    el.addEventListener('click',()=>openModal(el.dataset.mkt));
-  });
 })();
 </script>
 </body>
