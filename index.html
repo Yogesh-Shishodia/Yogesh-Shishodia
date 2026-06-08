@@ -555,42 +555,6 @@ body.modal-open{overflow:hidden;}
 .mkt-section-note{font-size:0.80rem;color:var(--text-faint);text-align:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);}
 @media(max-width:768px){.mkt-grid{grid-template-columns:1fr;}}
 
-/* ═══════════════════════════════
-   CRM PRICING SECTION
-═══════════════════════════════ */
-.crm-plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;align-items:start;}
-.crm-plan{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2rem 1.6rem;display:flex;flex-direction:column;gap:0;position:relative;transition:all 0.25s;box-shadow:var(--shadow);}
-.crm-plan:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
-.crm-plan-featured{border:2px solid var(--gold);background:linear-gradient(160deg,#fffdf7 0%,#fff 100%);box-shadow:0 8px 40px rgba(201,148,58,0.18);}
-.crm-plan-header{margin-bottom:1.2rem;}
-.crm-plan-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);margin-bottom:0.2rem;}
-.crm-plan-who{font-size:0.75rem;color:var(--text-faint);margin-bottom:0.9rem;line-height:1.4;}
-.crm-plan-price{font-size:2.2rem;font-weight:800;color:var(--navy);line-height:1;font-family:'Outfit',sans-serif;}
-.crm-plan-price span{font-size:0.95rem;font-weight:500;color:var(--text-faint);}
-.crm-plan-annual{font-size:0.75rem;font-weight:600;color:var(--gold);margin-top:0.3rem;}
-.crm-plan-setup{font-size:0.78rem;color:var(--text-dim);background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.85rem;margin-bottom:1.2rem;line-height:1.55;}
-.crm-plan-features{list-style:none;display:flex;flex-direction:column;gap:0.45rem;margin-bottom:1.6rem;flex:1;}
-.crm-plan-features li{font-size:0.83rem;color:var(--text-dim);display:flex;gap:0.5rem;align-items:flex-start;line-height:1.4;}
-.crm-plan-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
-.crm-plan-featured .crm-plan-features li::before{color:var(--gold);}
-.crm-plan-cta{display:block;text-align:center;background:var(--navy);color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.85rem;padding:0.8rem;border-radius:10px;text-decoration:none;transition:all 0.2s;margin-top:auto;}
-.crm-plan-cta:hover{background:var(--navy2);transform:translateY(-1px);}
-.crm-plan-cta-featured{background:var(--gold);}
-.crm-plan-cta-featured:hover{background:#b8832f;}
-
-.crm-ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-.crm-ai-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.6rem;transition:all 0.25s;}
-.crm-ai-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
-.crm-ai-icon{font-size:1.8rem;margin-bottom:0.8rem;display:block;}
-.crm-ai-card h4{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
-.crm-ai-card p{font-size:0.84rem;color:var(--text-dim);line-height:1.65;}
-
-@media(max-width:1024px){.crm-plans-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:768px){
-  .crm-plans-grid{grid-template-columns:1fr;}
-  .crm-ai-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:480px){.crm-ai-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -602,7 +566,7 @@ body.modal-open{overflow:hidden;}
       <span class="nav-brand-text">Adaptive Minds AI</span>
     </a>
     <div class="nav-links">
-      <a href="#services">Automation</a><a href="#marketing">Marketing</a><a href="#crm" style="color:var(--gold);font-weight:700;">AI CRM</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a>
+      <a href="#services">Automation</a><a href="#marketing">Marketing</a><a href="crm.html" style="color:var(--gold);font-weight:700;">AI CRM</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a>
       <a href="#contact" class="nav-cta">Talk to Us →</a>
     </div>
   </div>
@@ -771,7 +735,7 @@ body.modal-open{overflow:hidden;}
         <h3>Our Own AI CRM — Built &amp; Sold By Us</h3>
         <p>We don't just set up third-party CRMs — we built our own. WhatsApp + Gmail + IndiaMart connected, AI captures leads, scores them, and sends follow-ups 24/7. Set up in 5 days.</p>
         <div class="mkt-proof">🎯 MVP live · Plans from ₹5,000/mo · Setup in 5 days</div>
-        <a href="#crm" class="mkt-btn" style="text-decoration:none;">See Plans &amp; Pricing →</a>
+        <a href="crm.html" class="mkt-btn" style="text-decoration:none;">See Plans &amp; Pricing →</a>
       </div>
 
     </div>
@@ -830,7 +794,7 @@ body.modal-open{overflow:hidden;}
             <span class="proj-tag">WhatsApp</span><span class="proj-tag">Gmail</span><span class="proj-tag">IndiaMart</span><span class="proj-tag">Lead Scoring</span><span class="proj-tag">Auto Follow-Up</span><span class="proj-tag">DPDP Compliant</span>
           </div>
           <div class="proj-footer">
-            <a href="#crm" class="proj-cta white-cta">See Plans &amp; Pricing →</a>
+            <a href="crm.html" class="proj-cta white-cta">See Plans &amp; Pricing →</a>
             <a href="https://wa.me/918130247554" class="proj-cta white-cta" target="_blank">Book Demo →</a>
           </div>
         </div>
@@ -878,183 +842,6 @@ body.modal-open{overflow:hidden;}
     </div>
   </div>
 </section>
-
-<!-- ════════════════════════════════
-     ADAPTIVE MINDS CRM SECTION
-════════════════════════════════ -->
-<section class="section alt-bg" id="crm">
-  <div class="section-inner">
-    <div style="display:inline-flex;align-items:center;gap:0.55rem;background:rgba(201,148,58,0.10);border:1px solid rgba(201,148,58,0.35);padding:0.3rem 1rem 0.3rem 0.7rem;border-radius:999px;margin-bottom:1.5rem;" class="reveal">
-      <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;animation:pulse2 2s infinite;"></span>
-      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Our Own Product — Live MVP</span>
-    </div>
-    <h2 class="section-title reveal" style="font-size:clamp(2.2rem,4vw,3.5rem);">The AI CRM that works<br/><em>while you sleep.</em></h2>
-    <p class="section-sub reveal">We built our own managed CRM — connected to WhatsApp, Gmail &amp; IndiaMart — where AI automatically captures leads and sends follow-ups. Set up in 5 days. You don't install anything.</p>
-
-    <!-- Annual billing note -->
-    <div class="reveal" style="background:rgba(201,148,58,0.08);border:1px solid rgba(201,148,58,0.28);border-radius:12px;padding:0.85rem 1.4rem;margin-bottom:3rem;display:inline-block;font-size:0.88rem;color:var(--text-dim);"><strong style="color:var(--gold);">Save 20% with annual billing.</strong> All prices below are monthly. Switch to annual and e.g. Launchpad drops from ₹12,000 → ₹9,600/mo.</div>
-
-    <!-- Pricing grid -->
-    <div class="crm-plans-grid reveal">
-
-      <!-- Solo -->
-      <div class="crm-plan">
-        <div class="crm-plan-header">
-          <div class="crm-plan-name">Solo</div>
-          <div class="crm-plan-who">1 person · Freelancers &amp; consultants</div>
-          <div class="crm-plan-price">₹5,000<span>/mo</span></div>
-          <div class="crm-plan-annual">₹4,000/mo billed annually</div>
-        </div>
-        <div class="crm-plan-setup">One-time setup: <strong>₹15,000</strong> — CRM configured, contacts imported, WhatsApp &amp; Gmail connected.</div>
-        <ul class="crm-plan-features">
-          <li>200 contacts</li>
-          <li>1 sales pipeline</li>
-          <li>WhatsApp capture</li>
-          <li>Gmail sync</li>
-          <li>AI deal summaries</li>
-          <li>1 automation</li>
-          <li>1 login</li>
-          <li>Monthly report</li>
-        </ul>
-        <a href="https://wa.me/918130247554" class="crm-plan-cta" target="_blank">Get Started →</a>
-      </div>
-
-      <!-- Launchpad -->
-      <div class="crm-plan">
-        <div class="crm-plan-header">
-          <div class="crm-plan-name">Launchpad</div>
-          <div class="crm-plan-who">2–5 person teams · Moving off Excel</div>
-          <div class="crm-plan-price">₹12,000<span>/mo</span></div>
-          <div class="crm-plan-annual">₹9,600/mo billed annually</div>
-        </div>
-        <div class="crm-plan-setup">One-time setup: <strong>₹35,000</strong> — Excel migration, WhatsApp &amp; Gmail, pipeline config &amp; team training.</div>
-        <ul class="crm-plan-features">
-          <li>500 contacts</li>
-          <li>1 pipeline, 6 stages</li>
-          <li>WhatsApp capture</li>
-          <li>Gmail / email sync</li>
-          <li>AI summaries</li>
-          <li>2 automations</li>
-          <li>CSV import &amp; export</li>
-          <li>2 logins · Monthly report</li>
-        </ul>
-        <a href="https://wa.me/918130247554" class="crm-plan-cta" target="_blank">Get Started →</a>
-      </div>
-
-      <!-- Growth — Most Popular -->
-      <div class="crm-plan crm-plan-featured">
-        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:0.6rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;padding:0.25rem 0.9rem;border-radius:0 0 8px 8px;white-space:nowrap;">Most Popular</div>
-        <div class="crm-plan-header">
-          <div class="crm-plan-name">Growth</div>
-          <div class="crm-plan-who">5–20 person teams · Full AI automation</div>
-          <div class="crm-plan-price">₹25,000<span>/mo</span></div>
-          <div class="crm-plan-annual">₹20,000/mo billed annually</div>
-        </div>
-        <div class="crm-plan-setup">One-time setup: <strong>₹75,000</strong> — Full implementation: WhatsApp 2-way, IndiaMart auto-capture, AI agents &amp; team training.</div>
-        <ul class="crm-plan-features">
-          <li>5,000 contacts</li>
-          <li>3 pipelines · 5 team logins</li>
-          <li>WhatsApp 2-way automation</li>
-          <li>IndiaMart auto-capture</li>
-          <li>AI lead scoring</li>
-          <li>Auto follow-up sequences</li>
-          <li>AI-drafted replies</li>
-          <li>GST quotation generator</li>
-          <li>10 automation rules</li>
-          <li>Dashboards &amp; reports</li>
-          <li>Priority support (12h)</li>
-        </ul>
-        <a href="https://wa.me/918130247554" class="crm-plan-cta crm-plan-cta-featured" target="_blank">Get Started →</a>
-      </div>
-
-      <!-- Scale -->
-      <div class="crm-plan">
-        <div class="crm-plan-header">
-          <div class="crm-plan-name">Scale</div>
-          <div class="crm-plan-who">20+ teams · Multi-branch · High-volume</div>
-          <div class="crm-plan-price">₹60,000<span>/mo</span></div>
-          <div class="crm-plan-annual">₹48,000/mo billed annually</div>
-        </div>
-        <div class="crm-plan-setup">One-time setup: <strong>₹1,50,000</strong> — Enterprise implementation, AI Voice Agent (Hindi + EN), multi-branch config &amp; account manager.</div>
-        <ul class="crm-plan-features">
-          <li>20,000 contacts</li>
-          <li>Unlimited pipelines &amp; logins</li>
-          <li>AI Voice Agent (Hindi + EN)</li>
-          <li>Multi-branch support</li>
-          <li>Bulk WhatsApp campaigns</li>
-          <li>Product catalog + invoicing</li>
-          <li>Revenue forecasting</li>
-          <li>API access</li>
-          <li>Account manager</li>
-          <li>Monthly strategy call</li>
-          <li>4h support response</li>
-        </ul>
-        <a href="https://wa.me/918130247554" class="crm-plan-cta" target="_blank">Get Started →</a>
-      </div>
-
-    </div>
-
-    <!-- AI Automations included -->
-    <div style="margin-top:4rem;">
-      <div class="eyebrow reveal" style="color:var(--green);">What AI Automations Are Included</div>
-      <p class="section-sub reveal" style="margin-bottom:2rem;">Every plan includes AI running in the background, doing manual work your team currently does by hand — automatically, 24 hours a day.</p>
-      <div class="crm-ai-grid reveal">
-        <div class="crm-ai-card">
-          <div class="crm-ai-icon">📥</div>
-          <h4>Lead Auto-Capture</h4>
-          <p>Every WhatsApp message, Gmail enquiry, and IndiaMart lead is automatically saved as a contact. Zero manual typing.</p>
-        </div>
-        <div class="crm-ai-card">
-          <div class="crm-ai-icon">🔄</div>
-          <h4>Auto Follow-Ups</h4>
-          <p>If a lead doesn't reply in 24 hours, AI sends the next follow-up on WhatsApp or email. <strong>No lead goes cold.</strong></p>
-        </div>
-        <div class="crm-ai-card">
-          <div class="crm-ai-icon">🎯</div>
-          <h4>Lead Scoring</h4>
-          <p>AI reads each conversation and marks leads Hot, Warm, or Cold — so your team <strong>calls the right people first.</strong></p>
-        </div>
-        <div class="crm-ai-card">
-          <div class="crm-ai-icon">✍️</div>
-          <h4>AI Reply Drafts</h4>
-          <p>AI reads a lead's message and writes a suggested reply. You review and <strong>send in one tap.</strong></p>
-        </div>
-        <div class="crm-ai-card">
-          <div class="crm-ai-icon">📝</div>
-          <h4>Deal Summaries</h4>
-          <p>Every contact gets a 2-line AI summary — what they need, where they are, <strong>what to do next.</strong></p>
-        </div>
-        <div class="crm-ai-card">
-          <div class="crm-ai-icon">🔔</div>
-          <h4>Stale Deal Alerts</h4>
-          <p>If a deal hasn't moved in 7 days, AI notifies your team on WhatsApp — <strong>before it falls through.</strong></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ROI callout -->
-    <div class="reveal" style="margin-top:3rem;background:var(--navy);border-radius:16px;padding:2rem 2.5rem;text-align:center;">
-      <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.75;">Recover just <strong style="color:var(--gold);">3 leads/month</strong> that would have gone cold (₹20,000/deal) = <strong style="color:var(--gold);">₹60,000/mo revenue</strong> from a ₹5,000–₹12,000 plan. That's a <strong style="color:var(--gold);">5× to 12× monthly return.</strong></p>
-    </div>
-
-    <!-- Trust footnotes -->
-    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-top:2rem;font-size:0.82rem;color:var(--text-faint);">
-      <span>⚡ Setup in 5 working days</span>
-      <span>🇮🇳 Data stored in India (Mumbai)</span>
-      <span>🔒 DPDP Act 2023 compliant</span>
-      <span>🧾 GST invoice every month</span>
-      <span>📋 Claim Input Tax Credit (ITC)</span>
-    </div>
-
-    <!-- CTA -->
-    <div style="text-align:center;margin-top:3rem;" class="reveal">
-      <a href="https://wa.me/918130247554" class="btn btn-navy" target="_blank" style="margin-right:0.8rem;">Book a Free 30-min Demo →</a>
-      <a href="mailto:yogesh@adaptivemindsai.com" class="btn btn-outline">Email Us</a>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
 
 <section class="section" id="process">
   <div class="section-inner">
@@ -1173,7 +960,7 @@ body.modal-open{overflow:hidden;}
         <p class="footer-desc">AI automation agency building intelligent systems that eliminate manual work and scale businesses — across India and globally.</p>
       </div>
       <div class="footer-col"><h5>Services</h5><a href="#services">Workflow Automation</a><a href="#services">AI Assistants</a><a href="#services">Document Intelligence</a><a href="#services">Custom AI Development</a></div>
-      <div class="footer-col"><h5>Products</h5><a href="#crm">AI CRM</a><a href="#work">DocuAgent AI</a><a href="#work">InboxIQ</a></div>
+      <div class="footer-col"><h5>Products</h5><a href="crm.html">AI CRM</a><a href="#work">DocuAgent AI</a><a href="#work">InboxIQ</a></div>
       <div class="footer-col"><h5>Company</h5><a href="#work">Our Work</a><a href="#process">Process</a><a href="#about">About</a><a href="mailto:contact@adaptivemindsai.com">Contact</a><a href="https://linkedin.com/company/adaptive-minds-ai" target="_blank">LinkedIn</a></div>
     </div>
     <div class="footer-bottom"><span>© 2026 Adaptive Minds AI. All rights reserved.</span><span>On-premise · Cloud · Hybrid · India &amp; Global</span></div>

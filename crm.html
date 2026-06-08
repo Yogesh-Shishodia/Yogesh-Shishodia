@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Adaptive Minds AI CRM — The AI CRM That Works While You Sleep</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="manifest" href="site.webmanifest"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:#f5f4f0;--bg2:#edecea;--surface:#ffffff;
+  --navy:#0e1520;--navy2:#162030;
+  --blue:#2146f0;--blue-soft:rgba(33,70,240,0.08);--blue-line:rgba(33,70,240,0.20);
+  --gold:#c9943a;--gold-soft:rgba(201,148,58,0.10);--gold-line:rgba(201,148,58,0.28);
+  --border:#dddbd4;--border2:#c8c5bc;
+  --text:#0e1520;--text-dim:#5e5c56;--text-faint:#a8a59e;
+  --green:#1a7a50;--green-soft:rgba(26,122,80,0.09);
+  --r:12px;--shadow:0 1px 8px rgba(0,0,0,0.07);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;padding:0 5%;background:rgba(235,235,238,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-img{height:64px;width:auto;display:block;object-fit:contain;max-width:420px;}
+.nav-links{display:flex;align-items:center;gap:0.2rem;}
+.nav-links a{font-size:0.95rem;font-weight:500;color:var(--text-dim);text-decoration:none;padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;}
+.nav-links a:hover{color:var(--text);background:var(--bg2);}
+.nav-links a.active{color:var(--gold);font-weight:700;}
+.nav-cta{background:var(--navy)!important;color:#fff!important;font-weight:600!important;border-radius:9px!important;}
+.nav-cta:hover{background:var(--navy2)!important;transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(14,21,32,0.22)!important;}
+
+/* ── Shared ── */
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-navy:hover{background:var(--navy2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,21,32,0.25);}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-gold:hover{background:#b8832f;transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,148,58,0.35);}
+.btn-outline{background:transparent;color:var(--text-dim);border:1.5px solid var(--border2);}
+.btn-outline:hover{border-color:var(--navy);color:var(--navy);}
+.section{padding:6rem 5%;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.eyebrow{font-size:0.9rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:0.7rem;margin-bottom:1rem;}
+.eyebrow::after{content:'';height:1px;width:44px;background:var(--blue-line);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1rem;}
+.section-sub{color:var(--text-dim);font-size:0.95rem;line-height:1.75;max-width:600px;margin-bottom:2.5rem;font-weight:400;}
+.divider{height:1px;background:var(--border);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse2{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.07s;}.d2{transition-delay:0.14s;}.d3{transition-delay:0.21s;}.d4{transition-delay:0.28s;}
+
+/* ── Hero ── */
+.crm-hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 5% 70px;position:relative;overflow:hidden;}
+.crm-hero::before{content:'';position:absolute;top:-200px;left:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(201,148,58,0.12) 0%,transparent 65%);pointer-events:none;}
+.crm-hero::after{content:'';position:absolute;bottom:-150px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(33,70,240,0.14) 0%,transparent 65%);pointer-events:none;}
+.crm-hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1;}
+.crm-hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold-line);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
+.crm-hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse2 2s infinite;}
+.crm-hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:#fff;margin-bottom:1.4rem;animation:fadeUp 0.9s 0.08s ease both;}
+.crm-hero h1 em{font-style:italic;color:rgba(255,255,255,0.38);font-family:'Cormorant Garamond',serif;}
+.crm-hero-sub{font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.78;max-width:480px;margin-bottom:2.2rem;font-weight:400;animation:fadeUp 0.9s 0.14s ease both;}
+.crm-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fadeUp 0.9s 0.2s ease both;}
+.crm-hero-right{animation:fadeUp 0.9s 0.22s ease both;}
+.crm-hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2.2rem;backdrop-filter:blur(10px);}
+.crm-hero-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1.4rem;}
+.crm-stat-row{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.crm-stat-row:last-of-type{border-bottom:none;}
+.crm-stat-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
+.crm-stat-icon.gold{background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.3);}
+.crm-stat-icon.green{background:rgba(26,180,100,0.12);border:1px solid rgba(26,180,100,0.25);}
+.crm-stat-icon.blue{background:rgba(33,70,240,0.12);border:1px solid rgba(33,70,240,0.22);}
+.crm-stat-label{font-size:0.9rem;font-weight:600;color:#fff;line-height:1.3;margin-bottom:0.25rem;}
+.crm-stat-sub{font-size:0.82rem;color:rgba(255,255,255,0.38);line-height:1.55;}
+.crm-hero-foot{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-wrap:wrap;gap:0.45rem;}
+.crm-badge{font-size:0.7rem;font-weight:600;padding:0.22rem 0.65rem;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);}
+
+/* ── Trust bar ── */
+.trust-bar{background:rgba(14,21,32,0.96);padding:1.1rem 5%;border-bottom:1px solid rgba(255,255,255,0.06);}
+.trust-bar-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:center;}
+.trust-item{display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.42);white-space:nowrap;}
+.trust-sep{width:1px;height:16px;background:rgba(255,255,255,0.1);}
+
+/* ── Pricing ── */
+.pricing-section{background:var(--bg);}
+.crm-plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;align-items:start;}
+.crm-plan{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2rem 1.6rem;display:flex;flex-direction:column;position:relative;transition:all 0.25s;box-shadow:var(--shadow);}
+.crm-plan:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
+.crm-plan-featured{border:2px solid var(--gold);background:linear-gradient(160deg,#fffdf7 0%,#fff 100%);box-shadow:0 8px 40px rgba(201,148,58,0.15);}
+.crm-plan-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);margin-bottom:0.2rem;}
+.crm-plan-who{font-size:0.75rem;color:var(--text-faint);margin-bottom:0.9rem;line-height:1.4;}
+.crm-plan-price{font-size:2.4rem;font-weight:800;color:var(--navy);line-height:1;font-family:'Outfit',sans-serif;}
+.crm-plan-price span{font-size:0.95rem;font-weight:500;color:var(--text-faint);}
+.crm-plan-annual{font-size:0.75rem;font-weight:600;color:var(--gold);margin-top:0.3rem;margin-bottom:1.2rem;}
+.crm-plan-setup{font-size:0.78rem;color:var(--text-dim);background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.85rem;margin-bottom:1.2rem;line-height:1.55;}
+.crm-plan-features{list-style:none;display:flex;flex-direction:column;gap:0.45rem;margin-bottom:1.6rem;flex:1;}
+.crm-plan-features li{font-size:0.83rem;color:var(--text-dim);display:flex;gap:0.5rem;align-items:flex-start;line-height:1.4;}
+.crm-plan-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+.crm-plan-features li.no::before{content:'✗';color:#e2a9a9;font-weight:700;}
+.crm-plan-featured .crm-plan-features li::before{color:var(--gold);}
+.crm-plan-cta{display:block;text-align:center;background:var(--navy);color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.85rem;padding:0.85rem;border-radius:10px;text-decoration:none;transition:all 0.2s;margin-top:auto;}
+.crm-plan-cta:hover{background:var(--navy2);transform:translateY(-1px);}
+.crm-plan-cta-featured{background:var(--gold);}
+.crm-plan-cta-featured:hover{background:#b8832f;}
+.most-popular-tag{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:0.6rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;padding:0.25rem 0.9rem;border-radius:0 0 8px 8px;white-space:nowrap;}
+
+/* ── Annual toggle ── */
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2.5rem;}
+.billing-toggle span{font-size:0.88rem;font-weight:600;color:var(--text-dim);}
+.billing-toggle span.active{color:var(--navy);}
+.toggle-switch{position:relative;width:48px;height:26px;cursor:pointer;}
+.toggle-switch input{opacity:0;width:0;height:0;}
+.toggle-track{position:absolute;inset:0;background:var(--border2);border-radius:999px;transition:background 0.2s;}
+.toggle-thumb{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.2);}
+.toggle-switch input:checked + .toggle-track{background:var(--gold);}
+.toggle-switch input:checked ~ .toggle-thumb{transform:translateX(22px);}
+.annual-note{display:inline-block;background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:999px;font-size:0.72rem;font-weight:700;color:var(--gold);padding:0.2rem 0.7rem;margin-left:0.4rem;}
+
+/* ── AI Features ── */
+.crm-ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.crm-ai-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.8rem 1.6rem;transition:all 0.25s;}
+.crm-ai-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
+.crm-ai-icon{font-size:2rem;margin-bottom:0.9rem;display:block;}
+.crm-ai-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.45rem;}
+.crm-ai-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.68;}
+
+/* ── What this replaces ── */
+.replaces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.replaces-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;text-align:center;}
+.replaces-old{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.6rem;}
+.replaces-old-price{font-size:1.2rem;font-weight:700;color:#e04040;text-decoration:line-through;margin-bottom:0.3rem;}
+.replaces-new{font-size:1rem;font-weight:700;color:var(--green);}
+.replaces-desc{font-size:0.82rem;color:var(--text-dim);margin-top:0.6rem;line-height:1.55;}
+
+/* ── Comparison table ── */
+.compare-wrap{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+.compare-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border-bottom:1px solid var(--border);}
+.compare-row:last-child{border-bottom:none;}
+.compare-row.header{background:var(--navy);}
+.compare-cell{padding:1rem 1.2rem;font-size:0.86rem;color:var(--text-dim);display:flex;align-items:center;}
+.compare-row.header .compare-cell{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.compare-row.header .compare-cell.ours{color:var(--gold);}
+.compare-cell.feature{font-weight:500;color:var(--navy);}
+.compare-cell.ours{background:rgba(201,148,58,0.04);font-weight:600;color:var(--navy);}
+.compare-row.header .compare-cell:first-child{color:rgba(255,255,255,0.25);}
+.compare-yes{color:var(--green);font-weight:700;}
+.compare-no{color:var(--text-faint);}
+.compare-highlight{color:var(--gold);font-weight:700;}
+
+/* ── Add-ons ── */
+.addons-grid{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;}
+.addon-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.6rem;text-align:center;min-width:160px;transition:all 0.2s;}
+.addon-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.addon-price{font-size:1.6rem;font-weight:800;color:var(--navy);font-family:'Outfit',sans-serif;line-height:1;}
+.addon-per{font-size:0.72rem;color:var(--text-faint);font-weight:500;}
+.addon-name{font-size:0.82rem;color:var(--text-dim);margin-top:0.35rem;font-weight:500;}
+
+/* ── CTA ── */
+.crm-cta-wrap{background:var(--navy);border-radius:24px;padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.crm-cta-wrap::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,148,58,0.12) 0%,transparent 65%);pointer-events:none;}
+.crm-cta-wrap::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(33,70,240,0.1) 0%,transparent 65%);pointer-events:none;}
+.crm-cta-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.9rem;position:relative;z-index:1;}
+.crm-cta-wrap h2 em{font-style:italic;color:rgba(255,255,255,0.35);}
+.crm-cta-wrap p{color:rgba(255,255,255,0.45);font-size:0.95rem;max-width:480px;margin:0 auto 2.2rem;line-height:1.75;position:relative;z-index:1;}
+.cta-contacts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+.contact-pill{display:flex;align-items:center;gap:0.8rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.1rem 1.6rem;text-decoration:none;transition:background 0.2s;min-width:190px;}
+.contact-pill:hover{background:rgba(255,255,255,0.1);}
+.cp-icon{font-size:1.3rem;}
+.cp-label{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
+.cp-value{font-size:0.85rem;font-weight:600;color:#fff;}
+
+/* ── Footer ── */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:3rem 5% 2rem;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom span{font-size:0.79rem;color:rgba(255,255,255,0.22);}
+.footer-back{font-size:0.82rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-back:hover{color:rgba(255,255,255,0.75);}
+
+/* ── Responsive ── */
+@media(max-width:1024px){.crm-plans-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){
+  .crm-hero-inner{grid-template-columns:1fr;}
+  .crm-hero-right{display:none;}
+  .crm-plans-grid{grid-template-columns:1fr;}
+  .crm-ai-grid{grid-template-columns:1fr 1fr;}
+  .replaces-grid{grid-template-columns:1fr;}
+  .compare-row{grid-template-columns:2fr 1fr 1fr;}
+  .compare-cell.zoho,.compare-row.header .compare-cell.zoho{display:none;}
+  .crm-cta-wrap{padding:3rem 1.5rem;}
+  .cta-contacts{flex-direction:column;}
+  .contact-pill{min-width:unset;width:100%;}
+  .nav-links a:not(.nav-cta){display:none;}
+  .nav-logo-img{height:44px;max-width:160px;}
+  .addons-grid{gap:0.75rem;}
+}
+@media(max-width:480px){
+  .crm-ai-grid{grid-template-columns:1fr;}
+  .crm-hero{padding:88px 5% 50px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo2.png" alt="Adaptive Minds AI" class="nav-logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="index.html#services">Automation</a>
+      <a href="index.html#marketing">Marketing</a>
+      <a href="crm.html" class="active">AI CRM</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact" class="nav-cta">Talk to Us →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="crm-hero">
+  <div class="crm-hero-inner">
+    <div>
+      <div class="crm-hero-eyebrow"><span class="dot"></span>Our Own Product · MVP Live · 2026</div>
+      <h1>The AI CRM that works<br/><em>while you sleep.</em></h1>
+      <p class="crm-hero-sub">We built our own fully managed CRM — connected to WhatsApp, Gmail &amp; IndiaMart. AI automatically captures leads, scores them, and sends follow-ups 24/7. You don't install anything. We set it up in 5 days.</p>
+      <div class="crm-hero-actions">
+        <a href="#pricing" class="btn btn-gold">See Plans &amp; Pricing →</a>
+        <a href="https://wa.me/918130247554" class="btn btn-outline" style="color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2);" target="_blank">Book Free Demo</a>
+      </div>
+    </div>
+    <div class="crm-hero-right">
+      <div class="crm-hero-card">
+        <div class="crm-hero-card-label">Why businesses switch to us</div>
+        <div class="crm-stat-row">
+          <div class="crm-stat-icon gold">💰</div>
+          <div>
+            <div class="crm-stat-label">Cheaper than Zoho in Year 1</div>
+            <div class="crm-stat-sub">₹1,79,000 all-in vs ₹2,28,000 for Zoho Standard with WhatsApp &amp; agency setup.</div>
+          </div>
+        </div>
+        <div class="crm-stat-row">
+          <div class="crm-stat-icon green">⚡</div>
+          <div>
+            <div class="crm-stat-label">Live in 5 working days</div>
+            <div class="crm-stat-sub">We do the full setup — data migration, connections, training. You start using it immediately.</div>
+          </div>
+        </div>
+        <div class="crm-stat-row">
+          <div class="crm-stat-icon blue">🤖</div>
+          <div>
+            <div class="crm-stat-label">AI works 24/7 — no extra staff</div>
+            <div class="crm-stat-sub">Replaces a ₹25,000–40,000/mo sales assistant. Included in every plan.</div>
+          </div>
+        </div>
+        <div class="crm-hero-foot">
+          <span class="crm-badge">WhatsApp Included</span>
+          <span class="crm-badge">IndiaMart Auto-Capture</span>
+          <span class="crm-badge">DPDP Compliant</span>
+          <span class="crm-badge">Data in India</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">⚡ Setup in 5 working days</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">🇮🇳 Data stored in India (Mumbai)</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">🔒 DPDP Act 2023 compliant</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">🧾 GST invoice every month</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">📋 Claim Input Tax Credit (ITC)</div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Choose Your Plan</div>
+    <h2 class="section-title reveal">Simple, all-in pricing.<br/><em>No hidden fees.</em></h2>
+    <p class="section-sub reveal">All prices are monthly and exclude 18% GST. Switch to annual billing and save 20% — e.g. Launchpad drops from ₹12,000 → ₹9,600/mo.</p>
+
+    <!-- Annual billing callout -->
+    <div class="reveal" style="background:rgba(201,148,58,0.08);border:1px solid var(--gold-line);border-radius:12px;padding:0.9rem 1.5rem;margin-bottom:3rem;display:inline-flex;align-items:center;gap:0.6rem;font-size:0.88rem;color:var(--text-dim);">
+      <span style="font-size:1.1rem;">💡</span>
+      <span><strong style="color:var(--gold);">Save 20% with annual billing.</strong> Setup fees are one-time only. Switch anytime.</span>
+    </div>
+
+    <div class="crm-plans-grid">
+
+      <!-- Solo -->
+      <div class="crm-plan reveal">
+        <div class="crm-plan-name">Solo</div>
+        <div class="crm-plan-who">For 1 person · Freelancers, consultants, single-owner businesses</div>
+        <div class="crm-plan-price">₹5,000<span>/mo</span></div>
+        <div class="crm-plan-annual">₹4,000/mo billed annually</div>
+        <div class="crm-plan-setup">One-time setup: <strong>₹15,000</strong> — We configure your CRM, import your contacts from Excel, and connect WhatsApp &amp; Gmail for you.</div>
+        <ul class="crm-plan-features">
+          <li>200 contacts</li>
+          <li>1 sales pipeline</li>
+          <li>WhatsApp capture</li>
+          <li>Gmail sync</li>
+          <li>AI deal summaries</li>
+          <li>1 automation</li>
+          <li>1 login</li>
+          <li>Monthly report</li>
+          <li class="no">AI lead scoring</li>
+          <li class="no">IndiaMart capture</li>
+          <li class="no">Auto follow-ups</li>
+        </ul>
+        <a href="https://wa.me/918130247554" class="crm-plan-cta" target="_blank">Get Started →</a>
+      </div>
+
+      <!-- Launchpad -->
+      <div class="crm-plan reveal d1">
+        <div class="crm-plan-name">Launchpad</div>
+        <div class="crm-plan-who">For 2–5 person teams · Moving off Excel and WhatsApp groups</div>
+        <div class="crm-plan-price">₹12,000<span>/mo</span></div>
+        <div class="crm-plan-annual">₹9,600/mo billed annually</div>
+        <div class="crm-plan-setup">One-time setup: <strong>₹35,000</strong> — We migrate your Excel data, connect WhatsApp &amp; Gmail, configure your pipeline, and train your team.</div>
+        <ul class="crm-plan-features">
+          <li>500 contacts</li>
+          <li>1 pipeline, 6 stages</li>
+          <li>WhatsApp capture</li>
+          <li>Gmail / email sync</li>
+          <li>AI summaries</li>
+          <li>2 automations</li>
+          <li>CSV import &amp; export</li>
+          <li>2 logins</li>
+          <li>Monthly report</li>
+          <li class="no">AI lead scoring</li>
+          <li class="no">IndiaMart capture</li>
+          <li class="no">Auto follow-ups</li>
+        </ul>
+        <a href="https://wa.me/918130247554" class="crm-plan-cta" target="_blank">Get Started →</a>
+      </div>
+
+      <!-- Growth — Most Popular -->
+      <div class="crm-plan crm-plan-featured reveal d2">
+        <div class="most-popular-tag">Most Popular</div>
+        <div class="crm-plan-name">Growth</div>
+        <div class="crm-plan-who">For 5–20 person teams · Full AI automation + WhatsApp</div>
+        <div class="crm-plan-price">₹25,000<span>/mo</span></div>
+        <div class="crm-plan-annual">₹20,000/mo billed annually</div>
+        <div class="crm-plan-setup">One-time setup: <strong>₹75,000</strong> — Full implementation: WhatsApp 2-way, IndiaMart auto-capture, AI agents configuration, and team training.</div>
+        <ul class="crm-plan-features">
+          <li>5,000 contacts</li>
+          <li>3 pipelines</li>
+          <li>5 team logins</li>
+          <li>WhatsApp 2-way automation</li>
+          <li>IndiaMart auto-capture</li>
+          <li>AI lead scoring</li>
+          <li>Auto follow-up sequences</li>
+          <li>AI-drafted replies</li>
+          <li>GST quotation generator</li>
+          <li>10 automation rules</li>
+          <li>Dashboards &amp; reports</li>
+          <li>Priority support (12h)</li>
+        </ul>
+        <a href="https://wa.me/918130247554" class="crm-plan-cta crm-plan-cta-featured" target="_blank">Get Started →</a>
+      </div>
+
+      <!-- Scale -->
+      <div class="crm-plan reveal d3">
+        <div class="crm-plan-name">Scale</div>
+        <div class="crm-plan-who">For 20+ teams · Multi-branch businesses · High-volume sales</div>
+        <div class="crm-plan-price">₹60,000<span>/mo</span></div>
+        <div class="crm-plan-annual">₹48,000/mo billed annually</div>
+        <div class="crm-plan-setup">One-time setup: <strong>₹1,50,000</strong> — Enterprise implementation, AI Voice Agent (Hindi + English), custom integrations, multi-branch config, and dedicated account manager.</div>
+        <ul class="crm-plan-features">
+          <li>20,000 contacts</li>
+          <li>Unlimited pipelines &amp; logins</li>
+          <li>AI Voice Agent (Hindi + EN)</li>
+          <li>Multi-branch support</li>
+          <li>Bulk WhatsApp campaigns</li>
+          <li>Product catalog + invoicing</li>
+          <li>Revenue forecasting</li>
+          <li>API access</li>
+          <li>Account manager</li>
+          <li>Monthly strategy call</li>
+          <li>4h support response</li>
+        </ul>
+        <a href="https://wa.me/918130247554" class="crm-plan-cta" target="_blank">Get Started →</a>
+      </div>
+
+    </div>
+
+    <!-- ROI callout -->
+    <div class="reveal" style="margin-top:3rem;background:var(--navy);border-radius:16px;padding:2.2rem 2.5rem;text-align:center;">
+      <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.9;">Recover just <strong style="color:var(--gold);">3 leads/month</strong> that would have gone cold (₹20,000/deal) = <strong style="color:var(--gold);">₹60,000/mo revenue</strong> from a ₹5,000–₹12,000 plan.<br/>That's a <strong style="color:var(--gold);">5× to 12× monthly return.</strong></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AI AUTOMATIONS -->
+<section class="section" style="background:var(--bg2);" id="features">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="color:var(--green);">What AI Automations Are Included</div>
+    <h2 class="section-title reveal">AI running 24/7 —<br/><em>so your team doesn't have to.</em></h2>
+    <p class="section-sub reveal">Every plan includes AI doing the manual work your team currently does by hand — automatically, around the clock.</p>
+    <div class="crm-ai-grid">
+      <div class="crm-ai-card reveal">
+        <span class="crm-ai-icon">📥</span>
+        <h4>Lead Auto-Capture</h4>
+        <p>Every WhatsApp message, Gmail enquiry, and IndiaMart lead is automatically saved as a contact. <strong>Zero manual typing.</strong></p>
+      </div>
+      <div class="crm-ai-card reveal d1">
+        <span class="crm-ai-icon">🔄</span>
+        <h4>Auto Follow-Ups</h4>
+        <p>If a lead doesn't reply in 24 hours, AI sends the next follow-up on WhatsApp or email. <strong>No lead goes cold.</strong></p>
+      </div>
+      <div class="crm-ai-card reveal d2">
+        <span class="crm-ai-icon">🎯</span>
+        <h4>Lead Scoring</h4>
+        <p>AI reads each conversation and marks leads Hot, Warm, or Cold — so your team <strong>calls the right people first.</strong></p>
+      </div>
+      <div class="crm-ai-card reveal">
+        <span class="crm-ai-icon">✍️</span>
+        <h4>AI Reply Drafts</h4>
+        <p>AI reads a lead's message and writes a suggested reply. You review and <strong>send in one tap.</strong></p>
+      </div>
+      <div class="crm-ai-card reveal d1">
+        <span class="crm-ai-icon">📝</span>
+        <h4>Deal Summaries</h4>
+        <p>Every contact gets a 2-line AI summary — what they need, where they are, <strong>what to do next.</strong></p>
+      </div>
+      <div class="crm-ai-card reveal d2">
+        <span class="crm-ai-icon">🔔</span>
+        <h4>Stale Deal Alerts</h4>
+        <p>If a deal hasn't moved in 7 days, AI notifies your team on WhatsApp — <strong>before it falls through.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT THIS REPLACES -->
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">What This Replaces</div>
+    <h2 class="section-title reveal">Stop paying for three things<br/><em>we bundle into one.</em></h2>
+    <p class="section-sub reveal">Competitors charge separately for each. We include everything in the plan price.</p>
+    <div class="replaces-grid">
+      <div class="replaces-card reveal">
+        <div class="replaces-old">Sales Assistant</div>
+        <div class="replaces-old-price">₹25,000–40,000/mo</div>
+        <div class="replaces-new">Included in plan</div>
+        <div class="replaces-desc">Data entry, lead follow-up, and pipeline tracking — all done by AI at a fraction of the cost.</div>
+      </div>
+      <div class="replaces-card reveal d1">
+        <div class="replaces-old">WhatsApp BSP Tool</div>
+        <div class="replaces-old-price">₹3,000–5,000/mo extra</div>
+        <div class="replaces-new">Included in plan</div>
+        <div class="replaces-desc">Competitors like Zoho and HubSpot charge extra for WhatsApp. We include it in every plan.</div>
+      </div>
+      <div class="replaces-card reveal d2">
+        <div class="replaces-old">CRM Setup Agency</div>
+        <div class="replaces-old-price">₹1,00,000–2,00,000</div>
+        <div class="replaces-new">Included in setup fee</div>
+        <div class="replaces-desc">Other CRMs require you to hire an agency to implement. We handle the full setup ourselves.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPARISON TABLE -->
+<section class="section" style="background:var(--bg2);" id="compare">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Year 1 Total Cost Comparison</div>
+    <h2 class="section-title reveal">Cheaper than Zoho.<br/><em>More powerful than HubSpot.</em></h2>
+    <p class="section-sub reveal">All-in cost including software, WhatsApp, setup, and a year of use.</p>
+    <div class="compare-wrap reveal">
+      <div class="compare-row header">
+        <div class="compare-cell"></div>
+        <div class="compare-cell zoho">Zoho CRM Standard</div>
+        <div class="compare-cell">HubSpot Starter</div>
+        <div class="compare-cell ours">Adaptive Minds CRM</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Year 1 total cost</div>
+        <div class="compare-cell zoho"><span style="color:#e04040;font-weight:700;">₹2,28,000</span></div>
+        <div class="compare-cell"><span style="color:#e04040;font-weight:700;">₹1,84,000</span></div>
+        <div class="compare-cell ours"><span class="compare-highlight">₹1,79,000</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Monthly cost</div>
+        <div class="compare-cell zoho">₹4,000 software + ₹3,000 WhatsApp</div>
+        <div class="compare-cell">₹7,000/mo</div>
+        <div class="compare-cell ours"><span class="compare-highlight">₹12,000 all-in</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Setup / implementation</div>
+        <div class="compare-cell zoho">₹1,20,000 agency</div>
+        <div class="compare-cell">₹1,00,000 partner fee</div>
+        <div class="compare-cell ours"><span class="compare-highlight">₹35,000 by us</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">WhatsApp included</div>
+        <div class="compare-cell zoho"><span class="compare-no">Extra ₹3,000/mo</span></div>
+        <div class="compare-cell"><span class="compare-no">Not available</span></div>
+        <div class="compare-cell ours"><span class="compare-yes">✓ Every plan</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">IndiaMart auto-capture</div>
+        <div class="compare-cell zoho"><span class="compare-no">Not available</span></div>
+        <div class="compare-cell"><span class="compare-no">Not available</span></div>
+        <div class="compare-cell ours"><span class="compare-yes">✓ Growth &amp; Scale</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">AI automations</div>
+        <div class="compare-cell zoho"><span class="compare-no">Not included</span></div>
+        <div class="compare-cell"><span class="compare-no">Not included</span></div>
+        <div class="compare-cell ours"><span class="compare-yes">✓ Every plan</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Managed by us</div>
+        <div class="compare-cell zoho"><span class="compare-no">Self-managed</span></div>
+        <div class="compare-cell"><span class="compare-no">Self-managed</span></div>
+        <div class="compare-cell ours"><span class="compare-yes">✓ Fully managed</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Data stored in India</div>
+        <div class="compare-cell zoho"><span class="compare-no">Global servers</span></div>
+        <div class="compare-cell"><span class="compare-no">US servers</span></div>
+        <div class="compare-cell ours"><span class="compare-yes">✓ Mumbai only</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ADD-ONS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Add-ons</div>
+    <h2 class="section-title reveal">Pay only for<br/><em>what you need.</em></h2>
+    <p class="section-sub reveal">Optional extras you can bolt on to any plan at any time.</p>
+    <div class="addons-grid reveal">
+      <div class="addon-card">
+        <div class="addon-price">₹500<span class="addon-per">/mo</span></div>
+        <div class="addon-name">+1,000 contacts</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-price">₹1,000<span class="addon-per">/mo</span></div>
+        <div class="addon-name">Extra team login</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-price">₹3,000<span class="addon-per">/blast</span></div>
+        <div class="addon-name">WhatsApp campaign</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-price">₹5,000<span class="addon-per">/session</span></div>
+        <div class="addon-name">Staff training</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-price">₹20,000<span class="addon-per">/mo</span></div>
+        <div class="addon-name">AI Voice Agent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="padding-top:0;">
+  <div class="section-inner">
+    <div class="crm-cta-wrap reveal">
+      <h2>Book a free 30-min demo.<br/><em>See it live for your business.</em></h2>
+      <p>We'll show it set up for your exact industry — your leads, your WhatsApp, your pipeline. No commitment. First demo is always free.</p>
+      <div class="cta-contacts">
+        <a href="https://wa.me/918130247554" class="contact-pill" target="_blank">
+          <span class="cp-icon">💬</span>
+          <div><div class="cp-label">WhatsApp · Fastest</div><div class="cp-value">+91 81302 47554</div></div>
+        </a>
+        <a href="mailto:yogesh@adaptivemindsai.com?subject=CRM Demo Request" class="contact-pill">
+          <span class="cp-icon">✉️</span>
+          <div><div class="cp-label">Email</div><div class="cp-value">yogesh@adaptivemindsai.com</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <span>© 2026 Adaptive Minds AI · All prices exclude 18% GST · Professional &amp; Confidential</span>
+      <a href="index.html" class="footer-back">← Back to main site</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
