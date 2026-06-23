@@ -145,6 +145,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .ps-icon svg{width:24px;height:24px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 .process-step h3{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.01em;color:var(--navy);position:relative;z-index:1;}
 .process-step p{font-size:0.88rem;color:var(--text-dim);line-height:1.65;flex:1;position:relative;z-index:1;}
+.ps-points{list-style:none;margin:0.75rem 0 0;padding:0;flex:1;position:relative;z-index:1;}
+.ps-points li{font-size:0.82rem;color:var(--text-dim);line-height:1.5;padding-left:1.1rem;position:relative;margin-bottom:0.5rem;}
+.ps-points li::before{content:'';position:absolute;left:0;top:0.5rem;width:5px;height:5px;border-radius:50%;background:var(--blue);}
 .ps-result{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.78rem;font-weight:600;color:var(--blue);display:flex;align-items:center;gap:0.35rem;position:relative;z-index:1;}
 .ps-result::before{content:'→';}
 
@@ -903,7 +906,12 @@ body.modal-open{overflow:hidden;}
         <div class="ps-badge">01</div>
         <div class="ps-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <h3>Free AI Audit</h3>
-        <p>A 30-min call to map your operational bottlenecks. No pitch, just strategy.</p>
+        <p>A focused 30-min call — no pitch, just strategy. In it we:</p>
+        <ul class="ps-points">
+          <li>Map your top 3 automation opportunities</li>
+          <li>Estimate the hours and cost each one saves</li>
+          <li>Recommend the right system to build first</li>
+        </ul>
         <div class="ps-result">Automation roadmap in hand</div>
       </div>
       <div class="process-step reveal d1" data-num="2">
@@ -955,12 +963,6 @@ body.modal-open{overflow:hidden;}
         <p class="about-body">Adaptive Minds AI was founded by <strong>Yogesh Shishodia</strong> and <strong>Shradha Shishodia</strong> to bridge the gap between bleeding-edge AI research and practical business infrastructure. We don't sell generic platforms or rigid SaaS tools.</p>
         <p class="about-body">Every system we deploy is a fully custom corporate asset — engineered for your workflows, hosted on your infrastructure, and owned entirely by you. Delivered in weeks, not months.</p>
         <div style="margin-top:2rem;"><a href="#contact" class="btn btn-navy">Talk to Us →</a></div>
-        <div class="trust-boxes">
-          <div class="trust-box"><div class="trust-box-num">20+</div><div class="trust-box-label">AI projects designed &amp; delivered</div></div>
-          <div class="trust-box"><div class="trust-box-num">5+</div><div class="trust-box-label">Industries served globally</div></div>
-          <div class="trust-box"><div class="trust-box-num">100%</div><div class="trust-box-label">Custom-built, no templates</div></div>
-          <div class="trust-box"><div class="trust-box-num">3</div><div class="trust-box-label">Deployment modes available</div></div>
-        </div>
       </div>
       <div class="about-cards reveal d1">
         <div class="abt-card"><h4>Core Capabilities</h4><ul class="abt-list"><li>Document intelligence — ask questions across any file</li><li>Runs on your hardware or your own cloud account</li><li>AI agents that work autonomously across tasks</li><li>AI trained specifically on your business data</li><li>Chatbots and virtual assistants for any channel</li><li>Email and inbox automation</li></ul></div>
