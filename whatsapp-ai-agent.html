@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WhatsApp AI Agent — Adaptive Minds AI | Chatbot, Broadcast &amp; Click-to-WhatsApp Ads</title>
+<meta name="description" content="AI agent trained on your business — books, qualifies, and sells inside WhatsApp 24/7. Turns Meta ad clicks into live chats. Official Meta API. Plans from ₹4,999/mo."/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="manifest" href="site.webmanifest"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:#f5f4f0;--bg2:#edecea;--surface:#ffffff;
+  --navy:#0e1520;--navy2:#162030;
+  --gold:#c9943a;--gold-soft:rgba(201,148,58,0.10);--gold-line:rgba(201,148,58,0.28);
+  --blue:#4285f4;--blue-soft:rgba(66,133,244,0.10);--blue-line:rgba(66,133,244,0.25);
+  --border:#dddbd4;--border2:#c8c5bc;
+  --text:#0e1520;--text-dim:#5e5c56;--text-faint:#a8a59e;
+  --green:#1a7a50;
+  --accent:#25d366;--accent-soft:rgba(37,211,102,0.10);--accent-line:rgba(37,211,102,0.25);
+  --r:12px;--shadow:0 1px 8px rgba(0,0,0,0.07);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;padding:0 5%;background:rgba(245,244,240,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-img{height:64px;width:auto;display:block;object-fit:contain;max-width:420px;}
+.nav-links{display:flex;align-items:center;gap:0.2rem;}
+.nav-links a{font-size:0.95rem;font-weight:500;color:var(--text-dim);text-decoration:none;padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;}
+.nav-links a:hover{color:var(--text);background:var(--bg2);}
+.nav-links a.crm-link{color:var(--gold);font-weight:700;}
+.nav-links a.crm-link:hover{background:var(--gold-soft);}
+.nav-cta{background:var(--navy)!important;color:#fff!important;font-weight:600!important;border-radius:9px!important;}
+.nav-cta:hover{background:var(--navy2)!important;transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(14,21,32,0.22)!important;}
+.nav-has-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dd-trigger{font-size:0.95rem;font-weight:500;color:var(--text-dim);padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;cursor:pointer;display:flex;align-items:center;gap:0.3rem;border:none;background:none;font-family:'Outfit',sans-serif;line-height:1;}
+.nav-dd-trigger:hover,.nav-has-dropdown:hover .nav-dd-trigger{color:var(--text);background:var(--bg2);}
+.nav-dd-chevron{transition:transform 0.22s;display:flex;align-items:center;}
+.nav-has-dropdown:hover .nav-dd-chevron{transform:rotate(180deg);}
+.nav-dd-menu{position:absolute;top:calc(100% + 14px);left:-12px;width:540px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 0.2s,transform 0.2s,visibility 0.2s;z-index:500;padding:0.6rem;}
+.nav-has-dropdown:hover .nav-dd-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dd-label{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-faint);padding:0.3rem 0.65rem 0.6rem;border-bottom:1px solid var(--border);margin-bottom:0.4rem;}
+.nav-dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.2rem;}
+.nav-dd-item{display:flex;align-items:center;gap:0.65rem;padding:0.6rem 0.7rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+.nav-dd-item:hover{background:var(--bg);}
+.nav-dd-item.current{background:var(--accent-soft);border:1px solid var(--accent-line);}
+.nav-dd-item.current .nav-dd-name{color:var(--green);}
+.nav-dd-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+.nav-dd-name{font-size:0.83rem;font-weight:600;color:var(--navy);line-height:1.2;}
+.nav-dd-sub{font-size:0.69rem;color:var(--text-faint);margin-top:0.1rem;line-height:1.3;}
+@media(max-width:900px){.nav-has-dropdown{display:none;} .nav-links a.hide-mobile{display:none;}}
+
+/* ── Shared ── */
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-navy:hover{background:var(--navy2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,21,32,0.25);}
+.btn-accent{background:var(--accent);color:#fff;}
+.btn-accent:hover{background:#1fb957;transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,0.35);}
+.btn-outline-light{background:transparent;color:rgba(255,255,255,0.7);border:1.5px solid rgba(255,255,255,0.18);}
+.btn-outline-light:hover{background:rgba(255,255,255,0.08);color:#fff;border-color:rgba(255,255,255,0.35);}
+.section{padding:6rem 5%;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.eyebrow{font-size:0.82rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1rem;}
+.eyebrow::after{content:'';height:1px;width:36px;background:var(--accent-line);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1rem;}
+.section-sub{color:var(--text-dim);font-size:0.95rem;line-height:1.75;max-width:600px;margin-bottom:2.5rem;font-weight:400;}
+.divider{height:1px;background:var(--border);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse2{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.07s;}.d2{transition-delay:0.14s;}.d3{transition-delay:0.21s;}.d4{transition-delay:0.28s;}
+
+/* ── Hero ── */
+.wa-hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 5% 70px;position:relative;overflow:hidden;}
+.wa-hero::before{content:'';position:absolute;top:-200px;left:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(37,211,102,0.13) 0%,transparent 65%);pointer-events:none;}
+.wa-hero::after{content:'';position:absolute;bottom:-150px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(37,211,102,0.07) 0%,transparent 65%);pointer-events:none;}
+.wa-hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1;}
+.wa-hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
+.wa-hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse2 2s infinite;}
+.wa-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;line-height:1.06;letter-spacing:-0.03em;color:#fff;margin-bottom:1.4rem;animation:fadeUp 0.9s 0.08s ease both;}
+.wa-hero h1 em{font-style:italic;color:var(--accent);}
+.wa-hero-sub{font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.78;max-width:480px;margin-bottom:2.2rem;font-weight:400;animation:fadeUp 0.9s 0.14s ease both;}
+.wa-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fadeUp 0.9s 0.2s ease both;}
+.wa-hero-right{animation:fadeUp 0.9s 0.22s ease both;}
+.wa-hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2.2rem;backdrop-filter:blur(10px);}
+.wa-hero-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1.4rem;}
+.wa-stat-row{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.wa-stat-row:last-of-type{border-bottom:none;}
+.wa-stat-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
+.wa-stat-icon.green{background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.25);}
+.wa-stat-icon.amber{background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.3);}
+.wa-stat-icon.blue{background:rgba(66,133,244,0.12);border:1px solid rgba(66,133,244,0.22);}
+.wa-stat-label{font-size:0.9rem;font-weight:600;color:#fff;line-height:1.3;margin-bottom:0.25rem;}
+.wa-stat-sub{font-size:0.82rem;color:rgba(255,255,255,0.38);line-height:1.55;}
+.wa-hero-foot{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-wrap:wrap;gap:0.45rem;}
+.wa-badge{font-size:0.7rem;font-weight:600;padding:0.22rem 0.65rem;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);}
+@media(max-width:768px){.wa-hero-inner{grid-template-columns:1fr;} .wa-hero-right{display:none;}}
+
+/* ── Stats bar ── */
+.stats-bar{background:rgba(14,21,32,0.97);border-top:1px solid rgba(37,211,102,0.12);border-bottom:1px solid rgba(37,211,102,0.12);padding:1.8rem 5%;}
+.stats-bar-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:center;}
+.stat-block{text-align:center;padding:0.5rem 1rem;border-right:1px solid rgba(255,255,255,0.07);}
+.stat-block:last-child{border-right:none;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,3rem);font-weight:500;color:var(--accent);line-height:1;margin-bottom:0.25rem;}
+.stat-label{font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;}
+@media(max-width:600px){.stats-bar-inner{grid-template-columns:1fr 1fr;} .stat-block{border-right:none;border-bottom:1px solid rgba(255,255,255,0.07);padding:1rem;} .stat-block:nth-child(odd){border-right:1px solid rgba(255,255,255,0.07);} .stat-block:last-child,.stat-block:nth-last-child(2){border-bottom:none;}}
+
+/* ── What's Included ── */
+.included-section{background:var(--bg);}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.6rem;transition:all 0.25s;box-shadow:var(--shadow);}
+.feature-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.feature-icon{font-size:2rem;margin-bottom:0.9rem;display:block;}
+.feature-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.45rem;line-height:1.3;}
+.feature-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.68;}
+@media(max-width:900px){.features-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.features-grid{grid-template-columns:1fr;}}
+
+/* ── CTWA Spotlight ── */
+.ctwa-section{background:var(--bg2);}
+.ctwa-card{background:var(--navy);border-radius:24px;padding:3.5rem;position:relative;overflow:hidden;}
+.ctwa-card::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(37,211,102,0.13) 0%,transparent 65%);pointer-events:none;}
+.ctwa-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;position:relative;z-index:1;}
+.ctwa-card h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:500;color:#fff;line-height:1.15;margin-bottom:1.2rem;letter-spacing:-0.02em;position:relative;z-index:1;max-width:700px;}
+.ctwa-sub{font-size:0.95rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:640px;margin-bottom:2rem;position:relative;z-index:1;}
+.ctwa-flow{display:flex;align-items:center;flex-wrap:wrap;gap:0.6rem;margin-bottom:2.2rem;position:relative;z-index:1;}
+.ctwa-chip{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:999px;padding:0.65rem 1.3rem;font-size:0.85rem;font-weight:600;color:#fff;white-space:nowrap;}
+.ctwa-arrow{color:rgba(255,255,255,0.3);font-size:1rem;}
+.ctwa-link-box{display:inline-flex;align-items:center;gap:0.7rem;background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:12px;padding:0.9rem 1.4rem;position:relative;z-index:1;text-decoration:none;transition:background 0.2s;}
+.ctwa-link-box:hover{background:rgba(66,133,244,0.18);}
+.ctwa-link-box .label{color:#7aa8f8;font-weight:700;font-size:0.88rem;}
+.ctwa-link-box .sub{color:rgba(255,255,255,0.4);font-size:0.76rem;}
+@media(max-width:768px){.ctwa-card{padding:2.4rem 1.6rem;}}
+
+/* ── Industry Flows ── */
+.industry-section{background:var(--bg);}
+.industry-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+.industry-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:all 0.25s;box-shadow:var(--shadow);}
+.industry-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.industry-head{display:flex;align-items:center;gap:0.7rem;margin-bottom:1.1rem;}
+.industry-icon{font-size:1.6rem;}
+.industry-card h4{font-size:1.05rem;font-weight:700;color:var(--navy);}
+.flow-row{display:flex;align-items:center;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem;}
+.flow-chip{background:var(--bg2);border:1px solid var(--border);border-radius:999px;padding:0.4rem 0.85rem;font-size:0.76rem;font-weight:600;color:var(--navy);white-space:nowrap;}
+.flow-arrow{color:var(--text-faint);font-size:0.8rem;}
+.industry-proof{font-size:0.82rem;font-weight:700;color:var(--green);}
+@media(max-width:900px){.industry-grid{grid-template-columns:1fr;}}
+
+/* ── Pricing ── */
+.pricing-section{background:var(--bg2);}
+.wa-plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;align-items:start;}
+.wa-plan{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2rem 1.6rem;display:flex;flex-direction:column;position:relative;transition:all 0.25s;box-shadow:var(--shadow);}
+.wa-plan:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
+.wa-plan-featured{border:2px solid var(--accent);background:linear-gradient(160deg,#f4fdf7 0%,#fff 100%);box-shadow:0 8px 40px rgba(37,211,102,0.15);}
+.wa-plan-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);margin-bottom:0.2rem;}
+.wa-plan-who{font-size:0.75rem;color:var(--text-faint);margin-bottom:0.9rem;line-height:1.4;}
+.wa-plan-price{font-size:2.4rem;font-weight:800;color:var(--navy);line-height:1;font-family:'Outfit',sans-serif;}
+.wa-plan-price span{font-size:0.95rem;font-weight:500;color:var(--text-faint);}
+.wa-plan-annual{font-size:0.75rem;font-weight:600;color:var(--green);margin-top:0.3rem;margin-bottom:1.2rem;}
+.wa-plan-setup{font-size:0.78rem;color:var(--text-dim);background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.85rem;margin-bottom:1.2rem;line-height:1.55;}
+.wa-plan-features{list-style:none;display:flex;flex-direction:column;gap:0.45rem;margin-bottom:1.6rem;flex:1;}
+.wa-plan-features li{font-size:0.83rem;color:var(--text-dim);display:flex;gap:0.5rem;align-items:flex-start;line-height:1.4;}
+.wa-plan-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+.wa-plan-features li.no::before{content:'✗';color:#e2a9a9;font-weight:700;}
+.wa-plan-featured .wa-plan-features li::before{color:#1a9c50;}
+.wa-plan-cta{display:block;text-align:center;background:var(--navy);color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.85rem;padding:0.85rem;border-radius:10px;text-decoration:none;transition:all 0.2s;margin-top:auto;}
+.wa-plan-cta:hover{background:var(--navy2);transform:translateY(-1px);}
+.wa-plan-cta-featured{background:var(--accent);color:#08331a;}
+.wa-plan-cta-featured:hover{background:#1fb957;}
+.most-popular-tag{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--accent);color:#08331a;font-size:0.6rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;padding:0.25rem 0.9rem;border-radius:0 0 8px 8px;white-space:nowrap;}
+@media(max-width:1024px){.wa-plans-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto;}}
+.pricing-disclaimer{font-size:0.8rem;color:var(--text-faint);margin-top:2rem;line-height:1.7;max-width:700px;}
+.crm-upsell{display:inline-flex;align-items:center;gap:0.7rem;background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:12px;padding:0.9rem 1.4rem;margin-top:2rem;text-decoration:none;transition:background 0.2s;}
+.crm-upsell:hover{background:rgba(201,148,58,0.16);}
+.crm-upsell .label{color:var(--gold);font-weight:700;font-size:0.88rem;}
+.crm-upsell .sub{color:var(--text-dim);font-size:0.78rem;}
+
+/* ── Comparison table ── */
+.compare-section{background:var(--bg);}
+.compare-wrap{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+.compare-row{display:grid;grid-template-columns:1.6fr 1.2fr 1.2fr;border-bottom:1px solid var(--border);}
+.compare-row:last-child{border-bottom:none;}
+.compare-row.header-row{background:var(--navy);}
+.compare-cell{padding:1rem 1.4rem;font-size:0.86rem;color:var(--text-dim);display:flex;align-items:center;}
+.compare-row.header-row .compare-cell{font-size:0.7rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.compare-row.header-row .compare-cell.us-col{color:var(--accent);}
+.compare-cell.feature-col{font-weight:600;color:var(--navy);}
+.compare-cell.us-col{background:rgba(37,211,102,0.04);font-weight:600;color:var(--navy);}
+@media(max-width:600px){.compare-cell{padding:0.7rem 0.8rem;font-size:0.76rem;}}
+
+/* ── How It Works ── */
+.how-section{background:var(--bg2);}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
+.step-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.6rem;position:relative;transition:all 0.25s;box-shadow:var(--shadow);}
+.step-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.step-num{font-size:0.65rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+.step-num::before{content:attr(data-n);width:22px;height:22px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:800;color:var(--green);}
+.step-icon{font-size:2rem;margin-bottom:0.9rem;display:block;}
+.step-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;line-height:1.3;}
+.step-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.68;}
+@media(max-width:900px){.steps-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.steps-grid{grid-template-columns:1fr;}}
+
+/* ── FAQ ── */
+.faq-section{background:var(--bg);}
+.faq-list{display:flex;flex-direction:column;gap:0.75rem;max-width:780px;margin:0 auto;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.2s,box-shadow 0.2s;}
+.faq-item.open{border-color:var(--accent-line);box-shadow:0 4px 24px rgba(37,211,102,0.08);}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.3rem 1.5rem;background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-size:0.94rem;font-weight:600;color:var(--navy);text-align:left;gap:1rem;}
+.faq-q:hover{background:var(--bg);}
+.faq-toggle{width:28px;height:28px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;color:var(--text-dim);transition:all 0.2s;}
+.faq-item.open .faq-toggle{background:var(--accent-soft);border-color:var(--accent-line);color:var(--green);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.38s ease;}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-a-inner{padding:0 1.5rem 1.4rem;font-size:0.88rem;color:var(--text-dim);line-height:1.75;border-top:1px solid var(--border);}
+.faq-a-inner p{padding-top:1rem;}
+.faq-a-inner a{color:var(--green);font-weight:600;}
+
+/* ── CTA Section ── */
+.cta-section{padding:6rem 5%;}
+.wa-cta-wrap{background:var(--navy);border-radius:24px;padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;max-width:1280px;margin:0 auto;}
+.wa-cta-wrap::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(37,211,102,0.10) 0%,transparent 65%);pointer-events:none;}
+.wa-cta-wrap::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(37,211,102,0.07) 0%,transparent 65%);pointer-events:none;}
+.wa-cta-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.9rem;position:relative;z-index:1;}
+.wa-cta-wrap h2 em{font-style:italic;color:var(--accent);}
+.wa-cta-wrap p{color:rgba(255,255,255,0.45);font-size:0.95rem;max-width:500px;margin:0 auto 2.5rem;line-height:1.75;position:relative;z-index:1;}
+.cta-contacts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+.contact-pill{display:flex;align-items:center;gap:0.8rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.1rem 1.6rem;text-decoration:none;transition:background 0.2s;min-width:200px;}
+.contact-pill:hover{background:rgba(255,255,255,0.1);}
+.cp-icon{font-size:1.3rem;}
+.cp-label{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.2rem;}
+.cp-value{font-size:0.85rem;font-weight:600;color:#fff;}
+
+/* ── Footer ── */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:3rem 5% 2rem;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom span{font-size:0.79rem;color:rgba(255,255,255,0.32);}
+.footer-back{font-size:0.82rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s;}
+.footer-back:hover{color:rgba(255,255,255,0.75);}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ NAV ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo2.png" alt="Adaptive Minds AI" class="nav-logo-img"/>
+    </a>
+    <div class="nav-links">
+
+      <!-- Automation Dropdown -->
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">Automation <span class="nav-dd-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nav-dd-menu" style="width:620px;">
+          <div class="nav-dd-label">AI Automation Services</div>
+          <div class="nav-dd-grid" style="grid-template-columns:1fr 1fr 1fr;">
+            <a href="automation-workflow.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(59,130,246,0.12);">⚡</div>
+              <div><div class="nav-dd-name">Workflow Automation</div><div class="nav-dd-sub">Eliminate repetitive tasks</div></div>
+            </a>
+            <a href="automation-chatbots.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(6,182,212,0.12);">💬</div>
+              <div><div class="nav-dd-name">AI Assistants &amp; Chatbots</div><div class="nav-dd-sub">Always-on customer support</div></div>
+            </a>
+            <a href="automation-agents.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(168,85,247,0.12);">🧠</div>
+              <div><div class="nav-dd-name">Autonomous AI Agents</div><div class="nav-dd-sub">AI that acts without being asked</div></div>
+            </a>
+            <a href="automation-documents.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(245,158,11,0.12);">📋</div>
+              <div><div class="nav-dd-name">Document Intelligence</div><div class="nav-dd-sub">Chat with any document</div></div>
+            </a>
+            <a href="automation-data.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(249,115,22,0.12);">📥</div>
+              <div><div class="nav-dd-name">Intelligent Data Extraction</div><div class="nav-dd-sub">Pull data from any file</div></div>
+            </a>
+            <a href="automation-integration.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(16,185,129,0.12);">🔌</div>
+              <div><div class="nav-dd-name">System Integration</div><div class="nav-dd-sub">AI in tools you already use</div></div>
+            </a>
+            <a href="automation-bi.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(34,211,238,0.12);">📈</div>
+              <div><div class="nav-dd-name">Business Intelligence</div><div class="nav-dd-sub">Data into clear answers</div></div>
+            </a>
+            <a href="automation-content.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(236,72,153,0.12);">✏️</div>
+              <div><div class="nav-dd-name">Content Automation</div><div class="nav-dd-sub">Scale content, not headcount</div></div>
+            </a>
+            <a href="automation-custom.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(239,68,68,0.12);">🛠️</div>
+              <div><div class="nav-dd-name">Custom AI Development</div><div class="nav-dd-sub">AI built for your industry</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marketing Dropdown -->
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">Marketing <span class="nav-dd-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nav-dd-menu">
+          <div class="nav-dd-label">Marketing Services</div>
+          <div class="nav-dd-grid">
+            <a href="marketing-whatsapp.html" class="nav-dd-item">
+              <div class="nav-dd-icon">💬</div>
+              <div><div class="nav-dd-name">WhatsApp Marketing</div><div class="nav-dd-sub">Official Meta API broadcasts</div></div>
+            </a>
+            <a href="marketing-linkedin.html" class="nav-dd-item">
+              <div class="nav-dd-icon">💼</div>
+              <div><div class="nav-dd-name">LinkedIn Outreach</div><div class="nav-dd-sub">AI-powered B2B prospecting</div></div>
+            </a>
+            <a href="marketing-google-ads.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📊</div>
+              <div><div class="nav-dd-name">Google &amp; Meta Ads</div><div class="nav-dd-sub">Performance ad campaigns</div></div>
+            </a>
+            <a href="marketing-email.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📧</div>
+              <div><div class="nav-dd-name">Email Drip Automation</div><div class="nav-dd-sub">Nurture sequences that convert</div></div>
+            </a>
+            <a href="marketing-voice.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📞</div>
+              <div><div class="nav-dd-name">Voice AI &amp; Call Automation</div><div class="nav-dd-sub">AI-driven outbound calling</div></div>
+            </a>
+            <a href="marketing-lead-gen.html" class="nav-dd-item">
+              <div class="nav-dd-icon">🎯</div>
+              <div><div class="nav-dd-name">AI Lead Generation</div><div class="nav-dd-sub">Qualified leads, on demand</div></div>
+            </a>
+            <a href="marketing-social.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📱</div>
+              <div><div class="nav-dd-name">Social Media AI</div><div class="nav-dd-sub">Content, scheduling, analytics</div></div>
+            </a>
+            <a href="crm.html" class="nav-dd-item">
+              <div class="nav-dd-icon">🤝</div>
+              <div><div class="nav-dd-name">AI-Driven CRM</div><div class="nav-dd-sub">The CRM that works for you</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WhatsApp AI Dropdown -->
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">WhatsApp AI <span class="nav-dd-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nav-dd-menu">
+          <div class="nav-dd-label">WhatsApp &amp; Meta AI</div>
+          <div class="nav-dd-grid">
+            <a href="whatsapp-ai-agent.html" class="nav-dd-item current">
+              <div class="nav-dd-icon" style="background:rgba(37,211,102,0.12);">🤖</div>
+              <div><div class="nav-dd-name">WhatsApp AI Agent</div><div class="nav-dd-sub">Chatbot, broadcast &amp; ad capture</div></div>
+            </a>
+            <a href="whatsapp-ai-agent.html#ctwa-ads" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(66,133,244,0.12);">📣</div>
+              <div><div class="nav-dd-name">Click-to-WhatsApp Ads</div><div class="nav-dd-sub">Turn Meta ad clicks into chats</div></div>
+            </a>
+            <a href="marketing-whatsapp.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(37,211,102,0.12);">📢</div>
+              <div><div class="nav-dd-name">WhatsApp Broadcast Marketing</div><div class="nav-dd-sub">Official Meta API campaigns</div></div>
+            </a>
+            <a href="crm.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(201,148,58,0.12);">🤝</div>
+              <div><div class="nav-dd-name">WhatsApp CRM</div><div class="nav-dd-sub">Pipeline built around WhatsApp</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a href="crm.html" class="crm-link">AI CRM</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact" class="nav-cta">Talk to Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════ HERO ═══ -->
+<section class="wa-hero">
+  <div class="wa-hero-inner">
+    <div class="wa-hero-left">
+      <div class="wa-hero-eyebrow">
+        <span class="dot"></span>
+        WhatsApp AI Agent &middot; Official Meta API
+      </div>
+      <h1>Your Best Employee<br><em>Never Sleeps.</em></h1>
+      <p class="wa-hero-sub">An AI agent trained on your business — chats, qualifies, books, and sells inside WhatsApp, 24/7. Connect it to your Meta ads, and every ad click becomes a live conversation instead of a missed lead.</p>
+      <div class="wa-hero-actions">
+        <a href="https://wa.me/918130247554" class="btn btn-accent" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Book Free Demo
+        </a>
+        <a href="#pricing" class="btn btn-outline-light">See Plans &amp; Pricing</a>
+      </div>
+    </div>
+    <div class="wa-hero-right">
+      <div class="wa-hero-card">
+        <div class="wa-hero-card-label">Why Businesses Automate WhatsApp First</div>
+        <div class="wa-stat-row">
+          <div class="wa-stat-icon green">🤖</div>
+          <div>
+            <div class="wa-stat-label">&lt;10 second response time</div>
+            <div class="wa-stat-sub">Every chat answered instantly, day or night — no queue, no missed opener</div>
+          </div>
+        </div>
+        <div class="wa-stat-row">
+          <div class="wa-stat-icon amber">📣</div>
+          <div>
+            <div class="wa-stat-label">Meta ad clicks → live chats</div>
+            <div class="wa-stat-sub">Click-to-WhatsApp Ads land straight into a qualifying conversation, not a cold form</div>
+          </div>
+        </div>
+        <div class="wa-stat-row">
+          <div class="wa-stat-icon blue">🔗</div>
+          <div>
+            <div class="wa-stat-label">Handoff to your CRM, automatically</div>
+            <div class="wa-stat-sub">Every qualified chat lands in your pipeline with full context — no copy-paste</div>
+          </div>
+        </div>
+        <div class="wa-hero-foot">
+          <span class="wa-badge">Meta Business Verified</span>
+          <span class="wa-badge">Official Cloud API</span>
+          <span class="wa-badge">DPDP Compliant</span>
+          <span class="wa-badge">CTWA Ready</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ STATS BAR ═══ -->
+<section class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-block">
+      <div class="stat-num">&lt;10s</div>
+      <div class="stat-label">Avg Response Time</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">3×</div>
+      <div class="stat-label">More Leads From Ads</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Always-On Coverage</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Missed Chats</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ WHAT'S INCLUDED ═══ -->
+<section class="included-section section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">What's Included</div>
+    <h2 class="section-title">One Number. Every Job Handled.</h2>
+    <p class="section-sub">Chatbot, catalog, broadcast, and ad capture — all running on the same WhatsApp number your customers already message.</p>
+
+    <div class="features-grid">
+      <div class="feature-card reveal d1">
+        <span class="feature-icon">🧠</span>
+        <h4>AI Agent Trained on Your Business</h4>
+        <p>Not a generic bot — trained on your product catalog, FAQs, pricing, and policies. Answers like your best salesperson would.</p>
+      </div>
+      <div class="feature-card reveal d2">
+        <span class="feature-icon">🛍️</span>
+        <h4>Catalog &amp; In-Chat Payments</h4>
+        <p>Customers browse your catalog and pay — Razorpay/UPI links — without ever leaving WhatsApp.</p>
+      </div>
+      <div class="feature-card reveal d3">
+        <span class="feature-icon">📢</span>
+        <h4>Broadcast &amp; Template Campaigns</h4>
+        <p>Send announcements, offers, and reminders as Meta-approved templates — no ban risk, full delivery tracking.</p>
+      </div>
+      <div class="feature-card reveal d1">
+        <span class="feature-icon">📣</span>
+        <h4>Click-to-WhatsApp Ads Capture</h4>
+        <p>Every Meta ad click opens a chat with your agent already primed with the ad context — see exactly how below.</p>
+      </div>
+      <div class="feature-card reveal d2">
+        <span class="feature-icon">👥</span>
+        <h4>Shared Team Inbox</h4>
+        <p>Multiple agents on one number, smart routing, canned replies — no lead lost in someone's personal phone.</p>
+      </div>
+      <div class="feature-card reveal d3">
+        <span class="feature-icon">🔁</span>
+        <h4>CRM Handoff</h4>
+        <p>Qualified conversations sync straight into your pipeline — including our own AI CRM — with full chat history attached.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CTWA SPOTLIGHT ═══ -->
+<section class="ctwa-section section reveal" id="ctwa-ads">
+  <div class="section-inner">
+    <div class="ctwa-card">
+      <div class="ctwa-eyebrow">The Missing Link</div>
+      <h3>Turn every Meta ad click into a conversation — not a form nobody fills out.</h3>
+      <p class="ctwa-sub">Most businesses run Facebook and Instagram ads that dump leads into a form. Click-to-WhatsApp Ads skip the form entirely — the click opens a live chat with your AI agent, already primed with which ad, which offer, and what the person was looking at.</p>
+      <div class="ctwa-flow">
+        <span class="ctwa-chip">📱 Meta Ad Clicked</span>
+        <span class="ctwa-arrow">→</span>
+        <span class="ctwa-chip">💬 WhatsApp Opens Instantly</span>
+        <span class="ctwa-arrow">→</span>
+        <span class="ctwa-chip">🤖 Agent Qualifies &amp; Answers</span>
+        <span class="ctwa-arrow">→</span>
+        <span class="ctwa-chip">📋 Hot Lead → CRM</span>
+      </div>
+      <a href="marketing-google-ads.html" class="ctwa-link-box">
+        <span style="font-size:1.3rem;">📊</span>
+        <span>
+          <span class="label">Don't have Meta ads running yet?</span><br>
+          <span class="sub">See our Google &amp; Meta Ads Management service →</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ INDUSTRY FLOWS ═══ -->
+<section class="industry-section section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">Built For Your Industry</div>
+    <h2 class="section-title">WhatsApp Automation,<br>Tailored to Your Business</h2>
+    <p class="section-sub">Every industry has a different customer journey. Here's what the agent actually does, end to end, in four of the businesses we build for most.</p>
+
+    <div class="industry-grid">
+      <div class="industry-card reveal d1">
+        <div class="industry-head"><span class="industry-icon">🏥</span><h4>Healthcare &amp; Clinics</h4></div>
+        <div class="flow-row">
+          <span class="flow-chip">Patient Books</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">Confirmation</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">24hr Reminder</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">Feedback</span>
+        </div>
+        <div class="industry-proof">40% fewer no-shows</div>
+      </div>
+      <div class="industry-card reveal d2">
+        <div class="industry-head"><span class="industry-icon">🏠</span><h4>Real Estate</h4></div>
+        <div class="flow-row">
+          <span class="flow-chip">Inquiry</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">Auto-Assign Agent</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">Brochure Sent</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">Site Visit Booked</span>
+        </div>
+        <div class="industry-proof">3× more site visits booked</div>
+      </div>
+      <div class="industry-card reveal d3">
+        <div class="industry-head"><span class="industry-icon">🛒</span><h4>E-commerce &amp; D2C</h4></div>
+        <div class="flow-row">
+          <span class="flow-chip">Cart Abandoned</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">WhatsApp Nudge</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">Payment Link</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">Order Confirmed</span>
+        </div>
+        <div class="industry-proof">30%+ cart recovery rate</div>
+      </div>
+      <div class="industry-card reveal d1">
+        <div class="industry-head"><span class="industry-icon">🎓</span><h4>Education &amp; Coaching</h4></div>
+        <div class="flow-row">
+          <span class="flow-chip">Inquiry</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">Course Info</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">Fee Payment Link</span><span class="flow-arrow">→</span>
+          <span class="flow-chip">Enrolled</span>
+        </div>
+        <div class="industry-proof">2×+ enrollment rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ PRICING ═══ -->
+<section class="pricing-section section reveal" id="pricing">
+  <div class="section-inner">
+    <div class="eyebrow">Choose Your Plan</div>
+    <h2 class="section-title">Simple, transparent pricing.<br><em>No hidden fees.</em></h2>
+    <p class="section-sub">All prices exclude 18% GST. Save with annual billing — setup fees are one-time only.</p>
+
+    <div class="wa-plans-grid">
+
+      <!-- Starter -->
+      <div class="wa-plan reveal">
+        <div class="wa-plan-name">Starter</div>
+        <div class="wa-plan-who">For single-location businesses &amp; clinics testing WhatsApp automation</div>
+        <div class="wa-plan-price">₹4,999<span>/mo</span></div>
+        <div class="wa-plan-annual">₹3,999/mo billed annually</div>
+        <div class="wa-plan-setup">One-time setup: <strong>₹10,000</strong> — Meta verification, agent training on your content, and template approval.</div>
+        <ul class="wa-plan-features">
+          <li>1 WhatsApp number</li>
+          <li>AI agent — up to 3 flows</li>
+          <li>5,000 broadcast contacts/mo</li>
+          <li>2 team inbox seats</li>
+          <li>Meta-approved templates</li>
+          <li>Click-to-WhatsApp Ads capture</li>
+          <li>Monthly performance report</li>
+          <li class="no">CRM handoff integration</li>
+          <li class="no">Multi-agent role management</li>
+          <li class="no">Dedicated account manager</li>
+        </ul>
+        <a href="https://wa.me/918130247554" class="wa-plan-cta" target="_blank">Get Started →</a>
+      </div>
+
+      <!-- Business — Most Popular -->
+      <div class="wa-plan wa-plan-featured reveal d1">
+        <div class="most-popular-tag">Most Popular</div>
+        <div class="wa-plan-name">Business</div>
+        <div class="wa-plan-who">For growing teams running ads &amp; wanting full CRM handoff</div>
+        <div class="wa-plan-price">₹11,999<span>/mo</span></div>
+        <div class="wa-plan-annual">₹9,499/mo billed annually</div>
+        <div class="wa-plan-setup">One-time setup: <strong>₹20,000</strong> — everything in Starter's setup, plus catalog build and CRM handoff configuration.</div>
+        <ul class="wa-plan-features">
+          <li>Everything in Starter, plus:</li>
+          <li>Unlimited conversation flows</li>
+          <li>20,000 broadcast contacts/mo</li>
+          <li>5 team inbox seats with roles</li>
+          <li>Product catalog + in-chat payments</li>
+          <li>CRM handoff integration</li>
+          <li>Advanced analytics dashboard</li>
+          <li>Priority support</li>
+          <li class="no">Dedicated account manager</li>
+          <li class="no">Multiple WhatsApp numbers</li>
+        </ul>
+        <a href="https://wa.me/918130247554" class="wa-plan-cta wa-plan-cta-featured" target="_blank">Get Started →</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="wa-plan reveal d2">
+        <div class="wa-plan-name">Enterprise</div>
+        <div class="wa-plan-who">For multi-location &amp; multi-brand businesses at scale</div>
+        <div class="wa-plan-price">Custom</div>
+        <div class="wa-plan-annual">Tailored to your scale</div>
+        <div class="wa-plan-setup">Setup: <strong>Scoped after a free audit</strong> — multi-number rollout, custom integrations, and dedicated infrastructure.</div>
+        <ul class="wa-plan-features">
+          <li>Everything in Business, plus:</li>
+          <li>Multiple WhatsApp numbers</li>
+          <li>Unlimited contacts &amp; seats</li>
+          <li>Dedicated account manager</li>
+          <li>Custom CRM / ERP / API integrations</li>
+          <li>SLA &amp; uptime guarantee</li>
+          <li>On-call priority support</li>
+        </ul>
+        <a href="https://wa.me/918130247554" class="wa-plan-cta" target="_blank">Talk to Sales →</a>
+      </div>
+
+    </div>
+
+    <p class="pricing-disclaimer">Meta's official per-conversation charges apply separately, billed at Meta's standard rate card — we never mark those up. These appear on your own WhatsApp Business bill, not your Adaptive Minds AI invoice.</p>
+
+    <a href="crm.html#pricing" class="crm-upsell">
+      <span style="font-size:1.2rem;">💡</span>
+      <span>
+        <span class="label">Need a full sales pipeline too, not just WhatsApp?</span><br>
+        <span class="sub">Our AI CRM already includes 2-way WhatsApp — see CRM plans →</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ COMPARISON ═══ -->
+<section class="compare-section section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">The Difference</div>
+    <h2 class="section-title">Us vs Typical<br>WhatsApp SaaS Tools</h2>
+    <p class="section-sub">Plenty of tools give you WhatsApp API access. Here's what's actually different about how we build and run it for you.</p>
+
+    <div class="compare-wrap">
+      <div class="compare-row header-row">
+        <div class="compare-cell">Feature</div>
+        <div class="compare-cell">Typical WhatsApp Tools</div>
+        <div class="compare-cell us-col">Adaptive Minds AI</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-col">Agent training</div>
+        <div class="compare-cell">Generic scripted replies</div>
+        <div class="compare-cell us-col">Trained on your catalog &amp; policies</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-col">Support model</div>
+        <div class="compare-cell">Ticket queue, self-serve</div>
+        <div class="compare-cell us-col">One accountable team, WhatsApp support</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-col">Meta ad integration</div>
+        <div class="compare-cell">Rarely included</div>
+        <div class="compare-cell us-col">Click-to-WhatsApp Ads built in</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-col">Pricing</div>
+        <div class="compare-cell">Per-seat + surprise add-ons</div>
+        <div class="compare-cell us-col">Flat tiers, one-time setup, no surprises</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-col">Ownership</div>
+        <div class="compare-cell">Locked into their platform</div>
+        <div class="compare-cell us-col">You own the number, data &amp; setup</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ HOW IT WORKS ═══ -->
+<section class="how-section section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">Our Process</div>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Four focused steps from zero to a live, converting WhatsApp agent — handled entirely by our team.</p>
+
+    <div class="steps-grid">
+      <div class="step-card reveal d1">
+        <div class="step-num" data-n="1">Step 1</div>
+        <div class="step-icon">🏢</div>
+        <h4>Meta Business Setup</h4>
+        <p>We verify your Meta Business account and WhatsApp API number — official, compliant, zero ban risk.</p>
+      </div>
+      <div class="step-card reveal d2">
+        <div class="step-num" data-n="2">Step 2</div>
+        <div class="step-icon">🧠</div>
+        <h4>Agent Training</h4>
+        <p>Fed your catalog, pricing, FAQs, and policies — the agent answers like your best salesperson, not a script.</p>
+      </div>
+      <div class="step-card reveal d3">
+        <div class="step-num" data-n="3">Step 3</div>
+        <div class="step-icon">🔌</div>
+        <h4>Flows, Catalog &amp; Ads Wiring</h4>
+        <p>We build your booking/qualifying flows, connect your product catalog, and wire up Click-to-WhatsApp Ads if you're running campaigns.</p>
+      </div>
+      <div class="step-card reveal d4">
+        <div class="step-num" data-n="4">Step 4</div>
+        <div class="step-icon">🚀</div>
+        <h4>Go Live &amp; Monitor</h4>
+        <p>Live dashboard from day one. Every conversation logged, reviewed monthly, and refined.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FAQ ═══ -->
+<section class="faq-section section reveal">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <div class="eyebrow" style="justify-content:center;">Common Questions</div>
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Frequently Asked</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How is this different from your WhatsApp Marketing service?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner"><p>WhatsApp Marketing is broadcast campaigns — one-way announcements to your list. This is the always-on layer: an AI agent that has real conversations, plus Click-to-WhatsApp Ads capture. Most clients run both together — campaigns bring people in, the agent handles what happens next.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I need Meta ads running already to use Click-to-WhatsApp Ads?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner"><p>No. If you don't have campaigns running yet, our <a href="marketing-google-ads.html">Google &amp; Meta Ads</a> team can set those up too, and we'll wire the agent to catch every click from day one.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is this the same as your AI CRM?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner"><p>No. The <a href="crm.html">CRM</a> is your sales pipeline — deals, stages, team assignment. This is the customer-facing WhatsApp layer. Business and Enterprise tiers include a direct handoff so qualified chats land in your CRM automatically; you can also run this standalone.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is the Meta conversation charge, and is it included in my plan?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner"><p>Meta bills every WhatsApp conversation directly at its own published rate (it varies by category and country) — this is separate from your plan fee, and we never mark it up. Your monthly plan covers the platform, the agent, and our team; Meta's charges appear on your own WhatsApp Business bill.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long does setup take?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner"><p>Most Starter and Business setups go live within 5-7 working days of Meta verification and receiving your product/FAQ content. Enterprise timelines depend on scope — we'll confirm exact dates during your free audit.</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CTA ═══ -->
+<section class="cta-section reveal">
+  <div class="wa-cta-wrap">
+    <h2>Ready to make WhatsApp<br><em>your hardest-working employee?</em></h2>
+    <p>Book a free 30-min demo. We'll show you exactly how the agent, catalog, and Click-to-WhatsApp Ads would look for your business — no commitment required.</p>
+    <div class="cta-contacts">
+      <a href="https://wa.me/918130247554" class="contact-pill" target="_blank" rel="noopener">
+        <span class="cp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </span>
+        <div>
+          <div class="cp-label">WhatsApp</div>
+          <div class="cp-value">+91 81302 47554</div>
+        </div>
+      </a>
+      <a href="mailto:hello@adaptivemindsai.com" class="contact-pill">
+        <span class="cp-icon">✉️</span>
+        <div>
+          <div class="cp-label">Email</div>
+          <div class="cp-value">hello@adaptivemindsai.com</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <span>© 2026 Adaptive Minds AI · Prices exclude 18% GST · Meta conversation charges billed separately</span>
+      <a href="index.html" class="footer-back">← Back to main site</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── FAQ accordion ──
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq-toggle').textContent = '+';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.querySelector('.faq-toggle').textContent = '×';
+  }
+}
+
+// ── Reveal on scroll ──
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
