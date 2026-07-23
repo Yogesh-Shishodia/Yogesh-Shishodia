@@ -116,35 +116,39 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 #services::before{content:'';position:absolute;top:-200px;left:-200px;width:650px;height:650px;background:radial-gradient(circle,rgba(33,70,240,0.13) 0%,transparent 65%);pointer-events:none;z-index:0;}
 #services::after{content:'';position:absolute;bottom:-100px;right:-150px;width:550px;height:550px;background:radial-gradient(circle,rgba(201,148,58,0.09) 0%,transparent 65%);pointer-events:none;z-index:0;}
 #services .section-inner{position:relative;z-index:1;}
-.services-header{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.8rem;}
-.services-nav{display:flex;align-items:center;gap:0.6rem;flex-shrink:0;}
-.svc-nav-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.7);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
-.svc-nav-btn:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.3);color:#fff;}
-.svc-nav-btn svg{width:18px;height:18px;}
-.svc-pause-hint{font-size:0.68rem;color:rgba(255,255,255,0.22);letter-spacing:0.04em;white-space:nowrap;}
-.services-marquee-outer{position:relative;overflow:hidden;mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);padding:0.6rem 0 1rem;}
-.services-track{display:flex;gap:1.4rem;width:max-content;animation:marqueeScroll 38s linear infinite;will-change:transform;}
-.services-marquee-outer:hover .services-track,.services-track[data-paused="true"]{animation-play-state:paused;}
-@keyframes marqueeScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-@keyframes cardFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-@keyframes iconPop{0%{transform:scale(1);}40%{transform:scale(1.22);}70%{transform:scale(0.93);}100%{transform:scale(1);}}
-@keyframes shimmerSlide{0%{background-position:200% center;}100%{background-position:-200% center;}}
-@keyframes glowRing{0%,100%{box-shadow:0 0 0 0 var(--svc-accent,#2146f0);}50%{box-shadow:0 0 18px 4px var(--svc-accent,#2146f0);}}
-.svc{background:#0f1e32;border:1px solid rgba(255,255,255,0.07);border-top:3px solid var(--svc-accent,#2146f0);border-radius:18px;padding:2rem 1.8rem;position:relative;overflow:hidden;flex:0 0 300px;width:300px;transition:background 0.35s,transform 0.35s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.35s;cursor:default;animation:cardFloat 5s ease-in-out infinite;}
-.svc:nth-child(2){animation-delay:0.4s;}.svc:nth-child(3){animation-delay:0.8s;}.svc:nth-child(4){animation-delay:1.2s;}.svc:nth-child(5){animation-delay:1.6s;}.svc:nth-child(6){animation-delay:2s;}.svc:nth-child(7){animation-delay:2.4s;}.svc:nth-child(8){animation-delay:2.8s;}.svc:nth-child(9){animation-delay:3.2s;}
-.services-marquee-outer:hover .svc{animation-play-state:paused;}
-.svc::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:3px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);animation:shimmerSlide 3s linear infinite;}
-.svc::after{content:attr(data-num);position:absolute;bottom:-1rem;right:1rem;font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.03);line-height:1;pointer-events:none;user-select:none;transition:color 0.4s;}
-.svc:hover{background:#152840;transform:translateY(-10px) scale(1.02);box-shadow:0 28px 60px rgba(0,0,0,0.5),0 0 40px -10px var(--svc-accent,#2146f0);animation-play-state:paused;}
-.svc:hover::after{color:rgba(255,255,255,0.06);}
-.svc-icon-box{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem;background:var(--svc-icon-bg,rgba(33,70,240,0.12));border:1px solid var(--svc-icon-bd,rgba(33,70,240,0.28));transition:transform 0.3s,box-shadow 0.3s;flex-shrink:0;}
-.svc:hover .svc-icon-box{animation:iconPop 0.5s cubic-bezier(0.34,1.56,0.64,1) both,glowRing 1.8s ease-in-out 0.5s infinite;}
-.svc-category{font-size:1.05rem;font-weight:700;letter-spacing:0.01em;text-transform:none;color:var(--svc-accent,#c9943a);margin-bottom:0.3rem;display:block;background:linear-gradient(90deg,var(--svc-accent),rgba(255,255,255,0.9),var(--svc-accent));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerSlide 4s linear infinite;line-height:1.25;}
-.svc h3{font-family:'Outfit',sans-serif;font-size:0.84rem;font-weight:400;color:rgba(255,255,255,0.48);margin-bottom:0.5rem;line-height:1.45;letter-spacing:0;transition:color 0.3s;}
-.svc p{font-size:0.86rem;color:rgba(255,255,255,0.5);line-height:1.65;margin-bottom:0;}
-.svc-eg{font-size:0.77rem;color:var(--svc-accent,#c9943a);opacity:0;transform:translateY(8px);line-height:1.45;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.07);display:flex;gap:0.4rem;align-items:flex-start;margin-top:0.8rem;font-style:normal;font-weight:500;transition:opacity 0.3s 0.1s,transform 0.3s 0.1s;}
-.svc:hover .svc-eg{opacity:1;transform:translateY(0);}
-.svc-eg::before{content:'→';flex-shrink:0;}
+.services-section-head{margin-bottom:3rem;max-width:720px;}
+.bucket-block{margin-bottom:3.75rem;}
+.bucket-block:last-child{margin-bottom:0;}
+.bucket-head{display:flex;align-items:baseline;gap:0.7rem;margin-bottom:0.6rem;flex-wrap:wrap;}
+.bucket-index{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:rgba(255,255,255,0.25);}
+.bucket-title{font-family:'Outfit',sans-serif;font-size:1.55rem;font-weight:700;color:#fff;letter-spacing:-0.01em;}
+.bucket-sub{font-size:0.86rem;color:rgba(255,255,255,0.42);line-height:1.6;margin-bottom:1.6rem;max-width:640px;}
+.bkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem;}
+.bkt-card{display:flex;flex-direction:column;text-decoration:none;background:#0f1e32;border:1px solid rgba(255,255,255,0.07);border-top:3px solid var(--bkt-accent,#2146f0);border-radius:16px;padding:1.7rem 1.5rem;transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.28s,background 0.28s;}
+.bkt-card:hover{background:#152840;transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,0.45),0 0 30px -12px var(--bkt-accent,#2146f0);}
+.bkt-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:1rem;background:var(--bkt-icon-bg,rgba(33,70,240,0.12));border:1px solid var(--bkt-icon-bd,rgba(33,70,240,0.28));flex-shrink:0;}
+.bkt-tag{display:block;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--bkt-accent,#c9943a);margin-bottom:0.5rem;}
+.bkt-card h4{font-family:'Outfit',sans-serif;font-size:0.98rem;font-weight:700;color:#fff;margin-bottom:0.5rem;line-height:1.3;}
+.bkt-card p{font-size:0.83rem;color:rgba(255,255,255,0.46);line-height:1.6;margin-bottom:1rem;flex:1;}
+.bkt-proof{font-size:0.76rem;color:var(--bkt-accent,#c9943a);font-weight:600;padding-top:0.8rem;border-top:1px solid rgba(255,255,255,0.07);display:flex;gap:0.4rem;align-items:flex-start;}
+.bkt-proof::before{content:'→';flex-shrink:0;}
+@media(max-width:900px){.bkt-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.bkt-grid{grid-template-columns:1fr;}}
+
+/* ── Audience toggle (hero) ── */
+.aud-toggle{display:inline-flex;gap:0.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:999px;padding:0.28rem;margin-bottom:1.5rem;animation:fadeUp 0.9s 0.16s ease both;}
+.aud-btn{border:none;background:transparent;font-family:'Outfit',sans-serif;font-size:0.76rem;font-weight:600;color:var(--text-dim);padding:0.48rem 0.95rem;border-radius:999px;cursor:pointer;transition:all 0.2s;}
+.aud-btn.active{background:var(--navy);color:#fff;}
+.aud-btn:not(.active):hover{color:var(--text);}
+.hf-set{display:none;flex-wrap:wrap;gap:0.5rem;}
+.hf-set.active{display:flex;}
+
+/* ── Problem picker (hero) ── */
+.picker-row{display:flex;flex-direction:column;gap:0.5rem;margin-top:1.9rem;max-width:460px;animation:fadeUp 0.9s 0.26s ease both;}
+.picker-label{font-size:0.66rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.3rem;}
+.picker-btn{display:flex;align-items:center;gap:0.6rem;text-align:left;background:var(--surface);border:1px solid var(--border);color:var(--text-dim);font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:500;padding:0.7rem 1rem;border-radius:10px;text-decoration:none;transition:all 0.2s;box-shadow:var(--shadow);}
+.picker-btn:hover{border-color:var(--blue-line);color:var(--navy);transform:translateX(3px);box-shadow:var(--shadow-lg);}
+.picker-btn .arrow{margin-left:auto;opacity:0.4;flex-shrink:0;color:var(--blue);}
 
 .who-strip{padding:2.5rem 5%;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .who-strip-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
@@ -441,8 +445,6 @@ body.modal-open{overflow:hidden;}
   .contact-pill{min-width:unset;width:100%;}
   .cta-contacts{flex-direction:column;}
   .who-strip-inner{flex-direction:column;align-items:flex-start;gap:1rem;}
-  .services-header{flex-direction:column;align-items:flex-start;gap:1.2rem;}
-  .svc{flex:0 0 280px;width:280px;}
 }
 @media(max-width:480px){
   .footer-logo-img{height:42px;}
@@ -558,23 +560,6 @@ body.modal-open{overflow:hidden;}
   #svc-modal{padding:0.5rem;}
 }
 
-/* ═══════════════════════════════
-   MARKETING SERVICES SECTION
-═══════════════════════════════ */
-#marketing{background:var(--bg);}
-#marketing .eyebrow{color:var(--green);}
-#marketing .eyebrow::after{background:var(--green-soft);}
-.mkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:1.2rem;}
-.mkt-card{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--mkt-accent,#25d366);border-radius:16px;padding:1.8rem 1.6rem;cursor:pointer;transition:all 0.25s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
-.mkt-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.1);border-color:var(--border2);}
-.mkt-card-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.2rem;flex-shrink:0;}
-.mkt-tag{font-size:1.05rem;font-weight:700;letter-spacing:0.01em;text-transform:none;color:var(--mkt-accent,#25d366);display:block;margin-bottom:0.3rem;line-height:1.25;}
-.mkt-card h3{font-family:'Outfit',sans-serif;font-size:0.84rem;font-weight:400;color:var(--text-dim);margin-bottom:0.5rem;line-height:1.45;letter-spacing:0;}
-.mkt-card p{font-size:0.88rem;color:var(--text-dim);line-height:1.65;margin-bottom:1rem;flex:1;}
-.mkt-proof{font-size:0.77rem;font-weight:600;color:var(--text-dim);display:flex;align-items:center;gap:0.4rem;margin-bottom:1.2rem;padding:0.4rem 0.75rem;background:var(--bg2);border-radius:8px;border:1px solid var(--border);}
-.mkt-btn{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;font-weight:700;color:var(--navy);background:transparent;border:1.5px solid var(--border2);border-radius:8px;padding:0.5rem 1rem;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;align-self:flex-start;margin-top:auto;text-decoration:none;}
-.mkt-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
-
 /* ── Nav Dropdown ── */
 .nav-has-dropdown{position:relative;display:flex;align-items:center;}
 .nav-dd-trigger{font-size:0.95rem;font-weight:500;color:var(--text-dim);padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;cursor:pointer;display:flex;align-items:center;gap:0.3rem;border:none;background:none;font-family:'Outfit',sans-serif;line-height:1;}
@@ -591,8 +576,6 @@ body.modal-open{overflow:hidden;}
 .nav-dd-name{font-size:0.83rem;font-weight:600;color:var(--navy);line-height:1.2;}
 .nav-dd-sub{font-size:0.69rem;color:var(--text-faint);margin-top:0.1rem;line-height:1.3;}
 @media(max-width:768px){.nav-has-dropdown{display:none;}}
-.mkt-section-note{font-size:0.80rem;color:var(--text-faint);text-align:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);}
-@media(max-width:768px){.mkt-grid{grid-template-columns:1fr;}}
 
 </style>
 </head>
@@ -660,12 +643,23 @@ body.modal-open{overflow:hidden;}
   <div class="hero-inner">
     <div class="hero-left">
       <img src="logo.png" alt="" class="hero-logo-bg" aria-hidden="true">
-      <div class="hero-eyebrow"><span class="dot"></span>AI Automation Agency · India &amp; Global</div>
-      <h1>AI Automation Agency in India — Custom AI Systems for Business</h1>
-      <p class="hero-sub">We design and deploy custom, secure AI systems that handle your repetitive daily tasks — so your team can focus on growth, strategy, and the work only humans can do.</p>
+      <div class="hero-eyebrow"><span class="dot"></span>AI Automation &amp; Growth Agency · India &amp; Global</div>
+      <div class="aud-toggle" role="group" aria-label="Choose your business type">
+        <button type="button" class="aud-btn" data-aud="smb">Small &amp; Growing Business</button>
+        <button type="button" class="aud-btn active" data-aud="ent">Enterprise &amp; Regulated</button>
+      </div>
+      <h1>Answer Every Customer Instantly.<br/>Automate Everything Else.</h1>
+      <p class="hero-sub">Custom AI systems that respond to customers in seconds, fill your pipeline, and take over the manual busywork slowing your team down — built around your business, not a template.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-blue">Get a Free AI Audit →</a>
         <a href="#work" class="btn btn-outline">See Our Work</a>
+      </div>
+      <div class="picker-row">
+        <div class="picker-label">What's the problem?</div>
+        <a href="#bucket-conversations" class="picker-btn">Customers messaging or calling and no one's answering fast enough <span class="arrow">→</span></a>
+        <a href="#bucket-growth" class="picker-btn">Pipeline's dry, need more qualified leads <span class="arrow">→</span></a>
+        <a href="#bucket-docs" class="picker-btn">Drowning in documents, PDFs, spreadsheets, reports <span class="arrow">→</span></a>
+        <a href="#bucket-custom" class="picker-btn">Manual busywork eating your team's time <span class="arrow">→</span></a>
       </div>
     </div>
     <div class="hero-right">
@@ -673,8 +667,13 @@ body.modal-open{overflow:hidden;}
       <div class="hero-metric"><div class="hm-icon hm-icon-green">💰</div><div class="hm-info"><div class="hm-label">Replaces expensive manual work — <span class="accent-green">at a fraction of the cost</span></div><div class="hm-sub">Tasks that once needed a full-time hire now run automatically, 24/7, without adding headcount.</div></div></div>
       <div class="hero-metric"><div class="hm-icon hm-icon-blue">📈</div><div class="hm-info"><div class="hm-label">Your team handles <span class="accent-blue">10× more volume</span> — without growing headcount</div><div class="hm-sub">AI takes on the repetitive load. Your people stay focused on decisions and work that moves the business forward.</div></div></div>
       <div class="hero-metric"><div class="hm-icon hm-icon-gold">🔒</div><div class="hm-info"><div class="hm-label"><span class="accent-gold">100% custom-built</span> — you own it, no lock-in</div><div class="hm-sub">No monthly subscriptions. Every system is purpose-built for your workflow and handed over to you completely.</div></div></div>
-      <div class="hero-right-foot">
-        <span class="hero-badge">HIPAA Ready</span><span class="hero-badge">GDPR Compliant</span><span class="hero-badge">On-Premise</span><span class="hero-badge">Audit Trail</span>
+      <div class="hero-right-foot" id="heroFoot">
+        <div class="hf-set hf-set-ent active">
+          <span class="hero-badge">HIPAA Ready</span><span class="hero-badge">GDPR Compliant</span><span class="hero-badge">On-Premise</span><span class="hero-badge">Audit Trail</span>
+        </div>
+        <div class="hf-set hf-set-smb">
+          <span class="hero-badge">WhatsApp-Native</span><span class="hero-badge">Setup in Days</span><span class="hero-badge">CRM from ₹5K/mo</span><span class="hero-badge">DPDP Compliant</span>
+        </div>
       </div>
     </div>
   </div>
@@ -695,40 +694,145 @@ body.modal-open{overflow:hidden;}
 
 <section class="section dark-bg" id="services">
   <div class="section-inner">
-    <div class="services-header">
-      <div class="services-header-left">
-        <div class="reveal" style="display:inline-flex;align-items:center;gap:0.55rem;background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.35);padding:0.38rem 1rem 0.38rem 0.7rem;border-radius:999px;margin-bottom:1.4rem;"><span style="width:7px;height:7px;border-radius:50%;background:#c9943a;display:inline-block;"></span><span style="font-size:0.9rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9943a;">AI Automation Suite</span></div>
-        <h2 class="section-title reveal" style="color:#fff;margin-bottom:0.6rem;font-size:clamp(2.8rem,5vw,4.4rem);">Stop doing it manually.<br/><em style="color:rgba(255,255,255,0.38);">Let AI do it for you.</em></h2>
-        <p class="section-sub reveal" style="margin-bottom:0;">Nine purpose-built AI systems that eliminate manual work from your business — built, deployed, and maintained by us.</p>
-      </div>
-      <div class="services-nav reveal">
-        <span class="svc-pause-hint">Hover to pause</span>
-        <button class="svc-nav-btn" id="svcSlower"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></button>
-        <button class="svc-nav-btn" id="svcToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg></button>
-        <button class="svc-nav-btn" id="svcFaster"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/><line x1="19" y1="3" x2="19" y2="21"/></svg></button>
+    <div class="services-section-head">
+      <div class="reveal" style="display:inline-flex;align-items:center;gap:0.55rem;background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.35);padding:0.38rem 1rem 0.38rem 0.7rem;border-radius:999px;margin-bottom:1.4rem;"><span style="width:7px;height:7px;border-radius:50%;background:#c9943a;display:inline-block;"></span><span style="font-size:0.9rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9943a;">How We Help</span></div>
+      <h2 class="section-title reveal" style="color:#fff;margin-bottom:0.6rem;font-size:clamp(2.8rem,5vw,4.4rem);">Whatever's slowing you down,<br/><em style="color:rgba(255,255,255,0.38);">we've got a system for it.</em></h2>
+      <p class="section-sub reveal" style="margin-bottom:0;">18 purpose-built AI systems, grouped by the problem they solve — not by which team built them. Pick where it hurts most, or scroll through all four.</p>
+    </div>
+
+    <div class="bucket-block" id="bucket-conversations">
+      <div class="bucket-head reveal"><span class="bucket-index">01</span><h3 class="bucket-title">Never Miss a Customer Message</h3></div>
+      <p class="bucket-sub reveal">The direct channels customers use to reach you, or hear from you — answered and followed up on instantly, day or night.</p>
+      <div class="bkt-grid">
+        <a href="automation-chatbots.html" class="bkt-card reveal" style="--bkt-accent:#06b6d4;--bkt-icon-bg:rgba(6,182,212,0.12);--bkt-icon-bd:rgba(6,182,212,0.28);">
+          <div class="bkt-icon">💬</div><span class="bkt-tag">AI Assistants &amp; Chatbots</span>
+          <h4>Always-On Customer Support</h4>
+          <p>AI trained on your business answers queries on WhatsApp, your website, or Slack — day or night.</p>
+          <div class="bkt-proof">Zero missed queries, even at 2am</div>
+        </a>
+        <a href="whatsapp-ai-agent.html" class="bkt-card reveal d1" style="--bkt-accent:#10b981;--bkt-icon-bg:rgba(16,185,129,0.12);--bkt-icon-bd:rgba(16,185,129,0.28);">
+          <div class="bkt-icon">🤖</div><span class="bkt-tag">WhatsApp AI Agent</span>
+          <h4>Your Best Employee Never Sleeps</h4>
+          <p>An AI agent that chats, qualifies, books, and sells inside WhatsApp — and turns every Meta ad click into a live conversation.</p>
+          <div class="bkt-proof">&lt;10 sec response time, 24/7</div>
+        </a>
+        <a href="marketing-whatsapp.html" class="bkt-card reveal d2" style="--bkt-accent:#25d366;--bkt-icon-bg:rgba(37,211,102,0.12);--bkt-icon-bd:rgba(37,211,102,0.28);">
+          <div class="bkt-icon">📢</div><span class="bkt-tag">WhatsApp Marketing</span>
+          <h4>Reach 95% of Your Audience — Guaranteed</h4>
+          <p>Official Meta WhatsApp API broadcasts with rich media and CTA buttons. Lands in the inbox people actually check.</p>
+          <div class="bkt-proof">95%+ open rate vs ~20% for email</div>
+        </a>
+        <a href="marketing-voice.html" class="bkt-card reveal d3" style="--bkt-accent:#8b5cf6;--bkt-icon-bg:rgba(139,92,246,0.12);--bkt-icon-bd:rgba(139,92,246,0.28);">
+          <div class="bkt-icon">📞</div><span class="bkt-tag">Voice AI &amp; Call Automation</span>
+          <h4>Never Miss a Call — Even at Midnight</h4>
+          <p>AI answers inbound calls, qualifies leads, and books appointments in a natural voice, 24/7.</p>
+          <div class="bkt-proof">80% of calls resolved without a human agent</div>
+        </a>
       </div>
     </div>
-    <div class="services-marquee-outer">
-      <div class="services-track" id="svcTrack">
-        <div class="svc" data-num="01" style="--svc-accent:#3b82f6;--svc-icon-bg:rgba(59,130,246,0.12);--svc-icon-bd:rgba(59,130,246,0.28);"><div class="svc-icon-box">⚡</div><span class="svc-category">Workflow Automation</span><h3>Automate Your Repetitive Work</h3><p>Approvals, data entry, and notifications — mapped and automated so your team never touches them again.</p><p class="svc-eg">Invoice approvals cut from 2 days to minutes.</p></div>
-        <div class="svc" data-num="02" style="--svc-accent:#06b6d4;--svc-icon-bg:rgba(6,182,212,0.12);--svc-icon-bd:rgba(6,182,212,0.28);"><div class="svc-icon-box">💬</div><span class="svc-category">AI Assistants &amp; Chatbots</span><h3>Always-On Customer Support</h3><p>AI trained on your business answers queries on WhatsApp, your website, or Slack — day or night.</p><p class="svc-eg">Zero missed queries, even at 2am.</p></div>
-        <div class="svc" data-num="03" style="--svc-accent:#a855f7;--svc-icon-bg:rgba(168,85,247,0.12);--svc-icon-bd:rgba(168,85,247,0.28);"><div class="svc-icon-box">🧠</div><span class="svc-category">Autonomous AI Agents</span><h3>AI That Acts Without Being Asked</h3><p>Agents handle full multi-step tasks — research, decisions, and actions — with no human trigger needed.</p><p class="svc-eg">New leads researched and outreached before you open your inbox.</p></div>
-        <div class="svc" data-num="04" style="--svc-accent:#f59e0b;--svc-icon-bg:rgba(245,158,11,0.12);--svc-icon-bd:rgba(245,158,11,0.28);"><div class="svc-icon-box">📋</div><span class="svc-category">Document Intelligence</span><h3>Chat With Any Document</h3><p>Ask questions across contracts, reports, or policies in plain English — every answer cited by page and section.</p><p class="svc-eg">Penalty clauses found in seconds, not hours.</p></div>
-        <div class="svc" data-num="05" style="--svc-accent:#f97316;--svc-icon-bg:rgba(249,115,22,0.12);--svc-icon-bd:rgba(249,115,22,0.28);"><div class="svc-icon-box">📥</div><span class="svc-category">Intelligent Data Extraction</span><h3>Pull Structured Data From Any File</h3><p>AI reads PDFs, scanned invoices, and forms — extracting exact fields into your systems automatically.</p><p class="svc-eg">Hundreds of invoices processed overnight, zero keystrokes.</p></div>
-        <div class="svc" data-num="06" style="--svc-accent:#10b981;--svc-icon-bg:rgba(16,185,129,0.12);--svc-icon-bd:rgba(16,185,129,0.28);"><div class="svc-icon-box">🔌</div><span class="svc-category">System Integration</span><h3>AI Inside the Tools You Already Use</h3><p>We connect AI to your CRM, ERP, email, and spreadsheets — no new platforms needed.</p><p class="svc-eg">CRM updated after every sales call, automatically.</p></div>
-        <div class="svc" data-num="07" style="--svc-accent:#22d3ee;--svc-icon-bg:rgba(34,211,238,0.12);--svc-icon-bd:rgba(34,211,238,0.28);"><div class="svc-icon-box">📈</div><span class="svc-category">Business Intelligence</span><h3>Turn Your Data Into Clear Answers</h3><p>AI reads your operational data and surfaces what matters — in plain language, not charts you have to interpret.</p><p class="svc-eg">Churn risk flagged a full quarter early.</p></div>
-        <div class="svc" data-num="08" style="--svc-accent:#ec4899;--svc-icon-bg:rgba(236,72,153,0.12);--svc-icon-bd:rgba(236,72,153,0.28);"><div class="svc-icon-box">✏️</div><span class="svc-category">Content Automation</span><h3>Scale Content Without Scaling Your Team</h3><p>AI writes in your brand's voice — product descriptions, email campaigns, and posts — consistently and instantly.</p><p class="svc-eg">Full product catalogue rewritten overnight.</p></div>
-        <div class="svc" data-num="09" style="--svc-accent:#ef4444;--svc-icon-bg:rgba(239,68,68,0.12);--svc-icon-bd:rgba(239,68,68,0.28);"><div class="svc-icon-box">🛠️</div><span class="svc-category">Custom AI Development</span><h3>AI Built for Your Industry</h3><p>When generic AI doesn't know your domain — we train one that does, on your own data and terminology.</p><p class="svc-eg">Legal AI that knows your firm's own contract templates.</p></div>
-        <!-- SET 2 -->
-        <div class="svc" data-num="01" aria-hidden="true" style="--svc-accent:#3b82f6;--svc-icon-bg:rgba(59,130,246,0.12);--svc-icon-bd:rgba(59,130,246,0.28);"><div class="svc-icon-box">⚡</div><span class="svc-category">Workflow Automation</span><h3>Automate Your Repetitive Work</h3><p>Approvals, data entry, and notifications — mapped and automated so your team never touches them again.</p><p class="svc-eg">Invoice approvals cut from 2 days to minutes.</p></div>
-        <div class="svc" data-num="02" aria-hidden="true" style="--svc-accent:#06b6d4;--svc-icon-bg:rgba(6,182,212,0.12);--svc-icon-bd:rgba(6,182,212,0.28);"><div class="svc-icon-box">💬</div><span class="svc-category">AI Assistants &amp; Chatbots</span><h3>Always-On Customer Support</h3><p>AI trained on your business answers queries on WhatsApp, your website, or Slack — day or night.</p><p class="svc-eg">Zero missed queries, even at 2am.</p></div>
-        <div class="svc" data-num="03" aria-hidden="true" style="--svc-accent:#a855f7;--svc-icon-bg:rgba(168,85,247,0.12);--svc-icon-bd:rgba(168,85,247,0.28);"><div class="svc-icon-box">🧠</div><span class="svc-category">Autonomous AI Agents</span><h3>AI That Acts Without Being Asked</h3><p>Agents handle full multi-step tasks — research, decisions, and actions — with no human trigger needed.</p><p class="svc-eg">New leads researched and outreached before you open your inbox.</p></div>
-        <div class="svc" data-num="04" aria-hidden="true" style="--svc-accent:#f59e0b;--svc-icon-bg:rgba(245,158,11,0.12);--svc-icon-bd:rgba(245,158,11,0.28);"><div class="svc-icon-box">📋</div><span class="svc-category">Document Intelligence</span><h3>Chat With Any Document</h3><p>Ask questions across contracts, reports, or policies in plain English.</p><p class="svc-eg">Penalty clauses found in seconds, not hours.</p></div>
-        <div class="svc" data-num="05" aria-hidden="true" style="--svc-accent:#f97316;--svc-icon-bg:rgba(249,115,22,0.12);--svc-icon-bd:rgba(249,115,22,0.28);"><div class="svc-icon-box">📥</div><span class="svc-category">Intelligent Data Extraction</span><h3>Pull Structured Data From Any File</h3><p>AI reads PDFs, scanned invoices, and forms — extracting exact fields automatically.</p><p class="svc-eg">Hundreds of invoices processed overnight.</p></div>
-        <div class="svc" data-num="06" aria-hidden="true" style="--svc-accent:#10b981;--svc-icon-bg:rgba(16,185,129,0.12);--svc-icon-bd:rgba(16,185,129,0.28);"><div class="svc-icon-box">🔌</div><span class="svc-category">System Integration</span><h3>AI Inside the Tools You Already Use</h3><p>We connect AI to your CRM, ERP, email, and spreadsheets.</p><p class="svc-eg">CRM updated after every sales call, automatically.</p></div>
-        <div class="svc" data-num="07" aria-hidden="true" style="--svc-accent:#22d3ee;--svc-icon-bg:rgba(34,211,238,0.12);--svc-icon-bd:rgba(34,211,238,0.28);"><div class="svc-icon-box">📈</div><span class="svc-category">Business Intelligence</span><h3>Turn Your Data Into Clear Answers</h3><p>AI reads your operational data and surfaces what matters in plain language.</p><p class="svc-eg">Churn risk flagged a full quarter early.</p></div>
-        <div class="svc" data-num="08" aria-hidden="true" style="--svc-accent:#ec4899;--svc-icon-bg:rgba(236,72,153,0.12);--svc-icon-bd:rgba(236,72,153,0.28);"><div class="svc-icon-box">✏️</div><span class="svc-category">Content Automation</span><h3>Scale Content Without Scaling Your Team</h3><p>AI writes in your brand's voice consistently and instantly.</p><p class="svc-eg">Full product catalogue rewritten overnight.</p></div>
-        <div class="svc" data-num="09" aria-hidden="true" style="--svc-accent:#ef4444;--svc-icon-bg:rgba(239,68,68,0.12);--svc-icon-bd:rgba(239,68,68,0.28);"><div class="svc-icon-box">🛠️</div><span class="svc-category">Custom AI Development</span><h3>AI Built for Your Industry</h3><p>We train AI on your own data and terminology for domain-specific precision.</p><p class="svc-eg">Legal AI that knows your firm's own contract templates.</p></div>
+
+    <div class="bucket-block" id="bucket-growth">
+      <div class="bucket-head reveal"><span class="bucket-index">02</span><h3 class="bucket-title">Fill Your Pipeline &amp; Grow Revenue</h3></div>
+      <p class="bucket-sub reveal">Finding, nurturing, and converting customers — across ads, outreach, content, and your CRM.</p>
+      <div class="bkt-grid">
+        <a href="marketing-lead-gen.html" class="bkt-card reveal" style="--bkt-accent:#ef4444;--bkt-icon-bg:rgba(239,68,68,0.12);--bkt-icon-bd:rgba(239,68,68,0.28);">
+          <div class="bkt-icon">🎯</div><span class="bkt-tag">AI Lead Generation</span>
+          <h4>A Full Pipeline of Qualified Leads — On Autopilot</h4>
+          <p>AI identifies your ideal customers, scores them by fit, and launches personalised multi-channel outreach automatically.</p>
+          <div class="bkt-proof">5–10× more pipeline, ICP-matched only</div>
+        </a>
+        <a href="marketing-linkedin.html" class="bkt-card reveal d1" style="--bkt-accent:#0077b5;--bkt-icon-bg:rgba(0,119,181,0.12);--bkt-icon-bd:rgba(0,119,181,0.28);">
+          <div class="bkt-icon">💼</div><span class="bkt-tag">LinkedIn Outreach</span>
+          <h4>Automated B2B Lead Generation on LinkedIn</h4>
+          <p>AI personalizes connection requests and message sequences for every prospect. You wake up to booked meetings.</p>
+          <div class="bkt-proof">30%+ connection acceptance rate</div>
+        </a>
+        <a href="marketing-google-ads.html" class="bkt-card reveal d2" style="--bkt-accent:#4285f4;--bkt-icon-bg:rgba(66,133,244,0.12);--bkt-icon-bd:rgba(66,133,244,0.28);">
+          <div class="bkt-icon">📊</div><span class="bkt-tag">Google &amp; Meta Ads</span>
+          <h4>AI-Managed Ads That Optimise Themselves</h4>
+          <p>AI writes ad copy, designs creatives, and manages bids automatically. Budget always flows to what works.</p>
+          <div class="bkt-proof">Average 3× ROAS improvement</div>
+        </a>
+        <a href="marketing-social.html" class="bkt-card reveal d3" style="--bkt-accent:#ec4899;--bkt-icon-bg:rgba(236,72,153,0.12);--bkt-icon-bd:rgba(236,72,153,0.28);">
+          <div class="bkt-icon">📱</div><span class="bkt-tag">Social Media AI</span>
+          <h4>30 Days of Content in 60 Minutes — Auto-Posted</h4>
+          <p>AI plans your content calendar, writes posts in your brand voice, and publishes on schedule — zero daily effort.</p>
+          <div class="bkt-proof">Full month planned &amp; posted automatically</div>
+        </a>
+        <a href="automation-content.html" class="bkt-card reveal" style="--bkt-accent:#f97316;--bkt-icon-bg:rgba(249,115,22,0.12);--bkt-icon-bd:rgba(249,115,22,0.28);">
+          <div class="bkt-icon">✏️</div><span class="bkt-tag">Content Automation</span>
+          <h4>Scale Content Without Scaling Your Team</h4>
+          <p>AI writes in your brand's voice — product descriptions, campaigns, and posts — consistently and instantly.</p>
+          <div class="bkt-proof">Full product catalogue rewritten overnight</div>
+        </a>
+        <a href="marketing-email.html" class="bkt-card reveal d1" style="--bkt-accent:#f59e0b;--bkt-icon-bg:rgba(245,158,11,0.12);--bkt-icon-bd:rgba(245,158,11,0.28);">
+          <div class="bkt-icon">📧</div><span class="bkt-tag">Email Drip Automation</span>
+          <h4>Nurture Every Lead Without Lifting a Finger</h4>
+          <p>AI-written sequences trigger on real behaviour and guide each lead through your funnel automatically, forever.</p>
+          <div class="bkt-proof">4× higher engagement than broadcast emails</div>
+        </a>
+        <a href="crm.html" class="bkt-card reveal d2" style="--bkt-accent:#14b8a6;--bkt-icon-bg:rgba(20,184,166,0.12);--bkt-icon-bd:rgba(20,184,166,0.28);">
+          <div class="bkt-icon">🤝</div><span class="bkt-tag">AI-Driven CRM</span>
+          <h4>Our Own AI CRM — Built &amp; Sold By Us</h4>
+          <p>WhatsApp + Gmail + IndiaMart connected. AI captures leads, scores them, and sends follow-ups 24/7. Set up in 5 days.</p>
+          <div class="bkt-proof">MVP live · Plans from ₹5,000/mo</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="bucket-block" id="bucket-docs">
+      <div class="bucket-head reveal"><span class="bucket-index">03</span><h3 class="bucket-title">Turn Documents &amp; Data Into Answers</h3></div>
+      <p class="bucket-sub reveal">Contracts, invoices, reports, spreadsheets — AI reads them so your team doesn't have to.</p>
+      <div class="bkt-grid">
+        <a href="automation-documents.html" class="bkt-card reveal" style="--bkt-accent:#f59e0b;--bkt-icon-bg:rgba(245,158,11,0.12);--bkt-icon-bd:rgba(245,158,11,0.28);">
+          <div class="bkt-icon">📋</div><span class="bkt-tag">Document Intelligence</span>
+          <h4>Chat With Any Document</h4>
+          <p>Ask questions across contracts, reports, or policies in plain English — every answer cited by page and section.</p>
+          <div class="bkt-proof">Penalty clauses found in seconds, not hours</div>
+        </a>
+        <a href="automation-data.html" class="bkt-card reveal d1" style="--bkt-accent:#f97316;--bkt-icon-bg:rgba(249,115,22,0.12);--bkt-icon-bd:rgba(249,115,22,0.28);">
+          <div class="bkt-icon">📥</div><span class="bkt-tag">Intelligent Data Extraction</span>
+          <h4>Pull Structured Data From Any File</h4>
+          <p>AI reads PDFs, scanned invoices, and forms — extracting exact fields into your systems automatically.</p>
+          <div class="bkt-proof">Hundreds of invoices processed overnight</div>
+        </a>
+        <a href="automation-bi.html" class="bkt-card reveal d2" style="--bkt-accent:#22d3ee;--bkt-icon-bg:rgba(34,211,238,0.12);--bkt-icon-bd:rgba(34,211,238,0.28);">
+          <div class="bkt-icon">📈</div><span class="bkt-tag">Business Intelligence</span>
+          <h4>Turn Your Data Into Clear Answers</h4>
+          <p>AI reads your operational data and surfaces what matters — in plain language, not charts you have to interpret.</p>
+          <div class="bkt-proof">Churn risk flagged a full quarter early</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="bucket-block" id="bucket-custom">
+      <div class="bucket-head reveal"><span class="bucket-index">04</span><h3 class="bucket-title">Custom Automation, Built Around You</h3></div>
+      <p class="bucket-sub reveal">When nothing off-the-shelf fits — we map your exact workflow and build for it.</p>
+      <div class="bkt-grid">
+        <a href="automation-workflow.html" class="bkt-card reveal" style="--bkt-accent:#3b82f6;--bkt-icon-bg:rgba(59,130,246,0.12);--bkt-icon-bd:rgba(59,130,246,0.28);">
+          <div class="bkt-icon">⚡</div><span class="bkt-tag">Workflow Automation</span>
+          <h4>Automate Your Repetitive Work</h4>
+          <p>Approvals, data entry, and notifications — mapped and automated so your team never touches them again.</p>
+          <div class="bkt-proof">Invoice approvals cut from 2 days to minutes</div>
+        </a>
+        <a href="automation-agents.html" class="bkt-card reveal d1" style="--bkt-accent:#a855f7;--bkt-icon-bg:rgba(168,85,247,0.12);--bkt-icon-bd:rgba(168,85,247,0.28);">
+          <div class="bkt-icon">🧠</div><span class="bkt-tag">Autonomous AI Agents</span>
+          <h4>AI That Acts Without Being Asked</h4>
+          <p>Agents handle full multi-step tasks — research, decisions, and actions — with no human trigger needed.</p>
+          <div class="bkt-proof">New leads researched before you open your inbox</div>
+        </a>
+        <a href="automation-integration.html" class="bkt-card reveal d2" style="--bkt-accent:#10b981;--bkt-icon-bg:rgba(16,185,129,0.12);--bkt-icon-bd:rgba(16,185,129,0.28);">
+          <div class="bkt-icon">🔌</div><span class="bkt-tag">System Integration</span>
+          <h4>AI Inside the Tools You Already Use</h4>
+          <p>We connect AI to your CRM, ERP, email, and spreadsheets — no new platforms needed.</p>
+          <div class="bkt-proof">CRM updated after every sales call, automatically</div>
+        </a>
+        <a href="automation-custom.html" class="bkt-card reveal d3" style="--bkt-accent:#ef4444;--bkt-icon-bg:rgba(239,68,68,0.12);--bkt-icon-bd:rgba(239,68,68,0.28);">
+          <div class="bkt-icon">🛠️</div><span class="bkt-tag">Custom AI Development</span>
+          <h4>AI Built for Your Industry</h4>
+          <p>When generic AI doesn't know your domain, we train one that does — on your own data and terminology.</p>
+          <div class="bkt-proof">Legal AI that knows your firm's own templates</div>
+        </a>
       </div>
     </div>
   </div>
@@ -742,99 +846,6 @@ body.modal-open{overflow:hidden;}
     </div>
   </div>
 </div>
-
-<section class="section" id="marketing">
-  <div class="section-inner">
-    <div class="eyebrow reveal">AI Growth Engine</div>
-    <h2 class="section-title reveal" style="font-size:clamp(2.8rem,5vw,4.4rem);">Reach more customers.<br/><em>Generate more leads.</em></h2>
-    <p class="section-sub reveal">Nine AI-powered marketing services that reach more customers, generate more leads, and convert more sales — automatically, across every channel your audience uses.</p>
-    <div class="mkt-grid">
-
-      <div class="mkt-card reveal" data-mkt="10" style="--mkt-accent:#25d366;">
-        <div class="mkt-card-icon" style="background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.2);"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.822.784 5.46 2.148 7.71L2 30l6.49-2.1A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="#25d366"/><path d="M23.4 19.6c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.57-.48-.49-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.19 5.06 4.47.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.28-.2-.57-.35z" fill="#fff"/></svg></div>
-        <span class="mkt-tag">WhatsApp Marketing</span>
-        <h3>Reach 95% of Your Audience — Guaranteed</h3>
-        <p>Official Meta WhatsApp API broadcasts with professional copywriting, rich media, and CTA buttons. Your message lands in the inbox people actually check — not a spam folder.</p>
-        <div class="mkt-proof">📈 95%+ open rate vs ~20% for email</div>
-        <a href="marketing-whatsapp.html" class="mkt-btn">Explore Service →</a>
-      </div>
-
-      <div class="mkt-card reveal d1" data-mkt="11" style="--mkt-accent:#0077b5;">
-        <div class="mkt-card-icon" style="background:rgba(0,119,181,0.1);border:1px solid rgba(0,119,181,0.2);"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#0077b5"/><path d="M9.5 13h3v10h-3V13zm1.5-4.5a1.75 1.75 0 110 3.5 1.75 1.75 0 010-3.5zM14 13h2.9v1.37h.04c.4-.76 1.39-1.57 2.86-1.57 3.06 0 3.62 2.01 3.62 4.63V23h-3v-4.87c0-1.16-.02-2.65-1.62-2.65-1.62 0-1.87 1.27-1.87 2.57V23H14V13z" fill="#fff"/></svg></div>
-        <span class="mkt-tag">LinkedIn Outreach</span>
-        <h3>Automated B2B Lead Generation on LinkedIn</h3>
-        <p>AI personalizes connection requests and message sequences for every prospect based on their profile, company, and role. You wake up to booked meetings — not manual prospecting.</p>
-        <div class="mkt-proof">🤝 30%+ connection acceptance rate</div>
-        <a href="marketing-linkedin.html" class="mkt-btn">Explore Service →</a>
-      </div>
-
-      <div class="mkt-card reveal d2" data-mkt="12" style="--mkt-accent:#4285f4;">
-        <div class="mkt-card-icon" style="background:rgba(66,133,244,0.1);border:1px solid rgba(66,133,244,0.2);"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="13" stroke="#4285f4" stroke-width="2"/><circle cx="16" cy="16" r="8.5" stroke="#ea4335" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="#fbbc05"/><circle cx="16" cy="16" r="1.5" fill="#34a853"/><line x1="16" y1="3" x2="16" y2="7" stroke="#4285f4" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="25" x2="16" y2="29" stroke="#4285f4" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="16" x2="7" y2="16" stroke="#4285f4" stroke-width="2" stroke-linecap="round"/><line x1="25" y1="16" x2="29" y2="16" stroke="#4285f4" stroke-width="2" stroke-linecap="round"/></svg></div>
-        <span class="mkt-tag">Google &amp; Meta Ads</span>
-        <h3>AI-Managed Ads That Optimise Themselves</h3>
-        <p>AI writes ad copy, designs creatives, manages bids, and kills underperformers automatically. Your ad budget always flows to what works — without daily manual intervention.</p>
-        <div class="mkt-proof">📊 Average 3× ROAS improvement</div>
-        <a href="marketing-google-ads.html" class="mkt-btn">Explore Service →</a>
-      </div>
-
-      <div class="mkt-card reveal d3" data-mkt="13" style="--mkt-accent:#f59e0b;">
-        <div class="mkt-card-icon" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="8" width="26" height="18" rx="3" stroke="#f59e0b" stroke-width="2"/><path d="M3 11l13 9 13-9" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 26l9-9M29 26l-9-9" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/></svg></div>
-        <span class="mkt-tag">Email Drip Automation</span>
-        <h3>Nurture Every Lead Without Lifting a Finger</h3>
-        <p>AI-written email sequences that trigger on real behaviour — sign-up, demo request, abandoned cart, inactivity — and guide each lead through your funnel automatically, forever.</p>
-        <div class="mkt-proof">⚡ 4× higher engagement than broadcast emails</div>
-        <a href="marketing-email.html" class="mkt-btn">Explore Service →</a>
-      </div>
-
-      <div class="mkt-card reveal" data-mkt="14" style="--mkt-accent:#8b5cf6;">
-        <div class="mkt-card-icon" style="background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 5h4l2 5-2.5 2.5c1.2 2.4 3.1 4.3 5.5 5.5L21.5 15.5l5 2v4c0 1.1-.9 2-2 2C11.4 29 3 20.6 3 11c0-1.1.9-2 2-2h5z" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 5c2.8 0 5 2.2 5 5" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/><path d="M22 9a1 1 0 010 2" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/></svg></div>
-        <span class="mkt-tag">Voice AI &amp; Call Automation</span>
-        <h3>Never Miss a Call — Even at Midnight</h3>
-        <p>AI answers inbound calls, qualifies leads, books appointments, and sends follow-ups in a natural voice. Handles hundreds of calls simultaneously, 24/7 — at a fraction of a call centre cost.</p>
-        <div class="mkt-proof">📞 80% of calls resolved without a human agent</div>
-        <a href="marketing-voice.html" class="mkt-btn">Explore Service →</a>
-      </div>
-
-      <div class="mkt-card reveal d1" data-mkt="15" style="--mkt-accent:#ef4444;">
-        <div class="mkt-card-icon" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 4l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1.5" stroke-linejoin="round"/><rect x="7" y="14" width="10" height="2" rx="1" fill="#ef4444"/><rect x="9" y="18" width="8" height="2" rx="1" fill="#ef4444"/><rect x="11" y="22" width="6" height="2" rx="1" fill="#ef4444"/><rect x="14" y="26" width="4" height="2" rx="1" fill="#ef4444" opacity="0.5"/></svg></div>
-        <span class="mkt-tag">AI Lead Generation</span>
-        <h3>A Full Pipeline of Qualified Leads — On Autopilot</h3>
-        <p>AI identifies your ideal customers across LinkedIn, the web, and databases — enriches their profiles, scores them by fit, and launches personalised multi-channel outreach automatically.</p>
-        <div class="mkt-proof">🚀 5–10× more pipeline, ICP-matched only</div>
-        <a href="marketing-lead-gen.html" class="mkt-btn">Explore Service →</a>
-      </div>
-
-      <div class="mkt-card reveal d2" data-mkt="16" style="--mkt-accent:#ec4899;">
-        <div class="mkt-card-icon" style="background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.2);"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="12" stroke="#ec4899" stroke-width="2"/><circle cx="9" cy="10" r="2.5" fill="#ec4899"/><circle cx="23" cy="10" r="2.5" fill="#ec4899"/><circle cx="16" cy="22" r="2.5" fill="#ec4899"/><line x1="11" y1="11" x2="21" y2="11" stroke="#ec4899" stroke-width="1.5" stroke-linecap="round"/><line x1="10.5" y1="11.8" x2="15" y2="20.5" stroke="#ec4899" stroke-width="1.5" stroke-linecap="round"/><line x1="21.5" y1="11.8" x2="17" y2="20.5" stroke="#ec4899" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        <span class="mkt-tag">Social Media AI</span>
-        <h3>30 Days of Content in 60 Minutes — Auto-Posted</h3>
-        <p>AI plans your content calendar, writes posts in your brand voice, and publishes on schedule across Instagram, LinkedIn, X, and Facebook — with zero daily effort from your team.</p>
-        <div class="mkt-proof">🗓️ Full month planned, scheduled &amp; posted automatically</div>
-        <a href="marketing-social.html" class="mkt-btn">Explore Service →</a>
-      </div>
-
-      <div class="mkt-card reveal d3" data-mkt="17" style="--mkt-accent:#14b8a6;">
-        <div class="mkt-card-icon" style="background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.2);"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="18" width="5" height="10" rx="1.5" fill="#14b8a6"/><rect x="13.5" y="12" width="5" height="16" rx="1.5" fill="#14b8a6" opacity="0.8"/><rect x="23" y="6" width="5" height="22" rx="1.5" fill="#14b8a6" opacity="0.6"/><circle cx="6.5" cy="10" r="2.5" fill="#14b8a6" opacity="0.4"/><circle cx="16" cy="6" r="2.5" fill="#14b8a6" opacity="0.6"/><circle cx="25.5" cy="3" r="2.5" fill="#14b8a6"/><path d="M6.5 10L16 6l9.5-3" stroke="#14b8a6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="mkt-tag">AI-Driven CRM</span>
-        <h3>Our Own AI CRM — Built &amp; Sold By Us</h3>
-        <p>We don't just set up third-party CRMs — we built our own. WhatsApp + Gmail + IndiaMart connected, AI captures leads, scores them, and sends follow-ups 24/7. Set up in 5 days.</p>
-        <div class="mkt-proof">🎯 MVP live · Plans from ₹5,000/mo · Setup in 5 days</div>
-        <a href="crm.html" class="mkt-btn" style="text-decoration:none;">See Plans &amp; Pricing →</a>
-      </div>
-
-      <div class="mkt-card reveal" data-mkt="18" style="--mkt-accent:#06b6d4;">
-        <div class="mkt-card-icon" style="background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="26" height="18" rx="5" stroke="#06b6d4" stroke-width="2"/><path d="M10 24l-2 5 6-3" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="15" r="1.8" fill="#06b6d4"/><circle cx="16" cy="15" r="1.8" fill="#06b6d4"/><circle cx="21" cy="15" r="1.8" fill="#06b6d4"/></svg></div>
-        <span class="mkt-tag">WhatsApp AI Agent</span>
-        <h3>Your Best Employee Never Sleeps</h3>
-        <p>An AI agent trained on your business that chats, qualifies, books, and sells inside WhatsApp — plus turns every Meta ad click into a live conversation. One number, zero missed leads.</p>
-        <div class="mkt-proof">🤖 &lt;10 sec response time · 24/7</div>
-        <a href="whatsapp-ai-agent.html" class="mkt-btn">See Plans &amp; Pricing →</a>
-      </div>
-
-    </div>
-    <p class="mkt-section-note reveal">All marketing services are managed end-to-end by our team. No technical knowledge needed on your end.</p>
-  </div>
-</section>
 
 <section class="section alt-bg" id="work">
   <div class="section-inner">
@@ -1051,7 +1062,7 @@ body.modal-open{overflow:hidden;}
         <div class="footer-brand"><img src="logo.png" alt="Adaptive Minds AI" class="footer-logo-img"></div>
         <p class="footer-desc">AI automation agency building intelligent systems that eliminate manual work and scale businesses — across India and globally.</p>
       </div>
-      <div class="footer-col"><h5>Services</h5><a href="#services">Workflow Automation</a><a href="#services">AI Assistants</a><a href="#services">Document Intelligence</a><a href="#services">Custom AI Development</a></div>
+      <div class="footer-col"><h5>Services</h5><a href="automation-chatbots.html">Customer Messaging</a><a href="marketing-lead-gen.html">Pipeline &amp; Growth</a><a href="automation-documents.html">Documents &amp; Data</a><a href="automation-custom.html">Custom Automation</a></div>
       <div class="footer-col"><h5>Products</h5><a href="crm.html">AI CRM</a><a href="#work">DocuAgent AI</a><a href="#work">InboxIQ</a></div>
       <div class="footer-col"><h5>Company</h5><a href="#work">Our Work</a><a href="#process">Process</a><a href="#about">About</a><a href="mailto:contact@adaptivemindsai.com">Contact</a><a href="https://linkedin.com/company/adaptive-minds-ai" target="_blank">LinkedIn</a></div>
     </div>
@@ -1230,22 +1241,20 @@ const cObs=new IntersectionObserver(entries=>{
 },{threshold:0.3});
 document.querySelectorAll('.counter-num[data-target]').forEach(el=>cObs.observe(el));
 
-/* ─── Marquee ─── */
+/* ─── Audience toggle ─── */
 (function(){
-  const track=document.getElementById('svcTrack');
-  const tBtn=document.getElementById('svcToggle');
-  const fBtn=document.getElementById('svcFaster');
-  const sBtn=document.getElementById('svcSlower');
-  const SPEEDS=[60,45,38,28,20];
-  let idx=2,paused=false;
-  const PAUSE=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
-  const PLAY=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>`;
-  function speed(){track.style.animationDuration=SPEEDS[idx]+'s';}
-  tBtn.innerHTML=PAUSE;speed();
-  tBtn.onclick=()=>{paused=!paused;track.style.animationPlayState=paused?'paused':'running';tBtn.innerHTML=paused?PLAY:PAUSE;};
-  fBtn.onclick=()=>{if(idx<SPEEDS.length-1){idx++;speed();}};
-  sBtn.onclick=()=>{if(idx>0){idx--;speed();}};
-  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){track.style.animationPlayState='paused';paused=true;tBtn.innerHTML=PLAY;}
+  const btns=document.querySelectorAll('.aud-btn');
+  const foot=document.getElementById('heroFoot');
+  if(!btns.length||!foot) return;
+  btns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      btns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      foot.querySelectorAll('.hf-set').forEach(s=>s.classList.remove('active'));
+      const set=foot.querySelector('.hf-set-'+btn.dataset.aud);
+      if(set) set.classList.add('active');
+    });
+  });
 })();
 
 /* ─── Video Modal ─── */
@@ -2184,11 +2193,6 @@ function send(text){
   document.getElementById('smClose').addEventListener('click',closeModal);
   modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&modal.classList.contains('sm-open')) closeModal(); });
-
-  const SVC_URLS=['automation-workflow','automation-chatbots','automation-agents','automation-documents','automation-data','automation-integration','automation-bi','automation-content','automation-custom'];
-  document.querySelectorAll('.svc:not([aria-hidden])').forEach((el,i)=>{
-    el.addEventListener('click',()=>{ window.location.href=SVC_URLS[i]+'.html'; });
-  });
 
 })();
 </script>
