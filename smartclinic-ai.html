@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SmartClinic AI — WhatsApp AI Assistant for Clinics | Adaptive Minds AI</title>
+<meta name="description" content="SmartClinic AI books appointments, cuts no-shows, and answers patients on WhatsApp 24/7 — with Google Calendar sync, reminders, review automation and Hindi &amp; Marathi. Plans from ₹2,999/mo."/>
+<meta property="og:title" content="SmartClinic AI — WhatsApp-First AI Assistant for Clinics"/>
+<meta property="og:description" content="Your clinic's WhatsApp assistant — books, reminds, and answers patients 24/7. Fewer no-shows, no missed calls, no extra staff. From ₹2,999/mo."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://adaptivemindsai.com/smartclinic-ai.html"/>
+<link rel="canonical" href="https://adaptivemindsai.com/smartclinic-ai.html"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="manifest" href="site.webmanifest"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:#f5f4f0;--bg2:#edecea;--surface:#ffffff;
+  --navy:#0e1520;--navy2:#162030;
+  --gold:#c9943a;--gold-soft:rgba(201,148,58,0.10);--gold-line:rgba(201,148,58,0.28);
+  --blue:#4285f4;--blue-soft:rgba(66,133,244,0.10);--blue-line:rgba(66,133,244,0.25);
+  --border:#dddbd4;--border2:#c8c5bc;
+  --text:#0e1520;--text-dim:#5e5c56;--text-faint:#a8a59e;
+  --green:#1a7a50;
+  --accent:#25d366;--accent-soft:rgba(37,211,102,0.10);--accent-line:rgba(37,211,102,0.25);
+  --r:12px;--shadow:0 1px 8px rgba(0,0,0,0.07);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;padding:0 5%;background:rgba(245,244,240,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-img{height:64px;width:auto;display:block;object-fit:contain;max-width:420px;}
+.nav-links{display:flex;align-items:center;gap:0.2rem;}
+.nav-links a{font-size:0.95rem;font-weight:500;color:var(--text-dim);text-decoration:none;padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;}
+.nav-links a:hover{color:var(--text);background:var(--bg2);}
+.nav-links a.crm-link{color:var(--gold);font-weight:700;}
+.nav-links a.crm-link:hover{background:var(--gold-soft);}
+.nav-cta{background:var(--navy)!important;color:#fff!important;font-weight:600!important;border-radius:9px!important;}
+.nav-cta:hover{background:var(--navy2)!important;transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(14,21,32,0.22)!important;}
+.nav-has-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dd-trigger{font-size:0.95rem;font-weight:500;color:var(--text-dim);padding:0.4rem 0.85rem;border-radius:8px;transition:all 0.18s;cursor:pointer;display:flex;align-items:center;gap:0.3rem;border:none;background:none;font-family:'Outfit',sans-serif;line-height:1;}
+.nav-dd-trigger:hover,.nav-has-dropdown:hover .nav-dd-trigger{color:var(--text);background:var(--bg2);}
+.nav-dd-chevron{transition:transform 0.22s;display:flex;align-items:center;}
+.nav-has-dropdown:hover .nav-dd-chevron{transform:rotate(180deg);}
+.nav-dd-menu{position:absolute;top:calc(100% + 14px);left:-12px;width:540px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 0.2s,transform 0.2s,visibility 0.2s;z-index:500;padding:0.6rem;}
+.nav-has-dropdown:hover .nav-dd-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dd-label{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-faint);padding:0.3rem 0.65rem 0.6rem;border-bottom:1px solid var(--border);margin-bottom:0.4rem;}
+.nav-dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.2rem;}
+.nav-dd-item{display:flex;align-items:center;gap:0.65rem;padding:0.6rem 0.7rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+.nav-dd-item:hover{background:var(--bg);}
+.nav-dd-item.current{background:var(--accent-soft);border:1px solid var(--accent-line);}
+.nav-dd-item.current .nav-dd-name{color:var(--green);}
+.nav-dd-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+.nav-dd-name{font-size:0.83rem;font-weight:600;color:var(--navy);line-height:1.2;}
+.nav-dd-sub{font-size:0.69rem;color:var(--text-faint);margin-top:0.1rem;line-height:1.3;}
+@media(max-width:900px){.nav-has-dropdown{display:none;} .nav-links a.hide-mobile{display:none;}}
+
+/* ── Shared ── */
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;border-radius:var(--r);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-navy:hover{background:var(--navy2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,21,32,0.25);}
+.btn-accent{background:var(--accent);color:#fff;}
+.btn-accent:hover{background:#1fb957;transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,0.35);}
+.btn-outline-light{background:transparent;color:rgba(255,255,255,0.7);border:1.5px solid rgba(255,255,255,0.18);}
+.btn-outline-light:hover{background:rgba(255,255,255,0.08);color:#fff;border-color:rgba(255,255,255,0.35);}
+.section{padding:6rem 5%;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.eyebrow{font-size:0.82rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1rem;}
+.eyebrow::after{content:'';height:1px;width:36px;background:var(--accent-line);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:500;letter-spacing:-0.025em;line-height:1.1;margin-bottom:1rem;}
+.section-sub{color:var(--text-dim);font-size:0.95rem;line-height:1.75;max-width:600px;margin-bottom:2.5rem;font-weight:400;}
+.divider{height:1px;background:var(--border);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse2{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.07s;}.d2{transition-delay:0.14s;}.d3{transition-delay:0.21s;}.d4{transition-delay:0.28s;}
+
+/* ── Hero ── */
+.wa-hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 5% 70px;position:relative;overflow:hidden;}
+.wa-hero::before{content:'';position:absolute;top:-200px;left:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(37,211,102,0.13) 0%,transparent 65%);pointer-events:none;}
+.wa-hero::after{content:'';position:absolute;bottom:-150px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(37,211,102,0.07) 0%,transparent 65%);pointer-events:none;}
+.wa-hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1;}
+.wa-hero-eyebrow{display:inline-flex;align-items:center;gap:0.55rem;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeUp 0.9s ease both;}
+.wa-hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse2 2s infinite;}
+.wa-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:500;line-height:1.06;letter-spacing:-0.03em;color:#fff;margin-bottom:1.4rem;animation:fadeUp 0.9s 0.08s ease both;}
+.wa-hero h1 em{font-style:italic;color:var(--accent);}
+.wa-hero-sub{font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.78;max-width:480px;margin-bottom:2.2rem;font-weight:400;animation:fadeUp 0.9s 0.14s ease both;}
+.wa-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;animation:fadeUp 0.9s 0.2s ease both;}
+.wa-hero-right{animation:fadeUp 0.9s 0.22s ease both;}
+.wa-hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2.2rem;backdrop-filter:blur(10px);}
+.wa-hero-card-label{font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1.4rem;}
+.wa-stat-row{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.wa-stat-row:last-of-type{border-bottom:none;}
+.wa-stat-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
+.wa-stat-icon.green{background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.25);}
+.wa-stat-icon.amber{background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.3);}
+.wa-stat-icon.blue{background:rgba(66,133,244,0.12);border:1px solid rgba(66,133,244,0.22);}
+.wa-stat-label{font-size:0.9rem;font-weight:600;color:#fff;line-height:1.3;margin-bottom:0.25rem;}
+.wa-stat-sub{font-size:0.82rem;color:rgba(255,255,255,0.38);line-height:1.55;}
+.wa-hero-foot{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-wrap:wrap;gap:0.45rem;}
+.wa-badge{font-size:0.7rem;font-weight:600;padding:0.22rem 0.65rem;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);}
+@media(max-width:768px){.wa-hero-inner{grid-template-columns:1fr;} .wa-hero-right{display:none;}}
+
+/* ── Stats bar ── */
+.stats-bar{background:rgba(14,21,32,0.97);border-top:1px solid rgba(37,211,102,0.12);border-bottom:1px solid rgba(37,211,102,0.12);padding:1.8rem 5%;}
+.stats-bar-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:center;}
+.stat-block{text-align:center;padding:0.5rem 1rem;border-right:1px solid rgba(255,255,255,0.07);}
+.stat-block:last-child{border-right:none;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,3rem);font-weight:500;color:var(--accent);line-height:1;margin-bottom:0.25rem;}
+.stat-label{font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;}
+@media(max-width:600px){.stats-bar-inner{grid-template-columns:1fr 1fr;} .stat-block{border-right:none;border-bottom:1px solid rgba(255,255,255,0.07);padding:1rem;} .stat-block:nth-child(odd){border-right:1px solid rgba(255,255,255,0.07);} .stat-block:last-child,.stat-block:nth-last-child(2){border-bottom:none;}}
+
+/* ── What's Included ── */
+.included-section{background:var(--bg);}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.6rem;transition:all 0.25s;box-shadow:var(--shadow);}
+.feature-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.feature-icon{font-size:2rem;margin-bottom:0.9rem;display:block;}
+.feature-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.45rem;line-height:1.3;}
+.feature-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.68;}
+@media(max-width:900px){.features-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.features-grid{grid-template-columns:1fr;}}
+
+/* ── CTWA Spotlight ── */
+.ctwa-section{background:var(--bg2);}
+.ctwa-card{background:var(--navy);border-radius:24px;padding:3.5rem;position:relative;overflow:hidden;}
+.ctwa-card::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(37,211,102,0.13) 0%,transparent 65%);pointer-events:none;}
+.ctwa-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;position:relative;z-index:1;}
+.ctwa-card h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:500;color:#fff;line-height:1.15;margin-bottom:1.2rem;letter-spacing:-0.02em;position:relative;z-index:1;max-width:700px;}
+.ctwa-sub{font-size:0.95rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:640px;margin-bottom:2rem;position:relative;z-index:1;}
+.ctwa-flow{display:flex;align-items:center;flex-wrap:wrap;gap:0.6rem;margin-bottom:2.2rem;position:relative;z-index:1;}
+.ctwa-chip{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:999px;padding:0.65rem 1.3rem;font-size:0.85rem;font-weight:600;color:#fff;white-space:nowrap;}
+.ctwa-arrow{color:rgba(255,255,255,0.3);font-size:1rem;}
+.ctwa-link-box{display:inline-flex;align-items:center;gap:0.7rem;background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:12px;padding:0.9rem 1.4rem;position:relative;z-index:1;text-decoration:none;transition:background 0.2s;}
+.ctwa-link-box:hover{background:rgba(66,133,244,0.18);}
+.ctwa-link-box .label{color:#7aa8f8;font-weight:700;font-size:0.88rem;}
+.ctwa-link-box .sub{color:rgba(255,255,255,0.4);font-size:0.76rem;}
+@media(max-width:768px){.ctwa-card{padding:2.4rem 1.6rem;}}
+
+/* ── Industry Flows ── */
+.industry-section{background:var(--bg);}
+.industry-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+.industry-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:all 0.25s;box-shadow:var(--shadow);}
+.industry-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.industry-head{display:flex;align-items:center;gap:0.7rem;margin-bottom:1.1rem;}
+.industry-icon{font-size:1.6rem;}
+.industry-card h4{font-size:1.05rem;font-weight:700;color:var(--navy);}
+.flow-row{display:flex;align-items:center;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem;}
+.flow-chip{background:var(--bg2);border:1px solid var(--border);border-radius:999px;padding:0.4rem 0.85rem;font-size:0.76rem;font-weight:600;color:var(--navy);white-space:nowrap;}
+.flow-arrow{color:var(--text-faint);font-size:0.8rem;}
+.industry-proof{font-size:0.82rem;font-weight:700;color:var(--green);}
+@media(max-width:900px){.industry-grid{grid-template-columns:1fr;}}
+
+/* ── Pricing ── */
+.pricing-section{background:var(--bg2);}
+.wa-plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;align-items:start;}
+.wa-plan{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2rem 1.6rem;display:flex;flex-direction:column;position:relative;transition:all 0.25s;box-shadow:var(--shadow);}
+.wa-plan:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--border2);}
+.wa-plan-featured{border:2px solid var(--accent);background:linear-gradient(160deg,#f4fdf7 0%,#fff 100%);box-shadow:0 8px 40px rgba(37,211,102,0.15);}
+.wa-plan-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);margin-bottom:0.2rem;}
+.wa-plan-who{font-size:0.75rem;color:var(--text-faint);margin-bottom:0.9rem;line-height:1.4;}
+.wa-plan-price{font-size:2.4rem;font-weight:800;color:var(--navy);line-height:1;font-family:'Outfit',sans-serif;}
+.wa-plan-price span{font-size:0.95rem;font-weight:500;color:var(--text-faint);}
+.wa-plan-annual{font-size:0.75rem;font-weight:600;color:var(--green);margin-top:0.3rem;margin-bottom:1.2rem;}
+.wa-plan-setup{font-size:0.78rem;color:var(--text-dim);background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.85rem;margin-bottom:1.2rem;line-height:1.55;}
+.wa-plan-features{list-style:none;display:flex;flex-direction:column;gap:0.45rem;margin-bottom:1.6rem;flex:1;}
+.wa-plan-features li{font-size:0.83rem;color:var(--text-dim);display:flex;gap:0.5rem;align-items:flex-start;line-height:1.4;}
+.wa-plan-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+.wa-plan-features li.no::before{content:'✗';color:#e2a9a9;font-weight:700;}
+.wa-plan-featured .wa-plan-features li::before{color:#1a9c50;}
+.wa-plan-cta{display:block;text-align:center;background:var(--navy);color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.85rem;padding:0.85rem;border-radius:10px;text-decoration:none;transition:all 0.2s;margin-top:auto;}
+.wa-plan-cta:hover{background:var(--navy2);transform:translateY(-1px);}
+.wa-plan-cta-featured{background:var(--accent);color:#08331a;}
+.wa-plan-cta-featured:hover{background:#1fb957;}
+.most-popular-tag{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--accent);color:#08331a;font-size:0.6rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;padding:0.25rem 0.9rem;border-radius:0 0 8px 8px;white-space:nowrap;}
+@media(max-width:1024px){.wa-plans-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto;}}
+.pricing-disclaimer{font-size:0.8rem;color:var(--text-faint);margin-top:2rem;line-height:1.7;max-width:700px;}
+.crm-upsell{display:inline-flex;align-items:center;gap:0.7rem;background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:12px;padding:0.9rem 1.4rem;margin-top:2rem;text-decoration:none;transition:background 0.2s;}
+.crm-upsell:hover{background:rgba(201,148,58,0.16);}
+.crm-upsell .label{color:var(--gold);font-weight:700;font-size:0.88rem;}
+.crm-upsell .sub{color:var(--text-dim);font-size:0.78rem;}
+
+/* ── Comparison table ── */
+.compare-section{background:var(--bg);}
+.compare-wrap{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+.compare-row{display:grid;grid-template-columns:1.6fr 1.2fr 1.2fr;border-bottom:1px solid var(--border);}
+.compare-row:last-child{border-bottom:none;}
+.compare-row.header-row{background:var(--navy);}
+.compare-cell{padding:1rem 1.4rem;font-size:0.86rem;color:var(--text-dim);display:flex;align-items:center;}
+.compare-row.header-row .compare-cell{font-size:0.7rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.compare-row.header-row .compare-cell.us-col{color:var(--accent);}
+.compare-cell.feature-col{font-weight:600;color:var(--navy);}
+.compare-cell.us-col{background:rgba(37,211,102,0.04);font-weight:600;color:var(--navy);}
+@media(max-width:600px){.compare-cell{padding:0.7rem 0.8rem;font-size:0.76rem;}}
+
+/* ── How It Works ── */
+.how-section{background:var(--bg2);}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
+.step-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 1.6rem;position:relative;transition:all 0.25s;box-shadow:var(--shadow);}
+.step-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--accent-line);}
+.step-num{font-size:0.65rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+.step-num::before{content:attr(data-n);width:22px;height:22px;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:800;color:var(--green);}
+.step-icon{font-size:2rem;margin-bottom:0.9rem;display:block;}
+.step-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;line-height:1.3;}
+.step-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.68;}
+@media(max-width:900px){.steps-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.steps-grid{grid-template-columns:1fr;}}
+
+/* ── FAQ ── */
+.faq-section{background:var(--bg);}
+.faq-list{display:flex;flex-direction:column;gap:0.75rem;max-width:780px;margin:0 auto;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.2s,box-shadow 0.2s;}
+.faq-item.open{border-color:var(--accent-line);box-shadow:0 4px 24px rgba(37,211,102,0.08);}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.3rem 1.5rem;background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-size:0.94rem;font-weight:600;color:var(--navy);text-align:left;gap:1rem;}
+.faq-q:hover{background:var(--bg);}
+.faq-toggle{width:28px;height:28px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;color:var(--text-dim);transition:all 0.2s;}
+.faq-item.open .faq-toggle{background:var(--accent-soft);border-color:var(--accent-line);color:var(--green);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.38s ease;}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-a-inner{padding:0 1.5rem 1.4rem;font-size:0.88rem;color:var(--text-dim);line-height:1.75;border-top:1px solid var(--border);}
+.faq-a-inner p{padding-top:1rem;}
+.faq-a-inner a{color:var(--green);font-weight:600;}
+
+/* ── CTA Section ── */
+.cta-section{padding:6rem 5%;}
+.wa-cta-wrap{background:var(--navy);border-radius:24px;padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;max-width:1280px;margin:0 auto;}
+.wa-cta-wrap::before{content:'';position:absolute;top:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(37,211,102,0.10) 0%,transparent 65%);pointer-events:none;}
+.wa-cta-wrap::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(37,211,102,0.07) 0%,transparent 65%);pointer-events:none;}
+.wa-cta-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.9rem;position:relative;z-index:1;}
+.wa-cta-wrap h2 em{font-style:italic;color:var(--accent);}
+.wa-cta-wrap p{color:rgba(255,255,255,0.45);font-size:0.95rem;max-width:500px;margin:0 auto 2.5rem;line-height:1.75;position:relative;z-index:1;}
+.cta-contacts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+.contact-pill{display:flex;align-items:center;gap:0.8rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.1rem 1.6rem;text-decoration:none;transition:background 0.2s;min-width:200px;}
+.contact-pill:hover{background:rgba(255,255,255,0.1);}
+.cp-icon{font-size:1.3rem;}
+.cp-label{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.2rem;}
+.cp-value{font-size:0.85rem;font-weight:600;color:#fff;}
+
+/* ── Footer ── */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:3rem 5% 2rem;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom span{font-size:0.79rem;color:rgba(255,255,255,0.32);}
+.footer-back{font-size:0.82rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s;}
+.footer-back:hover{color:rgba(255,255,255,0.75);}
+
+/* ══════════════ SmartClinic AI — page-specific ══════════════ */
+:root{--teal:#0f766e;--teal-soft:rgba(15,118,110,0.09);--teal-line:rgba(15,118,110,0.25);}
+
+/* ── Cost of standing still ── */
+.cost-section{background:var(--bg2);}
+.cost-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-bottom:2.5rem;}
+.cost-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid #d97706;border-radius:14px;padding:1.6rem 1.5rem;box-shadow:var(--shadow);transition:all 0.25s;}
+.cost-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.cost-card h4{font-size:0.98rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.55rem;}
+.cost-card p{font-size:0.86rem;color:var(--text-dim);line-height:1.7;}
+@media(max-width:768px){.cost-grid{grid-template-columns:1fr;}}
+
+.math-box{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2.2rem;box-shadow:var(--shadow);}
+.math-label{font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#d97706;margin-bottom:0.9rem;}
+.math-box p{font-size:0.95rem;color:var(--text-dim);line-height:1.8;max-width:760px;}
+.math-box p strong{color:var(--navy);}
+.math-box p .recover{color:var(--green);font-weight:700;}
+.math-bars{margin-top:1.8rem;display:flex;flex-direction:column;gap:0.9rem;max-width:620px;}
+.math-bar-row{display:flex;align-items:center;gap:1rem;}
+.math-bar-label{font-size:0.78rem;font-weight:600;color:var(--text-dim);width:130px;flex-shrink:0;text-align:right;}
+.math-bar{height:34px;border-radius:7px;display:flex;align-items:center;padding:0 0.85rem;font-size:0.82rem;font-weight:700;color:#fff;white-space:nowrap;}
+.math-bar.cost{background:#b45309;width:32%;}
+.math-bar.gain{background:#16a34a;width:80%;}
+@media(max-width:600px){.math-bar-label{width:88px;font-size:0.72rem;}.math-bar{font-size:0.74rem;padding:0 0.6rem;}}
+
+/* ── What you get table ── */
+.get-section{background:var(--bg);}
+.get-wrap{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+.get-row{display:grid;grid-template-columns:1fr 1.35fr 1.15fr;border-bottom:1px solid var(--border);}
+.get-row:last-child{border-bottom:none;}
+.get-row.header-row{background:var(--navy);}
+.get-cell{padding:1.05rem 1.4rem;font-size:0.86rem;color:var(--text-dim);display:flex;align-items:center;line-height:1.6;}
+.get-row.header-row .get-cell{font-size:0.7rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.get-row.header-row .get-cell.see-col{color:var(--accent);}
+.get-cell.prob-col{font-weight:600;color:var(--navy);background:var(--bg2);}
+.get-row.header-row .get-cell.prob-col{background:transparent;color:rgba(255,255,255,0.4);font-weight:700;}
+.get-cell.see-col{background:rgba(37,211,102,0.04);font-weight:600;color:var(--navy);}
+.get-row.highlight .get-cell.prob-col{color:var(--green);background:rgba(37,211,102,0.07);}
+.get-row.highlight .get-cell{background:rgba(37,211,102,0.05);}
+.new-pill{display:inline-block;background:var(--accent);color:#08331a;font-size:0.58rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;padding:0.12rem 0.45rem;border-radius:5px;margin-left:0.45rem;vertical-align:middle;}
+@media(max-width:820px){.get-row{grid-template-columns:1fr;}.get-row.header-row{display:none;}.get-row{border-bottom:2px solid var(--border2);padding:0.3rem 0;}.get-cell{padding:0.55rem 1.1rem;}.get-cell.prob-col{background:transparent;font-size:0.95rem;}.get-cell.see-col{background:transparent;color:var(--green);}.get-cell.see-col::before{content:'→ ';color:var(--text-faint);}}
+
+/* ── See it in action ── */
+.demo-section{background:var(--navy);}
+.demo-section .section-title{color:#fff;}
+.demo-section .section-sub{color:rgba(255,255,255,0.45);}
+.demo-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:1.4rem;align-items:start;}
+.demo-col{display:flex;flex-direction:column;gap:1.4rem;}
+.demo-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:20px;padding:1.6rem;}
+.demo-card-title{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.1rem;}
+.demo-caption{font-size:0.78rem;color:rgba(255,255,255,0.35);line-height:1.6;margin-top:1rem;font-style:italic;}
+@media(max-width:900px){.demo-grid{grid-template-columns:1fr;}}
+
+/* WhatsApp chat mock */
+.chat-mock{background:#ece5dd;border-radius:14px;overflow:hidden;}
+.chat-head{background:#075e54;padding:0.75rem 0.9rem;display:flex;align-items:center;gap:0.65rem;}
+.chat-avatar{width:34px;height:34px;border-radius:50%;background:#fff;color:#075e54;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:800;flex-shrink:0;}
+.chat-name{font-size:0.85rem;font-weight:700;color:#fff;line-height:1.2;}
+.chat-status{font-size:0.68rem;color:rgba(255,255,255,0.6);}
+.chat-body{padding:0.9rem 0.8rem;display:flex;flex-direction:column;gap:0.5rem;min-height:280px;}
+.bubble{max-width:82%;padding:0.55rem 0.7rem 0.5rem;border-radius:9px;font-size:0.79rem;line-height:1.45;color:#111b21;position:relative;box-shadow:0 1px 1px rgba(0,0,0,0.08);}
+.bubble .t{display:block;font-size:0.6rem;color:#667781;text-align:right;margin-top:0.2rem;}
+.bubble.in{background:#fff;align-self:flex-start;border-top-left-radius:2px;}
+.bubble.out{background:#d9fdd3;align-self:flex-end;border-top-right-radius:2px;}
+.bubble.confirm{font-weight:700;color:#0b6b3a;}
+.chat-foot{background:#f0f0f0;padding:0.55rem 0.8rem;display:flex;align-items:center;gap:0.55rem;}
+.chat-input{flex:1;background:#fff;border-radius:999px;padding:0.42rem 0.85rem;font-size:0.74rem;color:#98a2ac;}
+.chat-send{width:28px;height:28px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.7rem;flex-shrink:0;}
+
+/* Phone notifications */
+.notif-screen{background:#0b0f14;border-radius:16px;padding:1.6rem 1rem 1.3rem;border:1px solid rgba(255,255,255,0.07);}
+.notif-time{text-align:center;color:#fff;font-size:2.4rem;font-weight:300;line-height:1;letter-spacing:-0.02em;}
+.notif-date{text-align:center;color:rgba(255,255,255,0.45);font-size:0.76rem;margin-bottom:1.4rem;}
+.notif-card{background:rgba(255,255,255,0.93);border-radius:13px;padding:0.75rem 0.9rem;margin-bottom:0.6rem;}
+.notif-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.3rem;}
+.notif-app{display:flex;align-items:center;gap:0.45rem;font-size:0.68rem;font-weight:700;color:#0e1520;}
+.notif-badge{width:17px;height:17px;border-radius:5px;background:#0f766e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.6rem;}
+.notif-when{font-size:0.63rem;color:#8a8f95;}
+.notif-title{font-size:0.83rem;font-weight:700;color:#0e1520;line-height:1.3;}
+.notif-sub{font-size:0.75rem;color:#5e5c56;margin-top:0.1rem;}
+
+/* Calendar mock */
+.cal-mock{background:#fff;border-radius:13px;padding:1rem 1.1rem;}
+.cal-head{display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;font-weight:700;color:#0e1520;margin-bottom:0.85rem;}
+.cal-row{display:grid;grid-template-columns:52px 1fr;gap:0.6rem;align-items:center;border-top:1px solid #eceae4;padding:0.3rem 0;min-height:38px;}
+.cal-time{font-size:0.66rem;color:#a8a59e;font-weight:600;}
+.cal-event{border-radius:6px;padding:0.35rem 0.6rem;line-height:1.25;}
+.cal-event.blue{background:#7a9cf5;color:#fff;}
+.cal-event.new{background:#0f766e;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:0.5rem;}
+.cal-ev-name{font-size:0.72rem;font-weight:700;}
+.cal-ev-sub{font-size:0.63rem;opacity:0.82;}
+.cal-new-tag{background:#25d366;color:#08331a;font-size:0.55rem;font-weight:800;letter-spacing:0.1em;padding:0.12rem 0.4rem;border-radius:4px;flex-shrink:0;}
+
+/* Dashboard mock */
+.dash-mock{background:#fff;border-radius:13px;padding:1.1rem;}
+.dash-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.9rem;gap:0.5rem;}
+.dash-brand{display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;font-weight:700;color:#0e1520;}
+.dash-logo{width:24px;height:24px;border-radius:7px;background:#0f766e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.72rem;}
+.dash-note{font-size:0.6rem;color:#a8a59e;}
+.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:0.55rem;margin-bottom:0.9rem;}
+.dash-kpi{border:1px solid #eceae4;border-radius:9px;padding:0.6rem 0.65rem;}
+.dash-kpi-label{font-size:0.58rem;color:#8a8f95;font-weight:600;margin-bottom:0.25rem;}
+.dash-kpi-value{font-size:1.15rem;font-weight:800;color:#0e1520;line-height:1;}
+.dash-kpi-delta{font-size:0.58rem;font-weight:700;color:#16a34a;margin-top:0.2rem;}
+.dash-lower{display:grid;grid-template-columns:1.15fr 1fr;gap:0.7rem;}
+.dash-panel{border:1px solid #eceae4;border-radius:9px;padding:0.7rem;}
+.dash-panel-label{font-size:0.6rem;color:#8a8f95;font-weight:600;margin-bottom:0.6rem;}
+.dash-bars{display:flex;align-items:flex-end;gap:0.35rem;height:78px;}
+.dash-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:0.25rem;height:100%;justify-content:flex-end;}
+.dash-bar{width:100%;background:#0f766e;border-radius:3px 3px 0 0;}
+.dash-bar-day{font-size:0.53rem;color:#a8a59e;}
+.dash-pat{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;padding:0.38rem 0;border-bottom:1px solid #f2f0ea;}
+.dash-pat:last-child{border-bottom:none;}
+.dash-pat-name{font-size:0.7rem;font-weight:700;color:#0e1520;}
+.dash-pat-sub{font-size:0.58rem;color:#a8a59e;}
+.dash-pat-when{font-size:0.6rem;font-weight:700;color:#0f766e;text-align:right;flex-shrink:0;}
+.dash-pat-when.none{color:#a8a59e;}
+@media(max-width:600px){.dash-kpis{grid-template-columns:1fr 1fr;}.dash-lower{grid-template-columns:1fr;}}
+
+/* ── Why now ── */
+.whynow-section{background:var(--bg2);}
+.whynow-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-bottom:2.5rem;max-width:760px;}
+.whynow-stat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;text-align:center;box-shadow:var(--shadow);}
+.whynow-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,3.6rem);font-weight:500;color:var(--teal);line-height:1;margin-bottom:0.5rem;}
+.whynow-cap{font-size:0.82rem;color:var(--text-dim);line-height:1.6;}
+.whynow-list{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.2rem;}
+.whynow-item{display:flex;gap:0.8rem;align-items:flex-start;font-size:0.9rem;color:var(--text-dim);line-height:1.7;max-width:820px;}
+.whynow-item::before{content:'▸';color:var(--accent);font-weight:700;flex-shrink:0;}
+.whynow-item strong{color:var(--navy);}
+.whynow-quote{background:var(--surface);border-left:3px solid var(--accent);border-radius:0 14px 14px 0;padding:1.5rem 1.7rem;font-size:0.95rem;line-height:1.8;color:var(--text-dim);max-width:860px;box-shadow:var(--shadow);}
+.whynow-quote strong{color:var(--navy);}
+@media(max-width:600px){.whynow-stats{grid-template-columns:1fr;}}
+
+/* ── Breakeven line in plans ── */
+.plan-breakeven{font-size:0.76rem;font-weight:600;color:var(--green);background:rgba(37,211,102,0.08);border:1px solid var(--accent-line);border-radius:8px;padding:0.55rem 0.75rem;margin-bottom:1rem;line-height:1.45;}
+.plan-perday{font-size:0.75rem;color:var(--text-faint);margin-top:0.35rem;margin-bottom:1rem;}
+
+/* ── Add-ons ── */
+.addon-wrap{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin-top:2.5rem;}
+.addon-row{display:grid;grid-template-columns:1fr 190px;border-bottom:1px solid var(--border);}
+.addon-row:last-child{border-bottom:none;}
+.addon-row.header-row{background:var(--navy);}
+.addon-cell{padding:0.95rem 1.4rem;font-size:0.86rem;color:var(--text-dim);display:flex;align-items:center;line-height:1.55;}
+.addon-row.header-row .addon-cell{font-size:0.7rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.addon-cell.price-col{font-weight:700;color:var(--navy);justify-content:flex-end;text-align:right;}
+.addon-row.header-row .addon-cell.price-col{color:var(--accent);}
+@media(max-width:600px){.addon-row{grid-template-columns:1fr 110px;}.addon-cell{padding:0.75rem 0.85rem;font-size:0.78rem;}}
+
+/* ── Reassurance ── */
+.reassure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem;}
+.reassure-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.5rem;box-shadow:var(--shadow);}
+.reassure-card h4{font-size:0.94rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+.reassure-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.68;}
+@media(max-width:820px){.reassure-grid{grid-template-columns:1fr;}}
+
+/* ── Sources note ── */
+.sources-note{font-size:0.74rem;color:var(--text-faint);line-height:1.75;max-width:900px;margin:0 auto;padding:2.5rem 5% 0;}
+</style>
+</head>
+<body>
+<!-- ═══════════════════════════════════════════ NAV ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo2.png" alt="Adaptive Minds AI" class="nav-logo-img"/>
+    </a>
+    <div class="nav-links">
+
+      <!-- Automation Dropdown -->
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">Automation <span class="nav-dd-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nav-dd-menu" style="width:620px;">
+          <div class="nav-dd-label">AI Automation Services</div>
+          <div class="nav-dd-grid" style="grid-template-columns:1fr 1fr 1fr;">
+            <a href="automation-workflow.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(59,130,246,0.12);">⚡</div>
+              <div><div class="nav-dd-name">Workflow Automation</div><div class="nav-dd-sub">Eliminate repetitive tasks</div></div>
+            </a>
+            <a href="automation-chatbots.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(6,182,212,0.12);">💬</div>
+              <div><div class="nav-dd-name">AI Assistants &amp; Chatbots</div><div class="nav-dd-sub">Always-on customer support</div></div>
+            </a>
+            <a href="automation-agents.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(168,85,247,0.12);">🧠</div>
+              <div><div class="nav-dd-name">Autonomous AI Agents</div><div class="nav-dd-sub">AI that acts without being asked</div></div>
+            </a>
+            <a href="automation-documents.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(245,158,11,0.12);">📋</div>
+              <div><div class="nav-dd-name">Document Intelligence</div><div class="nav-dd-sub">Chat with any document</div></div>
+            </a>
+            <a href="automation-data.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(249,115,22,0.12);">📥</div>
+              <div><div class="nav-dd-name">Intelligent Data Extraction</div><div class="nav-dd-sub">Pull data from any file</div></div>
+            </a>
+            <a href="automation-integration.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(16,185,129,0.12);">🔌</div>
+              <div><div class="nav-dd-name">System Integration</div><div class="nav-dd-sub">AI in tools you already use</div></div>
+            </a>
+            <a href="automation-bi.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(34,211,238,0.12);">📈</div>
+              <div><div class="nav-dd-name">Business Intelligence</div><div class="nav-dd-sub">Data into clear answers</div></div>
+            </a>
+            <a href="automation-content.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(236,72,153,0.12);">✏️</div>
+              <div><div class="nav-dd-name">Content Automation</div><div class="nav-dd-sub">Scale content, not headcount</div></div>
+            </a>
+            <a href="automation-custom.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(239,68,68,0.12);">🛠️</div>
+              <div><div class="nav-dd-name">Custom AI Development</div><div class="nav-dd-sub">AI built for your industry</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marketing Dropdown -->
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">Marketing <span class="nav-dd-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nav-dd-menu">
+          <div class="nav-dd-label">Marketing Services</div>
+          <div class="nav-dd-grid">
+            <a href="marketing-whatsapp.html" class="nav-dd-item">
+              <div class="nav-dd-icon">💬</div>
+              <div><div class="nav-dd-name">WhatsApp Marketing</div><div class="nav-dd-sub">Official Meta API broadcasts</div></div>
+            </a>
+            <a href="marketing-linkedin.html" class="nav-dd-item">
+              <div class="nav-dd-icon">💼</div>
+              <div><div class="nav-dd-name">LinkedIn Outreach</div><div class="nav-dd-sub">AI-powered B2B prospecting</div></div>
+            </a>
+            <a href="marketing-google-ads.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📊</div>
+              <div><div class="nav-dd-name">Google &amp; Meta Ads</div><div class="nav-dd-sub">Performance ad campaigns</div></div>
+            </a>
+            <a href="marketing-email.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📧</div>
+              <div><div class="nav-dd-name">Email Drip Automation</div><div class="nav-dd-sub">Nurture sequences that convert</div></div>
+            </a>
+            <a href="marketing-voice.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📞</div>
+              <div><div class="nav-dd-name">Voice AI &amp; Call Automation</div><div class="nav-dd-sub">AI-driven outbound calling</div></div>
+            </a>
+            <a href="marketing-lead-gen.html" class="nav-dd-item">
+              <div class="nav-dd-icon">🎯</div>
+              <div><div class="nav-dd-name">AI Lead Generation</div><div class="nav-dd-sub">Qualified leads, on demand</div></div>
+            </a>
+            <a href="marketing-social.html" class="nav-dd-item">
+              <div class="nav-dd-icon">📱</div>
+              <div><div class="nav-dd-name">Social Media AI</div><div class="nav-dd-sub">Content, scheduling, analytics</div></div>
+            </a>
+            <a href="crm.html" class="nav-dd-item">
+              <div class="nav-dd-icon">🤝</div>
+              <div><div class="nav-dd-name">AI-Driven CRM</div><div class="nav-dd-sub">The CRM that works for you</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WhatsApp AI Dropdown -->
+      <div class="nav-has-dropdown">
+        <button class="nav-dd-trigger">WhatsApp AI <span class="nav-dd-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><polyline points="1,1 5,5 9,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nav-dd-menu">
+          <div class="nav-dd-label">WhatsApp &amp; Meta AI</div>
+          <div class="nav-dd-grid">
+            <a href="smartclinic-ai.html" class="nav-dd-item current">
+              <div class="nav-dd-icon" style="background:rgba(15,118,110,0.12);">🩺</div>
+              <div><div class="nav-dd-name">SmartClinic AI</div><div class="nav-dd-sub">WhatsApp assistant for clinics</div></div>
+            </a>
+            <a href="whatsapp-ai-agent.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(37,211,102,0.12);">🤖</div>
+              <div><div class="nav-dd-name">WhatsApp AI Agent</div><div class="nav-dd-sub">Chatbot, broadcast &amp; ad capture</div></div>
+            </a>
+            <a href="whatsapp-ai-agent.html#ctwa-ads" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(66,133,244,0.12);">📣</div>
+              <div><div class="nav-dd-name">Click-to-WhatsApp Ads</div><div class="nav-dd-sub">Turn Meta ad clicks into chats</div></div>
+            </a>
+            <a href="marketing-whatsapp.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(37,211,102,0.12);">📢</div>
+              <div><div class="nav-dd-name">WhatsApp Broadcast Marketing</div><div class="nav-dd-sub">Official Meta API campaigns</div></div>
+            </a>
+            <a href="crm.html" class="nav-dd-item">
+              <div class="nav-dd-icon" style="background:rgba(201,148,58,0.12);">🤝</div>
+              <div><div class="nav-dd-name">WhatsApp CRM</div><div class="nav-dd-sub">Pipeline built around WhatsApp</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a href="crm.html" class="crm-link">AI CRM</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact" class="nav-cta">Talk to Us</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════ HERO ═══ -->
+<section class="wa-hero">
+  <div class="wa-hero-inner">
+    <div class="wa-hero-left">
+      <div class="wa-hero-eyebrow">
+        <span class="dot"></span>
+        SmartClinic AI &middot; WhatsApp-First, Official Meta API
+      </div>
+      <h1>Every clinic already pays<br>for <em>not having this.</em></h1>
+      <p class="wa-hero-sub">It just shows up as empty chairs and unanswered calls, not a line item. SmartClinic AI is your clinic's WhatsApp assistant — it books, reminds, follows up, and answers patients 24/7, so nobody has to.</p>
+      <div class="wa-hero-actions">
+        <a href="https://wa.me/918130247554?text=Hi%2C%20I%27d%20like%20a%20SmartClinic%20AI%20demo%20for%20my%20clinic" class="btn btn-accent" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Book a Free Live Demo
+        </a>
+        <a href="#pricing" class="btn btn-outline-light">See Plans &amp; Pricing</a>
+      </div>
+    </div>
+    <div class="wa-hero-right">
+      <div class="wa-hero-card">
+        <div class="wa-hero-card-label">What Waiting Actually Costs</div>
+        <div class="wa-stat-row">
+          <div class="wa-stat-icon amber">🪑</div>
+          <div>
+            <div class="wa-stat-label">20–30% of booked appointments lost</div>
+            <div class="wa-stat-sub">The typical outpatient no-show range — most clinics never even measure it</div>
+          </div>
+        </div>
+        <div class="wa-stat-row">
+          <div class="wa-stat-icon green">📞</div>
+          <div>
+            <div class="wa-stat-label">Missed calls rarely call back</div>
+            <div class="wa-stat-sub">Most callers who don't get through the first time simply try the next clinic</div>
+          </div>
+        </div>
+        <div class="wa-stat-row">
+          <div class="wa-stat-icon blue">🌙</div>
+          <div>
+            <div class="wa-stat-label">After-hours enquiries go cold</div>
+            <div class="wa-stat-sub">If no one replies till morning, that patient is often already booked elsewhere</div>
+          </div>
+        </div>
+        <div class="wa-hero-foot">
+          <span class="wa-badge">Official Meta Cloud API</span>
+          <span class="wa-badge">Google Calendar Sync</span>
+          <span class="wa-badge">Hindi &amp; Marathi</span>
+          <span class="wa-badge">DPDP Compliant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ STATS BAR ═══ -->
+<section class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-block">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Booking &amp; Replies</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">25–40%</div>
+      <div class="stat-label">Fewer No-Shows</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Languages Supported</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">0</div>
+      <div class="stat-label">New Apps To Learn</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ COST OF STANDING STILL ═══ -->
+<section class="cost-section section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">The Real Cost</div>
+    <h2 class="section-title">What standing still<br>is actually costing you.</h2>
+    <p class="section-sub">Every clinic already pays for not having this — it just shows up as empty chairs and unanswered calls, not a line item.</p>
+
+    <div class="cost-grid">
+      <div class="cost-card">
+        <h4><span>🪑</span> No-shows</h4>
+        <p>Outpatient clinics typically lose 20–30% of booked appointments. Most clinics never even measure it, so it never shows up as a number anyone acts on.</p>
+      </div>
+      <div class="cost-card">
+        <h4><span>📞</span> Missed calls</h4>
+        <p>Most callers who don't get through the first time don't call back — they simply try the next clinic on the list.</p>
+      </div>
+      <div class="cost-card">
+        <h4><span>🌙</span> After-hours silence</h4>
+        <p>Many enquiries land after hours. If no one replies till morning, that patient's often already booked somewhere else.</p>
+      </div>
+      <div class="cost-card">
+        <h4><span>⏱️</span> Manual follow-ups</h4>
+        <p>Confirmation calls eat hours of front-desk time every week — and appointments still get missed anyway.</p>
+      </div>
+    </div>
+
+    <div class="math-box">
+      <div class="math-label">Illustrative example — not a promise of results, just the shape of the math</div>
+      <p>A clinic seeing <strong>300 patients a month</strong> at a <strong>20% no-show rate</strong> loses roughly <strong>60 appointments monthly</strong>. Recovering just 1 in 4 of those with automatic reminders means <strong>15 extra patients seen</strong>. At a conservative <strong>₹500 per visit</strong>, that's <span class="recover">₹7,500 recovered every month</span> — nearly 2.5× the cost of the Starter plan at ₹2,999/month.</p>
+      <div class="math-bars">
+        <div class="math-bar-row">
+          <div class="math-bar-label">Starter plan costs</div>
+          <div class="math-bar cost">₹2,999/mo</div>
+        </div>
+        <div class="math-bar-row">
+          <div class="math-bar-label">You could recover</div>
+          <div class="math-bar gain">₹7,500/mo (2.5×)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ WHAT YOU GET ═══ -->
+<section class="get-section section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">No Guesswork</div>
+    <h2 class="section-title">Exactly what you get.</h2>
+    <p class="section-sub">Precisely what changes at your clinic, mapped directly to the problem it solves — and what you actually see happen.</p>
+
+    <div class="get-wrap">
+      <div class="get-row header-row">
+        <div class="get-cell prob-col">Your Problem</div>
+        <div class="get-cell">What It Does</div>
+        <div class="get-cell see-col">What You See</div>
+      </div>
+      <div class="get-row">
+        <div class="get-cell prob-col">Patients message any time — full, closed, or after hours</div>
+        <div class="get-cell">Instant WhatsApp reply with open slots, even at midnight</div>
+        <div class="get-cell see-col">Booking lands in your Google Calendar automatically</div>
+      </div>
+      <div class="get-row">
+        <div class="get-cell prob-col">Patients forget appointments</div>
+        <div class="get-cell">Reminder with a one-tap Confirm / Reschedule button</div>
+        <div class="get-cell see-col">Fewer empty chairs — no staff calls needed</div>
+      </div>
+      <div class="get-row">
+        <div class="get-cell prob-col">You don't know what's happening</div>
+        <div class="get-cell">Instant alerts, a morning summary, and a dashboard for bookings, no-shows &amp; revenue</div>
+        <div class="get-cell see-col">Full visibility without asking anyone</div>
+      </div>
+      <div class="get-row">
+        <div class="get-cell prob-col">A patient hasn't come back in months</div>
+        <div class="get-cell">Automatic WhatsApp check-in to patients overdue for a visit</div>
+        <div class="get-cell see-col">Lapsed patients quietly return</div>
+      </div>
+      <div class="get-row highlight">
+        <div class="get-cell prob-col">★ Google Review Automation<span class="new-pill">New</span></div>
+        <div class="get-cell">2 hours after a visit, happy patients get a WhatsApp nudge that routes straight to Google</div>
+        <div class="get-cell see-col">Your online reputation builds itself</div>
+      </div>
+      <div class="get-row">
+        <div class="get-cell prob-col">You want context before the patient walks in</div>
+        <div class="get-cell">Asks what's bringing them in and notes it for you beforehand</div>
+        <div class="get-cell see-col">You walk in already informed</div>
+      </div>
+      <div class="get-row">
+        <div class="get-cell prob-col">Something needs a human touch</div>
+        <div class="get-cell">Says so honestly and flags you — or steps back the moment you start typing</div>
+        <div class="get-cell see-col">You're always in control</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ SEE IT IN ACTION ═══ -->
+<section class="demo-section section reveal" id="demo">
+  <div class="section-inner">
+    <div class="eyebrow">See It In Action</div>
+    <h2 class="section-title">Four real screens.</h2>
+    <p class="section-sub">What the patient sees, what buzzes on your phone, where it lands on your calendar, and what you see when you check in.</p>
+
+    <div class="demo-grid">
+      <div class="demo-col">
+        <div class="demo-card">
+          <div class="demo-card-title">What your patient sees on WhatsApp</div>
+          <div class="chat-mock">
+            <div class="chat-head">
+              <div class="chat-avatar">SC</div>
+              <div>
+                <div class="chat-name">Sunrise Clinic</div>
+                <div class="chat-status">Typically replies instantly</div>
+              </div>
+            </div>
+            <div class="chat-body">
+              <div class="bubble out">Hi, are you open? It's 9pm<span class="t">9:02 PM ✓✓</span></div>
+              <div class="bubble in">We're closed right now, but I can still book you for tomorrow — want to?<span class="t">9:02 PM</span></div>
+              <div class="bubble out">Yes please<span class="t">9:03 PM ✓✓</span></div>
+              <div class="bubble in">Here are open times tomorrow: 10 AM, 2 PM, 4:30 PM<span class="t">9:03 PM</span></div>
+              <div class="bubble out">2pm works<span class="t">9:04 PM ✓✓</span></div>
+              <div class="bubble in confirm">Confirmed for 2 PM tomorrow ✓<span class="t">9:04 PM</span></div>
+            </div>
+            <div class="chat-foot">
+              <div class="chat-input">Message</div>
+              <div class="chat-send">➤</div>
+            </div>
+          </div>
+          <p class="demo-caption">A patient messaging at 9 PM — SmartClinic AI replies instantly and books them for the next day.</p>
+        </div>
+      </div>
+
+      <div class="demo-col">
+        <div class="demo-card">
+          <div class="demo-card-title">What buzzes on your phone</div>
+          <div class="notif-screen">
+            <div class="notif-time">9:41</div>
+            <div class="notif-date">Tuesday, 14 July</div>
+            <div class="notif-card">
+              <div class="notif-top">
+                <div class="notif-app"><span class="notif-badge">✓</span> Adaptive Minds AI</div>
+                <div class="notif-when">now</div>
+              </div>
+              <div class="notif-title">New booking: Priya M.</div>
+              <div class="notif-sub">3:00 PM · Persistent cough</div>
+            </div>
+            <div class="notif-card">
+              <div class="notif-top">
+                <div class="notif-app"><span class="notif-badge">✓</span> Adaptive Minds AI</div>
+                <div class="notif-when">7:02 AM</div>
+              </div>
+              <div class="notif-title">Today at Sunrise Clinic</div>
+              <div class="notif-sub">3 appointments today</div>
+            </div>
+          </div>
+          <p class="demo-caption">Every booking pings you the moment it happens, plus a morning summary — no app to check.</p>
+        </div>
+
+        <div class="demo-card">
+          <div class="demo-card-title">What lands in your Google Calendar</div>
+          <div class="cal-mock">
+            <div class="cal-head">📅 Google Calendar — Tomorrow</div>
+            <div class="cal-row"><div class="cal-time">9 AM</div><div class="cal-event blue"><div class="cal-ev-name">Rahul S.</div><div class="cal-ev-sub">Check-up</div></div></div>
+            <div class="cal-row"><div class="cal-time">10 AM</div><div></div></div>
+            <div class="cal-row"><div class="cal-time">11 AM</div><div class="cal-event blue"><div class="cal-ev-name">Anjali K.</div><div class="cal-ev-sub">Follow-up</div></div></div>
+            <div class="cal-row"><div class="cal-time">12 PM</div><div></div></div>
+            <div class="cal-row"><div class="cal-time">1 PM</div><div></div></div>
+            <div class="cal-row"><div class="cal-time">2 PM</div><div class="cal-event new"><div><div class="cal-ev-name">Priya M. — Sunrise Clinic</div><div class="cal-ev-sub">Booked via WhatsApp, 9:04 PM</div></div><span class="cal-new-tag">NEW</span></div></div>
+            <div class="cal-row"><div class="cal-time">3 PM</div><div></div></div>
+          </div>
+          <p class="demo-caption">The new booking appears automatically, with the patient's name already filled in.</p>
+        </div>
+
+        <div class="demo-card">
+          <div class="demo-card-title">Your dashboard — bookings, no-shows &amp; patient history</div>
+          <div class="dash-mock">
+            <div class="dash-head">
+              <div class="dash-brand"><span class="dash-logo">✓</span> Sunrise Clinic</div>
+              <div class="dash-note">Sample data · illustrative only</div>
+            </div>
+            <div class="dash-kpis">
+              <div class="dash-kpi"><div class="dash-kpi-label">Today's bookings</div><div class="dash-kpi-value">14</div></div>
+              <div class="dash-kpi"><div class="dash-kpi-label">No-show rate</div><div class="dash-kpi-value">12%</div><div class="dash-kpi-delta">↓ from 24%</div></div>
+              <div class="dash-kpi"><div class="dash-kpi-label">Recovered this month</div><div class="dash-kpi-value">₹18,400</div></div>
+              <div class="dash-kpi"><div class="dash-kpi-label">New patients (7d)</div><div class="dash-kpi-value">9</div></div>
+            </div>
+            <div class="dash-lower">
+              <div class="dash-panel">
+                <div class="dash-panel-label">Bookings this week</div>
+                <div class="dash-bars">
+                  <div class="dash-bar-wrap"><div class="dash-bar" style="height:42%;"></div><div class="dash-bar-day">Mon</div></div>
+                  <div class="dash-bar-wrap"><div class="dash-bar" style="height:62%;"></div><div class="dash-bar-day">Tue</div></div>
+                  <div class="dash-bar-wrap"><div class="dash-bar" style="height:48%;"></div><div class="dash-bar-day">Wed</div></div>
+                  <div class="dash-bar-wrap"><div class="dash-bar" style="height:82%;"></div><div class="dash-bar-day">Thu</div></div>
+                  <div class="dash-bar-wrap"><div class="dash-bar" style="height:68%;"></div><div class="dash-bar-day">Fri</div></div>
+                  <div class="dash-bar-wrap"><div class="dash-bar" style="height:95%;"></div><div class="dash-bar-day">Sat</div></div>
+                  <div class="dash-bar-wrap"><div class="dash-bar" style="height:40%;"></div><div class="dash-bar-day">Sun</div></div>
+                </div>
+              </div>
+              <div class="dash-panel">
+                <div class="dash-panel-label">Patients &amp; visit history</div>
+                <div class="dash-pat"><div><div class="dash-pat-name">Priya M.</div><div class="dash-pat-sub">3 visits · last 12 Jun</div></div><div class="dash-pat-when">Today, 3:00 PM</div></div>
+                <div class="dash-pat"><div><div class="dash-pat-name">Rahul S.</div><div class="dash-pat-sub">5 visits · last 28 May</div></div><div class="dash-pat-when">Tomorrow, 11 AM</div></div>
+                <div class="dash-pat"><div><div class="dash-pat-name">Vikram T.</div><div class="dash-pat-sub">8 visits · last 15 Apr</div></div><div class="dash-pat-when">Today, 4:30 PM</div></div>
+                <div class="dash-pat"><div><div class="dash-pat-name">Anjali K.</div><div class="dash-pat-sub">1 visit · last 02 Jul</div></div><div class="dash-pat-when none">Not scheduled</div></div>
+              </div>
+            </div>
+          </div>
+          <p class="demo-caption">Sample dashboard — illustrative only, your actual numbers will differ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ WHY NOW ═══ -->
+<section class="whynow-section section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">Why Now</div>
+    <h2 class="section-title">This is already happening.</h2>
+    <p class="section-sub">Not a future trend clinics can watch from a distance — it's already underway.</p>
+
+    <div class="whynow-stats">
+      <div class="whynow-stat">
+        <div class="whynow-num">40%+</div>
+        <div class="whynow-cap">of Indian clinicians now use AI daily — up roughly 3× in a year</div>
+      </div>
+      <div class="whynow-stat">
+        <div class="whynow-num">25–40%</div>
+        <div class="whynow-cap">fewer no-shows with automatic WhatsApp reminders</div>
+      </div>
+    </div>
+
+    <div class="whynow-list">
+      <div class="whynow-item"><span><strong>AI adoption has roughly tripled in a year.</strong> Over 40% of Indian clinicians now use some form of AI daily.</span></div>
+      <div class="whynow-item"><span><strong>WhatsApp reminders cut no-shows by 25–40%.</strong> Fast becoming the baseline, not a differentiator.</span></div>
+      <div class="whynow-item"><span><strong>Patients expect WhatsApp, not a phone tree.</strong> It's already how they book everything else.</span></div>
+      <div class="whynow-item"><span><strong>Hindi &amp; Marathi patients get the same instant experience.</strong> Real trust, not a fallback.</span></div>
+    </div>
+
+    <div class="whynow-quote">
+      <strong>The clinics adopting this now aren't taking a risk — they're catching up to where patients already are.</strong> The ones who wait won't lose patients all at once. They'll just keep quietly losing them to the clinic that replied first.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ PRICING ═══ -->
+<section class="pricing-section section reveal" id="pricing">
+  <div class="section-inner">
+    <div class="eyebrow">Straightforward Pricing</div>
+    <h2 class="section-title">With the math built in.</h2>
+    <p class="section-sub">Three plans — with what they cost you per day, and exactly what it takes to cover that.</p>
+
+    <div class="wa-plans-grid">
+      <!-- Starter -->
+      <div class="wa-plan">
+        <div class="wa-plan-name">Starter</div>
+        <div class="wa-plan-who">Solo practice, 1–2 doctors · Up to 300 bookings/month</div>
+        <div class="wa-plan-price">₹2,999<span>/mo</span></div>
+        <div class="plan-perday">≈ ₹100/day · + ₹7,999 one-time setup</div>
+        <div class="plan-breakeven">Breakeven: recover ~6 patients a month and the plan pays for itself</div>
+        <ul class="wa-plan-features">
+          <li>WhatsApp booking &amp; rescheduling</li>
+          <li>Automated reminders (Confirm / Reschedule)</li>
+          <li>After-hours auto-reply</li>
+          <li>Google Calendar sync</li>
+          <li>Instant alerts + morning summary</li>
+          <li>Dedicated WhatsApp number</li>
+          <li>Patient visit history</li>
+          <li>Email support</li>
+        </ul>
+        <a href="https://wa.me/918130247554?text=Hi%2C%20I%27m%20interested%20in%20SmartClinic%20AI%20Starter" class="wa-plan-cta" target="_blank" rel="noopener">Start With Starter</a>
+      </div>
+
+      <!-- Growth -->
+      <div class="wa-plan wa-plan-featured">
+        <div class="most-popular-tag">Most Popular</div>
+        <div class="wa-plan-name" style="margin-top:0.6rem;">Growth</div>
+        <div class="wa-plan-who">Growing clinics, 2–5 doctors · Up to 1,000 bookings/month</div>
+        <div class="wa-plan-price">₹7,499<span>/mo</span></div>
+        <div class="plan-perday">≈ ₹250/day · + ₹24,999 one-time setup</div>
+        <div class="plan-breakeven">Breakeven: recover ~15 patients a month and the plan pays for itself</div>
+        <div class="wa-plan-setup"><strong>Everything in Starter, plus:</strong></div>
+        <ul class="wa-plan-features">
+          <li>Conversation inbox (every chat, one place)</li>
+          <li>Lab report delivery on WhatsApp</li>
+          <li>WhatsApp services / price list</li>
+          <li>Hindi &amp; Marathi conversations</li>
+          <li>Analytics dashboard</li>
+          <li>Google review requests — new</li>
+          <li>Pre-visit symptom notes — new</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="https://wa.me/918130247554?text=Hi%2C%20I%27m%20interested%20in%20SmartClinic%20AI%20Growth" class="wa-plan-cta wa-plan-cta-featured" target="_blank" rel="noopener">Book a Live Demo</a>
+      </div>
+
+      <!-- Multi-Specialty -->
+      <div class="wa-plan">
+        <div class="wa-plan-name">Multi-Specialty</div>
+        <div class="wa-plan-who">Multi-specialty clinics, labs &amp; chains · Unlimited bookings</div>
+        <div class="wa-plan-price">from ₹18,999<span>/mo</span></div>
+        <div class="plan-perday">≈ ₹633/day+ · + from ₹79,999 one-time setup</div>
+        <div class="plan-breakeven">Breakeven: scales with your volume</div>
+        <div class="wa-plan-setup"><strong>Everything in Growth, plus:</strong></div>
+        <ul class="wa-plan-features">
+          <li>On-premise — data stays on your server</li>
+          <li>Unlimited bookings</li>
+          <li>EMR / register integration</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="https://wa.me/918130247554?text=Hi%2C%20I%27d%20like%20to%20discuss%20SmartClinic%20AI%20for%20a%20multi-specialty%20clinic" class="wa-plan-cta" target="_blank" rel="noopener">Talk to Us</a>
+      </div>
+    </div>
+
+    <p class="pricing-disclaimer">
+      *Breakeven assumes a conservative ₹500 average visit value.<br>
+      · 3-month minimum term, then continues month to month — cancel anytime after.<br>
+      · WhatsApp messaging costs are included — Meta's per-message charges are on us.<br>
+      · New clinics: first 3 months at 30% off in exchange for a short testimonial once you're seeing results.<br>
+      · Prices exclude 18% GST.
+    </p>
+
+    <div class="addon-wrap">
+      <div class="addon-row header-row">
+        <div class="addon-cell">Add-On</div>
+        <div class="addon-cell price-col">Price</div>
+      </div>
+      <div class="addon-row">
+        <div class="addon-cell"><strong style="color:var(--navy);">New: Patient recall campaigns</strong>&nbsp;— win back lapsed patients automatically</div>
+        <div class="addon-cell price-col">₹1,999/mo</div>
+      </div>
+      <div class="addon-row">
+        <div class="addon-cell">UPI deposit collection at booking — cuts no-shows further</div>
+        <div class="addon-cell price-col">₹1,499/mo</div>
+      </div>
+      <div class="addon-row">
+        <div class="addon-cell">EMR / register integration — scoped per clinic</div>
+        <div class="addon-cell price-col">from ₹59,999 one-time</div>
+      </div>
+      <div class="addon-row">
+        <div class="addon-cell">Extra bookings beyond your plan's monthly limit</div>
+        <div class="addon-cell price-col">₹2/booking</div>
+      </div>
+    </div>
+
+    <a href="crm.html" class="crm-upsell">
+      <span>🤝</span>
+      <span>
+        <span class="label">Running more than a clinic?</span><br>
+        <span class="sub">Our AI CRM connects WhatsApp, Gmail &amp; leads across your whole business →</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ HOW IT WORKS ═══ -->
+<section class="how-section section reveal" id="how">
+  <div class="section-inner">
+    <div class="eyebrow">Getting Started</div>
+    <h2 class="section-title">Three steps, start to finish.</h2>
+    <p class="section-sub">A few days of work for us. About five minutes of yours.</p>
+
+    <div class="steps-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="step-card">
+        <div class="step-num" data-n="1">Step One</div>
+        <span class="step-icon">🔧</span>
+        <h4>We set it up</h4>
+        <p>We connect your number and configure hours, doctors, and services — a few days for us, five minutes for you.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num" data-n="2">Step Two</div>
+        <span class="step-icon">🧪</span>
+        <h4>We test it together</h4>
+        <p>We message the number ourselves, in front of you, before anything goes live. You approve every reply.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num" data-n="3">Step Three</div>
+        <span class="step-icon">📲</span>
+        <h4>Patients start booking</h4>
+        <p>Your number works exactly as before — it just also books, reminds, and answers, 24/7.</p>
+      </div>
+    </div>
+
+    <div class="reassure-grid">
+      <div class="reassure-card">
+        <h4>No new app, no training</h4>
+        <p>If your staff can use WhatsApp, they can use this. Nothing new to install or learn.</p>
+      </div>
+      <div class="reassure-card">
+        <h4>No disruption</h4>
+        <p>Your existing register or EMR keeps working exactly as it does today — SmartClinic AI runs alongside it.</p>
+      </div>
+      <div class="reassure-card">
+        <h4>Always reversible</h4>
+        <p>Month to month after the initial 3 months. Cancel anytime — your number stays yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FAQ ═══ -->
+<section class="faq-section section reveal">
+  <div class="section-inner">
+    <div class="eyebrow">Questions Clinics Ask</div>
+    <h2 class="section-title" style="text-align:center;">Before you book a demo.</h2>
+    <p class="section-sub" style="margin:0 auto 2.5rem;text-align:center;">The things doctors and clinic managers ask us most.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do I need a new phone number?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. We can run SmartClinic AI on a dedicated number we provide, or connect your existing clinic number to the official Meta WhatsApp API. Either way, patients keep messaging the same place they always have.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Will the AI say something wrong to a patient?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>SmartClinic AI is scoped to your clinic's information — hours, doctors, services, prices, directions, and booking. It does not diagnose or give medical advice. When something falls outside what it knows, it says so honestly and flags you. And the moment you start typing in a chat, it steps back.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What happens to my patient data?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Data stays within your account and is handled in line with India's DPDP Act. We never sell or share it. On the Multi-Specialty plan, we can deploy fully on-premise so patient data never leaves your own server.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Does it work in Hindi and Marathi?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — on the Growth plan and above. Patients get the same instant, natural experience in Hindi or Marathi as they do in English, including booking and reminders. It's real conversation, not a translated fallback.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do I have to replace my current register or software?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. SmartClinic AI runs alongside whatever you use today — paper register, Excel, or a full EMR. Bookings sync to Google Calendar out of the box, and we can integrate directly with your EMR on the Multi-Specialty plan.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How long does setup take?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Typically a few days from the go-ahead — most of it is our work, not yours. We configure everything, test it with you live, and only then switch it on for patients.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Are WhatsApp message charges extra?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. Meta's per-message conversation charges are included in your plan within fair use. Bookings beyond your plan's monthly limit are billed at ₹2/booking, so there are no surprise bills.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What if it doesn't work for my clinic?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>There's a 3-month minimum term, then it continues month to month — cancel anytime after that. New clinics get the first 3 months at 30% off in exchange for a short testimonial once you're seeing results. <a href="https://wa.me/918130247554" target="_blank" rel="noopener">Talk to us first</a> and we'll tell you honestly if we don't think it's a fit.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CTA ═══ -->
+<section class="cta-section reveal" id="contact">
+  <div class="wa-cta-wrap">
+    <h2>Let's put real numbers<br><em>to your clinic.</em></h2>
+    <p>Bring your patient volume and no-show numbers — or we'll help you estimate them on the spot — and we'll show you exactly what this is worth, live, on your phone, in about 15 minutes. No obligation.</p>
+    <div class="cta-contacts">
+      <a href="https://wa.me/918130247554?text=Hi%2C%20I%27d%20like%20a%20SmartClinic%20AI%20demo" class="contact-pill" target="_blank" rel="noopener">
+        <span class="cp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </span>
+        <div>
+          <div class="cp-label">WhatsApp</div>
+          <div class="cp-value">+91 81302 47554</div>
+        </div>
+      </a>
+      <a href="mailto:yogesh@adaptivemindsai.com" class="contact-pill">
+        <span class="cp-icon">✉️</span>
+        <div>
+          <div class="cp-label">Email</div>
+          <div class="cp-value">yogesh@adaptivemindsai.com</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <p class="sources-note">
+    Notes &amp; sources: No-show rate ranges from peer-reviewed healthcare operations research (PMC/NCBI systematic reviews). WhatsApp reminder impact and patient channel preference from WhatsApp Business API providers serving Indian healthcare, 2026. AI adoption figures from Tata Tele Business, “Healthcare in India Beyond 2026.” Figures are general market ranges for illustration, not guarantees — actual results vary by clinic.
+  </p>
+</section>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <span>© 2026 Adaptive Minds AI · Prices exclude 18% GST · SmartClinic AI runs on the official Meta WhatsApp API</span>
+      <a href="index.html" class="footer-back">← Back to main site</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── FAQ accordion ──
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq-toggle').textContent = '+';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.querySelector('.faq-toggle').textContent = '×';
+  }
+}
+
+// ── Reveal on scroll ──
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
