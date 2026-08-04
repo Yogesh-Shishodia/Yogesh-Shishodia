@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Adaptive Minds AI",
+  "short_name": "Adaptive Minds",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -13,9 +13,15 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#0e1520",
+  "background_color": "#f5f4f0",
   "display": "standalone"
 }
