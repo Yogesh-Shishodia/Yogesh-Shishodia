@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Data Deletion — Adaptive Minds AI</title>
+<meta name="description" content="How to ask Adaptive Minds AI to delete your personal data, including data from Meta lead ads and WhatsApp."/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2"/>
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png?v=2"/>
+<link rel="icon" href="favicon.ico?v=2" sizes="any"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2"/>
+<link rel="manifest" href="site.webmanifest?v=2"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:#f5f4f0;--bg2:#edecea;--surface:#ffffff;
+  --navy:#0e1520;--navy2:#162030;
+  --blue:#2146f0;--blue-line:rgba(33,70,240,0.20);
+  --gold:#c9943a;--gold-soft:rgba(201,148,58,0.10);--gold-line:rgba(201,148,58,0.28);
+  --border:#dddbd4;--text:#0e1520;--text-dim:#5e5c56;--text-faint:#a8a59e;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+
+/* ── Nav ── */
+nav{position:sticky;top:0;z-index:300;height:76px;display:flex;align-items:center;padding:0 5%;background:rgba(235,235,238,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-img{height:48px;width:48px;display:block;object-fit:cover;border-radius:12px;box-shadow:0 2px 10px rgba(14,21,32,0.18);}
+.nav-brand-text{font-size:1.15rem;font-weight:700;line-height:1;color:var(--navy);white-space:nowrap;}
+.nav-back{font-size:0.9rem;font-weight:500;color:var(--text-dim);text-decoration:none;padding:0.4rem 0.85rem;border-radius:8px;}
+.nav-back:hover{color:var(--text);background:var(--bg2);}
+
+/* ── Legal page ── */
+.legal-hero{background:var(--navy);padding:4.5rem 5% 3.5rem;}
+.legal-hero-inner{max-width:820px;margin:0 auto;}
+.legal-eyebrow{display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold-line);padding:0.3rem 0.9rem;border-radius:999px;margin-bottom:1.2rem;}
+.legal-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:500;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.8rem;}
+.legal-meta{font-size:0.88rem;color:rgba(255,255,255,0.45);}
+.legal{max-width:820px;margin:0 auto;padding:3.5rem 5% 5rem;}
+.legal-summary{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:2.8rem;font-size:0.95rem;color:var(--text-dim);}
+.legal-summary strong{color:var(--navy);}
+.legal h2{font-size:1.25rem;font-weight:700;color:var(--navy);margin:2.6rem 0 0.8rem;scroll-margin-top:96px;}
+.legal h3{font-size:1rem;font-weight:600;color:var(--navy);margin:1.4rem 0 0.4rem;}
+.legal p,.legal li{font-size:0.95rem;color:var(--text-dim);}
+.legal p{margin-bottom:0.9rem;}
+.legal ul{padding-left:1.3rem;margin-bottom:1rem;}
+.legal li{margin-bottom:0.4rem;}
+.legal a{color:var(--blue);}
+.legal strong{color:var(--text);font-weight:600;}
+.legal-table{width:100%;border-collapse:collapse;margin:0.6rem 0 1.2rem;font-size:0.88rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.legal-table th,.legal-table td{text-align:left;padding:0.75rem 0.9rem;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-dim);}
+.legal-table th{background:var(--bg2);color:var(--navy);font-weight:600;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;}
+.legal-table tr:last-child td{border-bottom:none;}
+.table-wrap{overflow-x:auto;}
+.contact-card{background:var(--navy);border-radius:16px;padding:1.8rem 2rem;margin-top:1rem;}
+.contact-card p{color:rgba(255,255,255,0.6);margin-bottom:0.4rem;}
+.contact-card strong{color:#fff;}
+.contact-card a{color:var(--gold);}
+
+/* ── Footer ── */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:2.5rem 5% 2rem;}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem;}
+.footer-inner span{font-size:0.79rem;color:rgba(255,255,255,0.3);}
+.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;}
+.footer-links a{font-size:0.82rem;color:rgba(255,255,255,0.45);text-decoration:none;}
+.footer-links a:hover,.footer-links a.active{color:rgba(255,255,255,0.85);}
+
+@media(max-width:768px){
+  .nav-logo-img{height:40px;width:40px;border-radius:10px;}
+  .nav-brand-text{font-size:0.92rem;}
+  .legal-hero{padding:3rem 5% 2.5rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-badge.png" alt="Adaptive Minds AI" class="nav-logo-img">
+      <span class="nav-brand-text">Adaptive Minds AI</span>
+    </a>
+    <a href="index.html" class="nav-back">← Back to main site</a>
+  </div>
+</nav>
+
+<header class="legal-hero">
+  <div class="legal-hero-inner">
+    <div class="legal-eyebrow">Legal</div>
+    <h1>Data Deletion Instructions</h1>
+    <p class="legal-meta">Effective date: 29 September 2026 · Last updated: 29 September 2026</p>
+  </div>
+</header>
+
+<main class="legal">
+
+  <div class="legal-summary">
+    <strong>In short:</strong> to delete the personal data we hold about you, email <a href="mailto:contact@adaptivemindsai.com?subject=Data%20Deletion%20Request">contact@adaptivemindsai.com</a> with the subject "Data Deletion Request", or send <strong>DELETE MY DATA</strong> to us on WhatsApp. We'll confirm within 7 days and finish within 30 days.
+  </div>
+
+  <h2 id="how">1. How to request deletion</h2>
+  <p>Choose either option:</p>
+  <ul>
+    <li><strong>Email:</strong> write to <a href="mailto:contact@adaptivemindsai.com?subject=Data%20Deletion%20Request">contact@adaptivemindsai.com</a> with the subject line <strong>"Data Deletion Request"</strong>.</li>
+    <li><strong>WhatsApp:</strong> send <strong>DELETE MY DATA</strong> to <a href="https://wa.me/918130247554?text=DELETE%20MY%20DATA" target="_blank" rel="noopener">+91 81302 47554</a> from the number you used to contact us.</li>
+  </ul>
+  <p>Please include the name, email address and/or phone number you used with us, so we can find your records. We may ask you to confirm your identity before deleting anything. This stops someone else from deleting your data.</p>
+
+  <h2 id="what">2. What we delete</h2>
+  <p>We will delete the personal data we hold about you, including:</p>
+  <ul>
+    <li>details you sent through our website forms;</li>
+    <li>leads we received from our Facebook and Instagram lead forms or Click-to-WhatsApp ads;</li>
+    <li>your WhatsApp and email conversations with us, and your contact record in our CRM;</li>
+    <li>any marketing lists you're on. We will also stop all marketing messages to you.</li>
+  </ul>
+
+  <h2 id="timeline">3. Timeline</h2>
+  <p>We will confirm that we've received your request within <strong>7 days</strong> and finish deleting your data within <strong>30 days</strong>. Once it's done, we'll let you know.</p>
+
+  <h2 id="retained">4. What we may have to keep</h2>
+  <p>We may keep some data where the law requires it or allows it, for example:</p>
+  <ul>
+    <li>invoices, GST and accounting records, for the period that tax law requires;</li>
+    <li>information needed to handle a legal claim or dispute;</li>
+    <li>a minimal record that you asked us to delete your data and not contact you, so that we respect your request in future.</li>
+  </ul>
+  <p>Anything we keep is stored securely and used only for that purpose.</p>
+
+  <h2 id="meta">5. Data held by Meta and other platforms</h2>
+  <p>Deleting your data from our systems does not delete it from Facebook, Instagram or WhatsApp. To manage data those platforms hold about you:</p>
+  <ul>
+    <li><strong>Facebook/Instagram lead ads and ad preferences:</strong> use the settings in your Facebook or Instagram account, or Meta's Accounts Centre.</li>
+    <li><strong>Apps connected with Facebook Login:</strong> go to Facebook <strong>Settings &amp; privacy → Settings → Apps and websites</strong>, find our app, and select <strong>Remove</strong>. Then send us a request as described above so that we delete the data we received.</li>
+    <li><strong>WhatsApp:</strong> you can block our number or delete the chat in the WhatsApp app at any time.</li>
+  </ul>
+
+  <h2 id="clients">6. If you're a customer of one of our clients</h2>
+  <p>If you talked to a business (such as a clinic) through a WhatsApp assistant or CRM that we built or run for them, that business controls your data. Please send your deletion request to that business directly. If you contact us instead, we'll forward it to them and help them complete it.</p>
+
+  <h2 id="more">7. More information</h2>
+  <p>For more about how we handle personal data and your other rights, see our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+  <div class="contact-card">
+    <p><strong>Grievance Officer:</strong> Yogesh Shishodia, Founder</p>
+    <p><strong>Email:</strong> <a href="mailto:contact@adaptivemindsai.com?subject=Data%20Deletion%20Request">contact@adaptivemindsai.com</a></p>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/918130247554" target="_blank" rel="noopener">+91 81302 47554</a></p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Adaptive Minds AI. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="data-deletion.html" class="active">Data Deletion</a>
+      <a href="index.html">Home</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
