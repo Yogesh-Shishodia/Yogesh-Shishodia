@@ -749,6 +749,74 @@ body.modal-open{overflow:hidden;}
   .nav-brand-text{display:none;}
   .nav-links a[href="#process"]{display:none;}
 }
+
+/* ── Page motion: headings, sections, proof ── */
+@keyframes popIn{from{opacity:0;transform:translateY(12px) scale(0.96);}to{opacity:1;transform:none;}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-10px);}to{opacity:1;transform:none;}}
+
+/* Scroll progress */
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:400;pointer-events:none;}
+.scroll-progress i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));transform-origin:left;transform:scaleX(var(--sp,0));}
+
+/* Kinetic section headings */
+.kw .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 0.05em 0.12em;margin:0 -0.05em -0.12em;}
+.kw .w>span{display:inline-block;transform:translateY(110%);transition:transform 0.85s cubic-bezier(.2,.8,.2,1);transition-delay:calc(0.1s + var(--i) * 55ms);}
+.kw.in .w>span{transform:none;}
+
+/* Trust bar: stagger + icons draw in */
+.trust-bar.in .trust-item{animation:popIn 0.6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 110ms);}
+.trust-bar.ready .trust-item svg *{stroke-dasharray:1;stroke-dashoffset:1;}
+.trust-bar.ready.in .trust-item svg *{stroke-dashoffset:0;transition:stroke-dashoffset 1.1s ease;transition-delay:calc(0.2s + var(--i,0) * 110ms);}
+
+/* Dark sections: cursor spotlight */
+.dark-bg.spot{background-image:radial-gradient(700px circle at var(--sx,50%) var(--sy,-30%),rgba(33,70,240,0.10),transparent 60%);}
+
+/* Card edges glow near the cursor */
+.glow-card{position:relative;}
+.glow-card::before{content:'';position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;z-index:3;background:radial-gradient(240px circle at var(--gx,-999px) var(--gy,-999px),var(--glow,rgba(255,255,255,0.45)),transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;}
+.bkt-card.glow-card{--glow:var(--bkt-accent,#2146f0);}
+.deploy-card.glow-card{--glow:rgba(201,148,58,0.6);}
+
+/* Services details */
+.bkt-icon{transition:transform 0.35s cubic-bezier(.2,.9,.3,1.4);}
+.bkt-card:hover .bkt-icon{transform:scale(1.12) rotate(-8deg);}
+.bucket-head::after{content:'';flex:1;min-width:40px;height:1px;align-self:center;background:linear-gradient(90deg,rgba(255,255,255,0.18),transparent);transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1) 0.35s;}
+.bucket-head.visible::after{transform:scaleX(1);}
+@media(max-width:768px){.bucket-head::after{display:none;}}
+
+/* Who we work with: pop in (desktop), marquee (phones) */
+.who-strip.in .who-chip{animation:popIn 0.5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 60ms);}
+.trust-bar-inner.marquee{justify-content:flex-start;}
+.trust-bar-inner.marquee .who-track{gap:2.2rem;animation-duration:22s;}
+.who-chips.marquee,.trust-bar-inner.marquee{flex-wrap:nowrap;overflow:hidden;min-width:0;width:100%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);}
+.who-track{display:flex;gap:0.6rem;width:max-content;animation:marquee 28s linear infinite;}
+.marquee:hover .who-track{animation-play-state:paused;}
+.marquee .who-chip,.marquee .trust-item{white-space:nowrap;flex-shrink:0;}
+@keyframes marquee{to{transform:translateX(calc(-50% - var(--mg,0.3rem)));}}
+.trust-bar-inner.marquee .who-track{--mg:1.1rem;}
+
+/* Our Work: screenshots straighten as they scroll in, lists tick in */
+.proj-screenshot{transform:perspective(1200px) rotateX(var(--st,0deg)) scale(var(--ss,1));transform-origin:50% 100%;}
+.proj-card.visible .proj-outcomes li,.about-cards.visible .abt-list li{animation:slideIn 0.5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(0.3s + var(--i,0) * 70ms);}
+.proj-card.visible .proj-metric-box,.proj-card.visible .proj-metric-pill{animation:popIn 0.55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(0.45s + var(--i,0) * 90ms);}
+
+/* Deployment: rotating border on the recommended card */
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false;}
+.deploy-card.featured-deploy.ring,.deploy-card.featured-deploy.ring:hover{border:1px solid transparent;background:linear-gradient(#171b21,#171b21) padding-box,conic-gradient(from var(--ang),rgba(201,148,58,0.25) 0%,rgba(201,148,58,0.25) 60%,#e2b25c 80%,rgba(201,148,58,0.25) 100%) border-box;animation:spinAng 6s linear infinite;}
+@keyframes spinAng{to{--ang:360deg;}}
+.deploy-icon{transition:transform 0.35s cubic-bezier(.2,.9,.3,1.4);}
+.deploy-card:hover .deploy-icon{transform:translateY(-4px) scale(1.08);}
+
+/* Final CTA: moving light + contact options */
+.cta-wrap::before{background:radial-gradient(circle,rgba(33,70,240,0.24) 0%,transparent 65%);animation:au1 16s ease-in-out infinite alternate;}
+.cta-wrap::after{background:radial-gradient(circle,rgba(201,148,58,0.16) 0%,transparent 65%);animation:au2 20s ease-in-out infinite alternate;}
+.cta-wrap.visible .contact-pill{animation:popIn 0.6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(0.35s + var(--i,0) * 90ms);}
+.cta-wrap .cp-icon{transition:transform 0.3s cubic-bezier(.2,.9,.3,1.4);}
+.contact-pill:hover .cp-icon{transform:scale(1.15) rotate(-6deg);}
+
+/* Footer links: underline slides in */
+.footer-col a{width:fit-content;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:color 0.2s,background-size 0.3s ease;}
+.footer-col a:hover{background-size:100% 1px;}
 </style>
 </head>
 <body>
@@ -900,7 +968,7 @@ body.modal-open{overflow:hidden;}
     <div class="services-section-head">
       <div class="reveal" style="display:inline-flex;align-items:center;gap:0.55rem;background:rgba(201,148,58,0.12);border:1px solid rgba(201,148,58,0.35);padding:0.38rem 1rem 0.38rem 0.7rem;border-radius:999px;margin-bottom:1.4rem;"><span style="width:7px;height:7px;border-radius:50%;background:#c9943a;display:inline-block;"></span><span style="font-size:0.9rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9943a;">How We Help</span></div>
       <h2 class="section-title reveal" style="color:#fff;margin-bottom:0.6rem;font-size:clamp(2.8rem,5vw,4.4rem);">Whatever's slowing you down,<br/><em style="color:rgba(255,255,255,0.38);">we've got a system for it.</em></h2>
-      <p class="section-sub reveal" style="margin-bottom:0;">18 purpose-built AI systems, grouped by the problem they solve — not by which team built them. Pick where it hurts most, or scroll through all four.</p>
+      <p class="section-sub reveal" style="margin-bottom:0;"><span class="counter-num" data-target="18">18</span> purpose-built AI systems, grouped by the problem they solve — not by which team built them. Pick where it hurts most, or scroll through all four.</p>
     </div>
 
     <div class="bucket-block" id="bucket-conversations">
@@ -2600,6 +2668,118 @@ function send(text){
       launcher.addEventListener('animationend',()=>launcher.classList.remove('hello'),{once:true});
     },12000);
   }
+})();
+</script>
+<script>
+/* ─── Page motion: headings, sections, proof ─── */
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const $$=(sel,root=document)=>[...root.querySelectorAll(sel)];
+  const index=els=>els.forEach((el,i)=>el.style.setProperty('--i',i));
+
+  /* Stagger order for children animated by their section's reveal */
+  $$('.trust-item').forEach((el,i)=>el.style.setProperty('--i',i));
+  $$('.proj-outcomes ul,.abt-list').forEach(ul=>index($$(':scope > li',ul)));
+  $$('.proj-card').forEach(card=>{ index($$('.proj-metric-box',card)); index($$('.proj-metric-pill',card)); });
+  index($$('.cta-wrap .contact-pill'));
+  index($$('.who-chip'));
+
+  /* Add .in once an element scrolls into view */
+  const inObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); inObs.unobserve(e.target); }
+  }),{threshold:0.2});
+
+  if(!reduce){
+    /* Section headings: words rise in */
+    $$('.section-title,.about-heading,.bucket-title,.cta-wrap h2').forEach(h=>{
+      const label=h.textContent.replace(/\s+/g,' ').trim();
+      let i=0;
+      const walk=node=>[...node.childNodes].forEach(n=>{
+        if(n.nodeType===3){
+          const frag=document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(part=>{
+            if(!part) return;
+            if(!part.trim()){ frag.appendChild(document.createTextNode(' ')); return; }
+            const w=document.createElement('span'); w.className='w'; w.setAttribute('aria-hidden','true');
+            const inner=document.createElement('span'); inner.style.setProperty('--i',i++); inner.textContent=part;
+            w.appendChild(inner); frag.appendChild(w);
+          });
+          n.replaceWith(frag);
+        } else if(n.nodeType===1&&n.tagName!=='BR') walk(n);
+      });
+      walk(h); h.setAttribute('aria-label',label); h.classList.add('kw'); inObs.observe(h);
+    });
+
+    /* Trust bar icons draw themselves */
+    const trust=document.querySelector('.trust-bar');
+    if(trust){
+      $$('svg *',trust).forEach(s=>s.setAttribute('pathLength','1'));
+      trust.classList.add('ready'); inObs.observe(trust);
+    }
+
+    /* Trust bar + who we work with: scrolling strip on phones, pop-in on larger screens */
+    const phone=matchMedia('(max-width:768px)').matches;
+    const marquee=(box,items)=>{
+      const track=document.createElement('div'); track.className='who-track';
+      items.forEach(c=>track.appendChild(c));
+      items.forEach(c=>{ const d=c.cloneNode(true); d.setAttribute('aria-hidden','true'); track.appendChild(d); });
+      box.appendChild(track); box.classList.add('marquee');
+    };
+    const chips=document.querySelector('.who-chips');
+    if(chips&&phone) marquee(chips,$$('.who-chip',chips));
+    else if(chips) inObs.observe(document.querySelector('.who-strip'));
+    const trustInner=document.querySelector('.trust-bar-inner');
+    if(trustInner&&phone){ $$('.trust-sep',trustInner).forEach(s=>s.remove()); marquee(trustInner,$$('.trust-item',trustInner)); }
+
+    /* Recommended deployment card gets a rotating border */
+    $$('.deploy-card.featured-deploy').forEach(c=>c.classList.add('ring'));
+  }
+
+  /* Scroll-linked: progress bar + product screenshots straighten */
+  const bar=document.createElement('div'); bar.className='scroll-progress'; bar.setAttribute('aria-hidden','true'); bar.innerHTML='<i></i>';
+  document.body.appendChild(bar);
+  const shots=reduce?[]:$$('.proj-screenshot');
+  let ticking=false;
+  function onScroll(){
+    const doc=document.documentElement, vh=innerHeight;
+    bar.style.setProperty('--sp',(scrollY/Math.max(1,doc.scrollHeight-vh)).toFixed(4));
+    shots.forEach(s=>{
+      const r=s.getBoundingClientRect();
+      if(r.top>vh||r.bottom<0) return;
+      const p=Math.max(0,Math.min(1,(vh-r.top)/(vh*0.55)));
+      s.style.setProperty('--st',((1-p)*16).toFixed(2)+'deg');
+      s.style.setProperty('--ss',(0.93+0.07*p).toFixed(3));
+    });
+    ticking=false;
+  }
+  addEventListener('scroll',()=>{ if(!ticking){ ticking=true; requestAnimationFrame(onScroll); } },{passive:true});
+  addEventListener('resize',onScroll);
+  onScroll();
+
+  /* Dark sections: spotlight follows the cursor, nearby card edges glow */
+  if(reduce||!finePointer) return;
+  $$('.dark-bg').forEach(sec=>{
+    sec.classList.add('spot');
+    $$('.bkt-card,.deploy-card',sec).forEach(c=>c.classList.add('glow-card'));
+    let raf=0, ev=null;
+    sec.addEventListener('pointermove',e=>{
+      ev=e; if(raf) return;
+      raf=requestAnimationFrame(()=>{
+        raf=0;
+        const r=sec.getBoundingClientRect();
+        sec.style.setProperty('--sx',(ev.clientX-r.left).toFixed(0)+'px');
+        sec.style.setProperty('--sy',(ev.clientY-r.top).toFixed(0)+'px');
+        const grid=ev.target.closest&&ev.target.closest('.bkt-grid,.deploy-grid');
+        if(grid) $$('.glow-card',grid).forEach(c=>{
+          const cr=c.getBoundingClientRect();
+          c.style.setProperty('--gx',(ev.clientX-cr.left).toFixed(0)+'px');
+          c.style.setProperty('--gy',(ev.clientY-cr.top).toFixed(0)+'px');
+        });
+      });
+    });
+    sec.addEventListener('pointerleave',()=>$$('.glow-card',sec).forEach(c=>{ c.style.removeProperty('--gx'); c.style.removeProperty('--gy'); }));
+  });
 })();
 </script>
 </body>
