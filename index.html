@@ -579,6 +579,176 @@ body.modal-open{overflow:hidden;}
 .nav-dd-sub{font-size:0.69rem;color:var(--text-faint);margin-top:0.1rem;line-height:1.3;}
 @media(max-width:768px){.nav-has-dropdown{display:none;}}
 
+
+/* ── Hero v2: aurora, kinetic headline, 3D phone demo ── */
+.hero::after{display:none;}
+.hero-aurora{position:absolute;top:0;right:0;width:55%;height:100%;clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%);z-index:1;overflow:hidden;pointer-events:none;}
+.hero-aurora span{position:absolute;border-radius:50%;will-change:transform;}
+.hero-aurora .au1{width:680px;height:680px;top:-220px;right:-160px;background:radial-gradient(circle,rgba(33,70,240,0.42) 0%,transparent 65%);animation:au1 18s ease-in-out infinite alternate;}
+.hero-aurora .au2{width:560px;height:560px;bottom:-240px;left:-40px;background:radial-gradient(circle,rgba(201,148,58,0.24) 0%,transparent 65%);animation:au2 22s ease-in-out infinite alternate;}
+.hero-aurora .au3{width:480px;height:480px;top:32%;right:6%;background:radial-gradient(circle,rgba(20,184,166,0.17) 0%,transparent 65%);animation:au3 26s ease-in-out infinite alternate;}
+.hero-aurora::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.08) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse at 60% 45%,#000 15%,transparent 70%);mask-image:radial-gradient(ellipse at 60% 45%,#000 15%,transparent 70%);}
+@keyframes au1{to{transform:translate(-180px,160px) scale(1.15);}}
+@keyframes au2{to{transform:translate(200px,-140px) scale(1.2);}}
+@keyframes au3{to{transform:translate(-140px,-180px) scale(0.9);}}
+.hero.paused .hero-aurora span,.hero.paused .phone-float,.hero.paused .hero-eyebrow .dot{animation-play-state:paused;}
+
+/* Kinetic headline */
+.hero h1{animation:none;}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:0.1em;margin-bottom:-0.1em;}
+.hero h1 .w>span{display:inline-block;position:relative;transform:translateY(110%);animation:wordUp 0.85s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(0.12s + var(--i) * 0.07s);}
+@keyframes wordUp{to{transform:none;}}
+.hero h1 .hl>span::after{content:'';position:absolute;left:0;right:0.08em;bottom:0.02em;height:0.11em;background:var(--gold);border-radius:3px;transform:scaleX(0);transform-origin:left;animation:hlDraw 0.7s cubic-bezier(.6,0,.2,1) 1.05s forwards;}
+@keyframes hlDraw{to{transform:scaleX(1);}}
+
+/* Stage + phone */
+.hero-stage{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1.4rem;animation:fadeUp 0.9s 0.25s ease both;}
+.stage-label{display:flex;align-items:center;gap:0.5rem;font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.stage-label .live{width:7px;height:7px;border-radius:50%;background:#25d366;box-shadow:0 0 0 0 rgba(37,211,102,0.6);animation:livePing 1.8s infinite;}
+@keyframes livePing{70%{box-shadow:0 0 0 8px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+.phone-scene{perspective:1400px;width:100%;display:flex;justify-content:center;padding:0.5rem 0 1rem;}
+.phone-tilt{position:relative;transform-style:preserve-3d;transform:rotateX(var(--rx,6deg)) rotateY(var(--ry,-16deg));}
+.phone-float{transform-style:preserve-3d;animation:phoneFloat 6s ease-in-out infinite;}
+@keyframes phoneFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.phone{position:relative;width:290px;height:590px;border-radius:46px;background:#0a0d12;padding:10px;transform-style:preserve-3d;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,0.14),0 0 0 1px #000,0 50px 90px -25px rgba(0,0,0,0.75),0 25px 60px -20px rgba(33,70,240,0.35);}
+.phone::before,.phone::after{content:'';position:absolute;inset:0;border-radius:46px;background:#05070a;}
+.phone::before{transform:translateZ(-7px);}
+.phone::after{transform:translateZ(-14px);box-shadow:0 0 0 1px rgba(255,255,255,0.05);}
+.phone-glare{position:absolute;inset:10px;border-radius:37px;pointer-events:none;z-index:5;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,0.09) 45%,transparent 60%);background-size:250% 250%;background-position:var(--gx,50%) 50%;}
+.island{position:absolute;top:19px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:14px;background:#000;z-index:6;}
+
+/* WhatsApp screen */
+.wa{position:relative;width:100%;height:100%;border-radius:37px;overflow:hidden;background:#0b141a;display:flex;flex-direction:column;font-family:'Outfit',sans-serif;}
+.wa-status{display:flex;justify-content:space-between;align-items:center;padding:12px 24px 0;height:38px;font-size:0.68rem;font-weight:600;color:#e9edef;background:#202c33;}
+.wa-status-icons{display:flex;gap:4px;align-items:center;}
+.wa-head{display:flex;align-items:center;gap:0.55rem;padding:0.45rem 0.8rem 0.6rem;background:#202c33;}
+.wa-back{color:#aebac1;font-size:1rem;line-height:1;}
+.wa-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0f766e,#14b8a6);display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+.wa-name{font-size:0.78rem;font-weight:600;color:#e9edef;line-height:1.2;display:flex;align-items:center;gap:4px;}
+.wa-verified{width:12px;height:12px;border-radius:50%;background:#25d366;color:#0b141a;font-size:0.5rem;display:inline-flex;align-items:center;justify-content:center;font-weight:800;}
+.wa-sub{font-size:0.62rem;color:#8696a0;transition:color 0.2s;}
+.wa-sub.typing{color:#25d366;}
+.wa-body{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:0.35rem;padding:0.7rem 0.65rem 0.5rem;overflow:hidden;background-color:#0b141a;background-image:radial-gradient(rgba(255,255,255,0.025) 1px,transparent 1px);background-size:14px 14px;transition:opacity 0.4s;}
+.wa-body.fading{opacity:0;}
+.wa-sys{align-self:center;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;color:#8696a0;background:#182229;padding:0.2rem 0.6rem;border-radius:6px;margin-bottom:0.2rem;}
+.msg{max-width:84%;padding:0.38rem 0.55rem 0.28rem;border-radius:9px;font-size:0.72rem;line-height:1.4;color:#e9edef;animation:msgIn 0.38s cubic-bezier(.2,.9,.3,1.25) both;}
+.msg.in{align-self:flex-start;background:#202c33;border-top-left-radius:2px;transform-origin:left bottom;}
+.msg.out{align-self:flex-end;background:#005c4b;border-top-right-radius:2px;transform-origin:right bottom;}
+@keyframes msgIn{from{opacity:0;transform:translateY(10px) scale(0.9);}to{opacity:1;transform:none;}}
+.msg b{font-weight:700;}
+.msg-ai{font-size:0.56rem;font-weight:700;letter-spacing:0.04em;color:#e2b25c;margin-bottom:2px;}
+.msg-meta{display:flex;justify-content:flex-end;align-items:center;gap:3px;margin-top:2px;font-size:0.54rem;color:rgba(233,237,239,0.55);}
+.tick{color:#8696a0;transition:color 0.3s;letter-spacing:-3px;padding-right:3px;}
+.tick.read{color:#53bdeb;}
+.book-card{margin:0.35rem 0;padding:0.4rem 0.55rem;border-left:3px solid #25d366;border-radius:6px;background:rgba(0,0,0,0.22);font-size:0.66rem;line-height:1.55;}
+.msg .src{margin-top:0.35rem;font-size:0.58rem;color:#8696a0;}
+.wa-btns{align-self:flex-start;display:flex;flex-wrap:wrap;gap:4px;max-width:88%;animation:msgIn 0.38s 0.1s cubic-bezier(.2,.9,.3,1.25) both;}
+.wa-btn{background:#202c33;color:#53bdeb;font-size:0.66rem;font-weight:600;padding:0.32rem 0.65rem;border-radius:8px;transition:background 0.15s,transform 0.15s;}
+.wa-btn.tap{background:#2a3942;transform:scale(0.94);}
+.msg.typing{display:flex;gap:3px;padding:0.55rem 0.65rem;}
+.msg.typing i{width:5px;height:5px;border-radius:50%;background:#8696a0;animation:tBounce 1.2s infinite;}
+.msg.typing i:nth-child(2){animation-delay:0.15s;}
+.msg.typing i:nth-child(3){animation-delay:0.3s;}
+.wa-input{display:flex;align-items:center;gap:0.45rem;padding:0.45rem 0.55rem 1rem;}
+.wa-field{flex:1;min-width:0;height:32px;display:flex;align-items:center;padding:0 0.8rem;border-radius:18px;background:#202c33;font-size:0.7rem;color:#e9edef;white-space:nowrap;overflow:hidden;}
+.wa-field:empty::before{content:'Message';color:#8696a0;}
+.wa-field.caret::after{content:'';width:1px;height:14px;margin-left:1px;background:#00a884;animation:caret 0.8s steps(1) infinite;}
+@keyframes caret{50%{opacity:0;}}
+.wa-send{width:32px;height:32px;border-radius:50%;background:#00a884;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 0.15s;}
+.wa-send.press{transform:scale(0.85);}
+
+/* Floating 3D chips */
+.float-chip{position:absolute;z-index:8;display:flex;align-items:center;gap:0.55rem;padding:0.6rem 0.85rem;border-radius:14px;background:rgba(22,32,48,0.94);border:1px solid rgba(255,255,255,0.12);box-shadow:0 18px 40px -10px rgba(0,0,0,0.55);color:#fff;font-size:0.76rem;font-weight:600;white-space:nowrap;line-height:1.25;opacity:0;transform:translateZ(var(--z,70px)) translateY(10px) scale(0.95);transition:opacity 0.45s,transform 0.6s cubic-bezier(.2,.9,.3,1.3);}
+.float-chip.show{opacity:1;transform:translateZ(var(--z,70px));}
+.fc-icon{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+.fc-sub{display:block;font-size:0.64rem;font-weight:500;color:rgba(255,255,255,0.5);}
+.chip-speed{top:16%;right:-118px;--z:80px;}
+.chip-speed .fc-icon{background:rgba(201,148,58,0.16);border:1px solid rgba(201,148,58,0.35);}
+.chip-done{bottom:12%;right:-168px;--z:100px;}
+.chip-done .fc-icon{background:rgba(37,211,102,0.14);border:1px solid rgba(37,211,102,0.32);}
+.float-stats{top:34%;left:-128px;--z:60px;opacity:1;transform:translateZ(60px);flex-direction:column;align-items:flex-start;gap:0.15rem;padding:0.75rem 0.95rem;}
+.fs-label{font-size:0.56rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.fs-num{font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;color:#fff;line-height:1.1;font-variant-numeric:tabular-nums;}
+.fs-num.bump{animation:bump 0.5s ease;}
+@keyframes bump{40%{color:#4ade80;transform:scale(1.08);}}
+.fs-bar{width:100%;height:4px;border-radius:2px;background:rgba(255,255,255,0.08);overflow:hidden;margin-top:0.35rem;}
+.fs-bar i{display:block;height:100%;width:72%;border-radius:2px;background:linear-gradient(90deg,#1a7a50,#4ade80);transition:width 0.6s;}
+
+.hero-stage .hero-right-foot{margin-top:0;padding-top:0;border-top:none;justify-content:center;}
+
+@media(max-width:1180px){
+  .chip-speed{right:-70px;}
+  .chip-done{right:-96px;bottom:9%;}
+  .float-stats{left:-80px;}
+}
+@media(max-width:768px){
+  .hero-stage{background:var(--navy);border-radius:24px;padding:1.6rem 1rem 1.4rem;overflow:hidden;isolation:isolate;}
+  .hero-stage::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 80% 0%,rgba(33,70,240,0.35),transparent 55%),radial-gradient(circle at 10% 100%,rgba(201,148,58,0.2),transparent 55%);}
+  .phone-tilt{--ry:-8deg;--rx:4deg;}
+  .phone{width:246px;height:500px;border-radius:40px;padding:9px;}
+  .phone::before,.phone::after{border-radius:40px;}
+  .wa{border-radius:32px;}
+  .phone-glare{inset:9px;border-radius:32px;}
+  .float-chip{font-size:0.66rem;padding:0.45rem 0.6rem;gap:0.4rem;}
+  .fc-icon{width:24px;height:24px;font-size:0.75rem;}
+  .hero-aurora{display:none;}
+  .chip-speed{top:-14px;left:-14px;right:auto;}
+  .chip-done{bottom:-10px;right:-14px;}
+  .float-stats{display:none;}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-aurora span,.phone-float,.hero-stage,.stage-label .live,.msg,.wa-btns,.hero h1 .w>span,.hero h1 .hl>span::after{animation:none!important;}
+  .hero h1 .w>span{transform:none;}
+  .hero h1 .hl>span::after{transform:scaleX(1);}
+  .float-chip{transition:none;}
+}
+
+/* ── 3D tilt cards ── */
+.tilt{position:relative;}
+.tilt.tilting{transition:transform 0.12s ease-out,box-shadow 0.25s,background 0.25s,border-color 0.25s!important;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-6px)!important;}
+.tilt-glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity 0.3s;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,0.14),transparent 55%);z-index:2;}
+.tilt.tilting .tilt-glare{opacity:1;}
+.tilt.light .tilt-glare{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(33,70,240,0.07),transparent 55%);}
+
+/* ── Process: scroll-linked progress ── */
+.process-track{position:relative;height:3px;border-radius:2px;background:var(--border);margin:0 0 1.6rem;}
+.process-track i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--p,0) * 100%);border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--gold));}
+.process-track i::after{content:'';position:absolute;right:-6px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(201,148,58,0.18);opacity:calc(var(--p,0) * 50);}
+.process-step .ps-badge{transition:transform 0.4s cubic-bezier(.2,.9,.3,1.4),box-shadow 0.4s,background 0.4s;}
+.process-grid.tracked .process-step:not(.lit) .ps-badge{background:var(--border2);}
+.process-grid.tracked .process-step:not(.lit) .ps-icon{filter:grayscale(1);opacity:0.55;}
+.process-step .ps-icon{transition:filter 0.4s,opacity 0.4s,background 0.28s;}
+.process-step.lit{border-color:var(--blue-line);}
+.process-step.lit .ps-badge{transform:scale(1.08);box-shadow:0 8px 24px rgba(33,70,240,0.35);}
+
+/* ── Buttons: shine sweep + magnetic pull ── */
+.btn-blue,.btn-gold,.btn-navy{position:relative;overflow:hidden;}
+.btn-blue::after,.btn-gold::after,.btn-navy::after{content:'';position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,0.28),transparent);transform:skewX(-20deg);pointer-events:none;}
+.btn-blue:hover::after,.btn-gold:hover::after,.btn-navy:hover::after{left:130%;transition:left 0.7s ease;}
+.btn.magnetic:hover{transform:translate(var(--bx,0px),calc(var(--by,0px) - 2px));}
+
+/* ── Hanu: hello wiggle ── */
+@keyframes hanuHello{0%,100%{transform:rotate(0) scale(1);}15%{transform:rotate(-14deg) scale(1.08);}30%{transform:rotate(12deg) scale(1.08);}45%{transform:rotate(-8deg);}60%{transform:rotate(5deg);}}
+#chatbot-launcher.hello{animation:hanuHello 1.1s ease-in-out;}
+.hanu-pupil{transition:transform 0.15s ease-out;}
+
+/* ── Respect reduced motion everywhere ── */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:0.01ms!important;}
+  .reveal{opacity:1;transform:none;}
+}
+
+/* ── Nav: keep on one line on tablets ── */
+.nav-links a,.nav-dd-trigger{white-space:nowrap;}
+@media(max-width:1180px) and (min-width:769px){
+  .nav-links a,.nav-dd-trigger{padding:0.4rem 0.55rem;font-size:0.88rem;}
+  .nav-brand-text{font-size:1rem;}
+}
+@media(max-width:1020px) and (min-width:769px){
+  .nav-brand-text{display:none;}
+  .nav-links a[href="#process"]{display:none;}
+}
 </style>
 </head>
 <body>
@@ -643,15 +813,15 @@ body.modal-open{overflow:hidden;}
 </nav>
 
 <section class="hero">
+  <div class="hero-aurora" aria-hidden="true"><span class="au1"></span><span class="au2"></span><span class="au3"></span></div>
   <div class="hero-inner">
     <div class="hero-left">
-      <img src="logo.png" alt="" class="hero-logo-bg" aria-hidden="true">
       <div class="hero-eyebrow"><span class="dot"></span>AI Automation &amp; Growth Agency · India &amp; Global</div>
       <div class="aud-toggle" role="group" aria-label="Choose your business type">
         <button type="button" class="aud-btn" data-aud="smb">Small &amp; Growing Business</button>
         <button type="button" class="aud-btn active" data-aud="ent">Enterprise &amp; Regulated</button>
       </div>
-      <h1>Answer Every Customer Instantly.<br/>Automate Everything Else.</h1>
+      <h1 aria-label="Answer Every Customer Instantly. Automate Everything Else."><span aria-hidden="true"><span class="w"><span style="--i:0">Answer</span></span> <span class="w"><span style="--i:1">Every</span></span> <span class="w"><span style="--i:2">Customer</span></span> <span class="w hl"><span style="--i:3">Instantly.</span></span><br/><span class="w"><span style="--i:4">Automate</span></span> <span class="w"><span style="--i:5">Everything</span></span> <span class="w"><span style="--i:6">Else.</span></span></span></h1>
       <p class="hero-sub">Custom AI systems that respond to customers in seconds, fill your pipeline, and take over the manual busywork slowing your team down — built around your business, not a template.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-blue">Get a Free AI Audit →</a>
@@ -665,11 +835,41 @@ body.modal-open{overflow:hidden;}
         <a href="#bucket-custom" class="picker-btn">Manual busywork eating your team's time <span class="arrow">→</span></a>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-right-label">Why businesses work with us</div>
-      <div class="hero-metric"><div class="hm-icon hm-icon-green">💰</div><div class="hm-info"><div class="hm-label">Replaces expensive manual work — <span class="accent-green">at a fraction of the cost</span></div><div class="hm-sub">Tasks that once needed a full-time hire now run automatically, 24/7, without adding headcount.</div></div></div>
-      <div class="hero-metric"><div class="hm-icon hm-icon-blue">📈</div><div class="hm-info"><div class="hm-label">Your team handles <span class="accent-blue">10× more volume</span> — without growing headcount</div><div class="hm-sub">AI takes on the repetitive load. Your people stay focused on decisions and work that moves the business forward.</div></div></div>
-      <div class="hero-metric"><div class="hm-icon hm-icon-gold">🔒</div><div class="hm-info"><div class="hm-label"><span class="accent-gold">100% custom-built</span> — you own it, no lock-in</div><div class="hm-sub">No monthly subscriptions. Every system is purpose-built for your workflow and handed over to you completely.</div></div></div>
+    <div class="hero-stage">
+      <div class="stage-label"><span class="live"></span>Live demo · AI answering on WhatsApp</div>
+      <div class="phone-scene" id="phoneScene" role="img" aria-label="Demo: an AI assistant answers a customer on WhatsApp in seconds and completes their request.">
+        <div class="phone-tilt" id="phoneTilt">
+          <div class="phone-float">
+            <div class="phone">
+              <div class="island"></div>
+              <div class="wa">
+                <div class="wa-status"><span id="waClock">9:41</span><span class="wa-status-icons"><svg width="15" height="10" viewBox="0 0 15 10" fill="#e9edef"><rect x="0" y="6" width="3" height="4" rx="0.6"/><rect x="4" y="4" width="3" height="6" rx="0.6"/><rect x="8" y="2" width="3" height="8" rx="0.6"/><rect x="12" y="0" width="3" height="10" rx="0.6"/></svg><svg width="22" height="10" viewBox="0 0 22 10" fill="none"><rect x="0.5" y="0.5" width="18" height="9" rx="2.5" stroke="#e9edef" opacity="0.5"/><rect x="2" y="2" width="13" height="6" rx="1.2" fill="#e9edef"/><rect x="19.5" y="3.5" width="1.5" height="3" rx="0.7" fill="#e9edef" opacity="0.5"/></svg></span></div>
+                <div class="wa-head">
+                  <span class="wa-back">‹</span>
+                  <div class="wa-avatar" id="waAvatar">🦷</div>
+                  <div>
+                    <div class="wa-name"><span id="waName">Sunrise Dental Clinic</span><span class="wa-verified">✓</span></div>
+                    <div class="wa-sub" id="waStatus">online</div>
+                  </div>
+                </div>
+                <div class="wa-body" id="waBody"></div>
+                <div class="wa-input">
+                  <div class="wa-field" id="waField"></div>
+                  <div class="wa-send" id="waSend"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></div>
+                </div>
+              </div>
+              <div class="phone-glare"></div>
+            </div>
+          </div>
+          <div class="float-chip float-stats" aria-hidden="true">
+            <span class="fs-label">Answered today</span>
+            <span class="fs-num" id="fsCount">246</span>
+            <span class="fs-bar"><i id="fsBar"></i></span>
+          </div>
+          <div class="float-chip chip-speed" id="chipSpeed" aria-hidden="true"><span class="fc-icon">⚡</span><span><span id="chipSpeedText">Replied in 1.8s</span><span class="fc-sub" id="chipSpeedSub">at 9:41 PM · clinic closed</span></span></div>
+          <div class="float-chip chip-done" id="chipDone" aria-hidden="true"><span class="fc-icon">✅</span><span><span id="chipDoneText">Appointment booked</span><span class="fc-sub" id="chipDoneSub">added to clinic calendar</span></span></div>
+        </div>
+      </div>
       <div class="hero-right-foot" id="heroFoot">
         <div class="hf-set hf-set-ent active">
           <span class="hero-badge">HIPAA Ready</span><span class="hero-badge">GDPR Compliant</span><span class="hero-badge">On-Premise</span><span class="hero-badge">Audit Trail</span>
@@ -2156,6 +2356,250 @@ function send(text){
   modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&modal.classList.contains('sm-open')) closeModal(); });
 
+})();
+</script>
+<script>
+/* ─── Hero demo: live WhatsApp conversation + 3D tilt ─── */
+(function(){
+  const scene=document.getElementById('phoneScene');
+  if(!scene) return;
+  const hero=document.querySelector('.hero');
+  const tilt=document.getElementById('phoneTilt');
+  const body=document.getElementById('waBody');
+  const field=document.getElementById('waField');
+  const send=document.getElementById('waSend');
+  const status=document.getElementById('waStatus');
+  const count=document.getElementById('fsCount');
+  const bar=document.getElementById('fsBar');
+  const chipSpeed=document.getElementById('chipSpeed');
+  const chipDone=document.getElementById('chipDone');
+  const $=id=>document.getElementById(id);
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const SCRIPTS={
+    smb:{
+      name:'Sunrise Dental Clinic',avatar:'🦷',clock:'21:41',
+      speed:['Replied in 1.8s','at 9:41 PM · clinic closed'],
+      done:['Appointment booked','added to clinic calendar'],
+      steps:[
+        {t:'out',text:'Hi, any slot tomorrow for teeth cleaning?'},
+        {t:'in',html:'Hi Priya! 👋 Dr. Mehta has 3 slots tomorrow. Which works for you?',btns:['10:30 AM','1:00 PM','5:30 PM']},
+        {t:'tap',btn:2},
+        {t:'in',html:'✅ <b>Booked!</b><div class="book-card">🦷 Teeth cleaning<br>📅 Tomorrow, 5:30 PM<br>👨‍⚕️ Dr. Mehta</div>I\'ll send you a reminder 2 hours before.',done:true}
+      ]
+    },
+    ent:{
+      name:'Meridian Assurance',avatar:'🛡️',clock:'23:12',
+      speed:['Replied in 1.6s','pulled live from claims system'],
+      done:['Resolved instantly','no agent needed · logged'],
+      steps:[
+        {t:'out',text:'What\'s the status of claim CL-48213?'},
+        {t:'in',html:'Hi Rahul — claim <b>CL-48213</b> was approved on 2 Oct. 👍',btns:['Payout date','Talk to an agent']},
+        {t:'tap',btn:0},
+        {t:'in',html:'💸 <b>₹42,500</b> will be credited to your account ending 4417 by <b>6 Oct</b>.<div class="src">📄 Source: Claims system · updated 2 min ago</div>',done:true}
+      ]
+    }
+  };
+
+  /* Pause everything while the hero is off-screen or the tab is hidden */
+  let onScreen=true, waiters=[];
+  const active=()=>onScreen&&!document.hidden;
+  function wake(){ if(active()){ waiters.forEach(r=>r()); waiters=[]; } hero.classList.toggle('paused',!active()); }
+  new IntersectionObserver(([e])=>{ onScreen=e.isIntersecting; wake(); }).observe(hero);
+  document.addEventListener('visibilitychange',wake);
+  const whenActive=()=>active()?Promise.resolve():new Promise(r=>waiters.push(r));
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms)).then(whenActive);
+
+  function el(tag,cls,html){ const d=document.createElement(tag); d.className=cls; if(html!=null) d.innerHTML=html; return d; }
+  function now(){ return SCRIPTS[cur].clock; }
+  function addSys(){ body.appendChild(el('div','wa-sys','TODAY')); }
+  function addOut(text){
+    const m=el('div','msg out');
+    m.textContent=text;
+    m.appendChild(el('div','msg-meta',now()+' <span class="tick">✓✓</span>'));
+    body.appendChild(m);
+  }
+  function addIn(step){
+    const m=el('div','msg in','<div class="msg-ai">AI ASSISTANT</div>'+step.html);
+    m.appendChild(el('div','msg-meta',now()));
+    body.appendChild(m);
+    if(step.btns){
+      const row=el('div','wa-btns');
+      step.btns.forEach(b=>row.appendChild(el('span','wa-btn',b)));
+      body.appendChild(row);
+    }
+  }
+  function markRead(){ body.querySelectorAll('.tick:not(.read)').forEach(t=>t.classList.add('read')); }
+  function bumpCount(){
+    count.textContent=String(+count.textContent+1);
+    count.classList.remove('bump'); void count.offsetWidth; count.classList.add('bump');
+    bar.style.width=Math.min(96,parseFloat(bar.style.width||'72')+4)+'%';
+  }
+  function setChips(s){
+    $('chipSpeedText').textContent=s.speed[0]; $('chipSpeedSub').textContent=s.speed[1];
+    $('chipDoneText').textContent=s.done[0]; $('chipDoneSub').textContent=s.done[1];
+    chipSpeed.classList.remove('show'); chipDone.classList.remove('show');
+  }
+  function reset(s){
+    $('waName').textContent=s.name; $('waAvatar').textContent=s.avatar; $('waClock').textContent=s.clock;
+    body.innerHTML=''; field.textContent=''; field.classList.remove('caret');
+    status.textContent='online'; status.classList.remove('typing');
+    setChips(s); addSys();
+  }
+
+  /* Reduced motion: show the finished conversation, no animation */
+  function renderStatic(s){
+    reset(s);
+    s.steps.forEach(st=>{
+      if(st.t==='out') addOut(st.text);
+      else if(st.t==='in') addIn(st);
+      else if(st.t==='tap'){ const btns=body.querySelectorAll('.wa-btns'); addOut(st.label||btns[btns.length-1].children[st.btn].textContent); }
+    });
+    markRead(); chipSpeed.classList.add('show'); chipDone.classList.add('show');
+  }
+
+  let cur='ent', run=0;
+  async function play(key){
+    cur=key; const id=++run, alive=()=>id===run, s=SCRIPTS[key];
+    if(reduce){ renderStatic(s); return; }
+    reset(s);
+    while(alive()){
+      await sleep(700); if(!alive()) return;
+      for(const st of s.steps){
+        if(st.t==='out'){
+          field.classList.add('caret');
+          for(const ch of st.text){ field.textContent+=ch; await sleep(32); if(!alive()) return; }
+          await sleep(250); if(!alive()) return;
+          send.classList.add('press'); await sleep(140); send.classList.remove('press');
+          field.textContent=''; field.classList.remove('caret');
+          addOut(st.text); await sleep(600);
+        } else if(st.t==='in'){
+          markRead(); status.textContent='typing…'; status.classList.add('typing');
+          const ty=el('div','msg in typing','<i></i><i></i><i></i>'); body.appendChild(ty);
+          await sleep(1300); if(!alive()) return;
+          ty.remove(); status.textContent='online'; status.classList.remove('typing');
+          addIn(st); bumpCount();
+          if(!chipSpeed.classList.contains('show')) chipSpeed.classList.add('show');
+          if(st.done){ await sleep(400); chipDone.classList.add('show'); }
+          await sleep(st.btns?1500:3800);
+        } else if(st.t==='tap'){
+          const rows=body.querySelectorAll('.wa-btns'), btn=rows[rows.length-1].children[st.btn];
+          btn.classList.add('tap'); await sleep(320); if(!alive()) return;
+          addOut(btn.textContent); await sleep(500);
+        }
+        if(!alive()) return;
+      }
+      body.classList.add('fading'); chipSpeed.classList.remove('show'); chipDone.classList.remove('show');
+      await sleep(450); if(!alive()) return;
+      body.classList.remove('fading'); reset(s);
+    }
+  }
+
+  document.querySelectorAll('.aud-btn').forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.aud!==cur) play(b.dataset.aud); }));
+  const first=document.querySelector('.aud-btn.active');
+  play(first?first.dataset.aud:'ent');
+
+  /* 3D tilt follows the pointer (mouse/trackpad only) */
+  if(reduce||!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  const BASE_Y=-16, BASE_X=6;
+  let ty=BASE_Y, tx=BASE_X, cy=BASE_Y, cx=BASE_X, raf=0;
+  function frame(){
+    cy+=(ty-cy)*0.08; cx+=(tx-cx)*0.08;
+    tilt.style.setProperty('--ry',cy.toFixed(2)+'deg');
+    tilt.style.setProperty('--rx',cx.toFixed(2)+'deg');
+    tilt.style.setProperty('--gx',(50+(cy-BASE_Y)*3).toFixed(1)+'%');
+    raf=(Math.abs(ty-cy)>0.02||Math.abs(tx-cx)>0.02)?requestAnimationFrame(frame):0;
+  }
+  const kick=()=>{ if(!raf) raf=requestAnimationFrame(frame); };
+  hero.addEventListener('pointermove',e=>{
+    const r=scene.getBoundingClientRect();
+    const dx=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/(r.width)));
+    const dy=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/(r.height)));
+    ty=BASE_Y+dx*24; tx=BASE_X-dy*14; kick();
+  });
+  hero.addEventListener('pointerleave',()=>{ ty=BASE_Y; tx=BASE_X; kick(); });
+})();
+</script>
+<script>
+/* ─── Motion: tilt cards, process progress, magnetic buttons, Hanu ─── */
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer=matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* Process steps light up as the progress line passes them */
+  const grid=document.querySelector('.process-grid');
+  if(grid){
+    const steps=[...grid.querySelectorAll('.process-step')];
+    const track=document.createElement('div');
+    track.className='process-track'; track.setAttribute('aria-hidden','true'); track.innerHTML='<i></i>';
+    grid.parentNode.insertBefore(track,grid);
+    grid.classList.add('tracked');
+    const update=()=>{
+      const r=grid.getBoundingClientRect(), vh=innerHeight;
+      const p=reduce?1:Math.max(0,Math.min(1,(vh*0.85-r.top)/(vh*0.6)));
+      track.style.setProperty('--p',p.toFixed(3));
+      steps.forEach((s,i)=>s.classList.toggle('lit',p>=(i+0.5)/steps.length||(p>0.98)));
+    };
+    let ticking=false;
+    addEventListener('scroll',()=>{ if(!ticking){ ticking=true; requestAnimationFrame(()=>{ update(); ticking=false; }); } },{passive:true});
+    addEventListener('resize',update);
+    update();
+  }
+
+  if(reduce||!finePointer) return;
+
+  /* 3D tilt + glare on cards */
+  document.querySelectorAll('.bkt-card,.proj-card,.deploy-card').forEach(card=>{
+    card.classList.add('tilt');
+    if(!card.closest('.dark-bg')&&!card.classList.contains('featured-dark')) card.classList.add('light');
+    const glare=document.createElement('span'); glare.className='tilt-glare'; card.appendChild(glare);
+    card.addEventListener('pointermove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+      const max=Math.max(3,Math.min(8,2400/r.width));
+      card.style.setProperty('--ry',((x-0.5)*2*max).toFixed(2)+'deg');
+      card.style.setProperty('--rx',((0.5-y)*2*max).toFixed(2)+'deg');
+      card.style.setProperty('--mx',(x*100).toFixed(1)+'%');
+      card.style.setProperty('--my',(y*100).toFixed(1)+'%');
+      card.classList.add('tilting');
+    });
+    card.addEventListener('pointerleave',()=>{ card.classList.remove('tilting'); card.style.removeProperty('--rx'); card.style.removeProperty('--ry'); });
+  });
+
+  /* Primary buttons lean toward the cursor */
+  document.querySelectorAll('.btn-blue,.btn-gold,.btn-navy').forEach(btn=>{
+    btn.classList.add('magnetic');
+    btn.addEventListener('pointermove',e=>{
+      const r=btn.getBoundingClientRect();
+      btn.style.setProperty('--bx',((e.clientX-r.left-r.width/2)*0.18).toFixed(1)+'px');
+      btn.style.setProperty('--by',((e.clientY-r.top-r.height/2)*0.3).toFixed(1)+'px');
+    });
+    btn.addEventListener('pointerleave',()=>{ btn.style.removeProperty('--bx'); btn.style.removeProperty('--by'); });
+  });
+
+  /* Hanu: eyes follow the cursor, and a one-time hello if the chat hasn't been opened */
+  const launcher=document.getElementById('chatbot-launcher');
+  if(launcher){
+    const pupils=[...launcher.querySelectorAll('.hanu-eye-g circle,.hanu-eye-r circle')];
+    pupils.forEach(p=>p.classList.add('hanu-pupil'));
+    let raf=0, mx=0, my=0;
+    addEventListener('pointermove',e=>{
+      mx=e.clientX; my=e.clientY;
+      if(raf) return;
+      raf=requestAnimationFrame(()=>{
+        raf=0;
+        const r=launcher.getBoundingClientRect();
+        const dx=mx-(r.left+r.width/2), dy=my-(r.top+r.height/2), d=Math.hypot(dx,dy)||1, k=Math.min(1,d/250)*0.9;
+        const t=`translate(${(dx/d*k).toFixed(2)}px,${(dy/d*k).toFixed(2)}px)`;
+        pupils.forEach(p=>p.style.transform=t);
+      });
+    },{passive:true});
+    setTimeout(()=>{
+      if(launcher.classList.contains('open')) return;
+      launcher.classList.add('hello');
+      launcher.addEventListener('animationend',()=>launcher.classList.remove('hello'),{once:true});
+    },12000);
+  }
 })();
 </script>
 </body>
