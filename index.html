@@ -1107,21 +1107,42 @@ nav.nav-dark .nav-cta{background:#fff!important;color:var(--navy)!important;}
   .hero-stage{background:transparent;padding:240px 0 0.4rem;overflow:visible;}
   .hero-stage::before{display:none;}
   }
-/* ── Hero v5: framed photo — her laptop runs a live AI command center ── */
-.hero-inner{grid-template-columns:1fr 1.12fr;}
-.hero-visual{position:relative;perspective:1400px;animation:fadeUp 1s 0.15s ease both;}
-.hv-frame{position:relative;width:100%;aspect-ratio:1.08;border-radius:28px;overflow:hidden;background:#d9dcdf;border:1px solid rgba(255,255,255,0.14);box-shadow:0 50px 120px -40px rgba(0,0,0,0.9),0 0 0 8px rgba(255,255,255,0.03);transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));}
-.hv-layer{position:absolute;left:0;top:0;transform-origin:31% 43%;animation:hvZoom 24s ease-in-out infinite alternate;}
-@keyframes hvZoom{to{transform:scale(1.06);}}
-.hv-img{position:absolute;inset:0;width:100%;height:100%;display:block;}
-.hv-glow{position:absolute;border-radius:50%;pointer-events:none;mix-blend-mode:screen;opacity:0.55;background:radial-gradient(closest-side,rgba(110,170,255,0.55),rgba(110,170,255,0));}
-.hv-sheen{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,0.18) 48%,transparent 60%);background-size:260% 100%;animation:hvSheen 7s ease-in-out infinite;}
-@keyframes hvSheen{0%,55%{background-position:120% 0;}100%{background-position:-60% 0;}}
-.hv-frame::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,11,21,0) 60%,rgba(6,11,21,0.35) 100%);}
+/* ── Hero v6: full-screen night-tech scene — graded photo, live laptop, stars, neural constellation, HUD ── */
+.hero{background:#05080f;}
+.hero-aurora{display:none;}
+.hero-inner{grid-template-columns:1fr;position:relative;z-index:3;}
+.hero-left{max-width:590px;}
+.hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0;}
+.hb-layer{position:absolute;left:0;top:0;will-change:transform;}
+.hb-zoom{position:absolute;inset:0;transform-origin:68% 42%;animation:hbZoom 26s ease-in-out infinite alternate;}
+@keyframes hbZoom{to{transform:scale(1.06);}}
+.hb-img{position:absolute;inset:0;width:100%;height:100%;display:block;filter:brightness(0.82) saturate(0.6) contrast(1.1);}
+.hb-layer.fade-l{-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,0.55) 12%,#000 28%,#000 90%,transparent 100%),linear-gradient(0deg,transparent 0%,#000 14%,#000 88%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,0.55) 12%,#000 28%,#000 90%,transparent 100%),linear-gradient(0deg,transparent 0%,#000 14%,#000 88%,transparent 100%);mask-composite:intersect;}
+.hb-back{position:absolute;inset:-60px;}
+.hb-back img{width:100%;height:100%;object-fit:cover;object-position:62% 42%;filter:blur(30px) brightness(0.42) saturate(0.7);transform:scale(1.08);}
+.hb-back::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,#2a4377,#0a1226);mix-blend-mode:multiply;opacity:0.85;}
+@media(max-width:768px){.hb-back{display:none;}}
+.hb-light.soft{opacity:0.55;}
+.hb-tint{position:absolute;inset:0;background:linear-gradient(160deg,#3a5a99 0%,#1c3266 55%,#0f1a36 100%);mix-blend-mode:multiply;opacity:0.85;}
+.hb-light{position:absolute;border-radius:50%;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(closest-side,rgba(120,175,255,0.6),rgba(80,140,255,0.18) 55%,rgba(80,140,255,0));}
+.hb-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(5,8,15,0.94) 0%,rgba(5,8,15,0.72) 28%,rgba(5,8,15,0.18) 50%,rgba(5,8,15,0) 62%),linear-gradient(0deg,rgba(5,8,15,0.9) 0%,rgba(5,8,15,0) 26%),linear-gradient(180deg,rgba(5,8,15,0.65) 0%,rgba(5,8,15,0) 16%);}
+.hb-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.hb-hud{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;will-change:transform;}
+.hud-br{fill:none;stroke:rgba(150,200,255,0.75);stroke-width:1.6;}
+.hud-ring{fill:none;stroke:rgba(140,190,255,0.3);stroke-width:1.2;transform-box:fill-box;transform-origin:center;}
+.hud-ring.a{stroke-dasharray:3 9;animation:hudSpin 40s linear infinite;}
+.hud-ring.b{stroke:rgba(120,200,255,0.45);stroke-width:2;stroke-dasharray:60 340;animation:hudSpin 9s linear infinite reverse;}
+.hud-ring.c{stroke:rgba(245,197,90,0.45);stroke-width:1.5;stroke-dasharray:24 180;animation:hudSpin 14s linear infinite;}
+@keyframes hudSpin{to{transform:rotate(360deg);}}
+.hud-txt{font:600 11px 'JetBrains Mono',monospace;letter-spacing:0.14em;fill:rgba(185,215,255,0.9);}
+.hud-dot{fill:#4ade80;animation:pulse2 1.6s infinite;}
+.hb-read{position:absolute;right:5%;bottom:26px;z-index:3;display:flex;gap:26px;font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:rgba(160,195,255,0.55);}
+.hb-read b{color:rgba(225,238,255,0.92);font-weight:600;margin-left:6px;font-variant-numeric:tabular-nums;}
+.hb-cards{position:absolute;inset:0;pointer-events:none;z-index:2;will-change:transform;}
 
 /* Laptop screen: a dark "AI Command Center" mapped onto the display */
 .scr-clip{position:absolute;inset:0;pointer-events:none;}
-.scr{position:absolute;left:0;top:0;width:640px;height:470px;transform-origin:0 0;background:#0b1422;color:#e8edf5;font-family:'Outfit',sans-serif;overflow:hidden;filter:blur(0.35px) saturate(1.05);}
+.scr{position:absolute;left:0;top:0;width:640px;height:470px;transform-origin:0 0;background:#0b1422;color:#e8edf5;font-family:'Outfit',sans-serif;overflow:hidden;filter:blur(0.3px);box-shadow:0 0 60px rgba(90,150,255,0.5);}
 .scr::after{content:'';position:absolute;inset:0;background:linear-gradient(125deg,rgba(255,255,255,0.12),rgba(255,255,255,0) 40%);pointer-events:none;}
 .scr-bar{display:flex;align-items:center;gap:10px;height:58px;padding:0 22px;background:#122039;font-size:22px;}
 .scr-bar i{width:14px;height:14px;border-radius:50%;background:#ef4444;}
@@ -1147,21 +1168,18 @@ nav.nav-dark .nav-cta{background:#fff!important;color:var(--navy)!important;}
 .sp-line{fill:none;stroke:#60a5fa;stroke-width:5;stroke-linecap:round;}
 .sp-area{fill:rgba(96,165,250,0.18);}
 
-/* Sticky notes on the wall get ticked off */
-.note-tick{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:#22c55e;color:#04210f;font-weight:900;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(34,197,94,0.25),0 0 22px rgba(34,197,94,0.75);}
-
 /* Notification cards that fly out of the screen */
-.hv-cards{position:absolute;inset:0;pointer-events:none;transform:translate3d(var(--px,0px),var(--py,0px),0);z-index:3;}
-.fly-card{position:absolute;left:0;top:0;display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:14px;background:rgba(11,20,34,0.88);border:1px solid rgba(255,255,255,0.14);box-shadow:0 22px 50px -16px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.08);backdrop-filter:blur(10px);color:#fff;font-family:'Outfit',sans-serif;white-space:nowrap;will-change:transform,opacity;}
+.fly-card{position:absolute;left:0;top:0;display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:14px;background:rgba(11,20,34,0.82);border:1px solid rgba(150,200,255,0.22);box-shadow:0 22px 50px -16px rgba(0,0,0,0.8),0 0 30px -10px rgba(96,165,250,0.5),inset 0 1px 0 rgba(255,255,255,0.08);backdrop-filter:blur(10px);color:#fff;font-family:'Outfit',sans-serif;white-space:nowrap;will-change:transform,opacity;}
 .fly-card .fi{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;}
 .fly-card b{display:block;font-size:13.5px;font-weight:700;line-height:1.2;}
 .fly-card small{display:block;font-size:11px;color:rgba(255,255,255,0.55);margin-top:1px;}
 
 @media(max-width:768px){
-  .hero-inner{display:flex;flex-direction:column;}
-  .hero-visual{order:-1;margin-bottom:0.4rem;width:100%;align-self:stretch;}
-  .note-tick{width:22px;height:22px;margin:-11px 0 0 -11px;font-size:12px;}
-  .hv-frame{aspect-ratio:1.02;border-radius:22px;}
+  .hero{min-height:100svh;padding:0 5% 2rem;display:flex;align-items:flex-end;}
+  .hero-inner{display:block;}
+  .hb-shade{background:linear-gradient(0deg,rgba(5,8,15,0.97) 0%,rgba(5,8,15,0.8) 38%,rgba(5,8,15,0.15) 62%,rgba(5,8,15,0) 75%),linear-gradient(180deg,rgba(5,8,15,0.7) 0%,rgba(5,8,15,0) 14%);}
+  .hb-read{display:none;}
+  .hud-txt{font-size:9px;}
   .fly-card{padding:7px 10px 7px 7px;gap:7px;}
   .fly-card .fi{width:26px;height:26px;font-size:13px;}
   .fly-card b{font-size:11.5px;}
@@ -1231,6 +1249,14 @@ nav.nav-dark .nav-cta{background:#fff!important;color:var(--navy)!important;}
 </nav>
 
 <section class="hero">
+  <div class="hero-bg" id="heroBg">
+    <div class="hb-back" aria-hidden="true"><img src="hero-photo.jpg" alt=""></div>
+    <div class="hb-layer"><div class="hb-zoom"><img class="hb-img" src="hero-photo.jpg" alt="Late at night, a business owner relaxes while her AI command center answers customers and books leads on her laptop" width="1400" height="2100" fetchpriority="high"></div></div>
+    <div class="hb-shade"></div>
+    <canvas class="hb-fx" aria-hidden="true"></canvas>
+    <svg class="hb-hud" aria-hidden="true"></svg>
+    <div class="hb-cards" aria-hidden="true"></div>
+  </div>
   <div class="hero-aurora" aria-hidden="true"><span class="au1"></span><span class="au2"></span><span class="au3"></span></div>
   <div class="hero-inner">
     <div class="hero-left">
@@ -1241,9 +1267,6 @@ nav.nav-dark .nav-cta{background:#fff!important;color:var(--navy)!important;}
         <a href="#contact" class="btn btn-blue">Get a Free AI Audit →</a>
         <a href="#work" class="btn btn-outline">See Our Work</a>
       </div>
-    </div>
-    <div class="hero-visual" id="heroVisual">
-      <div class="hv-frame"><div class="hv-layer"><img class="hv-img" src="hero-photo.jpg" alt="A business owner relaxes while her AI command center answers customers and books leads on her laptop" width="1400" height="2100" fetchpriority="high"></div><span class="hv-sheen"></span></div>
     </div>
   </div>
 </section>
@@ -3636,24 +3659,25 @@ function send(text){
 })();
 </script>
 <script>
-/* ─── Hero: her laptop runs a live AI command center; tasks tick off, notifications fly out of the screen ─── */
+/* ─── Hero: full-screen night-tech scene — live laptop, stars, neural constellation, rising data, HUD ─── */
 (function(){
-  const vis=document.getElementById('heroVisual');
-  if(!vis) return;
-  const hero=document.querySelector('.hero'), frame=vis.querySelector('.hv-frame'), layer=vis.querySelector('.hv-layer'), img=vis.querySelector('.hv-img');
+  const bg=document.getElementById('heroBg');
+  if(!bg) return;
+  const hero=document.querySelector('.hero'), layer=bg.querySelector('.hb-layer'), zoom=bg.querySelector('.hb-zoom'), img=bg.querySelector('.hb-img');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
   const G=!reduce&&window.gsap?window.gsap:null;
   const el=html=>{ const t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstChild; };
+  const NS='http://www.w3.org/2000/svg';
 
-  /* Photo geometry, as fractions of the image */
-  const IMG=[1400,2100], FOCUS=[0.5,0.39];
-  const QUAD=[[0.088,0.333],[0.517,0.316],[0.535,0.531],[0.107,0.548]];
-  const CLIP=[[0.086,0.331],[0.518,0.314],[0.53,0.45],[0.49,0.4633],[0.46,0.4833],[0.43,0.51],[0.4175,0.5267],[0.4175,0.536],[0.107,0.549]];
-  const NOTES=[[0.184,0.187],[0.30,0.185],[0.409,0.182]];
+  /* Photo geometry (image is mirrored: laptop on the right), as fractions of the image */
+  const IMG=[1400,2100];
+  const QUAD=[[0.483,0.316],[0.912,0.333],[0.893,0.548],[0.465,0.531]];
+  const CLIP=[[0.914,0.331],[0.482,0.314],[0.47,0.45],[0.51,0.4633],[0.54,0.4833],[0.57,0.51],[0.5825,0.5267],[0.5825,0.536],[0.893,0.549]];
   const SW=640, SH=470;
 
-  /* Build overlays inside the zooming layer */
-  const glow=el('<span class="hv-glow"></span>'); const glow2=el('<span class="hv-glow"></span>');
+  /* Layers inside the zooming photo: tint, screen light, mapped screen */
+  const light=el('<span class="hb-light"></span>'), light2=el('<span class="hb-light soft"></span>');
   const clip=el(`<div class="scr-clip" style="clip-path:polygon(${CLIP.map(p=>`${(p[0]*100).toFixed(2)}% ${(p[1]*100).toFixed(2)}%`).join(',')})"></div>`);
   const scr=el(`<div class="scr">
     <div class="scr-bar"><i></i><i></i><i></i><b>AI Command Center</b><span>● LIVE</span></div>
@@ -3662,10 +3686,9 @@ function send(text){
         <svg class="spark" viewBox="0 0 200 90" preserveAspectRatio="none"><path class="sp-area" d="M0 82 C 30 72, 50 74, 70 62 S 120 42, 140 36 S 180 14, 200 10 L 200 90 L 0 90 Z"/><path class="sp-line" d="M0 82 C 30 72, 50 74, 70 62 S 120 42, 140 36 S 180 14, 200 10"/></svg></div></div>
   </div>`);
   clip.appendChild(scr);
-  const marker=el('<span style="position:absolute;width:1px;height:1px"></span>');
-  const ticks=NOTES.map(n=>el(`<span class="note-tick" style="left:${n[0]*100}%;top:${n[1]*100}%">✓</span>`));
-  layer.append(glow2,glow,clip,marker,...ticks);
-  const cards=el('<div class="hv-cards" aria-hidden="true"></div>'); vis.appendChild(cards);
+  zoom.append(el('<span class="hb-tint"></span>'),light2,light,clip);
+  const canvas=bg.querySelector('.hb-fx'), ctx=canvas.getContext('2d');
+  const hud=bg.querySelector('.hb-hud'), cards=bg.querySelector('.hb-cards');
   const feed=scr.querySelector('.scr-feed'), leads=scr.querySelector('.k-leads'), spLine=scr.querySelector('.sp-line'), spArea=scr.querySelector('.sp-area');
 
   /* 4-point perspective transform (rectangle → screen quad) as a CSS matrix3d */
@@ -3677,23 +3700,101 @@ function send(text){
     const [a,b,c,d,e,f,g,hh]=B.map((v,i)=>v/A[i][i]);
     return `matrix3d(${a},${d},0,${g},${b},${e},0,${hh},0,0,1,0,${c},${f},0,1)`;
   }
-  /* Cover-fit the photo in the frame and place every overlay on it */
+
+  /* Cover-fit the photo to the hero; everything else is placed from the screen's position */
+  let W=1, H=1, dpr=1, S={x:0,y:0,w:0,h:0,cx:0,cy:0,top:[[0,0],[0,0]]}, phone=false;
   function layout(){
-    const fw=frame.clientWidth, fh=frame.clientHeight, s=Math.max(fw/IMG[0],fh/IMG[1]);
-    const lw=IMG[0]*s, lh=IMG[1]*s;
-    const left=Math.min(0,Math.max(fw-lw,fw/2-FOCUS[0]*lw)), top=Math.min(0,Math.max(fh-lh,fh/2-FOCUS[1]*lh));
+    W=hero.clientWidth; H=hero.clientHeight; phone=innerWidth<=768;
+    let s,lw,lh,left,top;
+    if(phone){ s=Math.max(W/IMG[0],H/IMG[1])*1.04; lw=IMG[0]*s; lh=IMG[1]*s; left=Math.min(0,Math.max(W-lw,W*0.5-0.66*lw)); top=Math.min(0,H*0.22-0.41*lh); }
+    else { s=H*1.28/IMG[1]; lw=IMG[0]*s; lh=IMG[1]*s; left=Math.min(W*0.63-lw*0.5,W-24-0.93*lw); top=H*0.5-0.43*lh; }
+    layer.classList.toggle('fade-l',!phone);
     Object.assign(layer.style,{width:lw+'px',height:lh+'px',left:left+'px',top:top+'px'});
     scr.style.transform=matrix3d(SW,SH,QUAD.map(p=>[p[0]*lw,p[1]*lh]));
-    const cx=(QUAD[0][0]+QUAD[2][0])/2, cy=(QUAD[0][1]+QUAD[2][1])/2;
-    Object.assign(marker.style,{left:cx*100+'%',top:cy*100+'%'});
-    Object.assign(glow.style,{left:(cx-0.32)*lw+'px',top:(cy-0.2)*lh+'px',width:0.64*lw+'px',height:0.4*lh+'px'});
-    Object.assign(glow2.style,{left:(0.48)*lw+'px',top:(0.24)*lh+'px',width:0.4*lw+'px',height:0.3*lh+'px'});
+    const pts=QUAD.map(p=>[left+p[0]*lw,top+p[1]*lh]);
+    const xs=pts.map(p=>p[0]), ys=pts.map(p=>p[1]);
+    S={x:Math.min(...xs),y:Math.min(...ys),w:Math.max(...xs)-Math.min(...xs),h:Math.max(...ys)-Math.min(...ys),top:[pts[0],pts[1]]};
+    S.cx=S.x+S.w/2; S.cy=S.y+S.h/2;
+    const lx=(QUAD[0][0]+QUAD[2][0])/2, ly=(QUAD[0][1]+QUAD[2][1])/2;
+    Object.assign(light.style,{left:(lx-0.42)*lw+'px',top:(ly-0.24)*lh+'px',width:0.84*lw+'px',height:0.5*lh+'px'});
+    Object.assign(light2.style,{left:0.02*lw+'px',top:0.2*lh+'px',width:0.5*lw+'px',height:0.36*lh+'px'});
+    dpr=Math.min(devicePixelRatio||1,phone?1.25:1.6);
+    canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
+    buildHud(); seed();
+    if(reduce||!G) frame(0);
   }
-  const fit=()=>layout();
-  if(window.ResizeObserver) new ResizeObserver(fit).observe(frame); else addEventListener('resize',fit);
-  if(img.complete) layout(); else img.addEventListener('load',layout);
 
-  /* Inbox feed on the screen */
+  /* HUD: brackets locked on the screen, orbiting rings, label */
+  function buildHud(){
+    hud.innerHTML='';
+    const pad=14, x0=S.x-pad, y0=S.y-pad, x1=S.x+S.w+pad, y1=S.y+S.h+pad, L=Math.min(34,S.w*0.12);
+    const path=d=>{ const p=document.createElementNS(NS,'path'); p.setAttribute('d',d); p.setAttribute('class','hud-br'); hud.appendChild(p); };
+    path(`M${x0} ${y0+L}V${y0}H${x0+L}`); path(`M${x1-L} ${y0}H${x1}V${y0+L}`); path(`M${x1} ${y1-L}V${y1}H${x1-L}`); path(`M${x0+L} ${y1}H${x0}V${y1-L}`);
+    const R=Math.max(S.w,S.h)*0.72;
+    ['a','b','c'].forEach((k,i)=>{ const c=document.createElementNS(NS,'circle'); c.setAttribute('cx',S.cx); c.setAttribute('cy',S.cy); c.setAttribute('r',R*(1+i*0.09)); c.setAttribute('class','hud-ring '+k); hud.appendChild(c); });
+    const dot=document.createElementNS(NS,'circle'); dot.setAttribute('cx',x0+5); dot.setAttribute('cy',y0-14); dot.setAttribute('r',3.5); dot.setAttribute('class','hud-dot'); hud.appendChild(dot);
+    const t=document.createElementNS(NS,'text'); t.setAttribute('x',x0+15); t.setAttribute('y',y0-10); t.setAttribute('class','hud-txt'); t.textContent='AI AGENT · ACTIVE'; hud.appendChild(t);
+    const t2=document.createElementNS(NS,'text'); t2.setAttribute('x',x1); t2.setAttribute('y',y1+20); t2.setAttribute('text-anchor','end'); t2.setAttribute('class','hud-txt'); t2.textContent='24/7 · NO HUMAN NEEDED'; if(!phone) hud.appendChild(t2);
+  }
+
+  /* Canvas: stars, shooting stars, neural constellation near the laptop, data rising from the screen */
+  let stars=[], nodes=[], motes=[], shoot=null, mx=-9999, my=-9999, px=0, py=0, tpx=0, tpy=0;
+  const R=Math.random;
+  function seed(){
+    const area=W*H, ns=Math.round(Math.min(phone?110:260,area/5200));
+    stars=Array.from({length:ns},()=>({x:R()*W,y:R()*H*0.95,r:R()<0.12?R()*1.2+1:R()*0.9+0.3,p:R()*6.28,s:0.6+R()*1.8,d:0.3+R()*0.9,c:R()<0.15?'255,214,140':(R()<0.4?'170,205,255':'255,255,255')}));
+    const nn=phone?22:42;
+    nodes=Array.from({length:nn},()=>{ const a=R()*6.28, rr=Math.sqrt(R()); return {x:S.cx+Math.cos(a)*rr*S.w*1.25,y:S.cy-S.h*0.35+Math.sin(a)*rr*S.h*1.6,vx:(R()-0.5)*0.18,vy:(R()-0.5)*0.18,r:1+R()*1.6}; });
+    motes=[];
+  }
+  function spawnMote(){
+    const [a,b]=S.top, t=R();
+    motes.push({x:a[0]+(b[0]-a[0])*t,y:a[1]+(b[1]-a[1])*t,vy:-(0.35+R()*0.8),sw:R()*6.28,life:0,max:180+R()*160,r:0.8+R()*1.8,g:R()<0.25});
+  }
+  function frame(t){
+    ctx.clearRect(0,0,W,H);
+    ctx.globalCompositeOperation='lighter';
+    const ox=px*1.6, oy=py*1.6;
+    for(const s of stars){
+      const tw=reduce?0.7:0.45+0.55*Math.sin(t*0.001*s.s+s.p);
+      const x=s.x+ox*s.d, y=s.y+oy*s.d;
+      ctx.fillStyle=`rgba(${s.c},${(0.25+0.75*tw)*(s.r>1?0.95:0.75)})`;
+      ctx.beginPath(); ctx.arc(x,y,s.r,0,6.283); ctx.fill();
+      if(s.r>1.4&&tw>0.85){ ctx.strokeStyle=`rgba(${s.c},${(tw-0.85)*3})`; ctx.lineWidth=0.6; ctx.beginPath(); ctx.moveTo(x-s.r*4,y); ctx.lineTo(x+s.r*4,y); ctx.moveTo(x,y-s.r*4); ctx.lineTo(x,y+s.r*4); ctx.stroke(); }
+    }
+    if(shoot){
+      shoot.t+=1; const k=shoot.t/shoot.n, x=shoot.x+shoot.dx*k, y=shoot.y+shoot.dy*k;
+      const g=ctx.createLinearGradient(x,y,x-shoot.dx*0.18,y-shoot.dy*0.18); g.addColorStop(0,`rgba(255,255,255,${1-k})`); g.addColorStop(1,'rgba(255,255,255,0)');
+      ctx.strokeStyle=g; ctx.lineWidth=1.6; ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x-shoot.dx*0.18,y-shoot.dy*0.18); ctx.stroke();
+      if(shoot.t>=shoot.n) shoot=null;
+    } else if(!reduce&&R()<0.004){ shoot={x:W*(0.35+R()*0.6),y:H*(0.02+R()*0.25),dx:-(220+R()*180),dy:90+R()*80,t:0,n:55}; }
+    /* neural constellation */
+    const nx=px*0.8, ny=py*0.8;
+    for(const n of nodes){ if(!reduce){ n.x+=n.vx; n.y+=n.vy; if(Math.abs(n.x-S.cx)>S.w*1.4) n.vx*=-1; if(Math.abs(n.y-(S.cy-S.h*0.35))>S.h*1.7) n.vy*=-1; } }
+    for(let i=0;i<nodes.length;i++){
+      const a=nodes[i];
+      for(let j=i+1;j<nodes.length;j++){ const b=nodes[j], d=Math.hypot(a.x-b.x,a.y-b.y); if(d<130){ ctx.strokeStyle=`rgba(120,180,255,${(1-d/130)*0.32})`; ctx.lineWidth=0.8; ctx.beginPath(); ctx.moveTo(a.x+nx,a.y+ny); ctx.lineTo(b.x+nx,b.y+ny); ctx.stroke(); } }
+      const dm=Math.hypot(a.x+nx-mx,a.y+ny-my); if(dm<190){ ctx.strokeStyle=`rgba(245,197,90,${(1-dm/190)*0.55})`; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(a.x+nx,a.y+ny); ctx.lineTo(mx,my); ctx.stroke(); }
+      const pulse=reduce?0.8:0.6+0.4*Math.sin(t*0.002+i);
+      ctx.fillStyle=`rgba(150,200,255,${0.55*pulse+0.2})`; ctx.beginPath(); ctx.arc(a.x+nx,a.y+ny,a.r,0,6.283); ctx.fill();
+    }
+    /* data rising out of the screen */
+    if(!reduce){ if(motes.length<(phone?40:90)&&R()<0.6) spawnMote(); }
+    for(let i=motes.length-1;i>=0;i--){
+      const m=motes[i]; m.life++; m.y+=m.vy; m.x+=Math.sin(m.life*0.03+m.sw)*0.35;
+      const a=Math.sin(Math.PI*Math.min(1,m.life/m.max));
+      ctx.fillStyle=m.g?`rgba(245,197,90,${a*0.8})`:`rgba(120,210,255,${a*0.85})`;
+      ctx.beginPath(); ctx.arc(m.x,m.y,m.r,0,6.283); ctx.fill();
+      if(m.life>=m.max) motes.splice(i,1);
+    }
+    ctx.globalCompositeOperation='source-over';
+  }
+  let raf=0, running=false;
+  const loop=t=>{ px+=(tpx-px)*0.06; py+=(tpy-py)*0.06; layer.style.transform=`translate3d(${(-px*0.5).toFixed(2)}px,${(-py*0.5).toFixed(2)}px,0)`; hud.style.transform=`translate3d(${(px*0.25).toFixed(2)}px,${(py*0.25).toFixed(2)}px,0)`; cards.style.transform=`translate3d(${(px*0.9).toFixed(2)}px,${(py*0.9).toFixed(2)}px,0)`; frame(t); raf=running?requestAnimationFrame(loop):0; };
+  const start=()=>{ if(reduce||running) return; running=true; raf=requestAnimationFrame(loop); if(master) master.play(); };
+  const stop=()=>{ running=false; if(raf) cancelAnimationFrame(raf); raf=0; if(master) master.pause(); };
+
+  /* Inbox feed on the screen + notification cards flying out */
   const ITEMS=[
     {ic:'💬',c:'#25d366',n:'Priya',m:'Slot tomorrow?',card:['🔥','#ef4444','New lead · Priya S.','Booked for 5:30 PM'],lead:true},
     {ic:'✉️',c:'#7c3aed',n:'Rahul',m:'Need my invoice',card:['🧾','#7c3aed','Invoice INV-2041 sent','Replied in 2s']},
@@ -3703,20 +3804,15 @@ function send(text){
     {ic:'💬',c:'#25d366',n:'Meera',m:'Order status?',card:null,lead:true}
   ];
   const ROW=80, TOP=46;
-  let rows=[];
+  let rows=[], cardIx=0, master=null;
   const rowEl=it=>el(`<div class="fr"><span class="ic" style="background:${it.c}33">${it.ic}</span><span class="tx"><b>${it.n}</b><em>${it.m}</em></span><span class="st">typing…</span></div>`);
-  function fillStatic(){ ITEMS.slice(0,4).forEach((it,i)=>{ const r=rowEl(it); r.style.top=(TOP+i*ROW)+'px'; r.querySelector('.st').textContent='✓ 2s'; r.querySelector('.st').classList.add('ok'); feed.appendChild(r); rows.push(r); }); }
-
-  const CARD_POS=()=>innerWidth>768?[[-0.14,0.06],[0.7,0.02],[-0.1,0.66],[0.66,0.8]]:[[0.03,0.04],[0.46,0.1],[0.04,0.72],[0.42,0.8]];
-  let cardIx=0;
+  const CARD_POS=()=>phone?[[0.05,0.1],[0.48,0.16],[0.06,0.3],[0.46,0.36]]:[[0.5,0.14],[0.77,0.1],[0.52,0.74],[0.8,0.72]];
   function flyCard(c){
-    const vr=vis.getBoundingClientRect(), mr=marker.getBoundingClientRect();
-    const sx=mr.left-vr.left, sy=mr.top-vr.top, [px,py]=CARD_POS()[cardIx++%4];
+    const [tx,ty]=CARD_POS()[cardIx++%4];
     const card=el(`<div class="fly-card"><span class="fi" style="background:${c[1]}33">${c[0]}</span><span><b>${c[2]}</b><small>${c[3]}</small></span></div>`);
     cards.appendChild(card);
-    const tx=px*vr.width, ty=py*vr.height;
-    G.fromTo(card,{x:sx-60,y:sy-20,scale:0.25,opacity:0,rotationX:35,transformPerspective:600,filter:'blur(6px)'},{x:tx,y:ty,scale:1,opacity:1,rotationX:0,filter:'blur(0px)',duration:1.1,ease:'expo.out'});
-    G.to(card,{y:ty-26,opacity:0,duration:0.8,delay:2.6,ease:'power2.in',onComplete:()=>card.remove()});
+    G.fromTo(card,{x:S.cx-80,y:S.cy-20,scale:0.25,opacity:0,rotationX:35,transformPerspective:600,filter:'blur(6px)'},{x:tx*W,y:ty*H,scale:1,opacity:1,rotationX:0,filter:'blur(0px)',duration:1.1,ease:'expo.out'});
+    G.to(card,{y:ty*H-26,opacity:0,duration:0.8,delay:2.6,ease:'power2.in',onComplete:()=>card.remove()});
   }
   function pushRow(it){
     const r=rowEl(it); r.style.top=TOP+'px'; feed.appendChild(r);
@@ -3726,30 +3822,39 @@ function send(text){
     while(rows.length>5){ const old=rows.pop(); G.to(old,{opacity:0,duration:0.3,onComplete:()=>old.remove()}); }
     const st=r.querySelector('.st');
     G.delayedCall(0.9,()=>{ st.textContent='✓ 2s'; st.classList.add('ok'); G.fromTo(st,{scale:0.6},{scale:1,duration:0.5,ease:'back.out(3)'}); });
-    G.fromTo([glow,glow2],{opacity:0.55},{opacity:0.95,duration:0.25,yoyo:true,repeat:1});
+    G.fromTo(light,{opacity:0.75},{opacity:1,duration:0.25,yoyo:true,repeat:1});
+    for(let k=0;k<14;k++) spawnMote();
     if(it.lead) G.delayedCall(0.9,()=>{ leads.textContent=String(+leads.textContent+1); G.fromTo(leads,{scale:1},{scale:1.18,duration:0.18,yoyo:true,repeat:1,transformOrigin:'left center'}); });
     if(it.card) G.delayedCall(0.95,()=>flyCard(it.card));
   }
 
+  /* Live readouts along the bottom */
+  const read=el('<div class="hb-read" aria-hidden="true"><span>Latency<b class="r-lat">1.8s</b></span><span>Conversations<b class="r-conv">1,248</b></span><span>Uptime<b>99.9%</b></span></div>');
+  hero.appendChild(read);
+  const rLat=read.querySelector('.r-lat'), rConv=read.querySelector('.r-conv');
+
+  if(img.complete) layout(); else img.addEventListener('load',layout);
+  let rt=0, lastW=0, lastH=0;
+  const relayout=()=>{ clearTimeout(rt); rt=setTimeout(()=>{ if(hero.clientWidth!==lastW||hero.clientHeight!==lastH){ lastW=hero.clientWidth; lastH=hero.clientHeight; layout(); } },100); };
+  if(window.ResizeObserver) new ResizeObserver(relayout).observe(hero); else addEventListener('resize',relayout);
+
   if(!G){
-    fillStatic();
+    ITEMS.slice(0,4).forEach((it,i)=>{ const r=rowEl(it); r.style.top=(TOP+i*ROW)+'px'; r.querySelector('.st').textContent='✓ 2s'; r.querySelector('.st').classList.add('ok'); feed.appendChild(r); });
     return;
   }
   const lineLen=spLine.getTotalLength();
-  const master=G.timeline({repeat:-1,paused:true});
-  master.call(()=>{ leads.textContent='46'; ticks.forEach(t=>G.set(t,{scale:0,opacity:0})); G.fromTo(spLine,{strokeDasharray:lineLen,strokeDashoffset:lineLen},{strokeDashoffset:0,duration:2.4,ease:'power2.out'}); G.fromTo(spArea,{opacity:0},{opacity:1,duration:1.6,delay:0.8}); },null,0.01);
-  ITEMS.forEach((it,i)=>master.call(()=>pushRow(it),null,0.4+i*1.9));
-  [1,3,5].forEach((step,k)=>master.call(()=>G.fromTo(ticks[k],{scale:0,opacity:0},{scale:1,opacity:1,duration:0.6,ease:'back.out(3)'}),null,1.1+step*1.9));
+  let conv=1248;
+  master=G.timeline({repeat:-1,paused:true});
+  master.call(()=>{ leads.textContent='46'; G.fromTo(spLine,{strokeDasharray:lineLen,strokeDashoffset:lineLen},{strokeDashoffset:0,duration:2.4,ease:'power2.out'}); G.fromTo(spArea,{opacity:0},{opacity:1,duration:1.6,delay:0.8}); },null,0.01);
+  ITEMS.forEach((it,i)=>master.call(()=>{ pushRow(it); conv++; rConv.textContent=conv.toLocaleString('en-IN'); rLat.textContent=(1.5+Math.random()*0.6).toFixed(1)+'s'; },null,0.4+i*1.9));
   master.to({},{duration:0.6},0.4+ITEMS.length*1.9);
 
-  /* Depth: frame tilts with the mouse, cards float with extra parallax */
-  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
-    let rx=0,ry=0,tx=0,ty=0,raf=0;
-    const tick=()=>{ rx+=(tx-rx)*0.08; ry+=(ty-ry)*0.08; frame.style.setProperty('--rx',rx.toFixed(2)+'deg'); frame.style.setProperty('--ry',ry.toFixed(2)+'deg'); cards.style.setProperty('--px',(ry*2.2).toFixed(1)+'px'); cards.style.setProperty('--py',(-rx*2.2).toFixed(1)+'px'); raf=(Math.abs(tx-rx)>0.02||Math.abs(ty-ry)>0.02)?requestAnimationFrame(tick):0; };
-    hero.addEventListener('pointermove',e=>{ const r=vis.getBoundingClientRect(); ty=((e.clientX-r.left)/r.width-0.5)*9; tx=-((e.clientY-r.top)/r.height-0.5)*7; if(!raf) raf=requestAnimationFrame(tick); });
-    hero.addEventListener('pointerleave',()=>{ tx=0; ty=0; if(!raf) raf=requestAnimationFrame(tick); });
+  if(fine){
+    hero.addEventListener('pointermove',e=>{ const r=hero.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top; tpx=(mx/r.width-0.5)*-22; tpy=(my/r.height-0.5)*-14; });
+    hero.addEventListener('pointerleave',()=>{ mx=my=-9999; tpx=tpy=0; });
   }
-  new IntersectionObserver(([e])=>{ e.isIntersecting?master.play():master.pause(); },{threshold:0.15}).observe(vis);
+  new IntersectionObserver(([e])=>{ e.isIntersecting?start():stop(); },{threshold:0.05}).observe(hero);
+  document.addEventListener('visibilitychange',()=>{ document.hidden?stop():start(); });
 })();
 
 /* Navigation: dark glass while over the hero */
