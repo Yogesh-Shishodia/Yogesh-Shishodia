@@ -1175,9 +1175,9 @@ nav.nav-dark .nav-cta{background:#fff!important;color:var(--navy)!important;}
 .fly-card small{display:block;font-size:11px;color:rgba(255,255,255,0.55);margin-top:1px;}
 
 @media(max-width:768px){
-  .hero{min-height:100svh;padding:0 5% 2rem;display:flex;align-items:flex-end;}
+  .hero{min-height:0;display:block;padding:calc(76px + min(80vw,340px) + 0.4rem) 5% 2.4rem;}
   .hero-inner{display:block;}
-  .hb-shade{background:linear-gradient(0deg,rgba(5,8,15,0.97) 0%,rgba(5,8,15,0.8) 38%,rgba(5,8,15,0.15) 62%,rgba(5,8,15,0) 75%),linear-gradient(180deg,rgba(5,8,15,0.7) 0%,rgba(5,8,15,0) 14%);}
+  .hb-shade{background:linear-gradient(180deg,rgba(5,8,15,0.65) 0px,rgba(5,8,15,0) 96px,rgba(5,8,15,0) calc(76px + min(80vw,340px)*0.78),rgba(5,8,15,0.97) calc(76px + min(80vw,340px) + 24px),#05080f 100%);}
   .hb-read{display:none;}
   .hud-txt{font-size:9px;}
   .fly-card{padding:7px 10px 7px 7px;gap:7px;}
@@ -3702,11 +3702,11 @@ function send(text){
   }
 
   /* Cover-fit the photo to the hero; everything else is placed from the screen's position */
-  let W=1, H=1, dpr=1, S={x:0,y:0,w:0,h:0,cx:0,cy:0,top:[[0,0],[0,0]]}, phone=false;
+  let W=1, H=1, dpr=1, S={x:0,y:0,w:0,h:0,cx:0,cy:0,top:[[0,0],[0,0]]}, phone=false, zone=null;
   function layout(){
-    W=hero.clientWidth; H=hero.clientHeight; phone=innerWidth<=768;
+    W=hero.clientWidth; H=hero.clientHeight; phone=innerWidth<=768; zone=null;
     let s,lw,lh,left,top;
-    if(phone){ s=Math.max(W/IMG[0],H/IMG[1])*1.04; lw=IMG[0]*s; lh=IMG[1]*s; left=Math.min(0,Math.max(W-lw,W*0.5-0.66*lw)); top=Math.min(0,H*0.22-0.41*lh); }
+    if(phone){ zone=[76,76+Math.min(W*0.8,340)]; s=Math.max(W/(0.92*IMG[0]),(zone[1]-zone[0])/(0.5*IMG[1])); lw=IMG[0]*s; lh=IMG[1]*s; left=Math.min(0,W-0.95*lw); top=zone[0]-0.15*lh; }
     else { s=H*1.28/IMG[1]; lw=IMG[0]*s; lh=IMG[1]*s; left=Math.min(W*0.63-lw*0.5,W-24-0.93*lw); top=H*0.5-0.43*lh; }
     layer.classList.toggle('fade-l',!phone);
     Object.assign(layer.style,{width:lw+'px',height:lh+'px',left:left+'px',top:top+'px'});
@@ -3744,7 +3744,7 @@ function send(text){
     const area=W*H, ns=Math.round(Math.min(phone?110:260,area/5200));
     stars=Array.from({length:ns},()=>({x:R()*W,y:R()*H*0.95,r:R()<0.12?R()*1.2+1:R()*0.9+0.3,p:R()*6.28,s:0.6+R()*1.8,d:0.3+R()*0.9,c:R()<0.15?'255,214,140':(R()<0.4?'170,205,255':'255,255,255')}));
     const nn=phone?22:42;
-    nodes=Array.from({length:nn},()=>{ const a=R()*6.28, rr=Math.sqrt(R()); return {x:S.cx+Math.cos(a)*rr*S.w*1.25,y:S.cy-S.h*0.35+Math.sin(a)*rr*S.h*1.6,vx:(R()-0.5)*0.18,vy:(R()-0.5)*0.18,r:1+R()*1.6}; });
+    nodes=Array.from({length:nn},()=>{ if(zone) return {x:R()*W,y:zone[0]+8+R()*(zone[1]-zone[0]-16),vx:(R()-0.5)*0.18,vy:(R()-0.5)*0.18,r:1+R()*1.6}; const a=R()*6.28, rr=Math.sqrt(R()); return {x:S.cx+Math.cos(a)*rr*S.w*1.25,y:S.cy-S.h*0.35+Math.sin(a)*rr*S.h*1.6,vx:(R()-0.5)*0.18,vy:(R()-0.5)*0.18,r:1+R()*1.6}; });
     motes=[];
   }
   function spawnMote(){
@@ -3770,7 +3770,7 @@ function send(text){
     } else if(!reduce&&R()<0.004){ shoot={x:W*(0.35+R()*0.6),y:H*(0.02+R()*0.25),dx:-(220+R()*180),dy:90+R()*80,t:0,n:55}; }
     /* neural constellation */
     const nx=px*0.8, ny=py*0.8;
-    for(const n of nodes){ if(!reduce){ n.x+=n.vx; n.y+=n.vy; if(Math.abs(n.x-S.cx)>S.w*1.4) n.vx*=-1; if(Math.abs(n.y-(S.cy-S.h*0.35))>S.h*1.7) n.vy*=-1; } }
+    for(const n of nodes){ if(!reduce){ n.x+=n.vx; n.y+=n.vy; if(zone){ if(n.x<0||n.x>W) n.vx*=-1; if(n.y<zone[0]+8||n.y>zone[1]-8) n.vy*=-1; } else { if(Math.abs(n.x-S.cx)>S.w*1.4) n.vx*=-1; if(Math.abs(n.y-(S.cy-S.h*0.35))>S.h*1.7) n.vy*=-1; } } }
     for(let i=0;i<nodes.length;i++){
       const a=nodes[i];
       for(let j=i+1;j<nodes.length;j++){ const b=nodes[j], d=Math.hypot(a.x-b.x,a.y-b.y); if(d<130){ ctx.strokeStyle=`rgba(120,180,255,${(1-d/130)*0.32})`; ctx.lineWidth=0.8; ctx.beginPath(); ctx.moveTo(a.x+nx,a.y+ny); ctx.lineTo(b.x+nx,b.y+ny); ctx.stroke(); } }
@@ -3825,7 +3825,7 @@ function send(text){
     G.fromTo(light,{opacity:0.75},{opacity:1,duration:0.25,yoyo:true,repeat:1});
     for(let k=0;k<14;k++) spawnMote();
     if(it.lead) G.delayedCall(0.9,()=>{ leads.textContent=String(+leads.textContent+1); G.fromTo(leads,{scale:1},{scale:1.18,duration:0.18,yoyo:true,repeat:1,transformOrigin:'left center'}); });
-    if(it.card) G.delayedCall(0.95,()=>flyCard(it.card));
+    if(it.card&&!phone) G.delayedCall(0.95,()=>flyCard(it.card));
   }
 
   /* Live readouts along the bottom */
