@@ -1080,8 +1080,6 @@ body.modal-open{overflow:hidden;}
 .hero{background:radial-gradient(110% 90% at 68% 42%,#13233d 0%,#0b1322 52%,#060b15 100%);color:#fff;}
 .hero::before{display:none;}
 .hero-aurora{width:100%;clip-path:none;opacity:0.5;}
-.hero-mind{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;}
-.hero-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(6,11,21,0.82) 0%,rgba(6,11,21,0.45) 30%,rgba(6,11,21,0) 52%);}
 .hero h1{color:#fff;font-size:clamp(2.1rem,3.6vw,3.25rem);line-height:1.05;letter-spacing:-0.035em;}
 .hero h1 .w.ser>span{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:1.1em;letter-spacing:-0.01em;background:linear-gradient(100deg,#f5d28a 0%,#e2b25c 45%,#c9943a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:0.04em;}
 .hero-sub{color:rgba(255,255,255,0.62);}
@@ -1097,8 +1095,6 @@ body.modal-open{overflow:hidden;}
 .hero .picker-btn .arrow{color:#7ba8ff;opacity:0.7;}
 
 @media(min-width:769px){.hero .float-stats{top:86%;}}
-.mind-chip{position:absolute;left:0;top:0;z-index:2;pointer-events:none;white-space:nowrap;font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.82);background:rgba(10,17,30,0.72);border:1px solid rgba(255,255,255,0.14);padding:0.32rem 0.75rem;border-radius:999px;backdrop-filter:blur(6px);opacity:0;will-change:transform,opacity;}
-.mind-chip.ring{color:#9bdcff;border-color:rgba(91,192,255,0.4);}
 /* Navigation turns dark glass while over the hero */
 nav{transition:background 0.35s,border-color 0.35s;}
 nav.nav-dark{background:rgba(7,12,22,0.55);border-bottom-color:rgba(255,255,255,0.08);}
@@ -1110,7 +1106,66 @@ nav.nav-dark .nav-cta{background:#fff!important;color:var(--navy)!important;}
 @media(max-width:768px){
   .hero-stage{background:transparent;padding:240px 0 0.4rem;overflow:visible;}
   .hero-stage::before{display:none;}
-  .hero-vignette{background:linear-gradient(180deg,rgba(6,11,21,0.75) 0%,rgba(6,11,21,0.3) 45%,rgba(6,11,21,0) 70%);}
+  }
+/* ── Hero v5: framed photo — her laptop runs a live AI command center ── */
+.hero-inner{grid-template-columns:1fr 1.12fr;}
+.hero-visual{position:relative;perspective:1400px;animation:fadeUp 1s 0.15s ease both;}
+.hv-frame{position:relative;width:100%;aspect-ratio:1.08;border-radius:28px;overflow:hidden;background:#d9dcdf;border:1px solid rgba(255,255,255,0.14);box-shadow:0 50px 120px -40px rgba(0,0,0,0.9),0 0 0 8px rgba(255,255,255,0.03);transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));}
+.hv-layer{position:absolute;left:0;top:0;transform-origin:31% 43%;animation:hvZoom 24s ease-in-out infinite alternate;}
+@keyframes hvZoom{to{transform:scale(1.06);}}
+.hv-img{position:absolute;inset:0;width:100%;height:100%;display:block;}
+.hv-glow{position:absolute;border-radius:50%;pointer-events:none;mix-blend-mode:screen;opacity:0.55;background:radial-gradient(closest-side,rgba(110,170,255,0.55),rgba(110,170,255,0));}
+.hv-sheen{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,0.18) 48%,transparent 60%);background-size:260% 100%;animation:hvSheen 7s ease-in-out infinite;}
+@keyframes hvSheen{0%,55%{background-position:120% 0;}100%{background-position:-60% 0;}}
+.hv-frame::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,11,21,0) 60%,rgba(6,11,21,0.35) 100%);}
+
+/* Laptop screen: a dark "AI Command Center" mapped onto the display */
+.scr-clip{position:absolute;inset:0;pointer-events:none;}
+.scr{position:absolute;left:0;top:0;width:640px;height:470px;transform-origin:0 0;background:#0b1422;color:#e8edf5;font-family:'Outfit',sans-serif;overflow:hidden;filter:blur(0.35px) saturate(1.05);}
+.scr::after{content:'';position:absolute;inset:0;background:linear-gradient(125deg,rgba(255,255,255,0.12),rgba(255,255,255,0) 40%);pointer-events:none;}
+.scr-bar{display:flex;align-items:center;gap:10px;height:58px;padding:0 22px;background:#122039;font-size:22px;}
+.scr-bar i{width:14px;height:14px;border-radius:50%;background:#ef4444;}
+.scr-bar i:nth-child(2){background:#f59e0b;}
+.scr-bar i:nth-child(3){background:#22c55e;margin-right:10px;}
+.scr-bar span{margin-left:auto;color:#4ade80;font-size:18px;font-weight:700;letter-spacing:0.08em;}
+.scr-main{display:flex;height:412px;}
+.scr-feed{position:relative;width:392px;border-right:2px solid rgba(255,255,255,0.06);overflow:hidden;}
+.scr-feed h6{margin:0;padding:16px 20px 6px;font-size:17px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.fr{position:absolute;left:14px;right:14px;height:70px;display:flex;align-items:center;gap:14px;padding:0 14px;border-radius:16px;background:rgba(255,255,255,0.05);}
+.fr .ic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.fr .tx{flex:1;min-width:0;line-height:1.15;}
+.fr b{display:block;font-size:22px;font-weight:700;}
+.fr em{display:block;font-style:normal;font-size:18px;color:rgba(255,255,255,0.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fr .st{font-size:17px;font-weight:800;color:rgba(255,255,255,0.4);white-space:nowrap;}
+.fr .st.ok{color:#4ade80;}
+.scr-kpi{flex:1;padding:18px 20px;display:flex;flex-direction:column;gap:14px;}
+.k small{display:block;font-size:15px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.k b{display:block;font-size:52px;font-weight:800;line-height:1;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;}
+.k b.gold{color:#f5c55a;}
+.k b.green{color:#4ade80;}
+.spark{width:100%;height:110px;margin-top:auto;}
+.sp-line{fill:none;stroke:#60a5fa;stroke-width:5;stroke-linecap:round;}
+.sp-area{fill:rgba(96,165,250,0.18);}
+
+/* Sticky notes on the wall get ticked off */
+.note-tick{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:#22c55e;color:#04210f;font-weight:900;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(34,197,94,0.25),0 0 22px rgba(34,197,94,0.75);}
+
+/* Notification cards that fly out of the screen */
+.hv-cards{position:absolute;inset:0;pointer-events:none;transform:translate3d(var(--px,0px),var(--py,0px),0);z-index:3;}
+.fly-card{position:absolute;left:0;top:0;display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:14px;background:rgba(11,20,34,0.88);border:1px solid rgba(255,255,255,0.14);box-shadow:0 22px 50px -16px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.08);backdrop-filter:blur(10px);color:#fff;font-family:'Outfit',sans-serif;white-space:nowrap;will-change:transform,opacity;}
+.fly-card .fi{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;}
+.fly-card b{display:block;font-size:13.5px;font-weight:700;line-height:1.2;}
+.fly-card small{display:block;font-size:11px;color:rgba(255,255,255,0.55);margin-top:1px;}
+
+@media(max-width:768px){
+  .hero-inner{display:flex;flex-direction:column;}
+  .hero-visual{order:-1;margin-bottom:0.4rem;width:100%;align-self:stretch;}
+  .note-tick{width:22px;height:22px;margin:-11px 0 0 -11px;font-size:12px;}
+  .hv-frame{aspect-ratio:1.02;border-radius:22px;}
+  .fly-card{padding:7px 10px 7px 7px;gap:7px;}
+  .fly-card .fi{width:26px;height:26px;font-size:13px;}
+  .fly-card b{font-size:11.5px;}
+  .fly-card small{font-size:9.5px;}
 }
 </style>
 </head>
@@ -1180,67 +1235,15 @@ nav.nav-dark .nav-cta{background:#fff!important;color:var(--navy)!important;}
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow"><span class="dot"></span>AI Automation &amp; Growth Agency · India &amp; Global</div>
-      <div class="aud-toggle" role="group" aria-label="Choose your business type">
-        <button type="button" class="aud-btn" data-aud="smb">Small &amp; Growing Business</button>
-        <button type="button" class="aud-btn active" data-aud="ent">Enterprise &amp; Regulated</button>
-      </div>
       <h1 aria-label="Answer Every Customer Instantly. Automate Everything Else."><span aria-hidden="true"><span class="w"><span style="--i:0">Answer</span></span> <span class="w"><span style="--i:1">Every</span></span> <span class="w"><span style="--i:2">Customer</span></span> <span class="w hl"><span style="--i:3">Instantly.</span></span><br/><span class="w ser"><span style="--i:4">Automate</span></span> <span class="w ser"><span style="--i:5">Everything</span></span> <span class="w ser"><span style="--i:6">Else.</span></span></span></h1>
-      <p class="hero-sub">Custom AI systems that respond to customers in seconds, fill your pipeline, and take over the manual busywork slowing your team down — built around your business, not a template.</p>
+      <p class="hero-sub">Custom AI that answers your customers, fills your pipeline and clears the busywork — built for your business.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-blue">Get a Free AI Audit →</a>
         <a href="#work" class="btn btn-outline">See Our Work</a>
       </div>
-      <div class="picker-row">
-        <div class="picker-label">What's the problem?</div>
-        <a href="#bucket-conversations" class="picker-btn">Customers messaging or calling and no one's answering fast enough <span class="arrow">→</span></a>
-        <a href="#bucket-growth" class="picker-btn">Pipeline's dry, need more qualified leads <span class="arrow">→</span></a>
-        <a href="#bucket-docs" class="picker-btn">Drowning in documents, PDFs, spreadsheets, reports <span class="arrow">→</span></a>
-        <a href="#bucket-custom" class="picker-btn">Manual busywork eating your team's time <span class="arrow">→</span></a>
-      </div>
     </div>
-    <div class="hero-stage">
-      <div class="stage-label"><span class="live"></span>Live demo · AI answering on WhatsApp</div>
-      <div class="phone-scene" id="phoneScene" role="img" aria-label="Demo: an AI assistant answers a customer on WhatsApp in seconds and completes their request.">
-        <div class="phone-tilt" id="phoneTilt">
-          <div class="phone-float">
-            <div class="phone">
-              <div class="island"></div>
-              <div class="wa">
-                <div class="wa-status"><span id="waClock">9:41</span><span class="wa-status-icons"><svg width="15" height="10" viewBox="0 0 15 10" fill="#e9edef"><rect x="0" y="6" width="3" height="4" rx="0.6"/><rect x="4" y="4" width="3" height="6" rx="0.6"/><rect x="8" y="2" width="3" height="8" rx="0.6"/><rect x="12" y="0" width="3" height="10" rx="0.6"/></svg><svg width="22" height="10" viewBox="0 0 22 10" fill="none"><rect x="0.5" y="0.5" width="18" height="9" rx="2.5" stroke="#e9edef" opacity="0.5"/><rect x="2" y="2" width="13" height="6" rx="1.2" fill="#e9edef"/><rect x="19.5" y="3.5" width="1.5" height="3" rx="0.7" fill="#e9edef" opacity="0.5"/></svg></span></div>
-                <div class="wa-head">
-                  <span class="wa-back">‹</span>
-                  <div class="wa-avatar" id="waAvatar">🦷</div>
-                  <div>
-                    <div class="wa-name"><span id="waName">Sunrise Dental Clinic</span><span class="wa-verified">✓</span></div>
-                    <div class="wa-sub" id="waStatus">online</div>
-                  </div>
-                </div>
-                <div class="wa-body" id="waBody"></div>
-                <div class="wa-input">
-                  <div class="wa-field" id="waField"></div>
-                  <div class="wa-send" id="waSend"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></div>
-                </div>
-              </div>
-              <div class="phone-glare"></div>
-            </div>
-          </div>
-          <div class="float-chip float-stats" aria-hidden="true">
-            <span class="fs-label">Answered today</span>
-            <span class="fs-num" id="fsCount">246</span>
-            <span class="fs-bar"><i id="fsBar"></i></span>
-          </div>
-          <div class="float-chip chip-speed" id="chipSpeed" aria-hidden="true"><span class="fc-icon">⚡</span><span><span id="chipSpeedText">Replied in 1.8s</span><span class="fc-sub" id="chipSpeedSub">at 9:41 PM · clinic closed</span></span></div>
-          <div class="float-chip chip-done" id="chipDone" aria-hidden="true"><span class="fc-icon">✅</span><span><span id="chipDoneText">Appointment booked</span><span class="fc-sub" id="chipDoneSub">added to clinic calendar</span></span></div>
-        </div>
-      </div>
-      <div class="hero-right-foot" id="heroFoot">
-        <div class="hf-set hf-set-ent active">
-          <span class="hero-badge">HIPAA Ready</span><span class="hero-badge">GDPR Compliant</span><span class="hero-badge">On-Premise</span><span class="hero-badge">Audit Trail</span>
-        </div>
-        <div class="hf-set hf-set-smb">
-          <span class="hero-badge">WhatsApp-Native</span><span class="hero-badge">Setup in Days</span><span class="hero-badge">CRM from ₹5K/mo</span><span class="hero-badge">DPDP Compliant</span>
-        </div>
-      </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="hv-frame"><div class="hv-layer"><img class="hv-img" src="hero-photo.jpg" alt="A business owner relaxes while her AI command center answers customers and books leads on her laptop" width="1400" height="2100" fetchpriority="high"></div><span class="hv-sheen"></span></div>
     </div>
   </div>
 </section>
@@ -2810,7 +2813,9 @@ function send(text){
       }
       body.classList.add('fading'); chipSpeed.classList.remove('show'); chipDone.classList.remove('show');
       await sleep(450); if(!alive()) return;
-      body.classList.remove('fading'); reset(s);
+      body.classList.remove('fading');
+      if(!document.querySelector('.aud-btn')){ play(key==='ent'?'smb':'ent'); return; }
+      reset(s);
     }
   }
 
@@ -3631,167 +3636,128 @@ function send(text){
 })();
 </script>
 <script>
-/* ─── Hero: "The AI Funnel" — traffic spirals in, an AI ring qualifies it, gold leads flow into WhatsApp ─── */
+/* ─── Hero: her laptop runs a live AI command center; tasks tick off, notifications fly out of the screen ─── */
 (function(){
-  const hero=document.querySelector('.hero'), phone=document.querySelector('#phoneScene .phone');
-  if(!hero||!phone) return;
+  const vis=document.getElementById('heroVisual');
+  if(!vis) return;
+  const hero=document.querySelector('.hero'), frame=vis.querySelector('.hv-frame'), layer=vis.querySelector('.hv-layer'), img=vis.querySelector('.hv-img');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const canvas=document.createElement('canvas'); canvas.className='hero-mind'; canvas.setAttribute('aria-hidden','true');
-  const vig=document.createElement('div'); vig.className='hero-vignette';
-  const gl=canvas.getContext('webgl',{alpha:true,antialias:false,premultipliedAlpha:true});
-  if(!gl) return;
-  hero.insertBefore(vig,hero.firstChild); hero.insertBefore(canvas,hero.firstChild);
-  const chipTop=document.createElement('div'); chipTop.className='mind-chip'; chipTop.setAttribute('aria-hidden','true'); chipTop.textContent='📣 Ads · 🔍 Search · 📱 Social';
-  const chipRing=document.createElement('div'); chipRing.className='mind-chip ring'; chipRing.setAttribute('aria-hidden','true'); chipRing.textContent='🧠 AI qualifies every lead';
-  hero.appendChild(chipTop); hero.appendChild(chipRing);
+  const G=!reduce&&window.gsap?window.gsap:null;
+  const el=html=>{ const t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstChild; };
 
-  const RING=0.05;
-  const prof=y=>0.13+0.92*Math.pow(Math.max(0,(y+0.75)/1.75),1.7);
-  const R=Math.random, rs=(a,b)=>a+R()*(b-a);
-  const small=innerWidth<768;
-  const NT=small?2600:5200, NR=small?420:760, NW=small?800:1500, NO=small?170:320;
-  const A=[], Rr=[];
-  const push=(a,r)=>{ A.push(...a); Rr.push(...r); };
-  /* traffic: enters from scattered sources above the funnel; ~36% will qualify (kind 1) */
-  for(let n=0;n<NT;n++) push([rs(-2.2,2.2),rs(1.25,2.0),rs(-1.6,1.6)],[R(),R(),rs(1.3,2.3),R()<0.36?1:0]);
-  /* AI ring (kind 2) */
-  for(let n=0;n<NR;n++) push([0,0,0],[R(),R(),rs(1.6,2.6),2]);
-  /* faint funnel wall rings (kind 3) */
-  const LV=10;
-  for(let n=0;n<NW;n++){ const k=n%LV; push([0.95-k*(1.63/(LV-1)),R()*6.2832,0],[R(),R(),rs(1.0,1.6),3]); }
-  /* qualified leads flowing to the phone (kind 4) */
-  for(let n=0;n<NO;n++) push([rs(-1,1),rs(-1,1),rs(-1,1)],[R(),R(),rs(1.8,3),4]);
+  /* Photo geometry, as fractions of the image */
+  const IMG=[1400,2100], FOCUS=[0.5,0.39];
+  const QUAD=[[0.088,0.333],[0.517,0.316],[0.535,0.531],[0.107,0.548]];
+  const CLIP=[[0.086,0.331],[0.518,0.314],[0.53,0.45],[0.49,0.4633],[0.46,0.4833],[0.43,0.51],[0.4175,0.5267],[0.4175,0.536],[0.107,0.549]];
+  const NOTES=[[0.184,0.187],[0.30,0.185],[0.409,0.182]];
+  const SW=640, SH=470;
 
-  const VS=`attribute vec3 aA;attribute vec4 aR;
-  uniform float uT,uSpin,uIntro,uRotX,uRotZ,uPx,uDim;uniform vec2 uC,uU;uniform vec3 uOut,uCtl;varying vec4 vC;
-  const float RING=0.05;
-  float prof(float y){return 0.13+0.92*pow(max(0.0,(y+0.75)/1.75),1.7);}
-  vec3 bez(vec3 a,vec3 c,vec3 b,float t){float u=1.0-t;return u*u*a+2.0*u*t*c+t*t*b;}
-  void main(){
-    float kind=aR.w,size=aR.z,alpha;vec3 p,col;
-    if(kind<1.5){
-      float t=fract(uT*0.065+aR.x);
-      float y=mix(1.0,-0.75,t),r=prof(y);
-      float th=aR.y*6.2832+t*13.8+uSpin;
-      float tr=(1.0-RING)/1.75;
-      bool q=kind>0.5;
-      if(!q&&t>tr){float k=t-tr;r+=k*2.4;y=RING-k*0.5;}
-      p=mix(aA,vec3(r*cos(th),y,r*sin(th)),smoothstep(0.0,0.16,t));
-      float scan=exp(-pow((y-RING)/0.05,2.0));
-      if(t<tr){col=vec3(0.66,0.74,0.88);alpha=0.52*smoothstep(0.0,0.12,t);}
-      else if(q){col=vec3(1.0,0.76,0.36);alpha=0.92*(1.0-smoothstep(0.93,1.0,t));size+=0.5;}
-      else{col=vec3(0.55,0.6,0.72);alpha=0.42*(1.0-smoothstep(tr,tr+0.16,t));}
-      col=mix(col,vec3(0.45,0.85,1.0),scan*0.8);alpha+=scan*0.5;
-    }else if(kind<2.5){
-      bool inner=aR.y<0.62;
-      float th=aR.x*6.2832+uT*(inner?0.45:-0.3);
-      float rr=prof(RING)*(inner?1.0:1.14)*(1.0+0.025*sin(th*6.0+uT*3.0));
-      p=vec3(rr*cos(th),RING+(aR.y-0.5)*0.02,rr*sin(th));
-      float pulse=0.5+0.5*sin(uT*2.0+th*3.0);
-      col=inner?vec3(0.35,0.78,1.0):vec3(0.55,0.65,1.0);
-      alpha=inner?0.5+0.4*pulse:0.3*step(0.5,fract(aR.x*12.0));
-      if(inner)size+=pulse*0.9;
-    }else if(kind<3.5){
-      float y=aA.x,th=aA.y+uT*0.12,r=prof(y);
-      p=vec3(r*cos(th),y,r*sin(th));col=vec3(0.32,0.5,0.95);alpha=0.16;
-    }else{
-      float t=fract(uT*0.2+aR.x);
-      p=bez(vec3(0.0,-0.78,0.0)+aA*0.03,uCtl,uOut+aA*vec3(0.12,0.18,0.08),t);
-      col=vec3(1.0,0.8,0.4);alpha=sin(3.1416*t)*0.85*smoothstep(0.6,1.0,uIntro);
-    }
-    p*=mix(0.8,1.0,uIntro);
-    float cx=cos(uRotX),sx=sin(uRotX);p=vec3(p.x,cx*p.y-sx*p.z,sx*p.y+cx*p.z);
-    float cz=cos(uRotZ),sz=sin(uRotZ);p=vec3(cz*p.x-sz*p.y,sz*p.x+cz*p.y,p.z);
-    float persp=3.2/(3.2+p.z);
-    gl_Position=vec4(uC+p.xy*persp*uU,0.0,1.0);
-    gl_PointSize=size*uPx*persp;
-    vC=vec4(col,alpha*uDim*smoothstep(0.0,0.6,uIntro));
-  }`;
-  const FS=`precision mediump float;varying vec4 vC;
-  void main(){vec2 d=gl_PointCoord-0.5;float r=dot(d,d);if(r>0.25)discard;float a=vC.a*smoothstep(0.25,0.0,r);gl_FragColor=vec4(vC.rgb*a,a);}`;
-  const sh=(type,src)=>{ const s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s); return s; };
-  const prog=gl.createProgram(); gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS)); gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS)); gl.linkProgram(prog);
-  if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){ canvas.remove(); vig.remove(); chipTop.remove(); chipRing.remove(); return; }
-  gl.useProgram(prog);
-  const buf=(name,data,size)=>{ const b=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,b); gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(data),gl.STATIC_DRAW); const loc=gl.getAttribLocation(prog,name); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc,size,gl.FLOAT,false,0,0); };
-  buf('aA',A,3); buf('aR',Rr,4);
-  const U={}; ['uT','uSpin','uIntro','uRotX','uRotZ','uPx','uDim','uC','uU','uOut','uCtl'].forEach(n=>U[n]=gl.getUniformLocation(prog,n));
-  gl.enable(gl.BLEND); gl.blendFunc(gl.ONE,gl.ONE); gl.clearColor(0,0,0,0);
-  const COUNT=A.length/3;
+  /* Build overlays inside the zooming layer */
+  const glow=el('<span class="hv-glow"></span>'); const glow2=el('<span class="hv-glow"></span>');
+  const clip=el(`<div class="scr-clip" style="clip-path:polygon(${CLIP.map(p=>`${(p[0]*100).toFixed(2)}% ${(p[1]*100).toFixed(2)}%`).join(',')})"></div>`);
+  const scr=el(`<div class="scr">
+    <div class="scr-bar"><i></i><i></i><i></i><b>AI Command Center</b><span>● LIVE</span></div>
+    <div class="scr-main"><div class="scr-feed"><h6>Inbox · auto-replied</h6></div>
+      <div class="scr-kpi"><div class="k"><small>Leads today</small><b class="gold k-leads">46</b></div><div class="k"><small>Avg reply</small><b class="green">2s</b></div>
+        <svg class="spark" viewBox="0 0 200 90" preserveAspectRatio="none"><path class="sp-area" d="M0 82 C 30 72, 50 74, 70 62 S 120 42, 140 36 S 180 14, 200 10 L 200 90 L 0 90 Z"/><path class="sp-line" d="M0 82 C 30 72, 50 74, 70 62 S 120 42, 140 36 S 180 14, 200 10"/></svg></div></div>
+  </div>`);
+  clip.appendChild(scr);
+  const marker=el('<span style="position:absolute;width:1px;height:1px"></span>');
+  const ticks=NOTES.map(n=>el(`<span class="note-tick" style="left:${n[0]*100}%;top:${n[1]*100}%">✓</span>`));
+  layer.append(glow2,glow,clip,marker,...ticks);
+  const cards=el('<div class="hv-cards" aria-hidden="true"></div>'); vis.appendChild(cards);
+  const feed=scr.querySelector('.scr-feed'), leads=scr.querySelector('.k-leads'), spLine=scr.querySelector('.sp-line'), spArea=scr.querySelector('.sp-area');
 
-  /* Place the funnel left of the phone (desktop) or above it (phones); aim the gold stream into the phone */
-  let dpr=1, cxPx=0, cyPx=0, unit=1;
+  /* 4-point perspective transform (rectangle → screen quad) as a CSS matrix3d */
+  function matrix3d(w,h,dst){
+    const src=[[0,0],[w,0],[w,h],[0,h]], A=[], B=[];
+    for(let i=0;i<4;i++){ const [x,y]=src[i],[u,v]=dst[i]; A.push([x,y,1,0,0,0,-u*x,-u*y]); B.push(u); A.push([0,0,0,x,y,1,-v*x,-v*y]); B.push(v); }
+    for(let c=0;c<8;c++){ let p=c; for(let r=c+1;r<8;r++) if(Math.abs(A[r][c])>Math.abs(A[p][c])) p=r; [A[c],A[p]]=[A[p],A[c]]; [B[c],B[p]]=[B[p],B[c]];
+      for(let r=0;r<8;r++){ if(r===c) continue; const f=A[r][c]/A[c][c]; for(let k=c;k<8;k++) A[r][k]-=f*A[c][k]; B[r]-=f*B[c]; } }
+    const [a,b,c,d,e,f,g,hh]=B.map((v,i)=>v/A[i][i]);
+    return `matrix3d(${a},${d},0,${g},${b},${e},0,${hh},0,0,1,0,${c},${f},0,1)`;
+  }
+  /* Cover-fit the photo in the frame and place every overlay on it */
   function layout(){
-    dpr=Math.min(devicePixelRatio||1,1.75);
-    const r=hero.getBoundingClientRect(), W=r.width, H=r.height, ph=phone.getBoundingClientRect();
-    canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr); gl.viewport(0,0,canvas.width,canvas.height);
-    const wide=innerWidth>768, roomy=innerWidth>1000;
-    const pl=ph.left-r.left, pt=ph.top-r.top;
-    let outX,outY,ctl;
-    if(wide){
-      unit=Math.min(H*(roomy?0.25:0.2),roomy?205:160);
-      cxPx=pl-34-1.08*unit; cyPx=pt+ph.height*0.44;
-      outX=(pl+ph.width*0.3-cxPx)/unit; outY=(cyPx-(pt+ph.height*0.55))/unit; ctl=[outX*0.42,-1.4];
-    } else {
-      unit=Math.min(W*0.36,150);
-      cxPx=W*0.5; cyPx=pt-unit*1.05;
-      outX=(pl+ph.width*0.5-cxPx)/unit; outY=(cyPx-(pt+40))/unit; ctl=[outX*0.3,-1.35];
-    }
-    gl.uniform2f(U.uC,cxPx/W*2-1,1-cyPx/H*2);
-    gl.uniform2f(U.uU,unit*2/W,unit*2/H);
-    gl.uniform3f(U.uOut,outX,outY,0); gl.uniform3f(U.uCtl,ctl[0],ctl[1],0);
-    gl.uniform1f(U.uPx,dpr);
-    gl.uniform1f(U.uDim,roomy||!wide?1:0.7);
+    const fw=frame.clientWidth, fh=frame.clientHeight, s=Math.max(fw/IMG[0],fh/IMG[1]);
+    const lw=IMG[0]*s, lh=IMG[1]*s;
+    const left=Math.min(0,Math.max(fw-lw,fw/2-FOCUS[0]*lw)), top=Math.min(0,Math.max(fh-lh,fh/2-FOCUS[1]*lh));
+    Object.assign(layer.style,{width:lw+'px',height:lh+'px',left:left+'px',top:top+'px'});
+    scr.style.transform=matrix3d(SW,SH,QUAD.map(p=>[p[0]*lw,p[1]*lh]));
+    const cx=(QUAD[0][0]+QUAD[2][0])/2, cy=(QUAD[0][1]+QUAD[2][1])/2;
+    Object.assign(marker.style,{left:cx*100+'%',top:cy*100+'%'});
+    Object.assign(glow.style,{left:(cx-0.32)*lw+'px',top:(cy-0.2)*lh+'px',width:0.64*lw+'px',height:0.4*lh+'px'});
+    Object.assign(glow2.style,{left:(0.48)*lw+'px',top:(0.24)*lh+'px',width:0.4*lw+'px',height:0.3*lh+'px'});
   }
-  /* same projection as the shader, for the floating labels */
-  const project=(x,y,z,rx,rz,s)=>{
-    x*=s; y*=s; z*=s;
-    const cx=Math.cos(rx), sx=Math.sin(rx), y1=cx*y-sx*z, z1=sx*y+cx*z;
-    const cz=Math.cos(rz), sz=Math.sin(rz), x2=cz*x-sz*y1, y2=sz*x+cz*y1, ps=3.2/(3.2+z1);
-    return [cxPx+x2*ps*unit, cyPx-y2*ps*unit];
-  };
+  const fit=()=>layout();
+  if(window.ResizeObserver) new ResizeObserver(fit).observe(frame); else addEventListener('resize',fit);
+  if(img.complete) layout(); else img.addEventListener('load',layout);
 
-  let t0=performance.now(), last=t0, raf=0, running=false, spin=0, boost=0, rotX=0.34, rotZ=0, tx=0.34, tz=0, near=0;
-  function draw(now){
-    const t=reduce?6:(now-t0)/1000, dt=Math.min(0.05,(now-last)/1000); last=now;
-    const intro=reduce?1:Math.min(1,t/2.2), ease=1-Math.pow(1-intro,3);
-    rotX+=(tx-rotX)*0.05; rotZ+=(tz-rotZ)*0.05; boost+=(near-boost)*0.05;
-    spin+=dt*(0.25+boost*0.9);
-    gl.uniform1f(U.uT,t); gl.uniform1f(U.uSpin,spin); gl.uniform1f(U.uIntro,ease);
-    gl.uniform1f(U.uRotX,rotX); gl.uniform1f(U.uRotZ,rotZ);
-    gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.POINTS,0,COUNT);
-    const s=0.8+0.2*ease, op=Math.max(0,(ease-0.6)/0.4).toFixed(2);
-    const [ax,ay]=project(0,1.24,0,rotX,rotZ,s), [bx,by]=project(prof(RING)*1.22,RING,0,rotX,rotZ,s);
-    const W=hero.clientWidth, tw=chipTop.offsetWidth, rw=chipRing.offsetWidth;
-    const tl=Math.max(8,Math.min(W-tw-8,ax-tw/2)), rl=Math.max(8,Math.min(W-rw-8,bx));
-    chipTop.style.transform=`translate3d(${tl.toFixed(1)}px,${ay.toFixed(1)}px,0) translateY(-100%)`; chipTop.style.opacity=op;
-    chipRing.style.transform=`translate3d(${rl.toFixed(1)}px,${by.toFixed(1)}px,0) translateY(-50%)`; chipRing.style.opacity=op;
-  }
-  const loop=now=>{ draw(now); raf=running?requestAnimationFrame(loop):0; };
-  const start=()=>{ if(reduce){ draw(performance.now()); return; } if(!running){ running=true; last=performance.now(); raf=requestAnimationFrame(loop); } };
-  const stop=()=>{ running=false; if(raf) cancelAnimationFrame(raf); raf=0; };
+  /* Inbox feed on the screen */
+  const ITEMS=[
+    {ic:'💬',c:'#25d366',n:'Priya',m:'Slot tomorrow?',card:['🔥','#ef4444','New lead · Priya S.','Booked for 5:30 PM'],lead:true},
+    {ic:'✉️',c:'#7c3aed',n:'Rahul',m:'Need my invoice',card:['🧾','#7c3aed','Invoice INV-2041 sent','Replied in 2s']},
+    {ic:'📷',c:'#e1306c',n:'Anita',m:'Price for 2 units?',card:null,lead:true},
+    {ic:'📞',c:'#3b82f6',n:'Vikram',m:'Missed call',card:['📞','#3b82f6','Missed call → callback','Scheduled 4:00 PM']},
+    {ic:'⭐',c:'#f59e0b',n:'Review',m:'"Loved the service!"',card:['⭐','#f59e0b','5-star review replied','Thank-you sent']},
+    {ic:'💬',c:'#25d366',n:'Meera',m:'Order status?',card:null,lead:true}
+  ];
+  const ROW=80, TOP=46;
+  let rows=[];
+  const rowEl=it=>el(`<div class="fr"><span class="ic" style="background:${it.c}33">${it.ic}</span><span class="tx"><b>${it.n}</b><em>${it.m}</em></span><span class="st">typing…</span></div>`);
+  function fillStatic(){ ITEMS.slice(0,4).forEach((it,i)=>{ const r=rowEl(it); r.style.top=(TOP+i*ROW)+'px'; r.querySelector('.st').textContent='✓ 2s'; r.querySelector('.st').classList.add('ok'); feed.appendChild(r); rows.push(r); }); }
 
-  layout();
-  let rt=0; addEventListener('resize',()=>{ clearTimeout(rt); rt=setTimeout(()=>{ layout(); if(reduce) draw(performance.now()); },120); });
-  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>{ layout(); if(reduce) draw(performance.now()); });
-  new IntersectionObserver(([e])=>{ e.isIntersecting?start():stop(); }).observe(hero);
-  document.addEventListener('visibilitychange',()=>{ document.hidden?stop():start(); });
-  if(!reduce&&matchMedia('(hover:hover) and (pointer:fine)').matches){
-    hero.addEventListener('pointermove',e=>{
-      const r=hero.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top;
-      tz=-(mx/r.width-0.5)*0.28; tx=0.34+(my/r.height-0.5)*0.36;
-      near=Math.max(0,1-Math.hypot(mx-cxPx,my-cyPx)/(unit*3));
-    });
-    hero.addEventListener('pointerleave',()=>{ tx=0.34; tz=0; near=0; });
+  const CARD_POS=()=>innerWidth>768?[[-0.14,0.06],[0.7,0.02],[-0.1,0.66],[0.66,0.8]]:[[0.03,0.04],[0.46,0.1],[0.04,0.72],[0.42,0.8]];
+  let cardIx=0;
+  function flyCard(c){
+    const vr=vis.getBoundingClientRect(), mr=marker.getBoundingClientRect();
+    const sx=mr.left-vr.left, sy=mr.top-vr.top, [px,py]=CARD_POS()[cardIx++%4];
+    const card=el(`<div class="fly-card"><span class="fi" style="background:${c[1]}33">${c[0]}</span><span><b>${c[2]}</b><small>${c[3]}</small></span></div>`);
+    cards.appendChild(card);
+    const tx=px*vr.width, ty=py*vr.height;
+    G.fromTo(card,{x:sx-60,y:sy-20,scale:0.25,opacity:0,rotationX:35,transformPerspective:600,filter:'blur(6px)'},{x:tx,y:ty,scale:1,opacity:1,rotationX:0,filter:'blur(0px)',duration:1.1,ease:'expo.out'});
+    G.to(card,{y:ty-26,opacity:0,duration:0.8,delay:2.6,ease:'power2.in',onComplete:()=>card.remove()});
   }
-  start();
+  function pushRow(it){
+    const r=rowEl(it); r.style.top=TOP+'px'; feed.appendChild(r);
+    rows.forEach((o,i)=>G.to(o,{top:TOP+(i+1)*ROW,duration:0.6,ease:'expo.out'}));
+    G.fromTo(r,{opacity:0,x:-30,scale:0.94},{opacity:1,x:0,scale:1,duration:0.7,ease:'expo.out'});
+    rows.unshift(r);
+    while(rows.length>5){ const old=rows.pop(); G.to(old,{opacity:0,duration:0.3,onComplete:()=>old.remove()}); }
+    const st=r.querySelector('.st');
+    G.delayedCall(0.9,()=>{ st.textContent='✓ 2s'; st.classList.add('ok'); G.fromTo(st,{scale:0.6},{scale:1,duration:0.5,ease:'back.out(3)'}); });
+    G.fromTo([glow,glow2],{opacity:0.55},{opacity:0.95,duration:0.25,yoyo:true,repeat:1});
+    if(it.lead) G.delayedCall(0.9,()=>{ leads.textContent=String(+leads.textContent+1); G.fromTo(leads,{scale:1},{scale:1.18,duration:0.18,yoyo:true,repeat:1,transformOrigin:'left center'}); });
+    if(it.card) G.delayedCall(0.95,()=>flyCard(it.card));
+  }
 
-  /* Navigation: dark glass while over the hero */
-  const nav=document.querySelector('nav');
-  if(nav){
-    const navMode=()=>nav.classList.toggle('nav-dark',scrollY<hero.offsetHeight-80);
-    addEventListener('scroll',navMode,{passive:true}); navMode();
+  if(!G){
+    fillStatic();
+    return;
   }
+  const lineLen=spLine.getTotalLength();
+  const master=G.timeline({repeat:-1,paused:true});
+  master.call(()=>{ leads.textContent='46'; ticks.forEach(t=>G.set(t,{scale:0,opacity:0})); G.fromTo(spLine,{strokeDasharray:lineLen,strokeDashoffset:lineLen},{strokeDashoffset:0,duration:2.4,ease:'power2.out'}); G.fromTo(spArea,{opacity:0},{opacity:1,duration:1.6,delay:0.8}); },null,0.01);
+  ITEMS.forEach((it,i)=>master.call(()=>pushRow(it),null,0.4+i*1.9));
+  [1,3,5].forEach((step,k)=>master.call(()=>G.fromTo(ticks[k],{scale:0,opacity:0},{scale:1,opacity:1,duration:0.6,ease:'back.out(3)'}),null,1.1+step*1.9));
+  master.to({},{duration:0.6},0.4+ITEMS.length*1.9);
+
+  /* Depth: frame tilts with the mouse, cards float with extra parallax */
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+    let rx=0,ry=0,tx=0,ty=0,raf=0;
+    const tick=()=>{ rx+=(tx-rx)*0.08; ry+=(ty-ry)*0.08; frame.style.setProperty('--rx',rx.toFixed(2)+'deg'); frame.style.setProperty('--ry',ry.toFixed(2)+'deg'); cards.style.setProperty('--px',(ry*2.2).toFixed(1)+'px'); cards.style.setProperty('--py',(-rx*2.2).toFixed(1)+'px'); raf=(Math.abs(tx-rx)>0.02||Math.abs(ty-ry)>0.02)?requestAnimationFrame(tick):0; };
+    hero.addEventListener('pointermove',e=>{ const r=vis.getBoundingClientRect(); ty=((e.clientX-r.left)/r.width-0.5)*9; tx=-((e.clientY-r.top)/r.height-0.5)*7; if(!raf) raf=requestAnimationFrame(tick); });
+    hero.addEventListener('pointerleave',()=>{ tx=0; ty=0; if(!raf) raf=requestAnimationFrame(tick); });
+  }
+  new IntersectionObserver(([e])=>{ e.isIntersecting?master.play():master.pause(); },{threshold:0.15}).observe(vis);
+})();
+
+/* Navigation: dark glass while over the hero */
+(function(){
+  const hero=document.querySelector('.hero'), nav=document.querySelector('nav');
+  if(!hero||!nav) return;
+  const mode=()=>nav.classList.toggle('nav-dark',scrollY<hero.offsetHeight-80);
+  addEventListener('scroll',mode,{passive:true}); mode();
 })();
 </script>
 </body>
