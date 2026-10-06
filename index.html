@@ -1185,6 +1185,33 @@ nav.nav-dark .nav-cta{background:#fff!important;color:var(--navy)!important;}
   .fly-card b{font-size:11.5px;}
   .fly-card small{font-size:9.5px;}
 }
+
+/* ── Scroll storytelling: giant kinetic headline + stacking process cards ── */
+.giant{font-size:clamp(3rem,9vw,8.4rem);line-height:0.98;letter-spacing:-0.04em;margin-bottom:1.4rem;transform-origin:left bottom;}
+.giant .gf,.giant em{--f:100%;color:transparent;-webkit-text-stroke:1.5px rgba(14,21,32,0.22);-webkit-background-clip:text;background-clip:text;background-repeat:no-repeat;}
+.giant .gf{background-image:linear-gradient(90deg,var(--navy) 0 var(--f),transparent var(--f));}
+.giant em{font-style:italic;background-image:linear-gradient(90deg,#c9943a 0 var(--f),transparent var(--f));-webkit-text-stroke-color:rgba(201,148,58,0.45);padding-right:0.06em;}
+
+.ps-story{display:grid;grid-template-columns:0.9fr 1.1fr;gap:4rem;align-items:start;}
+.ps-aside{position:sticky;top:120px;}
+.ps-counter{display:flex;align-items:baseline;gap:0.6rem;margin-top:2rem;font-family:'Cormorant Garamond',serif;}
+.ps-num{display:inline-block;height:1em;overflow:hidden;font-size:6rem;line-height:1;font-weight:600;font-style:italic;color:var(--blue);}
+.ps-num-strip{display:flex;flex-direction:column;transform:translateY(calc(var(--n,0) * -1em));transition:transform 0.6s cubic-bezier(.7,0,.2,1);}
+.ps-of{font-size:1.4rem;color:var(--text-faint);font-style:italic;}
+.ps-now{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:0.6rem;min-height:1.4em;transition:opacity 0.25s;}
+.ps-rail{position:relative;width:100%;max-width:340px;height:3px;border-radius:2px;background:var(--border);margin-top:1.2rem;overflow:hidden;}
+.ps-rail i{position:absolute;inset:0;background:linear-gradient(90deg,var(--blue),var(--gold));transform-origin:left;transform:scaleX(var(--p,0));}
+.process-grid.stack{display:block;}
+.process-grid.stack .process-step{position:sticky;top:calc(120px + var(--k) * 22px);margin-bottom:34vh;min-height:330px;transform-origin:50% 0;box-shadow:0 30px 70px -30px rgba(14,21,32,0.35);will-change:transform;}
+.process-grid.stack .process-step:last-child{margin-bottom:0;}
+.process-grid.stack .process-step:hover{transform:none;}
+.process-grid.stack .process-step::before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--navy);opacity:var(--dim,0);pointer-events:none;z-index:2;}
+@media(max-width:900px){
+  .ps-story{display:block;}
+  .ps-aside{position:static;margin-bottom:2rem;}
+  .ps-counter,.ps-now,.ps-rail{display:none;}
+  .process-grid.stack .process-step{top:calc(92px + var(--k) * 14px);margin-bottom:22vh;min-height:0;}
+}
 </style>
 </head>
 <body>
@@ -1448,7 +1475,7 @@ nav.nav-dark .nav-cta{background:#fff!important;color:var(--navy)!important;}
 <section class="section alt-bg" id="work">
   <div class="section-inner">
     <div class="eyebrow reveal">Our Work</div>
-    <h2 class="section-title reveal">Built. Deployed. <em>Proven.</em></h2>
+    <h2 class="section-title giant"><span class="gf">Built. Deployed.</span> <em>Proven.</em></h2>
     <p class="section-sub reveal">A selection of AI systems we have designed and delivered for clients across industries.</p>
     <div class="projects-stack">
       <div class="proj-card featured-dark reveal">
@@ -1503,42 +1530,49 @@ nav.nav-dark .nav-cta{background:#fff!important;color:var(--navy)!important;}
 
 <section class="section" id="process">
   <div class="section-inner">
-    <div class="eyebrow reveal">How We Work</div>
-    <h2 class="section-title reveal">A focused process,<br/>built around your business</h2>
-    <p class="section-sub reveal">Four clear stages — from understanding your problem to deploying a working system.</p>
-    <div class="process-grid">
-      <div class="process-step reveal" data-num="1">
-        <div class="ps-badge">01</div>
-        <div class="ps-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3>Free AI Audit</h3>
-        <p>A focused 30-min call — no pitch, just strategy. In it we:</p>
-        <ul class="ps-points">
-          <li>Map your top 3 automation opportunities</li>
-          <li>Estimate the hours and cost each one saves</li>
-          <li>Recommend the right system to build first</li>
-        </ul>
-        <div class="ps-result">Automation roadmap in hand</div>
+    <div class="ps-story">
+      <div class="ps-aside">
+        <div class="eyebrow reveal">How We Work</div>
+        <h2 class="section-title reveal">A focused process,<br/>built around your business</h2>
+        <p class="section-sub reveal">Four clear stages — from understanding your problem to deploying a working system.</p>
+        <div class="ps-counter" aria-hidden="true"><span class="ps-num"><span class="ps-num-strip"><span>01</span><span>02</span><span>03</span><span>04</span></span></span><span class="ps-of">/ 04</span></div>
+        <div class="ps-now" aria-hidden="true"></div>
+        <div class="ps-rail" aria-hidden="true"><i></i></div>
       </div>
-      <div class="process-step reveal d1" data-num="2">
-        <div class="ps-badge">02</div>
-        <div class="ps-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
-        <h3>Scope &amp; Proposal</h3>
-        <p>Exact system, outcomes, timeline, and cost — documented and approved before any work begins.</p>
-        <div class="ps-result">Fixed-price proposal signed</div>
-      </div>
-      <div class="process-step reveal d2" data-num="3">
-        <div class="ps-badge">03</div>
-        <div class="ps-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <h3>Build &amp; Test</h3>
-        <p>Built on your data and infrastructure. Weekly updates. You test before it goes live.</p>
-        <div class="ps-result">System tested &amp; approved</div>
-      </div>
-      <div class="process-step reveal d3" data-num="4">
-        <div class="ps-badge">04</div>
-        <div class="ps-icon"><svg viewBox="0 0 24 24"><path d="M12 2L8.5 8.5H2l5.25 5-2 7.5L12 17l6.75 4-2-7.5L22 8.5h-6.5L12 2z"/></svg></div>
-        <h3>Deploy &amp; Support</h3>
-        <p>Deployed to your environment with ongoing support, monitoring, and iteration.</p>
-        <div class="ps-result">Live &amp; continuously improving</div>
+      <div class="process-grid stack">
+        <div class="process-step" data-num="1">
+          <div class="ps-badge">01</div>
+          <div class="ps-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <h3>Free AI Audit</h3>
+          <p>A focused 30-min call — no pitch, just strategy. In it we:</p>
+          <ul class="ps-points">
+            <li>Map your top 3 automation opportunities</li>
+            <li>Estimate the hours and cost each one saves</li>
+            <li>Recommend the right system to build first</li>
+          </ul>
+          <div class="ps-result">Automation roadmap in hand</div>
+        </div>
+        <div class="process-step" data-num="2">
+          <div class="ps-badge">02</div>
+          <div class="ps-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
+          <h3>Scope &amp; Proposal</h3>
+          <p>Exact system, outcomes, timeline, and cost — documented and approved before any work begins.</p>
+          <div class="ps-result">Fixed-price proposal signed</div>
+        </div>
+        <div class="process-step" data-num="3">
+          <div class="ps-badge">03</div>
+          <div class="ps-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Build &amp; Test</h3>
+          <p>Built on your data and infrastructure. Weekly updates. You test before it goes live.</p>
+          <div class="ps-result">System tested &amp; approved</div>
+        </div>
+        <div class="process-step" data-num="4">
+          <div class="ps-badge">04</div>
+          <div class="ps-icon"><svg viewBox="0 0 24 24"><path d="M12 2L8.5 8.5H2l5.25 5-2 7.5L12 17l6.75 4-2-7.5L22 8.5h-6.5L12 2z"/></svg></div>
+          <h3>Deploy &amp; Support</h3>
+          <p>Deployed to your environment with ongoing support, monitoring, and iteration.</p>
+          <div class="ps-result">Live &amp; continuously improving</div>
+        </div>
       </div>
     </div>
   </div>
@@ -2874,7 +2908,7 @@ function send(text){
   const finePointer=matchMedia('(hover:hover) and (pointer:fine)').matches;
 
   /* Process steps light up as the progress line passes them */
-  const grid=document.querySelector('.process-grid');
+  const grid=document.querySelector('.process-grid:not(.stack)');
   if(grid){
     const steps=[...grid.querySelectorAll('.process-step')];
     const track=document.createElement('div');
@@ -2971,7 +3005,7 @@ function send(text){
 
   if(!reduce){
     /* Section headings: words rise in */
-    $$('.section-title,.about-heading,.bucket-title,.cta-wrap h2').forEach(h=>{
+    $$('.section-title:not(.giant),.about-heading,.bucket-title,.cta-wrap h2').forEach(h=>{
       const label=h.textContent.replace(/\s+/g,' ').trim();
       let i=0;
       const walk=node=>[...node.childNodes].forEach(n=>{
@@ -3061,6 +3095,7 @@ function send(text){
 })();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 <script>
 /* ─── Services: tabs + an animated scene per category (built from the bucket markup) ─── */
 (function(){
@@ -3863,6 +3898,56 @@ function send(text){
   if(!hero||!nav) return;
   const mode=()=>nav.classList.toggle('nav-dark',scrollY<hero.offsetHeight-80);
   addEventListener('scroll',mode,{passive:true}); mode();
+})();
+</script>
+<script>
+/* ─── Scroll storytelling: giant headline fills word by word; process cards stack as you scroll ─── */
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const G=window.gsap, ST=window.ScrollTrigger;
+  const steps=[...document.querySelectorAll('.process-grid.stack .process-step')];
+  steps.forEach((s,k)=>s.style.setProperty('--k',k));
+  /* equal heights so stacked cards hide the ones behind them cleanly */
+  const equalize=()=>{ steps.forEach(s=>s.style.minHeight=''); const h=Math.max(...steps.map(s=>s.offsetHeight)); steps.forEach(s=>s.style.minHeight=h+'px'); };
+  if(steps.length){ equalize(); addEventListener('resize',equalize); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(equalize); }
+  if(reduce||!G||!ST) return;
+  G.registerPlugin(ST);
+
+  /* Giant headline: outline → filled, "Proven." last in gold, with a slight grow */
+  const giant=document.querySelector('.giant');
+  if(giant){
+    const tl=G.timeline({scrollTrigger:{trigger:giant,start:'top 88%',end:'top 30%',scrub:0.6}});
+    tl.fromTo(giant,{scale:0.86,opacity:0.6},{scale:1,opacity:1,ease:'none',duration:1},0)
+      .fromTo(giant.querySelector('.gf'),{'--f':'0%'},{'--f':'100%',ease:'none',duration:0.65},0)
+      .fromTo(giant.querySelector('em'),{'--f':'0%'},{'--f':'100%',ease:'none',duration:0.35},0.65);
+  }
+
+  /* Process: each card shrinks and dims as the next one slides over it (measured live) */
+  if(!steps.length) return;
+  const strip=document.querySelector('.ps-num-strip'), now=document.querySelector('.ps-now'), rail=document.querySelector('.ps-rail');
+  const names=steps.map(s=>(s.querySelector('h3')||{}).textContent||'');
+  let cur=-1, ticking=false;
+  const setStep=i=>{ if(i===cur) return; cur=i; if(strip) strip.style.setProperty('--n',i); if(now){ now.style.opacity=0; setTimeout(()=>{ now.textContent=names[i]; now.style.opacity=1; },180); } };
+  function update(){
+    ticking=false;
+    const vh=innerHeight; let active=0;
+    steps.forEach((s,k)=>{
+      const next=steps[k+1];
+      if(next){
+        const stick=parseFloat(getComputedStyle(next).top)||120, top=next.getBoundingClientRect().top;
+        const t=Math.max(0,Math.min(1,(vh-top)/(vh-stick)));
+        s.style.transform=t?`scale(${(1-0.08*t).toFixed(4)})`:'';
+        s.style.setProperty('--dim',(0.08*t).toFixed(3));
+        if(t>0.6) active=k+1;
+      }
+    });
+    setStep(active);
+    if(rail){ const g=document.querySelector('.process-grid.stack').getBoundingClientRect(); rail.style.setProperty('--p',Math.max(0,Math.min(1,(vh*0.6-g.top)/(g.height+vh*0.05))).toFixed(3)); }
+  }
+  addEventListener('scroll',()=>{ if(!ticking){ ticking=true; requestAnimationFrame(update); } },{passive:true});
+  addEventListener('resize',update);
+  update();
+  addEventListener('load',()=>ST.refresh());
 })();
 </script>
 </body>
